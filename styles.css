@@ -286,6 +286,7 @@ body {
 .btn-primary {
     background: var(--secondary);
     color: #ffffff;
+    margin-top: 20px;
 }
 
 .btn-primary:hover {
