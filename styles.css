@@ -652,7 +652,7 @@ body {
 }
 
 .session-card-highlight {
-    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
     color: #ffffff;
     border: none;
 }
