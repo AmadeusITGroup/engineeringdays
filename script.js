@@ -194,6 +194,6 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
 // ===================================
 
 console.log('%c👋 Hello, Developer!', 'font-size: 20px; font-weight: bold; color: #b650ff;');
-console.log('%cWelcome to Amadeus Wanderloop 2026', 'font-size: 14px; color: #26005a;');
-console.log('%cInterested in speaking? Submit your talk at: https://events.forge.amadeus.net/amadeus-tech-conference-2025/cfp', 'font-size: 12px; color: #ff58ac;');
+console.log('%cWelcome to Amadeus Engineering Days 2026', 'font-size: 14px; color: #26005a;');
+console.log('%cInterested in speaking? Submit your talk at: https://forms.office.com/pages/responsepage.aspx?id=wvf0s85ykkGrpNbHcZtXZrnRioi5kmJBgnE8-K8LwDVUODc5VVpNQ1YzMzhaVU81WTZHS1RaUDlPMi4u', 'font-size: 12px; color: #ff58ac;');
 console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #b650ff;');
