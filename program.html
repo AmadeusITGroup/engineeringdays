@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program | Amadeus Engineering Days 2026</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Program Page Specific Styles */
+        .program-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-accent) 50%, var(--secondary) 100%);
+            padding: calc(80px + var(--spacing-xl)) var(--spacing-md) var(--spacing-xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        .program-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .program-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .program-hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--highlight-light);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .program-dates {
+            display: inline-flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .date-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            min-width: 160px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .date-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .date-card.active {
+            border-color: var(--accent);
+            background: rgba(255, 88, 172, 0.3);
+        }
+
+        .date-card .day-name {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--highlight-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .date-card .day-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .date-card .month {
+            font-size: 0.9rem;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        /* Filters Section */
+        .filters-section {
+            background: var(--card-bg);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+            padding: var(--spacing-md) 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .filter-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .filter-select {
+            padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            min-width: 180px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+        }
+
+        .filter-select:hover, .filter-select:focus {
+            border-color: var(--secondary);
+            outline: none;
+        }
+
+        .filter-select:focus {
+            box-shadow: 0 0 0 3px rgba(182, 80, 255, 0.2);
+        }
+
+        /* Track Pills */
+        .track-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: var(--spacing-sm);
+            padding-top: var(--spacing-sm);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .track-pill {
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            opacity: 0.5;
+            background: var(--bg-light);
+            color: var(--text-secondary);
+        }
+
+        .track-pill:hover {
+            opacity: 0.8;
+        }
+
+        .track-pill.active {
+            opacity: 1;
+            color: white;
+            border-color: rgba(255,255,255,0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        [data-theme="dark"] .track-pill {
+            background: var(--dark-accent);
+        }
+
+        /* Results Info */
+        .results-info {
+            text-align: center;
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: var(--bg-light);
+        }
+
+        [data-theme="dark"] .results-info {
+            background: var(--dark-accent);
+        }
+
+        .results-count {
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .clear-filters {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-left: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .clear-filters:hover {
+            color: var(--secondary);
+        }
+
+        /* Program Schedule */
+        .program-schedule {
+            padding: var(--spacing-xl) 0;
+            background: var(--bg-color);
+            min-height: 60vh;
+        }
+
+        .schedule-day {
+            margin-bottom: var(--spacing-xl);
+            scroll-margin-top: 200px;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .day-header h2 {
+            font-size: clamp(1.3rem, 3vw, 1.75rem);
+            color: var(--primary);
+            margin: 0;
+        }
+
+        [data-theme="dark"] .day-header h2 {
+            color: var(--secondary);
+        }
+
+        .day-header .session-count {
+            background: var(--secondary);
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Session Grid */
+        .sessions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        /* Session Card */
+        .session-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .session-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px var(--shadow);
+            border-color: var(--secondary);
+        }
+
+        .session-card.hidden {
+            display: none;
+        }
+
+        .session-track-bar {
+            height: 4px;
+            width: 100%;
+        }
+
+        .session-content {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .session-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: var(--spacing-sm);
+            font-size: 0.75rem;
+        }
+
+        .session-time {
+            background: var(--primary);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        .session-duration {
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+        }
+
+        [data-theme="dark"] .session-duration {
+            background: var(--dark-accent);
+        }
+
+        .session-type {
+            padding: 0.2rem 0.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .session-type.talk { background: #dbeafe; color: #1e40af; }
+        .session-type.long-talk { background: #dcfce7; color: #166534; }
+        .session-type.deep-dive { background: #fef3c7; color: #92400e; }
+        .session-type.workshop { background: #fce7f3; color: #9d174d; }
+
+        [data-theme="dark"] .session-type.talk { background: #1e3a5f; color: #93c5fd; }
+        [data-theme="dark"] .session-type.long-talk { background: #14532d; color: #86efac; }
+        [data-theme="dark"] .session-type.deep-dive { background: #78350f; color: #fde047; }
+        [data-theme="dark"] .session-type.workshop { background: #831843; color: #f9a8d4; }
+
+        .session-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: var(--spacing-xs);
+            line-height: 1.35;
+        }
+
+        .session-speakers {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .session-room {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .session-room svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        .session-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: auto;
+            padding-top: var(--spacing-sm);
+        }
+
+        .session-tag {
+            padding: 0.15rem 0.45rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+
+        .session-tag.track-tag {
+            color: white;
+        }
+
+        .session-tag.site-tag {
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+        }
+
+        [data-theme="dark"] .session-tag.site-tag {
+            background: var(--dark-accent);
+            color: var(--text-color);
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--text-secondary);
+        }
+
+        .no-results svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: var(--spacing-md);
+            opacity: 0.4;
+        }
+
+        .no-results h3 {
+            font-size: 1.25rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--text-color);
+        }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-xl);
+            gap: var(--spacing-md);
+        }
+
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border-color);
+            border-top-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .filters-section {
+                padding: var(--spacing-sm) 0;
+            }
+            
+            .filters-container {
+                flex-direction: column;
+                align-items: stretch;
+                gap: var(--spacing-sm);
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .filter-group {
+                width: 100%;
+            }
+            
+            .filter-select {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .sessions-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .track-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: var(--spacing-sm);
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .track-pill {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+            
+            .program-dates {
+                flex-direction: row;
+            }
+            
+            .date-card {
+                min-width: 130px;
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+            
+            .date-card .day-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">Amadeus Engineering Days</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#about">About</a>
+                <a href="program.html">Program</a>
+                <a href="index.html#sessions">Sessions</a>
+                <a href="index.html#tracks">Tracks</a>
+                <a href="mailto:devrel@amadeus.com">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Program Hero -->
+    <header class="program-hero">
+        <div class="container">
+            <h1>Conference Program</h1>
+            <p class="subtitle">Two days of tech talks, workshops & networking across 13 global sites</p>
+            <div class="program-dates">
+                <div class="date-card" data-day="1">
+                    <div class="day-name">Wednesday</div>
+                    <div class="day-number">29</div>
+                    <div class="month">April 2026</div>
+                </div>
+                <div class="date-card" data-day="2">
+                    <div class="day-name">Thursday</div>
+                    <div class="day-number">30</div>
+                    <div class="month">April 2026</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filters Section -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label class="filter-label" for="day-filter">Day</label>
+                    <select id="day-filter" class="filter-select">
+                        <option value="">All Days</option>
+                        <option value="1">Day 1 — April 29</option>
+                        <option value="2">Day 2 — April 30</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="site-filter">Site</label>
+                    <select id="site-filter" class="filter-select">
+                        <option value="">All Sites</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="type-filter">Type</label>
+                    <select id="type-filter" class="filter-select">
+                        <option value="">All Types</option>
+                        <option value="Talk">Talks (25 min)</option>
+                        <option value="Long talk">Long Talks (45 min)</option>
+                        <option value="Deep-dive talk">Deep-dives (120 min)</option>
+                        <option value="Hands-on workshop">Workshops</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="timezone-filter">🕐 Timezone</label>
+                    <select id="timezone-filter" class="filter-select">
+                        <option value="Europe/Paris">Nice / Paris (UTC+2)</option>
+                        <option value="Europe/London">London (UTC+1)</option>
+                        <option value="Europe/Berlin">Erding / Berlin (UTC+2)</option>
+                        <option value="Europe/Madrid">Madrid / Barcelona (UTC+2)</option>
+                        <option value="Europe/Brussels">Antwerp (UTC+2)</option>
+                        <option value="Europe/Istanbul">Istanbul (UTC+3)</option>
+                        <option value="Asia/Kolkata">Bengaluru (UTC+5:30)</option>
+                        <option value="Australia/Sydney">Sydney (UTC+10)</option>
+                        <option value="America/Chicago">Dallas (UTC-5)</option>
+                        <option value="America/Denver">Salt Lake City (UTC-6)</option>
+                        <option value="America/Bogota">Bogotá (UTC-5)</option>
+                        <option value="UTC">UTC / GMT</option>
+                    </select>
+                </div>
+            </div>
+            <div class="track-filters" id="track-filters">
+                <!-- Track pills will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Info -->
+    <div class="results-info" id="results-info">
+        <span id="results-text">Loading sessions...</span>
+    </div>
+
+    <!-- Program Schedule -->
+    <section class="program-schedule">
+        <div class="container" id="schedule-container">
+            <div class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading program...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-brand">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">Amadeus Engineering Days</span>
+                    <span class="logo-bracket">/&gt;</span>
+                    <p class="footer-tagline">2026</p>
+                </a>
+                <div class="footer-links">
+                    <a href="program.html">Program</a>
+                    <a href="mailto:devrel@amadeus.com">Contact</a>
+                    <a href="index.html#about">About</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Amadeus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // Site/Country mapping
+    const SITES = {
+        'NCE': { name: 'Nice', flag: '🇫🇷' },
+        'BLR': { name: 'Bengaluru', flag: '🇮🇳' },
+        'ERD': { name: 'Erding', flag: '🇩🇪' },
+        'SYD': { name: 'Sydney', flag: '🇦🇺' },
+        'LHR': { name: 'London', flag: '🇬🇧' },
+        'BCN': { name: 'Barcelona', flag: '🇪🇸' },
+        'DFW': { name: 'Dallas', flag: '🇺🇸' },
+        'SLC': { name: 'Salt Lake City', flag: '🇺🇸' },
+        'BHO': { name: 'Bad Homburg', flag: '🇩🇪' },
+        'ANR': { name: 'Antwerp', flag: '🇧🇪' },
+        'MAD': { name: 'Madrid', flag: '🇪🇸' },
+        'IST': { name: 'Istanbul', flag: '🇹🇷' },
+        'BOG': { name: 'Bogotá', flag: '🇨🇴' },
+        'FRA': { name: 'Frankfurt', flag: '🇩🇪' }
+    };
+
+    // State
+    let allSessions = [];
+    let tracks = [];
+    let activeFilters = {
+        day: '',
+        site: '',
+        type: '',
+        track: ''
+    };
+    let selectedTimezone = 'Europe/Paris'; // Conference timezone
+    const CONFERENCE_TZ = 'Europe/Paris';
+    const CONFERENCE_DATE_DAY1 = '2026-04-29';
+    const CONFERENCE_DATE_DAY2 = '2026-04-30';
+
+    // Extract site code from room name
+    function extractSite(roomName) {
+        const match = roomName.match(/\[([A-Z]{3})\]/);
+        return match ? match[1] : null;
+    }
+
+    // Parse duration string to minutes
+    function durationToMinutes(duration) {
+        const [hours, minutes] = duration.split(':').map(Number);
+        return hours * 60 + minutes;
+    }
+
+    // Convert time from conference timezone to selected timezone
+    function convertTime(timeStr, dateStr) {
+        // Create date in conference timezone (Europe/Paris)
+        const [hours, minutes] = timeStr.split(':').map(Number);
+        const dateTime = new Date(`${dateStr}T${timeStr}:00`);
+        
+        // Get the offset for conference timezone
+        const confDate = new Date(dateTime.toLocaleString('en-US', { timeZone: CONFERENCE_TZ }));
+        const targetDate = new Date(dateTime.toLocaleString('en-US', { timeZone: selectedTimezone }));
+        
+        // Calculate actual converted time
+        const confFormatter = new Intl.DateTimeFormat('en-GB', {
+            timeZone: CONFERENCE_TZ,
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        });
+        const targetFormatter = new Intl.DateTimeFormat('en-GB', {
+            timeZone: selectedTimezone,
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        });
+        
+        // Parse conference time properly
+        const confMs = Date.parse(`${dateStr}T${timeStr}:00+02:00`); // April = CEST = UTC+2
+        const converted = targetFormatter.format(new Date(confMs));
+        return converted;
+    }
+
+    // Get GMT offset for selected timezone
+    function getGMTOffset() {
+        const now = new Date('2026-04-29T12:00:00Z');
+        const formatter = new Intl.DateTimeFormat('en-GB', {
+            timeZone: selectedTimezone,
+            timeZoneName: 'shortOffset'
+        });
+        const parts = formatter.formatToParts(now);
+        const offsetPart = parts.find(p => p.type === 'timeZoneName');
+        return offsetPart ? offsetPart.value : 'GMT';
+    }
+
+    // Format time for display with timezone
+    function formatTime(time, dayIndex) {
+        const dateStr = dayIndex === 1 ? CONFERENCE_DATE_DAY1 : CONFERENCE_DATE_DAY2;
+        const converted = convertTime(time, dateStr);
+        return converted;
+    }
+
+    // Get session type class
+    function getTypeClass(type) {
+        const typeMap = {
+            'Talk': 'talk',
+            'Long talk': 'long-talk',
+            'Deep-dive talk': 'deep-dive',
+            'Hands-on workshop': 'workshop'
+        };
+        return typeMap[type] || 'talk';
+    }
+
+    // Format duration for display
+    function formatDuration(duration) {
+        const mins = durationToMinutes(duration);
+        if (mins >= 60) {
+            const h = Math.floor(mins / 60);
+            const m = mins % 60;
+            return m > 0 ? `${h}h ${m}m` : `${h}h`;
+        }
+        return `${mins}m`;
+    }
+
+    // Create session card HTML
+    function createSessionCard(session) {
+        const site = extractSite(session.room);
+        const siteInfo = site ? SITES[site] : null;
+        const speakers = session.persons.map(p => p.public_name).join(', ') || '';
+        const trackColor = session.trackColor || '#6b7280';
+        const gmtOffset = getGMTOffset();
+        
+        return `
+            <article class="session-card" 
+                     data-day="${session.dayIndex}" 
+                     data-site="${site || ''}"
+                     data-type="${session.type}"
+                     data-track="${session.track}">
+                <div class="session-track-bar" style="background: ${trackColor}"></div>
+                <div class="session-content">
+                    <div class="session-meta">
+                        <span class="session-time" title="${gmtOffset}">${formatTime(session.start, session.dayIndex)} <small style="opacity:0.7;font-size:0.7em">${gmtOffset}</small></span>
+                        <span class="session-duration">${formatDuration(session.duration)}</span>
+                        <span class="session-type ${getTypeClass(session.type)}">${session.type}</span>
+                    </div>
+                    <h3 class="session-title">${session.title}</h3>
+                    ${speakers ? `<p class="session-speakers">${speakers}</p>` : ''}
+                    <p class="session-room">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        ${session.room}
+                    </p>
+                    <div class="session-tags">
+                        <span class="session-tag track-tag" style="background: ${trackColor}">${session.track}</span>
+                        ${siteInfo ? `<span class="session-tag site-tag">${siteInfo.flag} ${siteInfo.name}</span>` : ''}
+                    </div>
+                </div>
+            </article>
+        `;
+    }
+
+    // Render sessions
+    function renderSessions() {
+        const container = document.getElementById('schedule-container');
+        
+        // Filter sessions
+        const filtered = allSessions.filter(session => {
+            if (activeFilters.day && session.dayIndex !== parseInt(activeFilters.day)) return false;
+            if (activeFilters.site) {
+                const sessionSite = extractSite(session.room);
+                if (sessionSite !== activeFilters.site) return false;
+            }
+            if (activeFilters.type && session.type !== activeFilters.type) return false;
+            if (activeFilters.track && session.track !== activeFilters.track) return false;
+            return true;
+        });
+
+        // Update results info
+        const resultsText = document.getElementById('results-text');
+        const hasFilters = Object.values(activeFilters).some(v => v);
+        resultsText.innerHTML = `
+            Showing <span class="results-count">${filtered.length}</span> of ${allSessions.length} sessions
+            ${hasFilters ? '<button class="clear-filters" onclick="clearFilters()">Clear filters</button>' : ''}
+        `;
+
+        // Group by day
+        const day1Sessions = filtered.filter(s => s.dayIndex === 1).sort((a, b) => a.start.localeCompare(b.start));
+        const day2Sessions = filtered.filter(s => s.dayIndex === 2).sort((a, b) => a.start.localeCompare(b.start));
+
+        // Render
+        let html = '';
+        
+        if (filtered.length === 0) {
+            html = `
+                <div class="no-results">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                    <h3>No sessions found</h3>
+                    <p>Try adjusting your filters to see more results.</p>
+                    <button class="btn btn-primary" onclick="clearFilters()" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: var(--secondary); color: white; border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;">Clear All Filters</button>
+                </div>
+            `;
+        } else {
+            if (day1Sessions.length > 0 && (!activeFilters.day || activeFilters.day === '1')) {
+                html += `
+                    <div id="day1" class="schedule-day">
+                        <div class="day-header">
+                            <h2>Day 1 — Wednesday, April 29</h2>
+                            <span class="session-count">${day1Sessions.length} sessions</span>
+                        </div>
+                        <div class="sessions-grid">
+                            ${day1Sessions.map(createSessionCard).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            if (day2Sessions.length > 0 && (!activeFilters.day || activeFilters.day === '2')) {
+                html += `
+                    <div id="day2" class="schedule-day">
+                        <div class="day-header">
+                            <h2>Day 2 — Thursday, April 30</h2>
+                            <span class="session-count">${day2Sessions.length} sessions</span>
+                        </div>
+                        <div class="sessions-grid">
+                            ${day2Sessions.map(createSessionCard).join('')}
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        
+        container.innerHTML = html;
+    }
+
+    // Create track pills
+    function renderTrackPills() {
+        const container = document.getElementById('track-filters');
+        const html = tracks.map(track => `
+            <button class="track-pill ${activeFilters.track === track.name ? 'active' : ''}" 
+                    data-track="${track.name}"
+                    style="${activeFilters.track === track.name ? `background: ${track.color}` : ''}">
+                ${track.name}
+            </button>
+        `).join('');
+        container.innerHTML = `
+            <button class="track-pill ${!activeFilters.track ? 'active' : ''}" data-track="" 
+                    style="${!activeFilters.track ? 'background: var(--secondary); color: white;' : ''}">
+                All Tracks
+            </button>
+            ${html}
+        `;
+        
+        // Add click handlers
+        container.querySelectorAll('.track-pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                activeFilters.track = pill.dataset.track;
+                renderTrackPills();
+                renderSessions();
+            });
+        });
+    }
+
+    // Populate site filter
+    function populateSiteFilter(sessions) {
+        const sites = new Set();
+        sessions.forEach(session => {
+            const site = extractSite(session.room);
+            if (site && SITES[site]) sites.add(site);
+        });
+        
+        const select = document.getElementById('site-filter');
+        const sortedSites = Array.from(sites).sort((a, b) => SITES[a].name.localeCompare(SITES[b].name));
+        
+        sortedSites.forEach(code => {
+            const option = document.createElement('option');
+            option.value = code;
+            option.textContent = `${SITES[code].flag} ${SITES[code].name}`;
+            select.appendChild(option);
+        });
+    }
+
+    // Clear all filters
+    function clearFilters() {
+        activeFilters = { day: '', site: '', type: '', track: '' };
+        document.getElementById('day-filter').value = '';
+        document.getElementById('site-filter').value = '';
+        document.getElementById('type-filter').value = '';
+        renderTrackPills();
+        renderSessions();
+        
+        // Reset date cards
+        document.querySelectorAll('.date-card').forEach(c => c.classList.remove('active'));
+    }
+
+    // Initialize filter listeners
+    function initFilters() {
+        ['day', 'site', 'type'].forEach(filterName => {
+            document.getElementById(`${filterName}-filter`).addEventListener('change', (e) => {
+                activeFilters[filterName] = e.target.value;
+                renderSessions();
+                
+                // Sync date card active state
+                if (filterName === 'day') {
+                    document.querySelectorAll('.date-card').forEach(card => {
+                        card.classList.toggle('active', card.dataset.day === e.target.value);
+                    });
+                }
+            });
+        });
+        
+        // Timezone filter
+        document.getElementById('timezone-filter').addEventListener('change', (e) => {
+            selectedTimezone = e.target.value;
+            localStorage.setItem('preferredTimezone', selectedTimezone);
+            renderSessions();
+        });
+        
+        // Load saved timezone preference
+        const savedTz = localStorage.getItem('preferredTimezone');
+        if (savedTz) {
+            selectedTimezone = savedTz;
+            document.getElementById('timezone-filter').value = savedTz;
+        }
+    }
+
+    // Date card click handlers
+    function initDateCards() {
+        document.querySelectorAll('.date-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const day = card.dataset.day;
+                activeFilters.day = day;
+                document.getElementById('day-filter').value = day;
+                
+                // Update active state
+                document.querySelectorAll('.date-card').forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+                
+                renderSessions();
+                
+                // Scroll to schedule
+                document.getElementById('schedule-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    }
+
+    // Load schedule data
+    async function loadSchedule() {
+        try {
+            const response = await fetch('schedule.json');
+            const data = await response.json();
+            
+            // Extract tracks
+            tracks = data.schedule.conference.tracks;
+            
+            // Create track color map
+            const trackColors = {};
+            tracks.forEach(t => trackColors[t.name] = t.color);
+            
+            // Extract all sessions
+            allSessions = [];
+            data.schedule.conference.days.forEach(day => {
+                Object.keys(day.rooms).forEach(roomName => {
+                    day.rooms[roomName].forEach(session => {
+                        allSessions.push({
+                            ...session,
+                            dayIndex: day.index,
+                            dayDate: day.date,
+                            trackColor: trackColors[session.track] || '#6b7280'
+                        });
+                    });
+                });
+            });
+            
+            // Sort by time
+            allSessions.sort((a, b) => {
+                if (a.dayIndex !== b.dayIndex) return a.dayIndex - b.dayIndex;
+                return a.start.localeCompare(b.start);
+            });
+            
+            // Initialize UI
+            populateSiteFilter(allSessions);
+            renderTrackPills();
+            initFilters();
+            initDateCards();
+            renderSessions();
+            
+        } catch (error) {
+            console.error('Failed to load schedule:', error);
+            document.getElementById('schedule-container').innerHTML = `
+                <div class="no-results">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="m15 9-6 6M9 9l6 6"/>
+                    </svg>
+                    <h3>Unable to load program</h3>
+                    <p>Please try refreshing the page.</p>
+                </div>
+            `;
+        }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', loadSchedule);
+    </script>
+</body>
+</html>
