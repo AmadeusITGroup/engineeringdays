@@ -98,6 +98,9 @@ body {
     font-size: 1.5rem;
     font-weight: bold;
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .logo-bracket {
@@ -107,6 +110,23 @@ body {
 .logo-text {
     color: #ffffff;
     margin: 0 0.25rem;
+}
+
+.nav-logo-line {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-byline {
+    font-size: 0.5rem;
+    color: var(--accent);
+    font-weight: 400;
+    opacity: 0.6;
+    align-self: flex-end;
+    margin-top: -4px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
 }
 
 .nav-links {
@@ -228,6 +248,21 @@ body {
 
 .glitch-wrapper {
     margin-bottom: var(--spacing-sm);
+}
+
+.hero-byline {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-align: right;
+    margin-top: -0.5rem;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+[data-theme="dark"] .hero-byline {
+    color: var(--highlight-light);
 }
 
 .hero-title {
