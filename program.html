@@ -2263,11 +2263,74 @@
             renderSessions();
         });
         
-        // Load saved timezone preference
+        // Load saved timezone preference or auto-detect
         const savedTz = localStorage.getItem('preferredTimezone');
         if (savedTz) {
             selectedTimezone = savedTz;
             document.getElementById('timezone-filter').value = savedTz;
+        } else {
+            // Auto-detect user's timezone and map to available options
+            const userTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            const availableTz = [
+                'Australia/Sydney', 'Asia/Kolkata', 'Europe/Istanbul', 'Europe/Paris',
+                'Europe/Berlin', 'Europe/Madrid', 'Europe/Brussels', 'Europe/London',
+                'UTC', 'America/Chicago', 'America/Bogota', 'America/Denver'
+            ];
+            
+            // Map common timezones to our available options
+            const tzMapping = {
+                // Australia
+                'Australia/Sydney': 'Australia/Sydney',
+                'Australia/Melbourne': 'Australia/Sydney',
+                'Australia/Brisbane': 'Australia/Sydney',
+                'Australia/Perth': 'Australia/Sydney',
+                // India
+                'Asia/Kolkata': 'Asia/Kolkata',
+                'Asia/Calcutta': 'Asia/Kolkata',
+                // Turkey
+                'Europe/Istanbul': 'Europe/Istanbul',
+                // France
+                'Europe/Paris': 'Europe/Paris',
+                // Germany/Austria/Switzerland
+                'Europe/Berlin': 'Europe/Berlin',
+                'Europe/Vienna': 'Europe/Berlin',
+                'Europe/Zurich': 'Europe/Berlin',
+                // Spain
+                'Europe/Madrid': 'Europe/Madrid',
+                // Belgium/Netherlands
+                'Europe/Brussels': 'Europe/Brussels',
+                'Europe/Amsterdam': 'Europe/Brussels',
+                // UK/Ireland
+                'Europe/London': 'Europe/London',
+                'Europe/Dublin': 'Europe/London',
+                // US Central
+                'America/Chicago': 'America/Chicago',
+                'America/Indiana/Indianapolis': 'America/Chicago',
+                // US Mountain
+                'America/Denver': 'America/Denver',
+                'America/Phoenix': 'America/Denver',
+                'America/Boise': 'America/Denver',
+                // US Eastern (map to Chicago as closest)
+                'America/New_York': 'America/Chicago',
+                // US Pacific (map to Denver as closest)
+                'America/Los_Angeles': 'America/Denver',
+                // Colombia
+                'America/Bogota': 'America/Bogota',
+                // Other South America
+                'America/Sao_Paulo': 'America/Bogota',
+                'America/Lima': 'America/Bogota'
+            };
+            
+            let detectedTz = tzMapping[userTz];
+            if (!detectedTz && availableTz.includes(userTz)) {
+                detectedTz = userTz;
+            }
+            
+            if (detectedTz) {
+                selectedTimezone = detectedTz;
+                document.getElementById('timezone-filter').value = detectedTz;
+                console.log(`%c🕐 Auto-detected timezone: ${detectedTz}`, 'color: #b650ff;');
+            }
         }
         
         // Load saved view preference
