@@ -1,0 +1,1 @@
+[] Mobile friendlyness: The filters are too big on mobile ! We barely cannot see the screens
