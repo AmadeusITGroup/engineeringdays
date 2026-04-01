@@ -414,6 +414,32 @@
             color: var(--text-color);
         }
 
+        /* Feedback Link */
+        .feedback-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: var(--spacing-sm);
+            padding: 0.5rem 0.75rem;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: var(--transition);
+            width: fit-content;
+        }
+
+        .feedback-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(182, 80, 255, 0.4);
+        }
+
+        .feedback-link svg {
+            flex-shrink: 0;
+        }
+
         /* No Results */
         .no-results {
             text-align: center;
@@ -768,6 +794,9 @@
         return `${mins}m`;
     }
 
+    // OpenFeedback base URL
+    const OPENFEEDBACK_BASE = 'https://openfeedback.io/RySxw1xiLEyWaoBMkDWw';
+
     // Create session card HTML
     function createSessionCard(session) {
         const site = extractSite(session.room);
@@ -775,6 +804,7 @@
         const speakers = session.persons.map(p => p.public_name).join(', ') || '';
         const trackColor = session.trackColor || '#6b7280';
         const gmtOffset = getGMTOffset();
+        const feedbackUrl = `${OPENFEEDBACK_BASE}/${session.dayDate}/${session.id}`;
         
         return `
             <article class="session-card" 
@@ -802,6 +832,12 @@
                         <span class="session-tag track-tag" style="background: ${trackColor}">${session.track}</span>
                         ${siteInfo ? `<span class="session-tag site-tag">${siteInfo.flag} ${siteInfo.name}</span>` : ''}
                     </div>
+                    <a href="${feedbackUrl}" target="_blank" rel="noopener" class="feedback-link" title="Give feedback on this session">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                        Give Feedback
+                    </a>
                 </div>
             </article>
         `;
