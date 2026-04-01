@@ -53,6 +53,7 @@ def transform_schedule_to_openfeedback(schedule_data):
                             speakers[speaker_guid] = {
                                 'id': speaker_guid,
                                 'name': person.get('public_name', ''),
+                                'photoUrl': 'https://cdn-icons-png.flaticon.com/512/149/149071.png',
                                 'socials': []
                             }
                 
