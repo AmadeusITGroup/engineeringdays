@@ -50,12 +50,17 @@ def transform_schedule_to_openfeedback(schedule_data):
                         
                         # Add speaker to speakers dict if not already present
                         if speaker_guid not in speakers:
-                            speakers[speaker_guid] = {
+                            avatar = person.get('avatar')
+                            speaker_entry = {
                                 'id': speaker_guid,
                                 'name': person.get('public_name', ''),
-                                'photoUrl': person.get('avatar'),
                                 'socials': []
                             }
+                            # Only add photoUrl if it's a valid http(s) URL
+                            if avatar and isinstance(avatar, str) and avatar.startswith(('http://', 'https://')):
+                                speaker_entry['photoUrl'] = avatar
+                            
+                            speakers[speaker_guid] = speaker_entry
                 
                 # Build session entry
                 start_time = session.get('date')
