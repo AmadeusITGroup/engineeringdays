@@ -104,14 +104,14 @@
             position: sticky;
             top: 60px;
             z-index: 100;
-            padding: var(--spacing-md) 0;
+            padding: var(--spacing-sm) 0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
 
         .filters-container {
             display: flex;
             flex-wrap: wrap;
-            gap: var(--spacing-md);
+            gap: var(--spacing-sm);
             align-items: flex-end;
             justify-content: center;
         }
@@ -119,32 +119,32 @@
         .filter-group {
             display: flex;
             flex-direction: column;
-            gap: 0.25rem;
+            gap: 0.15rem;
         }
 
         .filter-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             color: var(--text-secondary);
             font-weight: 600;
         }
 
         .filter-select {
-            padding: 0.5rem 2.5rem 0.5rem 0.75rem;
-            border: 2px solid var(--border-color);
+            padding: 0.4rem 2rem 0.4rem 0.5rem;
+            border: 1px solid var(--border-color);
             border-radius: var(--radius-md);
             background: var(--bg-color);
             color: var(--text-color);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
-            min-width: 180px;
+            min-width: 140px;
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M2 4l4 4 4-4'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
-            background-position: right 0.75rem center;
+            background-position: right 0.5rem center;
         }
 
         .filter-select:hover, .filter-select:focus {
@@ -160,21 +160,21 @@
         .track-filters {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 0.35rem;
             justify-content: center;
-            margin-top: var(--spacing-sm);
-            padding-top: var(--spacing-sm);
+            margin-top: var(--spacing-xs);
+            padding-top: var(--spacing-xs);
             border-top: 1px solid var(--border-color);
         }
 
         .track-pill {
-            padding: 0.35rem 0.75rem;
+            padding: 0.25rem 0.5rem;
             border-radius: 999px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
-            border: 2px solid transparent;
+            border: 1px solid transparent;
             opacity: 0.5;
             background: var(--bg-light);
             color: var(--text-secondary);
@@ -231,11 +231,11 @@
         /* View Toggle */
         .view-toggle {
             display: flex;
-            gap: 0.25rem;
+            gap: 0.15rem;
             background: var(--bg-light);
-            padding: 0.25rem;
+            padding: 0.2rem;
             border-radius: var(--radius-md);
-            border: 2px solid var(--border-color);
+            border: 1px solid var(--border-color);
         }
 
         [data-theme="dark"] .view-toggle {
@@ -245,12 +245,12 @@
         .view-btn {
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.5rem 0.75rem;
+            gap: 0.3rem;
+            padding: 0.35rem 0.5rem;
             border: none;
             background: transparent;
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 600;
             cursor: pointer;
             border-radius: var(--radius-sm);
@@ -272,8 +272,8 @@
         }
 
         .view-btn svg {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
         }
 
         /* Agenda View */
@@ -1915,7 +1915,8 @@
         for (let m = dayStartMinutes; m < dayEndMinutes; m += 30) {
             const h = Math.floor(m / 60).toString().padStart(2, '0');
             const min = (m % 60).toString().padStart(2, '0');
-            timeSlots.push({ minutes: m, label: `${h}:${min}` });
+            const convertedLabel = convertTime(`${h}:${min}`, dateStr);
+            timeSlots.push({ minutes: m, label: convertedLabel });
         }
         
         // Group sessions by room
@@ -2039,7 +2040,8 @@
             if (activeFilters.day && session.dayIndex !== parseInt(activeFilters.day)) return false;
             if (activeFilters.site) {
                 const sessionSite = extractSite(session.room);
-                if (sessionSite !== activeFilters.site) return false;
+                // Rooms without a site prefix (e.g., "Room 1") are cross-site, show them for all sites
+                if (sessionSite !== null && sessionSite !== activeFilters.site) return false;
             }
             if (activeFilters.type && session.type !== activeFilters.type) return false;
             if (activeFilters.track && session.track !== activeFilters.track) return false;
