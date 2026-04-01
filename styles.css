@@ -869,6 +869,13 @@ body {
     opacity: 0.8;
 }
 
+.ai-disclaimer {
+    margin-top: var(--spacing-sm);
+    font-size: 0.75rem;
+    opacity: 0.6;
+    font-style: italic;
+}
+
 /* ===================================
    Responsive Design
    =================================== */

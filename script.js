@@ -193,7 +193,85 @@ document.querySelectorAll('.btn-primary').forEach(btn => {
 // Console Easter Egg for Developers
 // ===================================
 
-console.log('%c👋 Hello, Developer!', 'font-size: 20px; font-weight: bold; color: #b650ff;');
-console.log('%cWelcome to Amadeus Engineering Days 2026', 'font-size: 14px; color: #26005a;');
-console.log('%cInterested in speaking? Submit your talk at: https://forms.office.com/pages/responsepage.aspx?id=wvf0s85ykkGrpNbHcZtXZrnRioi5kmJBgnE8-K8LwDVUODc5VVpNQ1YzMzhaVU81WTZHS1RaUDlPMi4u', 'font-size: 12px; color: #ff58ac;');
-console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #b650ff;');
+console.log(`%c
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║   < Amadeus Engineering Days 2026 />                          ║
+║                                                               ║
+║   📅  April 29-30, 2026                                       ║
+║   📍  7 sites across 4 continents                             ║
+║   🎤  80+ sessions | 90+ speakers                             ║
+║                                                               ║
+╠═══════════════════════════════════════════════════════════════╣
+║                                                               ║
+║   👋 Hello, curious developer!                                ║
+║                                                               ║
+║   Nice to see you poking around in the console!               ║
+║   This site was built with 🤖 AI assistance (Claude)          ║
+║   because, let's be honest, we had better things to do        ║
+║   than hand-craft every pixel. Time is precious!              ║
+║                                                               ║
+║   Found a bug? That's a feature. 😉                           ║
+║   Want to contribute? PRs welcome!                            ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+`, 'font-family: monospace; color: #b650ff; font-size: 11px; line-height: 1.4;');
+
+console.log('%c🚀 See you at Engineering Days!', 'font-size: 14px; font-weight: bold; color: #ff58ac;');
+
+// Load and display full program in console
+fetch('schedule.json')
+    .then(r => r.json())
+    .then(data => {
+        const sessions = data.schedule.conference.days.flatMap(day => 
+            Object.values(day.rooms).flat()
+        );
+        
+        const day1 = sessions.filter(s => s.date?.startsWith('2026-04-29')).sort((a, b) => a.start.localeCompare(b.start));
+        const day2 = sessions.filter(s => s.date?.startsWith('2026-04-30')).sort((a, b) => a.start.localeCompare(b.start));
+        
+        console.log('%c\n📋 FULL PROGRAM (expand sections below)', 'font-size: 14px; font-weight: bold; color: #ff58ac;');
+        console.log('%cTip: Click the arrows ▶ to expand each day!', 'font-size: 11px; color: #aaa; font-style: italic;');
+        
+        console.groupCollapsed('%c📅 Day 1 — Wednesday, April 29 (' + day1.length + ' sessions)', 'font-size: 12px; font-weight: bold; color: #b650ff;');
+        console.table(day1.map(s => ({
+            '⏰ Time': s.start.slice(0, 5),
+            '📍 Room': s.room.replace(/\s*\([^)]+\)/, ''),
+            '🎤 Type': s.type,
+            '📝 Title': s.title.length > 50 ? s.title.slice(0, 47) + '...' : s.title,
+            '👤 Speaker': s.persons?.map(p => p.public_name).join(', ').slice(0, 30) || '-'
+        })));
+        console.groupEnd();
+        
+        console.groupCollapsed('%c📅 Day 2 — Thursday, April 30 (' + day2.length + ' sessions)', 'font-size: 12px; font-weight: bold; color: #b650ff;');
+        console.table(day2.map(s => ({
+            '⏰ Time': s.start.slice(0, 5),
+            '📍 Room': s.room.replace(/\s*\([^)]+\)/, ''),
+            '🎤 Type': s.type,
+            '📝 Title': s.title.length > 50 ? s.title.slice(0, 47) + '...' : s.title,
+            '👤 Speaker': s.persons?.map(p => p.public_name).join(', ').slice(0, 30) || '-'
+        })));
+        console.groupEnd();
+        
+        // Bonus: expose program as global for curious devs
+        window.engineeringDays = {
+            sessions: sessions,
+            day1: day1,
+            day2: day2,
+            speakers: [...new Set(sessions.flatMap(s => s.persons?.map(p => p.public_name) || []))],
+            rooms: [...new Set(sessions.map(s => s.room))],
+            tracks: [...new Set(sessions.map(s => s.track))],
+            search: (query) => sessions.filter(s => 
+                s.title.toLowerCase().includes(query.toLowerCase()) ||
+                s.persons?.some(p => p.public_name.toLowerCase().includes(query.toLowerCase()))
+            )
+        };
+        
+        console.log('%c\n💡 Pro tip: Use engineeringDays object to explore!', 'font-size: 11px; color: #b650ff;');
+        console.log('%c   engineeringDays.sessions     → All sessions', 'font-size: 10px; color: #aaa; font-family: monospace;');
+        console.log('%c   engineeringDays.speakers     → All speaker names', 'font-size: 10px; color: #aaa; font-family: monospace;');
+        console.log('%c   engineeringDays.search("AI") → Find sessions about AI', 'font-size: 10px; color: #aaa; font-family: monospace;');
+    })
+    .catch(() => {
+        // Silently fail if schedule.json not available (e.g., on index.html)
+    });
