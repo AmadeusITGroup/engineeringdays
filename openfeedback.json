@@ -1,0 +1,1610 @@
+{
+    "sessions": {
+        "1075": {
+            "id": "1075",
+            "title": "When I grow up I want to be an Engineering Manager",
+            "speakers": [
+                "80bfa01c-37ea-58a2-867b-1c11817d146b"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-30T01:15:00+02:00",
+            "endTime": "2026-04-30T01:40:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "966": {
+            "id": "966",
+            "title": "How to run an offline AI model on your laptop!",
+            "speakers": [
+                "86b5b76e-7ef1-5f5e-ae84-a5d0f4c6637f"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T01:50:00+02:00",
+            "endTime": "2026-04-30T02:35:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "618": {
+            "id": "618",
+            "title": "From Alert to Resolution: Building AI Agents for Frontline Operations",
+            "speakers": [
+                "e38dbc5a-e1b9-5c38-887e-69d09a9d186e"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T02:45:00+02:00",
+            "endTime": "2026-04-30T03:10:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "998": {
+            "id": "998",
+            "title": "Scaling Agentic AI: Mastering Llama Stack & OpenShift AI",
+            "speakers": [
+                "cf33b3ab-99d2-5f75-88a8-d26bf9529f61"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-29T02:00:00+02:00",
+            "endTime": "2026-04-29T04:00:00+02:00",
+            "trackTitle": "[SYD] Workshop"
+        },
+        "1009": {
+            "id": "1009",
+            "title": "Build Your First Kratix Promise: From Concept to Consumption",
+            "speakers": [
+                "84a729de-8b3e-53d3-86d2-386b07b6fed2"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-29T06:30:00+02:00",
+            "endTime": "2026-04-29T08:30:00+02:00",
+            "trackTitle": "[BLR] Workshops - 1"
+        },
+        "1106": {
+            "id": "1106",
+            "title": "[BLR] 🦀 Rust for All: From Rookie to Rustacean",
+            "speakers": [
+                "a4291b6f-bdbc-525b-8c37-312666c6225c"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[BLR] Workshops - 1"
+        },
+        "905": {
+            "id": "905",
+            "title": "Architecture as Code",
+            "speakers": [
+                "6e71c285-fb86-5dc6-a59a-8a61801250fe"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T06:30:00+02:00",
+            "endTime": "2026-04-29T08:30:00+02:00",
+            "trackTitle": "[BLR] Workshops - 2"
+        },
+        "1022": {
+            "id": "1022",
+            "title": "Spec‑Driven Engineering with Copilot: Custom Agents, Skills, and Best Practices",
+            "speakers": [
+                "25650e9c-5f15-5ff8-a06d-5608693c919a"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[BLR] Workshops - 2"
+        },
+        "770": {
+            "id": "770",
+            "title": "Decode & Decide",
+            "speakers": [
+                "0582955c-f8be-532d-824a-27634514019b",
+                "264abead-1d6f-5de2-80e9-a1b7c062592a"
+            ],
+            "tags": [
+                "UX, Front-end"
+            ],
+            "startTime": "2026-04-29T06:30:00+02:00",
+            "endTime": "2026-04-29T08:30:00+02:00",
+            "trackTitle": "[BLR] Workshops - 3"
+        },
+        "831": {
+            "id": "831",
+            "title": "Cross Functional Product Design Workshop",
+            "speakers": [
+                "f115e6b8-4abb-5fab-9e59-16e98cc3e3d8"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[BLR] Workshops - 3"
+        },
+        "894": {
+            "id": "894",
+            "title": "FinOps - Introduction to FinOps, Product and Service Costs",
+            "speakers": [
+                "d7804421-9e43-5ea7-b6a8-0eb232d47298"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[ERD] Workshops - 1"
+        },
+        "948": {
+            "id": "948",
+            "title": "🚀 From Code to Production Change: Automating the Full Lifecycle with Maestro",
+            "speakers": [
+                "30d9a830-d6c1-5f71-9c1e-8045a1045d94",
+                "080ea7bf-5ef1-56a1-9f48-9d793770d931"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T15:00:00+02:00",
+            "endTime": "2026-04-29T17:00:00+02:00",
+            "trackTitle": "[ERD] Workshops - 1"
+        },
+        "824": {
+            "id": "824",
+            "title": "Recovery as Code: Building Self-Healing Applications with ROSA",
+            "speakers": [
+                "d5c48dba-e427-5822-a0d0-8f8c86801dd4"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[ERD] Workshops - 2"
+        },
+        "627": {
+            "id": "627",
+            "title": "Hands-on with Jujutsu (jj) - a new, git-compatible version control system",
+            "speakers": [
+                "745b2374-ce79-5def-9167-69099be7022d"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T15:00:00+02:00",
+            "endTime": "2026-04-29T17:00:00+02:00",
+            "trackTitle": "[ERD] Workshops - 2"
+        },
+        "919": {
+            "id": "919",
+            "title": "AI Done Right: Hands‑On Compliance Workshop - ERDING",
+            "speakers": [
+                "b8a352fb-c84d-56a7-b3bb-16f81a6a8aee"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[ERD] Workshops - 3"
+        },
+        "803": {
+            "id": "803",
+            "title": "[FRA] 🦀Rust for All: From Rookie to Rustacean",
+            "speakers": [
+                "eae5a244-e288-532c-adef-666b6fbf83d5"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[BHO] Workshops"
+        },
+        "759": {
+            "id": "759",
+            "title": "Supercharging Your Development Workflow with Devcontainers, DevBoxes & CDS",
+            "speakers": [
+                "1bc93b6c-6508-5e78-8b71-784b3c5c8aff"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T15:00:00+02:00",
+            "endTime": "2026-04-29T17:00:00+02:00",
+            "trackTitle": "[BHO] Workshops"
+        },
+        "647": {
+            "id": "647",
+            "title": "[NCE] 🦀 Rust for All: From Rookie to Rustacean",
+            "speakers": [
+                "d123d292-432f-5ca0-b52e-94dbf6b50654"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[NCE] Workshops - 1"
+        },
+        "789": {
+            "id": "789",
+            "title": "Building Modern CNA Flows End‑to‑End with Skube Java",
+            "speakers": [
+                "be7b52b3-0803-5636-93e3-9dd79d4c229a",
+                "57ee759c-9ffe-5139-bbd5-aba82402b666",
+                "ee68e983-09ec-59d0-8311-2f1852821fba",
+                "79327acc-fa9a-5f93-aba4-365ab3e32fda"
+            ],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-29T15:00:00+02:00",
+            "endTime": "2026-04-29T17:00:00+02:00",
+            "trackTitle": "[NCE] Workshops - 1"
+        },
+        "663": {
+            "id": "663",
+            "title": "HARBOR meets GCP",
+            "speakers": [
+                "c980e20b-eebb-5233-9964-33be1e030d44"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[NCE] Workshops - 2"
+        },
+        "1074": {
+            "id": "1074",
+            "title": "How to Audit Web Applications and PDF Documents for Accessibility",
+            "speakers": [
+                "967058e1-c538-53f3-8e9e-53d99640c13e"
+            ],
+            "tags": [
+                "UX, Front-end"
+            ],
+            "startTime": "2026-04-29T15:00:00+02:00",
+            "endTime": "2026-04-29T17:00:00+02:00",
+            "trackTitle": "[NCE] Workshops - 2"
+        },
+        "1070": {
+            "id": "1070",
+            "title": "Beyond Chatbots: Building complex multi-agent systems with secure connectivity to internal \"tools\"",
+            "speakers": [
+                "20735155-39cd-5927-afd5-fa2892f8e512"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[NCE] Workshops - 3"
+        },
+        "882": {
+            "id": "882",
+            "title": "Let's break things with Chaos Engineering",
+            "speakers": [
+                "b0edf141-1d07-50db-a964-5bb15798a10c"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-29T15:00:00+02:00",
+            "endTime": "2026-04-29T17:00:00+02:00",
+            "trackTitle": "[NCE] Workshops - 3"
+        },
+        "1107": {
+            "id": "1107",
+            "title": "What’s new in Quarkus 3.33?",
+            "speakers": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-29T09:05:00+02:00",
+            "endTime": "2026-04-29T09:30:00+02:00",
+            "trackTitle": "[NCE] Java Cloud Native track"
+        },
+        "1108": {
+            "id": "1108",
+            "title": "The road to Quarkus 4",
+            "speakers": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-29T09:40:00+02:00",
+            "endTime": "2026-04-29T10:05:00+02:00",
+            "trackTitle": "[NCE] Java Cloud Native track"
+        },
+        "1109": {
+            "id": "1109",
+            "title": "Langchain/LangFlow / A2A",
+            "speakers": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-29T10:15:00+02:00",
+            "endTime": "2026-04-29T11:00:00+02:00",
+            "trackTitle": "[NCE] Java Cloud Native track"
+        },
+        "1110": {
+            "id": "1110",
+            "title": "Kafka queues",
+            "speakers": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-29T11:05:00+02:00",
+            "endTime": "2026-04-29T11:30:00+02:00",
+            "trackTitle": "[NCE] Java Cloud Native track"
+        },
+        "1111": {
+            "id": "1111",
+            "title": "Panache Next",
+            "speakers": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-29T11:35:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[NCE] Java Cloud Native track"
+        },
+        "983": {
+            "id": "983",
+            "title": "Hey, Quarkus on JVM, can you get any faster? Towards faster builds and faster startup of Quarkus apps on JVM.",
+            "speakers": [
+                "533471ec-1391-5fa4-8f18-06e9c06e4581"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T12:05:00+02:00",
+            "endTime": "2026-04-29T12:50:00+02:00",
+            "trackTitle": "[NCE] Java Cloud Native track"
+        },
+        "1072": {
+            "id": "1072",
+            "title": "Real-Time Intelligence with Azure Fabric: Detecting Signals and Acting in Real Time with Business Rules",
+            "speakers": [
+                "d4722c35-5a22-537b-973e-24ba5fec17e1"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-29T11:00:00+02:00",
+            "endTime": "2026-04-29T13:00:00+02:00",
+            "trackTitle": "[LHR] Workshops"
+        },
+        "1071": {
+            "id": "1071",
+            "title": "Building AI-Powered Applications Directly on Azure DocumentDB (MongoDB Compatible)",
+            "speakers": [
+                "a06cd758-1257-5a0e-809f-56a5b5d4810c"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-29T16:00:00+02:00",
+            "endTime": "2026-04-29T18:00:00+02:00",
+            "trackTitle": "[LHR] Workshops"
+        },
+        "962": {
+            "id": "962",
+            "title": "Testing techniques 101",
+            "speakers": [
+                "49d9c4f0-e311-53af-b7e4-1ac807f85671"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-29T10:00:00+02:00",
+            "endTime": "2026-04-29T12:00:00+02:00",
+            "trackTitle": "[BCN] Workshop"
+        },
+        "964": {
+            "id": "964",
+            "title": "AI-Native development using MCP and Github Copilot",
+            "speakers": [
+                "1ad67f60-853f-55bf-960a-2c473c2de54a",
+                "68a38fc0-e7d1-56e8-878f-7f8cc4995cce"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-29T17:00:00+02:00",
+            "endTime": "2026-04-29T19:00:00+02:00",
+            "trackTitle": "[DFW] Workshop"
+        },
+        "941": {
+            "id": "941",
+            "title": "Databricks 101",
+            "speakers": [
+                "877e2fe6-9813-5214-b2ce-84eb766d08f2"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-29T18:00:00+02:00",
+            "endTime": "2026-04-29T20:00:00+02:00",
+            "trackTitle": "[SLC] Workshop"
+        },
+        "825": {
+            "id": "825",
+            "title": "Facilitating Software Architecture via Empowering Teams",
+            "speakers": [
+                "fd1b0fe1-69a5-556c-b494-4b997955bea9"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-30T03:10:00+02:00",
+            "endTime": "2026-04-30T03:35:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "835": {
+            "id": "835",
+            "title": "DCH (DCS History) implementation of GitOps for Control-M jobs using GOAT (GitOps Automation Tool)",
+            "speakers": [
+                "f17f4e6b-e60b-5bde-9828-a94d8742c42c"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T03:40:00+02:00",
+            "endTime": "2026-04-30T04:05:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "1080": {
+            "id": "1080",
+            "title": "Next Generation hardware for Airports: leading the shift to a lighter, more open terminal in a mobile-centric world",
+            "speakers": [
+                "c6cd6259-042f-5fb1-a44a-e4b7513821eb"
+            ],
+            "tags": [
+                "UX, Front-end"
+            ],
+            "startTime": "2026-04-30T06:00:00+02:00",
+            "endTime": "2026-04-30T06:45:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "1079": {
+            "id": "1079",
+            "title": "Specialize Your Agents with Skills",
+            "speakers": [
+                "cdf40b9a-300f-5a01-8ce2-8cce3951d077"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T09:30:00+02:00",
+            "endTime": "2026-04-30T09:55:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "1078": {
+            "id": "1078",
+            "title": "GitHub Copilot in 2026: The Era of Autonomous Agents",
+            "speakers": [
+                "cdf40b9a-300f-5a01-8ce2-8cce3951d077"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T10:05:00+02:00",
+            "endTime": "2026-04-30T10:50:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "867": {
+            "id": "867",
+            "title": "Perses - Evolution and next features for Amadeus",
+            "speakers": [
+                "2643018c-a99f-5c0f-9a62-be1b2fab4cca"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T11:00:00+02:00",
+            "endTime": "2026-04-30T11:25:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "951": {
+            "id": "951",
+            "title": "Bruno, the API validation for all",
+            "speakers": [
+                "5c5ce2ae-7e47-5b91-a6ea-ff2673d62da0",
+                "5f0f885c-a84b-532f-8fa5-f238fea1fd19"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-30T11:35:00+02:00",
+            "endTime": "2026-04-30T12:00:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "773": {
+            "id": "773",
+            "title": "From Logs to Root Cause: Building True Observability",
+            "speakers": [
+                "dc9099b6-bb61-5dcf-aec1-d2b8ea6e1ec6"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T12:00:00+02:00",
+            "endTime": "2026-04-30T12:25:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "738": {
+            "id": "738",
+            "title": "MLOps with ArgoWorkflow",
+            "speakers": [
+                "c7d5aff2-fa69-5e97-bb96-50c215215980"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T12:35:00+02:00",
+            "endTime": "2026-04-30T13:00:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "777": {
+            "id": "777",
+            "title": "Making LLMs Behave Smarter in Development",
+            "speakers": [
+                "9a66f33d-ef34-5e9f-b469-940bb1fce16b"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T13:00:00+02:00",
+            "endTime": "2026-04-30T13:25:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "869": {
+            "id": "869",
+            "title": "My Remote Media & Gaming Hub",
+            "speakers": [
+                "c0da5e45-0593-579d-823d-b040a7298d2c"
+            ],
+            "tags": [
+                "Passion, pet projects"
+            ],
+            "startTime": "2026-04-30T13:30:00+02:00",
+            "endTime": "2026-04-30T13:55:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "1044": {
+            "id": "1044",
+            "title": "Orchestrating High‑Impact AI Agents with Gemini Enterprise",
+            "speakers": [
+                "498e35b5-3849-5f23-b5c8-669b185b7732"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T14:05:00+02:00",
+            "endTime": "2026-04-30T14:30:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "1013": {
+            "id": "1013",
+            "title": "Amadeus Cloud Platform on Google Cloud: Architecture, Trade-offs, and Multi-Cloud Direction",
+            "speakers": [
+                "5b95a579-33f7-5c7b-9b48-d532f69edfd1"
+            ],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-30T14:40:00+02:00",
+            "endTime": "2026-04-30T15:25:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "683": {
+            "id": "683",
+            "title": "SKube Design Patterns: Streamlining Microservice Development and Operations",
+            "speakers": [
+                "15052dd9-1ead-5192-b91d-613ed1916786",
+                "6e1ed8bf-4cbb-578f-bf2b-4c0473bbded4"
+            ],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-30T15:35:00+02:00",
+            "endTime": "2026-04-30T16:00:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "747": {
+            "id": "747",
+            "title": "Big Data & ML in Amadeus : challenges, opportunities and vision",
+            "speakers": [
+                "8c4fa76d-4023-5800-8885-1bfa2259cde2",
+                "27efc797-4edc-5b48-9df9-eb49593d5b90"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T16:10:00+02:00",
+            "endTime": "2026-04-30T16:35:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "927": {
+            "id": "927",
+            "title": "Skill Matrix-How to strength your team's skills",
+            "speakers": [
+                "4052c995-9a4f-5e83-bed9-9a16411b7195"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-30T16:50:00+02:00",
+            "endTime": "2026-04-30T17:15:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "928": {
+            "id": "928",
+            "title": "From bad architecture to a (maybe) better architecture",
+            "speakers": [
+                "5e893241-51c8-51c5-921a-080befc5e408"
+            ],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-30T17:25:00+02:00",
+            "endTime": "2026-04-30T17:50:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "621": {
+            "id": "621",
+            "title": "Service Now as an Automation Orchestrator",
+            "speakers": [
+                "4c654973-c083-52c0-ab3f-9520bd1c46dc"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-30T18:00:00+02:00",
+            "endTime": "2026-04-30T18:45:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "961": {
+            "id": "961",
+            "title": "How to build an AI PoC in (literally) 2 minutes",
+            "speakers": [
+                "5e893241-51c8-51c5-921a-080befc5e408"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T18:55:00+02:00",
+            "endTime": "2026-04-30T19:20:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "987": {
+            "id": "987",
+            "title": "Lessons from the Trenches: Why \"Pure\" Kubernetes Isn’t Always Enough",
+            "speakers": [
+                "def275d0-9f5d-59a8-87a7-0d3671670a9c"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-30T21:00:00+02:00",
+            "endTime": "2026-04-30T21:45:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "1081": {
+            "id": "1081",
+            "title": "Building an Autonomous Agent to Play Text Adventures (LLM + MCP)",
+            "speakers": [
+                "883a6188-4182-59c5-9b48-3692911de429"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T22:05:00+02:00",
+            "endTime": "2026-04-30T22:30:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "786": {
+            "id": "786",
+            "title": "Architecting a Multi‑Modal AI Assistant: Conversational AI for Knowledge, Reporting, Automation & FinOps using RAG & MCP",
+            "speakers": [
+                "a733abc2-9936-5cc6-a8a3-dff41efe6458",
+                "52c5673f-1c70-5642-bc44-55d9e2972520"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T22:40:00+02:00",
+            "endTime": "2026-04-30T23:25:00+02:00",
+            "trackTitle": "Room 1"
+        },
+        "758": {
+            "id": "758",
+            "title": "Inside the Mind of a Machine: Demystifying Large Language Models",
+            "speakers": [
+                "576952c9-baee-5e50-997f-415d8923b0ec"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T06:15:00+02:00",
+            "endTime": "2026-04-30T07:00:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "639": {
+            "id": "639",
+            "title": "Everyday I'm Struggling - Increase your productivity with AI (PM/PjM)",
+            "speakers": [
+                "3be81df3-5eae-5829-8601-f97743986084"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-30T10:05:00+02:00",
+            "endTime": "2026-04-30T10:50:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "946": {
+            "id": "946",
+            "title": "Contract Digitalization using Azure Foundry & Generative AI",
+            "speakers": [
+                "d75a5100-26b7-5b6e-b8b0-b5490ac51d2c"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T11:00:00+02:00",
+            "endTime": "2026-04-30T11:25:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "992": {
+            "id": "992",
+            "title": "Introducing AI driven development lifecycle (AI-DLC)",
+            "speakers": [
+                "5bb719ba-9f66-5f10-897a-6fd3e3925699"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-30T11:35:00+02:00",
+            "endTime": "2026-04-30T12:00:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "668": {
+            "id": "668",
+            "title": "Kafka: The Art of Building Systems That Never Wait",
+            "speakers": [
+                "83d8fd9b-703f-5a71-a663-0b48393d63d3"
+            ],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-30T12:00:00+02:00",
+            "endTime": "2026-04-30T12:25:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "893": {
+            "id": "893",
+            "title": "Why Your Azure Disk Isn’t Slow — Your VM Is: Understanding and Fixing Throughput Bottlenecks",
+            "speakers": [
+                "c9855bb9-3566-5bc9-a04a-ae035bb720be"
+            ],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-30T12:35:00+02:00",
+            "endTime": "2026-04-30T13:00:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "814": {
+            "id": "814",
+            "title": "Continuous Profiling: Understand your resource usage at code level",
+            "speakers": [
+                "bf02b2ac-3f5e-526e-b4dc-0af9fd4f8e16"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-30T14:05:00+02:00",
+            "endTime": "2026-04-30T14:30:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "730": {
+            "id": "730",
+            "title": "Spec as Code: what's behind the buzz?",
+            "speakers": [
+                "e3b9af78-89bd-5c8b-8408-7ddd0cd2c17c",
+                "b820807b-a729-52d6-8941-77c914c87f49",
+                "548883c3-9fce-5647-984c-f538faa5d240"
+            ],
+            "tags": [
+                "Development, QA"
+            ],
+            "startTime": "2026-04-30T14:40:00+02:00",
+            "endTime": "2026-04-30T15:25:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "616": {
+            "id": "616",
+            "title": "Small Steps, Big Impact: How Tiny Actions Transformed Our Team",
+            "speakers": [
+                "bf6c5fb1-2a44-533f-90fb-2e4bc696fd7e"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-30T15:35:00+02:00",
+            "endTime": "2026-04-30T16:00:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "669": {
+            "id": "669",
+            "title": "The worst week of 2025 - return of experience on the NPM worm Shai-Hulud",
+            "speakers": [
+                "20df5019-28c1-5d5c-8f93-7c067a682687"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T16:10:00+02:00",
+            "endTime": "2026-04-30T16:35:00+02:00",
+            "trackTitle": "Room 2"
+        },
+        "769": {
+            "id": "769",
+            "title": "Turning DevOps Events into Engineering Insights : AI-Powered MCP for Change Management",
+            "speakers": [
+                "fb5144b4-a925-5089-af1c-dc924ef36c66"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T06:15:00+02:00",
+            "endTime": "2026-04-30T07:00:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "909": {
+            "id": "909",
+            "title": "Visual design 101: Boost your next slideshow",
+            "speakers": [
+                "c496dbc1-aabd-5301-bdc4-5fd8b01b35c4"
+            ],
+            "tags": [
+                "UX, Front-end"
+            ],
+            "startTime": "2026-04-30T10:05:00+02:00",
+            "endTime": "2026-04-30T10:30:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "855": {
+            "id": "855",
+            "title": "The Human Side of AI Prototyping",
+            "speakers": [
+                "7f308a3e-e674-5b1c-8dd6-40be368241f5",
+                "cfd9c7f9-f145-50b7-9a35-bdd9b14e5189"
+            ],
+            "tags": [
+                "UX, Front-end"
+            ],
+            "startTime": "2026-04-30T10:30:00+02:00",
+            "endTime": "2026-04-30T10:55:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "1012": {
+            "id": "1012",
+            "title": "From Projects to Platforms: Leading with AI to Redefine Execution Models",
+            "speakers": [
+                "d898dbd9-bc7c-5b93-a969-9b2b27d9068e"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-30T11:00:00+02:00",
+            "endTime": "2026-04-30T11:25:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "873": {
+            "id": "873",
+            "title": "From Reactive to Proactive: Self‑Healing for Operational Excellence",
+            "speakers": [
+                "56aa5207-fdbc-5c92-8e28-1c817ff5d095",
+                "f3d45dbf-abc3-5b85-bd66-ae1b9c443e6a"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T11:35:00+02:00",
+            "endTime": "2026-04-30T12:00:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "832": {
+            "id": "832",
+            "title": "Crypto 101: How Certificates Keep the Internet running",
+            "speakers": [
+                "8e1f1f8d-065b-5471-9d71-a5e5e5b2c408"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T12:00:00+02:00",
+            "endTime": "2026-04-30T12:25:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "690": {
+            "id": "690",
+            "title": "Design Thinking",
+            "speakers": [
+                "a3700079-fee3-58fc-9a04-4e17035fd2e4"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-30T12:35:00+02:00",
+            "endTime": "2026-04-30T13:00:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "973": {
+            "id": "973",
+            "title": "Inside the Black Box: Cloud Networking and Customer Connectivity",
+            "speakers": [
+                "a6773ff6-7038-5326-a6e2-2eb46075dac7"
+            ],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-30T13:30:00+02:00",
+            "endTime": "2026-04-30T13:55:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "671": {
+            "id": "671",
+            "title": "How not to PowerPoint",
+            "speakers": [
+                "3658e6cc-c083-5801-9f8e-61897a207c39"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-30T14:05:00+02:00",
+            "endTime": "2026-04-30T14:30:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "628": {
+            "id": "628",
+            "title": "From Cloud to Basement - my personal journey to self hosting everything*",
+            "speakers": [
+                "3e0d340f-9351-586d-90f9-e561f62eb9fc"
+            ],
+            "tags": [
+                "Passion, pet projects"
+            ],
+            "startTime": "2026-04-30T14:40:00+02:00",
+            "endTime": "2026-04-30T15:25:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "944": {
+            "id": "944",
+            "title": "Own Your Knowledge: The Obsidian Approach to Notes, Plugins, and the AI Era",
+            "speakers": [
+                "31a76df0-477b-5b1c-8b92-27cf4f65e6d9"
+            ],
+            "tags": [
+                "Passion, pet projects"
+            ],
+            "startTime": "2026-04-30T16:10:00+02:00",
+            "endTime": "2026-04-30T16:35:00+02:00",
+            "trackTitle": "Room 3"
+        },
+        "963": {
+            "id": "963",
+            "title": "Automate staring at graphs",
+            "speakers": [
+                "2018ccae-fe62-5e19-9dff-be13ebd8fb1f"
+            ],
+            "tags": [
+                "AI, Data"
+            ],
+            "startTime": "2026-04-30T13:30:00+02:00",
+            "endTime": "2026-04-30T13:55:00+02:00",
+            "trackTitle": "[ERD] Workshops - 1"
+        },
+        "1007": {
+            "id": "1007",
+            "title": "Turning Problem Management into a Driver of Stability and Service Excellence",
+            "speakers": [
+                "3945903d-537c-553e-9714-e115a39950d5"
+            ],
+            "tags": [
+                "Back-end, Cloud"
+            ],
+            "startTime": "2026-04-30T13:30:00+02:00",
+            "endTime": "2026-04-30T13:55:00+02:00",
+            "trackTitle": "[ERD] Workshops - 2"
+        },
+        "839": {
+            "id": "839",
+            "title": "Stop the Spend Spiral: Intelligent Cost Anomaly Detection Before Budget Impact",
+            "speakers": [
+                "39435ff0-6c71-5b60-bd41-0fc76976cd8e"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T14:40:00+02:00",
+            "endTime": "2026-04-30T15:05:00+02:00",
+            "trackTitle": "[ERD] Workshops - 2"
+        },
+        "868": {
+            "id": "868",
+            "title": "Less Noise, Faster Action: Automating Batch Incidents Handling with Victor",
+            "speakers": [
+                "5c39f3c1-7ecd-57dd-9f01-277a900a00ae"
+            ],
+            "tags": [
+                "DevOps, Security"
+            ],
+            "startTime": "2026-04-30T15:05:00+02:00",
+            "endTime": "2026-04-30T15:30:00+02:00",
+            "trackTitle": "[ERD] Workshops - 2"
+        },
+        "988": {
+            "id": "988",
+            "title": "Prioritization without Pain: A gamified Shortcut to Alignment",
+            "speakers": [
+                "d8ca4f25-21b2-5427-b6a9-553736bd6bd0"
+            ],
+            "tags": [
+                "Leadership, People"
+            ],
+            "startTime": "2026-04-30T13:30:00+02:00",
+            "endTime": "2026-04-30T14:15:00+02:00",
+            "trackTitle": "[BHO] Workshops"
+        }
+    },
+    "speakers": {
+        "80bfa01c-37ea-58a2-867b-1c11817d146b": {
+            "id": "80bfa01c-37ea-58a2-867b-1c11817d146b",
+            "name": "Ash PRAGASAM",
+            "photoUrl": null,
+            "socials": []
+        },
+        "86b5b76e-7ef1-5f5e-ae84-a5d0f4c6637f": {
+            "id": "86b5b76e-7ef1-5f5e-ae84-a5d0f4c6637f",
+            "name": "Amit KUMAR",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/GGDT8C_aHQdUGK.png",
+            "socials": []
+        },
+        "e38dbc5a-e1b9-5c38-887e-69d09a9d186e": {
+            "id": "e38dbc5a-e1b9-5c38-887e-69d09a9d186e",
+            "name": "Nikko Clarin",
+            "photoUrl": null,
+            "socials": []
+        },
+        "cf33b3ab-99d2-5f75-88a8-d26bf9529f61": {
+            "id": "cf33b3ab-99d2-5f75-88a8-d26bf9529f61",
+            "name": "Mandi Buswell (IBM/Red Hat)",
+            "photoUrl": null,
+            "socials": []
+        },
+        "84a729de-8b3e-53d3-86d2-386b07b6fed2": {
+            "id": "84a729de-8b3e-53d3-86d2-386b07b6fed2",
+            "name": "Mohamed Hamdan Faris S M",
+            "photoUrl": null,
+            "socials": []
+        },
+        "a4291b6f-bdbc-525b-8c37-312666c6225c": {
+            "id": "a4291b6f-bdbc-525b-8c37-312666c6225c",
+            "name": "-",
+            "photoUrl": null,
+            "socials": []
+        },
+        "6e71c285-fb86-5dc6-a59a-8a61801250fe": {
+            "id": "6e71c285-fb86-5dc6-a59a-8a61801250fe",
+            "name": "Bijay SWAIN",
+            "photoUrl": null,
+            "socials": []
+        },
+        "25650e9c-5f15-5ff8-a06d-5608693c919a": {
+            "id": "25650e9c-5f15-5ff8-a06d-5608693c919a",
+            "name": "Gokul Rajan THANGAVELU",
+            "photoUrl": null,
+            "socials": []
+        },
+        "0582955c-f8be-532d-824a-27634514019b": {
+            "id": "0582955c-f8be-532d-824a-27634514019b",
+            "name": "Ankita RAJ",
+            "photoUrl": null,
+            "socials": []
+        },
+        "264abead-1d6f-5de2-80e9-a1b7c062592a": {
+            "id": "264abead-1d6f-5de2-80e9-a1b7c062592a",
+            "name": "Sachin Singh GUSAIN",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/TD8GG8_CisWd5i.jpg",
+            "socials": []
+        },
+        "f115e6b8-4abb-5fab-9e59-16e98cc3e3d8": {
+            "id": "f115e6b8-4abb-5fab-9e59-16e98cc3e3d8",
+            "name": "Purva KONDE",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/RWXRDS_GITmSYm.png",
+            "socials": []
+        },
+        "d7804421-9e43-5ea7-b6a8-0eb232d47298": {
+            "id": "d7804421-9e43-5ea7-b6a8-0eb232d47298",
+            "name": "Bert BOS",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/LY8JC7_kRU300N.jpg",
+            "socials": []
+        },
+        "30d9a830-d6c1-5f71-9c1e-8045a1045d94": {
+            "id": "30d9a830-d6c1-5f71-9c1e-8045a1045d94",
+            "name": "Bernhard SELLMAIR",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/8HJL3B_fRQTo7Z.jpg",
+            "socials": []
+        },
+        "080ea7bf-5ef1-56a1-9f48-9d793770d931": {
+            "id": "080ea7bf-5ef1-56a1-9f48-9d793770d931",
+            "name": "Sertay AKPINAR",
+            "photoUrl": null,
+            "socials": []
+        },
+        "d5c48dba-e427-5822-a0d0-8f8c86801dd4": {
+            "id": "d5c48dba-e427-5822-a0d0-8f8c86801dd4",
+            "name": "Siddi SIDDA",
+            "photoUrl": null,
+            "socials": []
+        },
+        "745b2374-ce79-5def-9167-69099be7022d": {
+            "id": "745b2374-ce79-5def-9167-69099be7022d",
+            "name": "Benjamin Schwalb LANDAU",
+            "photoUrl": null,
+            "socials": []
+        },
+        "b8a352fb-c84d-56a7-b3bb-16f81a6a8aee": {
+            "id": "b8a352fb-c84d-56a7-b3bb-16f81a6a8aee",
+            "name": "Sofia HERNANDEZ",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/9V7CTD_hf1fgh2.jpg",
+            "socials": []
+        },
+        "eae5a244-e288-532c-adef-666b6fbf83d5": {
+            "id": "eae5a244-e288-532c-adef-666b6fbf83d5",
+            "name": "Daniel PFEIFFER",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/TAMKRK_xBdy3ni.jpg",
+            "socials": []
+        },
+        "1bc93b6c-6508-5e78-8b71-784b3c5c8aff": {
+            "id": "1bc93b6c-6508-5e78-8b71-784b3c5c8aff",
+            "name": "Tjark BUSSMANN",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/US7FVP_kvsPosI.jpeg",
+            "socials": []
+        },
+        "d123d292-432f-5ca0-b52e-94dbf6b50654": {
+            "id": "d123d292-432f-5ca0-b52e-94dbf6b50654",
+            "name": "Thomas LACROIX",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/8YE7CY_iHyIFxP.jpg",
+            "socials": []
+        },
+        "be7b52b3-0803-5636-93e3-9dd79d4c229a": {
+            "id": "be7b52b3-0803-5636-93e3-9dd79d4c229a",
+            "name": "Benoit Faurie",
+            "photoUrl": null,
+            "socials": []
+        },
+        "57ee759c-9ffe-5139-bbd5-aba82402b666": {
+            "id": "57ee759c-9ffe-5139-bbd5-aba82402b666",
+            "name": "Davy BATSALLE",
+            "photoUrl": null,
+            "socials": []
+        },
+        "ee68e983-09ec-59d0-8311-2f1852821fba": {
+            "id": "ee68e983-09ec-59d0-8311-2f1852821fba",
+            "name": "Clement OLIVA",
+            "photoUrl": null,
+            "socials": []
+        },
+        "79327acc-fa9a-5f93-aba4-365ab3e32fda": {
+            "id": "79327acc-fa9a-5f93-aba4-365ab3e32fda",
+            "name": "Sonia Belhadj",
+            "photoUrl": null,
+            "socials": []
+        },
+        "c980e20b-eebb-5233-9964-33be1e030d44": {
+            "id": "c980e20b-eebb-5233-9964-33be1e030d44",
+            "name": "Anna KOZACHENKO",
+            "photoUrl": null,
+            "socials": []
+        },
+        "967058e1-c538-53f3-8e9e-53d99640c13e": {
+            "id": "967058e1-c538-53f3-8e9e-53d99640c13e",
+            "name": "Habib RAGELHASSI",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/F3YQWU_LGCGi1k.jpg",
+            "socials": []
+        },
+        "20735155-39cd-5927-afd5-fa2892f8e512": {
+            "id": "20735155-39cd-5927-afd5-fa2892f8e512",
+            "name": "Mehdi Lamrani (Databricks)",
+            "photoUrl": null,
+            "socials": []
+        },
+        "b0edf141-1d07-50db-a964-5bb15798a10c": {
+            "id": "b0edf141-1d07-50db-a964-5bb15798a10c",
+            "name": "Calvin AUDIER",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/C9TQEG_PZE5xz4.jpg",
+            "socials": []
+        },
+        "533471ec-1391-5fa4-8f18-06e9c06e4581": {
+            "id": "533471ec-1391-5fa4-8f18-06e9c06e4581",
+            "name": "Guillaume Smet (IBM/Red Hat)",
+            "photoUrl": null,
+            "socials": []
+        },
+        "d4722c35-5a22-537b-973e-24ba5fec17e1": {
+            "id": "d4722c35-5a22-537b-973e-24ba5fec17e1",
+            "name": "Lea Martin (Microsoft Azure)",
+            "photoUrl": null,
+            "socials": []
+        },
+        "a06cd758-1257-5a0e-809f-56a5b5d4810c": {
+            "id": "a06cd758-1257-5a0e-809f-56a5b5d4810c",
+            "name": "Emmanuel Deletang (Microsoft)",
+            "photoUrl": null,
+            "socials": []
+        },
+        "49d9c4f0-e311-53af-b7e4-1ac807f85671": {
+            "id": "49d9c4f0-e311-53af-b7e4-1ac807f85671",
+            "name": "Xavi AMETLLER",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/B8KPUD_AarqPLI.png",
+            "socials": []
+        },
+        "1ad67f60-853f-55bf-960a-2c473c2de54a": {
+            "id": "1ad67f60-853f-55bf-960a-2c473c2de54a",
+            "name": "Ravish THIND",
+            "photoUrl": null,
+            "socials": []
+        },
+        "68a38fc0-e7d1-56e8-878f-7f8cc4995cce": {
+            "id": "68a38fc0-e7d1-56e8-878f-7f8cc4995cce",
+            "name": "Leta Melkamu JIFAR",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/UZWVL7_HsitYPz.jpg",
+            "socials": []
+        },
+        "877e2fe6-9813-5214-b2ce-84eb766d08f2": {
+            "id": "877e2fe6-9813-5214-b2ce-84eb766d08f2",
+            "name": "Matt HORTON",
+            "photoUrl": null,
+            "socials": []
+        },
+        "fd1b0fe1-69a5-556c-b494-4b997955bea9": {
+            "id": "fd1b0fe1-69a5-556c-b494-4b997955bea9",
+            "name": "Maria COLUBRIALE",
+            "photoUrl": null,
+            "socials": []
+        },
+        "f17f4e6b-e60b-5bde-9828-a94d8742c42c": {
+            "id": "f17f4e6b-e60b-5bde-9828-a94d8742c42c",
+            "name": "Morten KLISCH",
+            "photoUrl": null,
+            "socials": []
+        },
+        "c6cd6259-042f-5fb1-a44a-e4b7513821eb": {
+            "id": "c6cd6259-042f-5fb1-a44a-e4b7513821eb",
+            "name": "Benjamin Crumpton",
+            "photoUrl": null,
+            "socials": []
+        },
+        "cdf40b9a-300f-5a01-8ce2-8cce3951d077": {
+            "id": "cdf40b9a-300f-5a01-8ce2-8cce3951d077",
+            "name": "Tugdual Grall (GitHub)",
+            "photoUrl": null,
+            "socials": []
+        },
+        "2643018c-a99f-5c0f-9a62-be1b2fab4cca": {
+            "id": "2643018c-a99f-5c0f-9a62-be1b2fab4cca",
+            "name": "Augustin HUSSON",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/NL8ETV_AoeB2HR.jpg",
+            "socials": []
+        },
+        "5c5ce2ae-7e47-5b91-a6ea-ff2673d62da0": {
+            "id": "5c5ce2ae-7e47-5b91-a6ea-ff2673d62da0",
+            "name": "Sylvain GAMEL",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/AYPSMB_lxIpYSZ.jpg",
+            "socials": []
+        },
+        "5f0f885c-a84b-532f-8fa5-f238fea1fd19": {
+            "id": "5f0f885c-a84b-532f-8fa5-f238fea1fd19",
+            "name": "Alexandru DAFINEI",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/3NDHTS_Z1NUSKD.jpg",
+            "socials": []
+        },
+        "dc9099b6-bb61-5dcf-aec1-d2b8ea6e1ec6": {
+            "id": "dc9099b6-bb61-5dcf-aec1-d2b8ea6e1ec6",
+            "name": "Kavin S",
+            "photoUrl": null,
+            "socials": []
+        },
+        "c7d5aff2-fa69-5e97-bb96-50c215215980": {
+            "id": "c7d5aff2-fa69-5e97-bb96-50c215215980",
+            "name": "D AJAY KUMAR",
+            "photoUrl": null,
+            "socials": []
+        },
+        "9a66f33d-ef34-5e9f-b469-940bb1fce16b": {
+            "id": "9a66f33d-ef34-5e9f-b469-940bb1fce16b",
+            "name": "Emir GENC",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/RJGUTE_moBGBrN.jpg",
+            "socials": []
+        },
+        "c0da5e45-0593-579d-823d-b040a7298d2c": {
+            "id": "c0da5e45-0593-579d-823d-b040a7298d2c",
+            "name": "Omer YAZICI",
+            "photoUrl": null,
+            "socials": []
+        },
+        "498e35b5-3849-5f23-b5c8-669b185b7732": {
+            "id": "498e35b5-3849-5f23-b5c8-669b185b7732",
+            "name": "David Clauvel (Google)",
+            "photoUrl": null,
+            "socials": []
+        },
+        "5b95a579-33f7-5c7b-9b48-d532f69edfd1": {
+            "id": "5b95a579-33f7-5c7b-9b48-d532f69edfd1",
+            "name": "Francesco PACE",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/D8FUNW_izO3ExK.png",
+            "socials": []
+        },
+        "15052dd9-1ead-5192-b91d-613ed1916786": {
+            "id": "15052dd9-1ead-5192-b91d-613ed1916786",
+            "name": "Romain QUINIO",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/LYTCHD_BAKIjgl.jpg",
+            "socials": []
+        },
+        "6e1ed8bf-4cbb-578f-bf2b-4c0473bbded4": {
+            "id": "6e1ed8bf-4cbb-578f-bf2b-4c0473bbded4",
+            "name": "Christopher PARKINS",
+            "photoUrl": null,
+            "socials": []
+        },
+        "8c4fa76d-4023-5800-8885-1bfa2259cde2": {
+            "id": "8c4fa76d-4023-5800-8885-1bfa2259cde2",
+            "name": "Thibault TOLEDANO",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/KEU8PE_8jBXn8f.png",
+            "socials": []
+        },
+        "27efc797-4edc-5b48-9df9-eb49593d5b90": {
+            "id": "27efc797-4edc-5b48-9df9-eb49593d5b90",
+            "name": "Lorine PORNET",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/7CR8FC_pBDBePv.png",
+            "socials": []
+        },
+        "4052c995-9a4f-5e83-bed9-9a16411b7195": {
+            "id": "4052c995-9a4f-5e83-bed9-9a16411b7195",
+            "name": "Jorge Canal",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/TJVXWH_XzpfuFt.jpeg",
+            "socials": []
+        },
+        "5e893241-51c8-51c5-921a-080befc5e408": {
+            "id": "5e893241-51c8-51c5-921a-080befc5e408",
+            "name": "Juan David Páez Sánchez",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/YQBWG9_HLrmyPO.jpg",
+            "socials": []
+        },
+        "4c654973-c083-52c0-ab3f-9520bd1c46dc": {
+            "id": "4c654973-c083-52c0-ab3f-9520bd1c46dc",
+            "name": "Juan Sebastian Jordan",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/PHRSJC_nqjbLbx.jpg",
+            "socials": []
+        },
+        "def275d0-9f5d-59a8-87a7-0d3671670a9c": {
+            "id": "def275d0-9f5d-59a8-87a7-0d3671670a9c",
+            "name": "Daniel Penagos (Red Hat)",
+            "photoUrl": null,
+            "socials": []
+        },
+        "883a6188-4182-59c5-9b48-3692911de429": {
+            "id": "883a6188-4182-59c5-9b48-3692911de429",
+            "name": "Kevin HAMON",
+            "photoUrl": null,
+            "socials": []
+        },
+        "a733abc2-9936-5cc6-a8a3-dff41efe6458": {
+            "id": "a733abc2-9936-5cc6-a8a3-dff41efe6458",
+            "name": "Angayar Kannan RAJA",
+            "photoUrl": null,
+            "socials": []
+        },
+        "52c5673f-1c70-5642-bc44-55d9e2972520": {
+            "id": "52c5673f-1c70-5642-bc44-55d9e2972520",
+            "name": "Veeresh ERCHED",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/JYFFXL_Td3Tp86.jpeg",
+            "socials": []
+        },
+        "576952c9-baee-5e50-997f-415d8923b0ec": {
+            "id": "576952c9-baee-5e50-997f-415d8923b0ec",
+            "name": "Kamal BANA",
+            "photoUrl": null,
+            "socials": []
+        },
+        "3be81df3-5eae-5829-8601-f97743986084": {
+            "id": "3be81df3-5eae-5829-8601-f97743986084",
+            "name": "Fabrice ROSSET",
+            "photoUrl": null,
+            "socials": []
+        },
+        "d75a5100-26b7-5b6e-b8b0-b5490ac51d2c": {
+            "id": "d75a5100-26b7-5b6e-b8b0-b5490ac51d2c",
+            "name": "Akash TYAGI",
+            "photoUrl": null,
+            "socials": []
+        },
+        "5bb719ba-9f66-5f10-897a-6fd3e3925699": {
+            "id": "5bb719ba-9f66-5f10-897a-6fd3e3925699",
+            "name": "Thomas Geoffroy (AWS)",
+            "photoUrl": null,
+            "socials": []
+        },
+        "83d8fd9b-703f-5a71-a663-0b48393d63d3": {
+            "id": "83d8fd9b-703f-5a71-a663-0b48393d63d3",
+            "name": "Manish ANIL HIRVE",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/LC3UPK_U17q7jg.png",
+            "socials": []
+        },
+        "c9855bb9-3566-5bc9-a04a-ae035bb720be": {
+            "id": "c9855bb9-3566-5bc9-a04a-ae035bb720be",
+            "name": "Abhilash B N",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/V9QE7C_ouBC7FN.png",
+            "socials": []
+        },
+        "bf02b2ac-3f5e-526e-b4dc-0af9fd4f8e16": {
+            "id": "bf02b2ac-3f5e-526e-b4dc-0af9fd4f8e16",
+            "name": "Lucas WEGLARZ",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/QFWPWP_08R6w0s.jpeg",
+            "socials": []
+        },
+        "e3b9af78-89bd-5c8b-8408-7ddd0cd2c17c": {
+            "id": "e3b9af78-89bd-5c8b-8408-7ddd0cd2c17c",
+            "name": "Florian LACOURT",
+            "photoUrl": null,
+            "socials": []
+        },
+        "b820807b-a729-52d6-8941-77c914c87f49": {
+            "id": "b820807b-a729-52d6-8941-77c914c87f49",
+            "name": "Leonardo ANDOLFI",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/JXLNUP_P26CtgL.jpeg",
+            "socials": []
+        },
+        "548883c3-9fce-5647-984c-f538faa5d240": {
+            "id": "548883c3-9fce-5647-984c-f538faa5d240",
+            "name": "Fatma ATTIA",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/MFLPTU_6HkcmYF.jpg",
+            "socials": []
+        },
+        "bf6c5fb1-2a44-533f-90fb-2e4bc696fd7e": {
+            "id": "bf6c5fb1-2a44-533f-90fb-2e4bc696fd7e",
+            "name": "Andrea RINALDI",
+            "photoUrl": null,
+            "socials": []
+        },
+        "20df5019-28c1-5d5c-8f93-7c067a682687": {
+            "id": "20df5019-28c1-5d5c-8f93-7c067a682687",
+            "name": "Benjamin HILAIRE",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/D7CBL7_j9vn5DE.jpg",
+            "socials": []
+        },
+        "fb5144b4-a925-5089-af1c-dc924ef36c66": {
+            "id": "fb5144b4-a925-5089-af1c-dc924ef36c66",
+            "name": "T J Tejas MALADHKAR",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/PZX7WE_X69JbCb.jpg",
+            "socials": []
+        },
+        "c496dbc1-aabd-5301-bdc4-5fd8b01b35c4": {
+            "id": "c496dbc1-aabd-5301-bdc4-5fd8b01b35c4",
+            "name": "Javier LOPEZ-MONTENEGRO",
+            "photoUrl": null,
+            "socials": []
+        },
+        "7f308a3e-e674-5b1c-8dd6-40be368241f5": {
+            "id": "7f308a3e-e674-5b1c-8dd6-40be368241f5",
+            "name": "Edinson ZAMORA",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/ABDZGU_IBOtnss.jpg",
+            "socials": []
+        },
+        "cfd9c7f9-f145-50b7-9a35-bdd9b14e5189": {
+            "id": "cfd9c7f9-f145-50b7-9a35-bdd9b14e5189",
+            "name": "Celine PETIT",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/9VNWSK_ugUTXsT.png",
+            "socials": []
+        },
+        "d898dbd9-bc7c-5b93-a969-9b2b27d9068e": {
+            "id": "d898dbd9-bc7c-5b93-a969-9b2b27d9068e",
+            "name": "Hariprashadh SELLAMUTHU",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/UTAC93_ajuFUX0.jpg",
+            "socials": []
+        },
+        "56aa5207-fdbc-5c92-8e28-1c817ff5d095": {
+            "id": "56aa5207-fdbc-5c92-8e28-1c817ff5d095",
+            "name": "Bhargav NALLAPPAREDDYGARI",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/WB3MNX_LrXIjDC.jpg",
+            "socials": []
+        },
+        "f3d45dbf-abc3-5b85-bd66-ae1b9c443e6a": {
+            "id": "f3d45dbf-abc3-5b85-bd66-ae1b9c443e6a",
+            "name": "Sai Mahendra KARUMURI",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/YFD7JQ_VHg1JGy.jpg",
+            "socials": []
+        },
+        "8e1f1f8d-065b-5471-9d71-a5e5e5b2c408": {
+            "id": "8e1f1f8d-065b-5471-9d71-a5e5e5b2c408",
+            "name": "Saikat CHATTERJEE",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/YWFH3X_JNuYIfV.png",
+            "socials": []
+        },
+        "a3700079-fee3-58fc-9a04-4e17035fd2e4": {
+            "id": "a3700079-fee3-58fc-9a04-4e17035fd2e4",
+            "name": "Harish V",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/P9U9P3_rPkYXob.jpg",
+            "socials": []
+        },
+        "a6773ff6-7038-5326-a6e2-2eb46075dac7": {
+            "id": "a6773ff6-7038-5326-a6e2-2eb46075dac7",
+            "name": "Jill LUSTER",
+            "photoUrl": null,
+            "socials": []
+        },
+        "3658e6cc-c083-5801-9f8e-61897a207c39": {
+            "id": "3658e6cc-c083-5801-9f8e-61897a207c39",
+            "name": "Karl VARLEY",
+            "photoUrl": null,
+            "socials": []
+        },
+        "3e0d340f-9351-586d-90f9-e561f62eb9fc": {
+            "id": "3e0d340f-9351-586d-90f9-e561f62eb9fc",
+            "name": "Kristian SCHUHMACHER",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/KJEZWT_fTTmtL5.jpeg",
+            "socials": []
+        },
+        "31a76df0-477b-5b1c-8b92-27cf4f65e6d9": {
+            "id": "31a76df0-477b-5b1c-8b92-27cf4f65e6d9",
+            "name": "Minji KIM",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/X8QSUL_FGyh8TU.jpg",
+            "socials": []
+        },
+        "2018ccae-fe62-5e19-9dff-be13ebd8fb1f": {
+            "id": "2018ccae-fe62-5e19-9dff-be13ebd8fb1f",
+            "name": "Fritz REICHMANN",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/FV8MGE_grMiqfQ.png",
+            "socials": []
+        },
+        "3945903d-537c-553e-9714-e115a39950d5": {
+            "id": "3945903d-537c-553e-9714-e115a39950d5",
+            "name": "Antonie METZ",
+            "photoUrl": "https://events.forge.amadeus.net/media/avatars/WXZTWL_zusBiUz.jpg",
+            "socials": []
+        },
+        "39435ff0-6c71-5b60-bd41-0fc76976cd8e": {
+            "id": "39435ff0-6c71-5b60-bd41-0fc76976cd8e",
+            "name": "Andreea Catalina ILICI",
+            "photoUrl": null,
+            "socials": []
+        },
+        "5c39f3c1-7ecd-57dd-9f01-277a900a00ae": {
+            "id": "5c39f3c1-7ecd-57dd-9f01-277a900a00ae",
+            "name": "Rahul AGRAWAL",
+            "photoUrl": null,
+            "socials": []
+        },
+        "d8ca4f25-21b2-5427-b6a9-553736bd6bd0": {
+            "id": "d8ca4f25-21b2-5427-b6a9-553736bd6bd0",
+            "name": "Annett Dawoud",
+            "photoUrl": null,
+            "socials": []
+        }
+    }
+}
