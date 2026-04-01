@@ -2160,6 +2160,71 @@
             option.textContent = `${SITES[code].flag} ${SITES[code].name}`;
             select.appendChild(option);
         });
+        
+        return sortedSites; // Return available sites for geo detection
+    }
+    
+    // Auto-detect user's location and preselect site
+    function detectAndPreselectSite(availableSites) {
+        // Map timezone regions to site codes
+        const timezoneToSite = {
+            // Australia
+            'Australia': 'SYD',
+            // India
+            'Asia/Kolkata': 'BLR',
+            'Asia/Calcutta': 'BLR',
+            // Turkey
+            'Europe/Istanbul': 'IST',
+            // Spain
+            'Europe/Madrid': 'BCN',
+            'Atlantic/Canary': 'BCN',
+            // Germany
+            'Europe/Berlin': 'ERD',
+            // Belgium
+            'Europe/Brussels': 'ANR',
+            // UK
+            'Europe/London': 'LHR',
+            // France
+            'Europe/Paris': 'NCE',
+            // US Central
+            'America/Chicago': 'DFW',
+            'America/Indiana': 'DFW',
+            // US Mountain
+            'America/Denver': 'SLC',
+            'America/Phoenix': 'SLC',
+            'America/Boise': 'SLC',
+            // Colombia
+            'America/Bogota': 'BOG',
+            // US East (default to Dallas)
+            'America/New_York': 'DFW',
+            // US West (default to SLC)
+            'America/Los_Angeles': 'SLC'
+        };
+        
+        try {
+            const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            let detectedSite = null;
+            
+            // Try exact match first
+            if (timezoneToSite[userTimezone]) {
+                detectedSite = timezoneToSite[userTimezone];
+            } else {
+                // Try region match (e.g., "Australia/Sydney" -> "Australia")
+                const region = userTimezone.split('/')[0];
+                if (timezoneToSite[region]) {
+                    detectedSite = timezoneToSite[region];
+                }
+            }
+            
+            // Only preselect if the site has sessions
+            if (detectedSite && availableSites.includes(detectedSite)) {
+                activeFilters.site = detectedSite;
+                document.getElementById('site-filter').value = detectedSite;
+                console.log(`%c📍 Auto-detected your location: ${SITES[detectedSite].flag} ${SITES[detectedSite].name}`, 'color: #b650ff; font-weight: bold;');
+            }
+        } catch (e) {
+            // Silently fail if timezone detection doesn't work
+        }
     }
 
     // Clear all filters
@@ -2287,7 +2352,8 @@
             });
             
             // Initialize UI
-            populateSiteFilter(allSessions);
+            const availableSites = populateSiteFilter(allSessions);
+            detectAndPreselectSite(availableSites);
             renderTrackPills();
             initFilters();
             initViewToggle();
