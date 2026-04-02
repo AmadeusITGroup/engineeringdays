@@ -1,80 +1,70 @@
 #!/usr/bin/env python3
 """
-Generate openfeedback.json from schedule.json
+Generate openfeedback.json from engineering-days-2026_sessions.json
 
-This script transforms the pretalx/c3voc schedule format into the OpenFeedback format.
+This script transforms the pretalx sessions export format into the OpenFeedback format.
 """
 
 import json
-from datetime import datetime, timedelta
-import re
+from datetime import datetime
+import hashlib
 
 
-def parse_duration(duration_str):
-    """Parse duration string like '00:25' or '02:00' into timedelta."""
-    parts = duration_str.split(':')
-    hours = int(parts[0])
-    minutes = int(parts[1])
-    return timedelta(hours=hours, minutes=minutes)
+def generate_speaker_id(name):
+    """Generate a stable speaker ID from the speaker name."""
+    return hashlib.md5(name.encode()).hexdigest()[:12]
 
 
-def calculate_end_time(start_datetime_str, duration_str):
-    """Calculate end time from start datetime and duration."""
-    # Parse the ISO format datetime
-    start_dt = datetime.fromisoformat(start_datetime_str)
-    duration = parse_duration(duration_str)
-    end_dt = start_dt + duration
-    return end_dt.isoformat()
-
-
-def transform_schedule_to_openfeedback(schedule_data):
-    """Transform schedule.json format to openfeedback.json format."""
+def transform_sessions_to_openfeedback(sessions_data):
+    """Transform engineering-days-2026_sessions.json format to openfeedback.json format."""
     sessions = {}
     speakers = {}
     
-    conference = schedule_data.get('schedule', {}).get('conference', {})
-    days = conference.get('days', [])
-    
-    for day in days:
-        rooms = day.get('rooms', {})
-        for room_name, room_sessions in rooms.items():
-            for session in room_sessions:
-                session_id = str(session.get('id'))
+    for session in sessions_data:
+        # Skip sessions without scheduled time (like lunch-time booths without a slot)
+        if not session.get('Start'):
+            continue
+            
+        session_id = session.get('ID')
+        
+        # Get speaker IDs from speaker names
+        speaker_ids = []
+        for speaker_name in session.get('Speaker names', []):
+            if speaker_name:
+                speaker_guid = generate_speaker_id(speaker_name)
+                speaker_ids.append(speaker_guid)
                 
-                # Get speaker IDs from persons
-                speaker_ids = []
-                for person in session.get('persons', []):
-                    speaker_guid = person.get('guid')
-                    if speaker_guid:
-                        speaker_ids.append(speaker_guid)
-                        
-                        # Add speaker to speakers dict if not already present
-                        if speaker_guid not in speakers:
-                            speakers[speaker_guid] = {
-                                'id': speaker_guid,
-                                'name': person.get('public_name', ''),
-                                'photoUrl': 'https://amadeusitgroup.github.io/engineeringdays/image.png',
-                                'socials': []
-                            }
-                
-                # Build session entry
-                start_time = session.get('date')
-                duration = session.get('duration', '00:25')
-                end_time = calculate_end_time(start_time, duration)
-                
-                # Use track as tag
-                track = session.get('track')
-                tags = [track] if track else []
-                
-                sessions[session_id] = {
-                    'id': session_id,
-                    'title': session.get('title', ''),
-                    'speakers': speaker_ids,
-                    'tags': tags,
-                    'startTime': start_time,
-                    'endTime': end_time,
-                    'trackTitle': room_name
-                }
+                # Add speaker to speakers dict if not already present
+                if speaker_guid not in speakers:
+                    speakers[speaker_guid] = {
+                        'id': speaker_guid,
+                        'name': speaker_name,
+                        'photoUrl': 'https://amadeusitgroup.github.io/engineeringdays/image.png',
+                        'socials': []
+                    }
+        
+        # Parse start and end times
+        start_time = session.get('Start')
+        end_time = session.get('End')
+        
+        # Get track as tag
+        track = session.get('Track', {})
+        track_name = track.get('en') if isinstance(track, dict) else None
+        tags = [track_name] if track_name else []
+        
+        # Get room name
+        room = session.get('Room', {})
+        room_name = room.get('en') if isinstance(room, dict) else 'TBD'
+        
+        sessions[session_id] = {
+            'id': session_id,
+            'title': session.get('Proposal title', ''),
+            'speakers': speaker_ids,
+            'tags': tags,
+            'startTime': start_time,
+            'endTime': end_time,
+            'trackTitle': room_name
+        }
     
     return {
         'sessions': sessions,
@@ -83,12 +73,12 @@ def transform_schedule_to_openfeedback(schedule_data):
 
 
 def main():
-    # Read schedule.json
-    with open('schedule.json', 'r', encoding='utf-8') as f:
-        schedule_data = json.load(f)
+    # Read engineering-days-2026_sessions.json
+    with open('engineering-days-2026_sessions.json', 'r', encoding='utf-8') as f:
+        sessions_data = json.load(f)
     
     # Transform to OpenFeedback format
-    openfeedback_data = transform_schedule_to_openfeedback(schedule_data)
+    openfeedback_data = transform_sessions_to_openfeedback(sessions_data)
     
     # Write openfeedback.json
     with open('openfeedback.json', 'w', encoding='utf-8') as f:

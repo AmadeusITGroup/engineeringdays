@@ -1547,10 +1547,47 @@
     const CONFERENCE_DATE_DAY1 = '2026-04-29';
     const CONFERENCE_DATE_DAY2 = '2026-04-30';
 
-    // Extract site code from room name
-    function extractSite(roomName) {
-        const match = roomName.match(/\[([A-Z]{3})\]/);
-        return match ? match[1] : null;
+    // Track colors (defined for the new export format)
+    const TRACK_COLORS = {
+        'AI, Data': '#e76000',
+        'Development, QA': '#ed07c1',
+        'UX, Front-end': '#00b43f',
+        'DevOps, Security': '#ad04f6',
+        'Back-end, Cloud': '#0041a2',
+        'Passion, pet projects': '#00a8b1',
+        'Leadership, People': '#dc0039'
+    };
+
+    // Location to site code mapping
+    const LOCATION_TO_SITE = {
+        'Nice, France': 'NCE',
+        'Bengaluru, India': 'BLR',
+        'Erding, Germany': 'ERD',
+        'Sydney, Australia': 'SYD',
+        'London, UK': 'LHR',
+        'Barcelona, Spain': 'BCN',
+        'Dallas, USA': 'DFW',
+        'Salt Lake City USA': 'SLC',
+        'Bad Homburg, Germany': 'BHO',
+        'Antwerp, Belgium': 'ANR',
+        'Madrid, Spain': 'MAD',
+        'İstanbul, Turkiye': 'IST',
+        'Bogotá, Colombia': 'BOG',
+        'Aachen, Germany': 'FRA'  // Map Aachen to FRA as it's close to Frankfurt region
+    };
+
+    // Extract site code from room name OR from location field
+    function extractSite(roomName, location) {
+        // First try to get from location field
+        if (location && LOCATION_TO_SITE[location]) {
+            return LOCATION_TO_SITE[location];
+        }
+        // Fallback to extracting from room name
+        if (roomName) {
+            const match = roomName.match(/\[([A-Z]{3})\]/);
+            return match ? match[1] : null;
+        }
+        return null;
     }
 
     // Parse duration string to minutes
@@ -1635,7 +1672,7 @@
 
     // Create session card HTML
     function createSessionCard(session) {
-        const site = extractSite(session.room);
+        const site = session.siteCode || extractSite(session.room, session.location);
         const siteInfo = site ? SITES[site] : null;
         const speakers = session.persons.map(p => p.public_name).join(', ') || '';
         const trackColor = session.trackColor || '#6b7280';
@@ -1682,7 +1719,7 @@
 
     // Create agenda session card HTML
     function createAgendaSessionCard(session) {
-        const site = extractSite(session.room);
+        const site = session.siteCode || extractSite(session.room, session.location);
         const siteInfo = site ? SITES[site] : null;
         const speakers = session.persons.map(p => p.public_name).join(', ') || '';
         const trackColor = session.trackColor || '#6b7280';
@@ -1722,7 +1759,7 @@
 
     // Create agenda session card with time info (for conflict groups)
     function createAgendaSessionCardWithTime(session, dateStr) {
-        const site = extractSite(session.room);
+        const site = session.siteCode || extractSite(session.room, session.location);
         const siteInfo = site ? SITES[site] : null;
         const speakers = session.persons.map(p => p.public_name).join(', ') || '';
         const trackColor = session.trackColor || '#6b7280';
@@ -2039,7 +2076,7 @@
         const filtered = allSessions.filter(session => {
             if (activeFilters.day && session.dayIndex !== parseInt(activeFilters.day)) return false;
             if (activeFilters.site) {
-                const sessionSite = extractSite(session.room);
+                const sessionSite = session.siteCode || extractSite(session.room, session.location);
                 // Rooms without a site prefix (e.g., "Room 1") are cross-site, show them for all sites
                 if (sessionSite !== null && sessionSite !== activeFilters.site) return false;
             }
@@ -2149,7 +2186,7 @@
     function populateSiteFilter(sessions) {
         const sites = new Set();
         sessions.forEach(session => {
-            const site = extractSite(session.room);
+            const site = session.siteCode || extractSite(session.room, session.location);
             if (site && SITES[site]) sites.add(site);
         });
         
@@ -2385,30 +2422,77 @@
     // Load schedule data
     async function loadSchedule() {
         try {
-            const response = await fetch('schedule.json');
+            const response = await fetch('engineering-days-2026_sessions.json');
             const data = await response.json();
             
-            // Extract tracks
-            tracks = data.schedule.conference.tracks;
+            // Set tracks from the track colors constant
+            tracks = Object.keys(TRACK_COLORS).map(name => ({ name, color: TRACK_COLORS[name] }));
             
-            // Create track color map
-            const trackColors = {};
-            tracks.forEach(t => trackColors[t.name] = t.color);
-            
-            // Extract all sessions
-            allSessions = [];
-            data.schedule.conference.days.forEach(day => {
-                Object.keys(day.rooms).forEach(roomName => {
-                    day.rooms[roomName].forEach(session => {
-                        allSessions.push({
-                            ...session,
-                            dayIndex: day.index,
-                            dayDate: day.date,
-                            trackColor: trackColors[session.track] || '#6b7280'
-                        });
+            // Transform and extract all scheduled sessions (those with Start time)
+            allSessions = data
+                .filter(session => session.Start) // Only include sessions with a scheduled time
+                .map(session => {
+                    // Parse start time to extract date and time
+                    const startDate = new Date(session.Start);
+                    const dayDate = startDate.toISOString().split('T')[0];
+                    const dayIndex = dayDate === '2026-04-29' ? 1 : 2;
+                    
+                    // Convert UTC times to Paris timezone for display
+                    const parisStart = new Date(session.Start).toLocaleString('en-GB', {
+                        timeZone: 'Europe/Paris',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false
                     });
+                    
+                    const parisEnd = new Date(session.End).toLocaleString('en-GB', {
+                        timeZone: 'Europe/Paris',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: false
+                    });
+                    
+                    // Calculate duration
+                    const startMs = new Date(session.Start).getTime();
+                    const endMs = new Date(session.End).getTime();
+                    const durationMins = Math.round((endMs - startMs) / 60000);
+                    const durationHours = Math.floor(durationMins / 60);
+                    const durationMinsPart = durationMins % 60;
+                    const duration = `${String(durationHours).padStart(2, '0')}:${String(durationMinsPart).padStart(2, '0')}`;
+                    
+                    // Get track info
+                    const trackName = session.Track?.en || '';
+                    const trackColor = TRACK_COLORS[trackName] || '#6b7280';
+                    
+                    // Get room name
+                    const roomName = session.Room?.en || 'TBD';
+                    
+                    // Get location/site
+                    const location = session['From which Amadeus site do you plan to present?'] || '';
+                    const siteCode = extractSite(roomName, location);
+                    
+                    // Transform speakers to persons format
+                    const persons = (session['Speaker names'] || []).map(name => ({
+                        public_name: name
+                    }));
+                    
+                    return {
+                        id: session.ID,
+                        title: session['Proposal title'],
+                        room: roomName,
+                        dayIndex,
+                        dayDate,
+                        start: parisStart,
+                        duration,
+                        type: session['Session type']?.en || '',
+                        track: trackName,
+                        trackColor,
+                        persons,
+                        description: session.Description,
+                        location,
+                        siteCode // Store site code directly on session
+                    };
                 });
-            });
             
             // Sort by time
             allSessions.sort((a, b) => {
