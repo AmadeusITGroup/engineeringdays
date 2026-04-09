@@ -308,7 +308,7 @@
             "id": "EHBDH8",
             "title": "Real-Time Intelligence with Azure Fabric: Detecting Signals and Acting in Real Time with Business Rules",
             "speakers": [
-                "1fc6181a8be7"
+                "f5c9184ed527"
             ],
             "tags": [
                 "AI, Data"
@@ -1259,8 +1259,8 @@
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
-        "1fc6181a8be7": {
-            "id": "1fc6181a8be7",
+        "f5c9184ed527": {
+            "id": "f5c9184ed527",
             "name": "Antoine Richet (Microsoft)",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
