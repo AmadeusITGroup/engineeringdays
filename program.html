@@ -1450,14 +1450,14 @@
                 <div class="filter-group">
                     <label class="filter-label">View</label>
                     <div class="view-toggle" id="view-toggle">
-                        <button class="view-btn active" data-view="grid" title="Grid view">
+                        <button class="view-btn" data-view="grid" title="Grid view">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
                                 <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
                             </svg>
                             Grid
                         </button>
-                        <button class="view-btn" data-view="agenda" title="Timeline view">
+                        <button class="view-btn active" data-view="agenda" title="Timeline view">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                 <line x1="9" y1="4" x2="9" y2="22"/><line x1="15" y1="4" x2="15" y2="22"/>
@@ -1542,7 +1542,7 @@
         track: ''
     };
     let selectedTimezone = 'Europe/Paris'; // Conference timezone
-    let currentView = 'grid'; // 'grid' or 'agenda'
+    let currentView = 'agenda'; // 'grid' or 'agenda'
     const CONFERENCE_TZ = 'Europe/Paris';
     const CONFERENCE_DATE_DAY1 = '2026-04-29';
     const CONFERENCE_DATE_DAY2 = '2026-04-30';
@@ -2040,6 +2040,10 @@
                     <span class="session-count">${sessions.length} sessions across ${roomCount} rooms</span>
                 </div>
                 <div class="timeline-wrapper">
+                    <!-- Top scrollbar for horizontal scroll visibility -->
+                    <div class="timeline-scroll-top" style="overflow-x: auto; overflow-y: hidden; margin: 0 -1rem; padding: 0 1rem; height: 12px;">
+                        <div class="timeline-scroll-top-inner" style="min-width: ${roomCount * 180 + 60}px; height: 1px;"></div>
+                    </div>
                     <!-- Scrollable container for both header and body -->
                     <div class="timeline-scroll-container" style="overflow-x: auto; overflow-anchor: none; margin: 0 -1rem; padding: 0 1rem;">
                         <div style="min-width: ${roomCount * 180 + 60}px;">
@@ -2152,6 +2156,32 @@
         
         container.innerHTML = html;
         makeSessionsClickable();
+        syncTimelineScrollbars();
+    }
+
+    // Sync top and bottom scrollbars for timeline view
+    function syncTimelineScrollbars() {
+        document.querySelectorAll('.timeline-wrapper').forEach(wrapper => {
+            const topScroll = wrapper.querySelector('.timeline-scroll-top');
+            const mainScroll = wrapper.querySelector('.timeline-scroll-container');
+            if (topScroll && mainScroll) {
+                let syncing = false;
+                topScroll.addEventListener('scroll', () => {
+                    if (!syncing) {
+                        syncing = true;
+                        mainScroll.scrollLeft = topScroll.scrollLeft;
+                        syncing = false;
+                    }
+                });
+                mainScroll.addEventListener('scroll', () => {
+                    if (!syncing) {
+                        syncing = true;
+                        topScroll.scrollLeft = mainScroll.scrollLeft;
+                        syncing = false;
+                    }
+                });
+            }
+        });
     }
 
     // Create track pills
