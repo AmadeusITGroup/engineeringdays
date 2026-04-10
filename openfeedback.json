@@ -617,6 +617,7 @@
             "id": "PB89E8",
             "title": "Orchestrating High‑Impact AI Agents with Gemini Enterprise",
             "speakers": [
+                "e94d352d9497",
                 "5e2647853af0"
             ],
             "tags": [
@@ -1382,6 +1383,12 @@
         "fc2f04dad1cb": {
             "id": "fc2f04dad1cb",
             "name": "Rahul AGRAWAL",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "e94d352d9497": {
+            "id": "e94d352d9497",
+            "name": "Agathe Duboué (Google)",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
