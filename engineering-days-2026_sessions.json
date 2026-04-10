@@ -1312,8 +1312,9 @@
     "Track": {
       "en": "AI, Data"
     },
-    "Description": "Speaker: David Clauvel (Google)\r\n\r\nDiscover how to build and deploy high-impact AI agents using Gemini Enterprise as the central orchestration hub, leveraging Google\u2019s Agent Development Kit (ADK) and running on Agent Engine within Vertex AI.\r\nThis session will explore an agent from code to deployment in Gemini Enterprise with Google's Antigravity.",
+    "Description": "Speaker: Agathe Duboué (Google), David Clauvel (Google)\r\n\r\nDiscover how to build and deploy high-impact AI agents using Gemini Enterprise as the central orchestration hub, leveraging Google\u2019s Agent Development Kit (ADK) and running on Agent Engine within Vertex AI.\r\nThis session will explore an agent from code to deployment in Gemini Enterprise with Google's Antigravity.",
     "Speaker names": [
+      "Agathe Duboué (Google)",
       "David Clauvel (Google)"
     ],
     "Room": {
