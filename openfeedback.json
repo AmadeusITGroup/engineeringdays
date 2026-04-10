@@ -1021,7 +1021,7 @@
             "id": "ZFRUPZ",
             "title": "Introducing AI driven development lifecycle (AI-DLC)",
             "speakers": [
-                "08cc6be55cac"
+                "2140aaec2aa3"
             ],
             "tags": [
                 "Development, QA"
@@ -1590,9 +1590,9 @@
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
-        "08cc6be55cac": {
-            "id": "08cc6be55cac",
-            "name": "Thomas Geoffroy (AWS)",
+        "2140aaec2aa3": {
+            "id": "2140aaec2aa3",
+            "name": "Alexis Daguès (AWS)",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
