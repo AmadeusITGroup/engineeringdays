@@ -6,7 +6,9 @@
             "speakers": [
                 "f2bd1bad0a1a"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-30T12:35:00+00:00",
             "endTime": "2026-04-30T15:20:00+02:00",
             "trackTitle": "Global room 1"
@@ -17,7 +19,9 @@
             "speakers": [
                 "b46dd33c20c6"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T11:00:00+00:00",
             "endTime": "2026-04-30T13:25:00+02:00",
             "trackTitle": "Global room 1"
@@ -28,7 +32,9 @@
             "speakers": [
                 "12cf96f945c1"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T14:00:00+00:00",
             "endTime": "2026-04-30T16:25:00+02:00",
             "trackTitle": "Global room 2"
@@ -39,7 +45,9 @@
             "speakers": [
                 "a730bb59f151"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-30T13:45:00+00:00",
             "endTime": "2026-04-30T16:10:00+02:00",
             "trackTitle": "[BOG] Local room"
@@ -50,7 +58,9 @@
             "speakers": [
                 "18239911f8d9"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-30T08:05:00+00:00",
             "endTime": "2026-04-30T10:50:00+02:00",
             "trackTitle": "Global room 2"
@@ -61,7 +71,9 @@
             "speakers": [
                 "f691c0b66337"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-30T14:55:00+00:00",
             "endTime": "2026-04-30T17:40:00+02:00",
             "trackTitle": "[BOG] Local room"
@@ -72,7 +84,9 @@
             "speakers": [
                 "6bbefcc087f5"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[BCN] Local room"
@@ -85,7 +99,9 @@
                 "ce33e339c06b",
                 "a4994ffbd21f"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-30T12:35:00+00:00",
             "endTime": "2026-04-30T15:20:00+02:00",
             "trackTitle": "Global room 2"
@@ -96,7 +112,9 @@
             "speakers": [
                 "eb4dda51d0d2"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-30T16:20:00+00:00",
             "endTime": "2026-04-30T19:05:00+02:00",
             "trackTitle": "[BOG] Local room"
@@ -107,7 +125,9 @@
             "speakers": [
                 "4255ae229aa2"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
             "trackTitle": "[AAH] Local room"
@@ -121,7 +141,9 @@
                 "75bfd4e41772",
                 "8f18230b955b"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
             "trackTitle": "[NCE] Local room 1"
@@ -132,7 +154,9 @@
             "speakers": [
                 "c033769a5e89"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T00:00:00+00:00",
             "endTime": "2026-04-29T04:00:00+02:00",
             "trackTitle": "[SYD] Local room"
@@ -143,7 +167,9 @@
             "speakers": [
                 "8c0e0e107eee"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[BHO] Local room 2"
@@ -154,7 +180,9 @@
             "speakers": [
                 "0e2f830dfabf"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-29T09:35:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -166,7 +194,9 @@
                 "d8173ebed710",
                 "eaeaaf56375a"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
             "trackTitle": "[ERD] Local room 1"
@@ -177,7 +207,9 @@
             "speakers": [
                 "f5406273458c"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T16:00:00+00:00",
             "endTime": "2026-04-29T20:00:00+02:00",
             "trackTitle": "[SLC] Local room"
@@ -188,7 +220,9 @@
             "speakers": [
                 "370a1f718a04"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-29T05:20:00+00:00",
             "endTime": "2026-04-29T07:45:00+02:00",
             "trackTitle": "[SYD] Local room"
@@ -201,7 +235,9 @@
                 "4c1fc9ef0aba",
                 "d08a02411974"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[ERD] Local room 3"
@@ -213,7 +249,9 @@
                 "b0541dce4537",
                 "7e6225fd3deb"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T13:05:00+00:00",
             "endTime": "2026-04-30T15:50:00+02:00",
             "trackTitle": "[IST] Local room"
@@ -225,7 +263,9 @@
                 "f601989cbf45",
                 "af3daad6d0ee"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T15:35:00+00:00",
             "endTime": "2026-04-30T18:20:00+02:00",
             "trackTitle": "[DFW] Local room"
@@ -236,7 +276,9 @@
             "speakers": [
                 "6134d5208c6f"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T08:20:00+00:00",
             "endTime": "2026-04-30T11:05:00+02:00",
             "trackTitle": "[IST] Local room"
@@ -247,7 +289,9 @@
             "speakers": [
                 "13b48e4a304c"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T05:50:00+00:00",
             "endTime": "2026-04-29T08:35:00+02:00",
             "trackTitle": "[SYD] Local room"
@@ -258,7 +302,9 @@
             "speakers": [
                 "62b4bc3c8954"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[NCE] Local room 3"
@@ -269,7 +315,9 @@
             "speakers": [
                 "2714e08e1f3d"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[BLR] Local room 1"
@@ -281,7 +329,9 @@
                 "37ffe78ad012",
                 "0163ce93a713"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T10:00:00+00:00",
             "endTime": "2026-04-30T12:25:00+02:00",
             "trackTitle": "Global room 3"
@@ -292,7 +342,9 @@
             "speakers": [
                 "f5c9184ed527"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T09:00:00+00:00",
             "endTime": "2026-04-29T13:00:00+02:00",
             "trackTitle": "[LHR] Local room"
@@ -303,7 +355,9 @@
             "speakers": [
                 "6131ed37fac6"
             ],
-            "tags": [],
+            "tags": [
+                "Passion, pet projects"
+            ],
             "startTime": "2026-04-30T12:35:00+00:00",
             "endTime": "2026-04-30T15:20:00+02:00",
             "trackTitle": "Global room 3"
@@ -314,7 +368,9 @@
             "speakers": [
                 "52489b3d0a2b"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T07:30:00+00:00",
             "endTime": "2026-04-30T09:55:00+02:00",
             "trackTitle": "Global room 1"
@@ -325,7 +381,9 @@
             "speakers": [
                 "568bc3e05f14"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T15:00:00+00:00",
             "endTime": "2026-04-30T17:25:00+02:00",
             "trackTitle": "[DFW] Local room"
@@ -336,7 +394,9 @@
             "speakers": [
                 "44b6c989c3b9"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-30T09:00:00+00:00",
             "endTime": "2026-04-30T11:25:00+02:00",
             "trackTitle": "Global room 3"
@@ -347,7 +407,9 @@
             "speakers": [
                 "52489b3d0a2b"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T08:05:00+00:00",
             "endTime": "2026-04-30T10:50:00+02:00",
             "trackTitle": "Global room 1"
@@ -359,7 +421,9 @@
                 "53ca54330a9d",
                 "f91eed8fe17a"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
             "trackTitle": "[ERD] Local room 2"
@@ -370,7 +434,9 @@
             "speakers": [
                 "6c7a321ad093"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-29T08:30:00+00:00",
             "endTime": "2026-04-29T12:30:00+02:00",
             "trackTitle": "[BLR] Local room 3"
@@ -381,7 +447,9 @@
             "speakers": [
                 "5054b189a787"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-30T14:15:00+00:00",
             "endTime": "2026-04-30T16:40:00+02:00",
             "trackTitle": "[BOG] Local room"
@@ -392,7 +460,9 @@
             "speakers": [
                 "3565c2fdd6d1"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
             "trackTitle": "Global room 3"
@@ -403,7 +473,9 @@
             "speakers": [
                 "09292d1746a1"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T12:35:00+00:00",
             "endTime": "2026-04-30T15:00:00+02:00",
             "trackTitle": "[ERD] Local room 2"
@@ -414,7 +486,9 @@
             "speakers": [
                 "ac5fd4c05846"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[NCE] Local room 2"
@@ -425,7 +499,9 @@
             "speakers": [
                 "5077caabb7a4"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-29T07:40:00+00:00",
             "endTime": "2026-04-29T10:05:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -436,7 +512,9 @@
             "speakers": [
                 "4ec7e1050ea9"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-29T04:30:00+00:00",
             "endTime": "2026-04-29T08:30:00+02:00",
             "trackTitle": "[BLR] Local room 1"
@@ -445,7 +523,9 @@
             "id": "JQXFZ8",
             "title": "From Full-Text to Vector Search: Modern Search Architectures",
             "speakers": [],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T07:20:00+00:00",
             "endTime": "2026-04-30T09:45:00+02:00",
             "trackTitle": "[IST] Local room"
@@ -465,7 +545,9 @@
             "speakers": [
                 "bf8f79cc2ac1"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T10:35:00+00:00",
             "endTime": "2026-04-30T13:00:00+02:00",
             "trackTitle": "Global room 1"
@@ -476,7 +558,9 @@
             "speakers": [
                 "5077caabb7a4"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-29T08:15:00+00:00",
             "endTime": "2026-04-29T11:00:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -487,7 +571,9 @@
             "speakers": [
                 "5dd5e04c10fe"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T04:55:00+00:00",
             "endTime": "2026-04-29T07:20:00+02:00",
             "trackTitle": "[SYD] Local room"
@@ -498,7 +584,9 @@
             "speakers": [
                 "5054b189a787"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T15:45:00+00:00",
             "endTime": "2026-04-30T18:10:00+02:00",
             "trackTitle": "[BOG] Local room"
@@ -509,7 +597,9 @@
             "speakers": [
                 "58a2cdc7b496"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-29T03:30:00+00:00",
             "endTime": "2026-04-29T05:55:00+02:00",
             "trackTitle": "[SYD] Local room"
@@ -520,7 +610,9 @@
             "speakers": [
                 "6e37249930ed"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-29T04:00:00+00:00",
             "endTime": "2026-04-29T06:25:00+02:00",
             "trackTitle": "[SYD] Local room"
@@ -532,7 +624,9 @@
                 "0cb7601c17fe",
                 "33e19e67327f"
             ],
-            "tags": [],
+            "tags": [
+                "UX, Front-end"
+            ],
             "startTime": "2026-04-29T04:30:00+00:00",
             "endTime": "2026-04-29T08:30:00+02:00",
             "trackTitle": "[BLR] Local room 3"
@@ -543,7 +637,9 @@
             "speakers": [
                 "47819fb3f8e7"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-30T10:35:00+00:00",
             "endTime": "2026-04-30T13:00:00+02:00",
             "trackTitle": "Global room 2"
@@ -554,7 +650,9 @@
             "speakers": [
                 "9b2928094bdf"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-30T10:35:00+00:00",
             "endTime": "2026-04-30T13:00:00+02:00",
             "trackTitle": "Global room 3"
@@ -565,7 +663,9 @@
             "speakers": [
                 "187972b9e084"
             ],
-            "tags": [],
+            "tags": [
+                "Passion, pet projects"
+            ],
             "startTime": "2026-04-30T10:00:00+00:00",
             "endTime": "2026-04-30T12:25:00+02:00",
             "trackTitle": "Global room 2"
@@ -576,7 +676,9 @@
             "speakers": [
                 "fc2f04dad1cb"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T13:10:00+00:00",
             "endTime": "2026-04-30T15:35:00+02:00",
             "trackTitle": "[ERD] Local room 2"
@@ -585,7 +687,9 @@
             "id": "NXRNFE",
             "title": "Microsoft's vision on AI",
             "speakers": [],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T12:10:00+00:00",
             "endTime": "2026-04-30T14:55:00+02:00",
             "trackTitle": "[IST] Local room"
@@ -597,7 +701,9 @@
                 "5e2647853af0",
                 "e94d352d9497"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T12:00:00+00:00",
             "endTime": "2026-04-30T14:25:00+02:00",
             "trackTitle": "Global room 1"
@@ -608,7 +714,9 @@
             "speakers": [
                 "8887f556c76b"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[NCE] Local room 1"
@@ -619,7 +727,9 @@
             "speakers": [
                 "ab3f04c16075"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-30T12:00:00+00:00",
             "endTime": "2026-04-30T14:25:00+02:00",
             "trackTitle": "Global room 2"
@@ -630,7 +740,9 @@
             "speakers": [
                 "e7421e1da681"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
             "trackTitle": "[BHO] Local room 1"
@@ -641,7 +753,9 @@
             "speakers": [
                 "6c27b21ddd84"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
             "trackTitle": "[ERD] Local room 2"
@@ -653,7 +767,9 @@
                 "ec975db1eebd",
                 "e5531b474844"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T14:00:00+00:00",
             "endTime": "2026-04-30T16:25:00+02:00",
             "trackTitle": "Global room 1"
@@ -664,7 +780,9 @@
             "speakers": [
                 "f626e01e92c3"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T09:00:00+00:00",
             "endTime": "2026-04-30T11:25:00+02:00",
             "trackTitle": "Global room 2"
@@ -675,7 +793,9 @@
             "speakers": [
                 "1fcc00c27589"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[BHO] Local room 1"
@@ -687,7 +807,9 @@
                 "c1af8967358e",
                 "bf075cddeac3"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-30T09:35:00+00:00",
             "endTime": "2026-04-30T12:00:00+02:00",
             "trackTitle": "Global room 1"
@@ -699,7 +821,9 @@
                 "738f1fdbf56a",
                 "cd9bd4261ef0"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T09:35:00+00:00",
             "endTime": "2026-04-30T12:00:00+02:00",
             "trackTitle": "Global room 3"
@@ -710,7 +834,9 @@
             "speakers": [
                 "d10a82ea074e"
             ],
-            "tags": [],
+            "tags": [
+                "UX, Front-end"
+            ],
             "startTime": "2026-04-30T04:00:00+00:00",
             "endTime": "2026-04-30T06:45:00+02:00",
             "trackTitle": "Global room 1"
@@ -721,7 +847,9 @@
             "speakers": [
                 "9c6d94b60c4b"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-30T13:30:00+00:00",
             "endTime": "2026-04-30T15:55:00+02:00",
             "trackTitle": "Global room 2"
@@ -732,7 +860,9 @@
             "speakers": [
                 "f226c7dae296"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T04:15:00+00:00",
             "endTime": "2026-04-30T07:00:00+02:00",
             "trackTitle": "Global room 2"
@@ -743,7 +873,9 @@
             "speakers": [
                 "5f9c3fd91dbc"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T10:05:00+00:00",
             "endTime": "2026-04-29T12:50:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -754,7 +886,9 @@
             "speakers": [
                 "cfc9157d5d51"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
             "trackTitle": "[LHR] Local room"
@@ -765,7 +899,9 @@
             "speakers": [
                 "4786df3e7841"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T10:00:00+00:00",
             "endTime": "2026-04-30T12:25:00+02:00",
             "trackTitle": "Global room 1"
@@ -776,7 +912,9 @@
             "speakers": [
                 "bad05d7189d7"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T13:30:00+00:00",
             "endTime": "2026-04-30T15:55:00+02:00",
             "trackTitle": "Global room 3"
@@ -787,7 +925,9 @@
             "speakers": [
                 "f592c2eefac1"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-29T04:30:00+00:00",
             "endTime": "2026-04-29T08:30:00+02:00",
             "trackTitle": "[BLR] Local room 2"
@@ -799,7 +939,9 @@
                 "064d4f89f4f1",
                 "077974ba2562"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-30T13:30:00+00:00",
             "endTime": "2026-04-30T15:55:00+02:00",
             "trackTitle": "Global room 1"
@@ -810,7 +952,9 @@
             "speakers": [
                 "654c82ca84ce"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
             "trackTitle": "[ERD] Local room 1"
@@ -821,7 +965,9 @@
             "speakers": [
                 "73e4c84827a4"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-29T09:05:00+00:00",
             "endTime": "2026-04-29T11:30:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -832,7 +978,9 @@
             "speakers": [
                 "7bac7a296cdb"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T09:00:00+00:00",
             "endTime": "2026-04-30T11:25:00+02:00",
             "trackTitle": "Global room 1"
@@ -843,7 +991,9 @@
             "speakers": [
                 "5f9c3fd91dbc"
             ],
-            "tags": [],
+            "tags": [
+                "Back-end, Cloud"
+            ],
             "startTime": "2026-04-29T07:05:00+00:00",
             "endTime": "2026-04-29T09:30:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -854,7 +1004,9 @@
             "speakers": [
                 "5ec717cfa5ed"
             ],
-            "tags": [],
+            "tags": [
+                "Leadership, People"
+            ],
             "startTime": "2026-04-30T12:00:00+00:00",
             "endTime": "2026-04-30T14:25:00+02:00",
             "trackTitle": "Global room 3"
@@ -865,7 +1017,9 @@
             "speakers": [
                 "f9752ccc66a5"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-30T04:15:00+00:00",
             "endTime": "2026-04-30T07:00:00+02:00",
             "trackTitle": "Global room 3"
@@ -876,7 +1030,9 @@
             "speakers": [
                 "2b90a7709e37"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
             "trackTitle": "[NCE] Local room 3"
@@ -887,7 +1043,9 @@
             "speakers": [
                 "78b73b974bb3"
             ],
-            "tags": [],
+            "tags": [
+                "UX, Front-end"
+            ],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
             "trackTitle": "[NCE] Local room 2"
@@ -898,7 +1056,9 @@
             "speakers": [
                 "3a4b80fceee3"
             ],
-            "tags": [],
+            "tags": [
+                "Passion, pet projects"
+            ],
             "startTime": "2026-04-30T14:00:00+00:00",
             "endTime": "2026-04-30T16:25:00+02:00",
             "trackTitle": "Global room 3"
@@ -909,7 +1069,9 @@
             "speakers": [
                 "4f5fda6db094"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[ERD] Local room 2"
@@ -920,7 +1082,9 @@
             "speakers": [
                 "5d6cea0f82d9"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T08:30:00+00:00",
             "endTime": "2026-04-29T12:30:00+02:00",
             "trackTitle": "[BLR] Local room 2"
@@ -931,7 +1095,9 @@
             "speakers": [
                 "2140aaec2aa3"
             ],
-            "tags": [],
+            "tags": [
+                "Development, QA"
+            ],
             "startTime": "2026-04-30T09:35:00+00:00",
             "endTime": "2026-04-30T12:00:00+02:00",
             "trackTitle": "Global room 2"
@@ -942,7 +1108,9 @@
             "speakers": [
                 "a683b406530e"
             ],
-            "tags": [],
+            "tags": [
+                "Passion, pet projects"
+            ],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
             "trackTitle": "Global room 1"
@@ -954,7 +1122,9 @@
                 "eb1a92142b0a",
                 "b401c1913967"
             ],
-            "tags": [],
+            "tags": [
+                "AI, Data"
+            ],
             "startTime": "2026-04-29T15:00:00+00:00",
             "endTime": "2026-04-29T19:00:00+02:00",
             "trackTitle": "[DFW] Local room"
@@ -966,7 +1136,9 @@
                 "c5044c576007",
                 "278d79d06b56"
             ],
-            "tags": [],
+            "tags": [
+                "UX, Front-end"
+            ],
             "startTime": "2026-04-30T08:05:00+00:00",
             "endTime": "2026-04-30T10:50:00+02:00",
             "trackTitle": "Global room 3"
@@ -977,7 +1149,9 @@
             "speakers": [
                 "0a771a3fcef1"
             ],
-            "tags": [],
+            "tags": [
+                "DevOps, Security"
+            ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[ERD] Local room 1"
