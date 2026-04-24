@@ -2080,9 +2080,13 @@
         const filtered = allSessions.filter(session => {
             if (activeFilters.day && session.dayIndex !== parseInt(activeFilters.day)) return false;
             if (activeFilters.site) {
-                const sessionSite = session.siteCode || extractSite(session.room, session.location);
-                // Rooms without a site prefix (e.g., "Room 1") are cross-site, show them for all sites
-                if (sessionSite !== null && sessionSite !== activeFilters.site) return false;
+                // Hardcoded rooms that should always be shown regardless of SITE filter
+                const ALWAYS_VISIBLE_ROOMS = new Set(['Global room 1', 'Global room 2', 'Global room 3']);
+                // Bypass SITE filtering for these specific rooms
+                if (!ALWAYS_VISIBLE_ROOMS.has(session.room)) {
+                    const sessionSite = session.siteCode || extractSite(session.room, session.location);
+                    if (sessionSite !== null && sessionSite !== activeFilters.site) return false;
+                }
             }
             if (activeFilters.type && session.type !== activeFilters.type) return false;
             if (activeFilters.track && session.track !== activeFilters.track) return false;
