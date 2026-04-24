@@ -6,12 +6,10 @@
             "speakers": [
                 "f2bd1bad0a1a"
             ],
-            "tags": [
-                "Back-end, Cloud"
-            ],
-            "startTime": "2026-04-30T12:40:00+00:00",
-            "endTime": "2026-04-30T15:25:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T12:35:00+00:00",
+            "endTime": "2026-04-30T15:20:00+02:00",
+            "trackTitle": "Global room 1"
         },
         "3AWXXQ": {
             "id": "3AWXXQ",
@@ -19,12 +17,10 @@
             "speakers": [
                 "b46dd33c20c6"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T11:00:00+00:00",
             "endTime": "2026-04-30T13:25:00+02:00",
-            "trackTitle": "Room 1"
+            "trackTitle": "Global room 1"
         },
         "3L9W9P": {
             "id": "3L9W9P",
@@ -32,12 +28,10 @@
             "speakers": [
                 "12cf96f945c1"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
-            "startTime": "2026-04-30T14:10:00+00:00",
-            "endTime": "2026-04-30T16:35:00+02:00",
-            "trackTitle": "Room 2"
+            "tags": [],
+            "startTime": "2026-04-30T14:00:00+00:00",
+            "endTime": "2026-04-30T16:25:00+02:00",
+            "trackTitle": "Global room 2"
         },
         "73ETLT": {
             "id": "73ETLT",
@@ -45,12 +39,10 @@
             "speakers": [
                 "a730bb59f151"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
-            "startTime": "2026-04-30T14:50:00+00:00",
-            "endTime": "2026-04-30T17:15:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T13:45:00+00:00",
+            "endTime": "2026-04-30T16:10:00+02:00",
+            "trackTitle": "[BOG] Local room"
         },
         "77AAXP": {
             "id": "77AAXP",
@@ -58,12 +50,10 @@
             "speakers": [
                 "18239911f8d9"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T08:05:00+00:00",
             "endTime": "2026-04-30T10:50:00+02:00",
-            "trackTitle": "Room 2"
+            "trackTitle": "Global room 2"
         },
         "7JM7UN": {
             "id": "7JM7UN",
@@ -71,12 +61,10 @@
             "speakers": [
                 "f691c0b66337"
             ],
-            "tags": [
-                "Development, QA"
-            ],
-            "startTime": "2026-04-30T16:00:00+00:00",
-            "endTime": "2026-04-30T18:45:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T14:55:00+00:00",
+            "endTime": "2026-04-30T17:40:00+02:00",
+            "trackTitle": "[BOG] Local room"
         },
         "7SA9J8": {
             "id": "7SA9J8",
@@ -84,9 +72,7 @@
             "speakers": [
                 "6bbefcc087f5"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[BCN] Local room"
@@ -99,12 +85,10 @@
                 "ce33e339c06b",
                 "a4994ffbd21f"
             ],
-            "tags": [
-                "Development, QA"
-            ],
-            "startTime": "2026-04-30T12:40:00+00:00",
-            "endTime": "2026-04-30T15:25:00+02:00",
-            "trackTitle": "Room 2"
+            "tags": [],
+            "startTime": "2026-04-30T12:35:00+00:00",
+            "endTime": "2026-04-30T15:20:00+02:00",
+            "trackTitle": "Global room 2"
         },
         "7XZCCE": {
             "id": "7XZCCE",
@@ -112,12 +96,10 @@
             "speakers": [
                 "eb4dda51d0d2"
             ],
-            "tags": [
-                "Development, QA"
-            ],
-            "startTime": "2026-04-30T19:00:00+00:00",
-            "endTime": "2026-04-30T21:45:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T16:20:00+00:00",
+            "endTime": "2026-04-30T19:05:00+02:00",
+            "trackTitle": "[BOG] Local room"
         },
         "7YD9BN": {
             "id": "7YD9BN",
@@ -125,9 +107,7 @@
             "speakers": [
                 "4255ae229aa2"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
             "trackTitle": "[AAH] Local room"
@@ -141,12 +121,10 @@
                 "75bfd4e41772",
                 "8f18230b955b"
             ],
-            "tags": [
-                "Back-end, Cloud"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
-            "trackTitle": "[NCE] Local room - 1"
+            "trackTitle": "[NCE] Local room 1"
         },
         "8QN9XT": {
             "id": "8QN9XT",
@@ -154,9 +132,7 @@
             "speakers": [
                 "c033769a5e89"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T00:00:00+00:00",
             "endTime": "2026-04-29T04:00:00+02:00",
             "trackTitle": "[SYD] Local room"
@@ -167,9 +143,7 @@
             "speakers": [
                 "8c0e0e107eee"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "[BHO] Local room 2"
@@ -177,10 +151,10 @@
         "8QVLTW": {
             "id": "8QVLTW",
             "title": "Panache Next",
-            "speakers": [],
-            "tags": [
-                "Back-end, Cloud"
+            "speakers": [
+                "0e2f830dfabf"
             ],
+            "tags": [],
             "startTime": "2026-04-29T09:35:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -192,12 +166,10 @@
                 "d8173ebed710",
                 "eaeaaf56375a"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
-            "trackTitle": "[ERD] Local room - 1"
+            "trackTitle": "[ERD] Local room 1"
         },
         "9ALGAU": {
             "id": "9ALGAU",
@@ -205,9 +177,7 @@
             "speakers": [
                 "f5406273458c"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T16:00:00+00:00",
             "endTime": "2026-04-29T20:00:00+02:00",
             "trackTitle": "[SLC] Local room"
@@ -218,25 +188,35 @@
             "speakers": [
                 "370a1f718a04"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
-            "startTime": "2026-04-30T01:10:00+00:00",
-            "endTime": "2026-04-30T03:35:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-29T05:20:00+00:00",
+            "endTime": "2026-04-29T07:45:00+02:00",
+            "trackTitle": "[SYD] Local room"
         },
         "AR97RM": {
             "id": "AR97RM",
             "title": "AI Done Right: Hands‑On Compliance Workshop - ERDING",
             "speakers": [
-                "094de28b2b0f"
+                "094de28b2b0f",
+                "4c1fc9ef0aba",
+                "d08a02411974"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[ERD] Local room - 3"
+            "trackTitle": "[ERD] Local room 3"
+        },
+        "ASJU9Q": {
+            "id": "ASJU9Q",
+            "title": "\"From Blind Spots to Clarity: Building a Layered Observability & Alerting Ecosystem\"",
+            "speakers": [
+                "b0541dce4537",
+                "7e6225fd3deb"
+            ],
+            "tags": [],
+            "startTime": "2026-04-30T13:05:00+00:00",
+            "endTime": "2026-04-30T15:50:00+02:00",
+            "trackTitle": "[IST] Local room"
         },
         "ATYX39": {
             "id": "ATYX39",
@@ -245,12 +225,21 @@
                 "f601989cbf45",
                 "af3daad6d0ee"
             ],
-            "tags": [
-                "AI, Data"
+            "tags": [],
+            "startTime": "2026-04-30T15:35:00+00:00",
+            "endTime": "2026-04-30T18:20:00+02:00",
+            "trackTitle": "[DFW] Local room"
+        },
+        "B3NZ3S": {
+            "id": "B3NZ3S",
+            "title": "Why Oracle Database Partitioning is Important ?",
+            "speakers": [
+                "6134d5208c6f"
             ],
-            "startTime": "2026-04-30T20:40:00+00:00",
-            "endTime": "2026-04-30T23:25:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T08:20:00+00:00",
+            "endTime": "2026-04-30T11:05:00+02:00",
+            "trackTitle": "[IST] Local room"
         },
         "CZ9MPA": {
             "id": "CZ9MPA",
@@ -258,12 +247,10 @@
             "speakers": [
                 "13b48e4a304c"
             ],
-            "tags": [
-                "AI, Data"
-            ],
-            "startTime": "2026-04-29T23:50:00+00:00",
-            "endTime": "2026-04-30T02:35:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-29T05:50:00+00:00",
+            "endTime": "2026-04-29T08:35:00+02:00",
+            "trackTitle": "[SYD] Local room"
         },
         "CZHSYM": {
             "id": "CZHSYM",
@@ -271,12 +258,10 @@
             "speakers": [
                 "62b4bc3c8954"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[NCE] Local room - 2"
+            "trackTitle": "[NCE] Local room 3"
         },
         "D7CNNE": {
             "id": "D7CNNE",
@@ -284,25 +269,22 @@
             "speakers": [
                 "2714e08e1f3d"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[BLR] Local room - 1"
+            "trackTitle": "[BLR] Local room 1"
         },
         "DLFGKA": {
             "id": "DLFGKA",
             "title": "Crypto 101: How Certificates Keep the Internet running",
             "speakers": [
-                "37ffe78ad012"
+                "37ffe78ad012",
+                "0163ce93a713"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T10:00:00+00:00",
             "endTime": "2026-04-30T12:25:00+02:00",
-            "trackTitle": "Room 3"
+            "trackTitle": "Global room 3"
         },
         "EHBDH8": {
             "id": "EHBDH8",
@@ -310,9 +292,7 @@
             "speakers": [
                 "f5c9184ed527"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T09:00:00+00:00",
             "endTime": "2026-04-29T13:00:00+02:00",
             "trackTitle": "[LHR] Local room"
@@ -323,12 +303,10 @@
             "speakers": [
                 "6131ed37fac6"
             ],
-            "tags": [
-                "Passion, pet projects"
-            ],
-            "startTime": "2026-04-30T12:40:00+00:00",
-            "endTime": "2026-04-30T15:25:00+02:00",
-            "trackTitle": "Room 3"
+            "tags": [],
+            "startTime": "2026-04-30T12:35:00+00:00",
+            "endTime": "2026-04-30T15:20:00+02:00",
+            "trackTitle": "Global room 3"
         },
         "F7KPNY": {
             "id": "F7KPNY",
@@ -336,12 +314,10 @@
             "speakers": [
                 "52489b3d0a2b"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T07:30:00+00:00",
             "endTime": "2026-04-30T09:55:00+02:00",
-            "trackTitle": "Room 1"
+            "trackTitle": "Global room 1"
         },
         "FWY79W": {
             "id": "FWY79W",
@@ -349,12 +325,10 @@
             "speakers": [
                 "568bc3e05f14"
             ],
-            "tags": [
-                "AI, Data"
-            ],
-            "startTime": "2026-04-30T20:05:00+00:00",
-            "endTime": "2026-04-30T22:30:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T15:00:00+00:00",
+            "endTime": "2026-04-30T17:25:00+02:00",
+            "trackTitle": "[DFW] Local room"
         },
         "GCMVT3": {
             "id": "GCMVT3",
@@ -362,12 +336,10 @@
             "speakers": [
                 "44b6c989c3b9"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T09:00:00+00:00",
             "endTime": "2026-04-30T11:25:00+02:00",
-            "trackTitle": "Room 3"
+            "trackTitle": "Global room 3"
         },
         "GNESJP": {
             "id": "GNESJP",
@@ -375,25 +347,22 @@
             "speakers": [
                 "52489b3d0a2b"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T08:05:00+00:00",
             "endTime": "2026-04-30T10:50:00+02:00",
-            "trackTitle": "Room 1"
+            "trackTitle": "Global room 1"
         },
         "H39G7J": {
             "id": "H39G7J",
             "title": "Turning Problem Management into a Driver of Stability and Service Excellence",
             "speakers": [
+                "53ca54330a9d",
                 "f91eed8fe17a"
             ],
-            "tags": [
-                "Back-end, Cloud"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
-            "trackTitle": "[ERD] Local room - 2"
+            "trackTitle": "[ERD] Local room 2"
         },
         "H3GBNJ": {
             "id": "H3GBNJ",
@@ -401,12 +370,10 @@
             "speakers": [
                 "6c7a321ad093"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:30:00+00:00",
             "endTime": "2026-04-29T12:30:00+02:00",
-            "trackTitle": "[BLR] Local room - 3"
+            "trackTitle": "[BLR] Local room 3"
         },
         "HYXGWY": {
             "id": "HYXGWY",
@@ -414,12 +381,10 @@
             "speakers": [
                 "5054b189a787"
             ],
-            "tags": [
-                "Back-end, Cloud"
-            ],
-            "startTime": "2026-04-30T15:25:00+00:00",
-            "endTime": "2026-04-30T17:50:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T14:15:00+00:00",
+            "endTime": "2026-04-30T16:40:00+02:00",
+            "trackTitle": "[BOG] Local room"
         },
         "HZDCLG": {
             "id": "HZDCLG",
@@ -427,12 +392,10 @@
             "speakers": [
                 "3565c2fdd6d1"
             ],
-            "tags": [
-                "Back-end, Cloud"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
-            "trackTitle": "Room 3"
+            "trackTitle": "Global room 3"
         },
         "JMFEMW": {
             "id": "JMFEMW",
@@ -440,12 +403,10 @@
             "speakers": [
                 "09292d1746a1"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
-            "startTime": "2026-04-30T12:40:00+00:00",
-            "endTime": "2026-04-30T15:05:00+02:00",
-            "trackTitle": "[ERD] Local room - 2"
+            "tags": [],
+            "startTime": "2026-04-30T12:35:00+00:00",
+            "endTime": "2026-04-30T15:00:00+02:00",
+            "trackTitle": "[ERD] Local room 2"
         },
         "JNRXHF": {
             "id": "JNRXHF",
@@ -453,20 +414,18 @@
             "speakers": [
                 "ac5fd4c05846"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[NCE] Local room - 1"
+            "trackTitle": "[NCE] Local room 2"
         },
         "JNTY3E": {
             "id": "JNTY3E",
             "title": "The road to Quarkus 4",
-            "speakers": [],
-            "tags": [
-                "Back-end, Cloud"
+            "speakers": [
+                "5077caabb7a4"
             ],
+            "tags": [],
             "startTime": "2026-04-29T07:40:00+00:00",
             "endTime": "2026-04-29T10:05:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -477,12 +436,28 @@
             "speakers": [
                 "4ec7e1050ea9"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T04:30:00+00:00",
             "endTime": "2026-04-29T08:30:00+02:00",
-            "trackTitle": "[BLR] Local room - 1"
+            "trackTitle": "[BLR] Local room 1"
+        },
+        "JQXFZ8": {
+            "id": "JQXFZ8",
+            "title": "From Full-Text to Vector Search: Modern Search Architectures",
+            "speakers": [],
+            "tags": [],
+            "startTime": "2026-04-30T07:20:00+00:00",
+            "endTime": "2026-04-30T09:45:00+02:00",
+            "trackTitle": "[IST] Local room"
+        },
+        "KBTMWK": {
+            "id": "KBTMWK",
+            "title": "From Clicks to Context: Building Smarter Recommendations with Couchbase and Vector Search",
+            "speakers": [],
+            "tags": [],
+            "startTime": "2026-04-30T07:50:00+00:00",
+            "endTime": "2026-04-30T10:15:00+02:00",
+            "trackTitle": "[IST] Local room"
         },
         "KCJQBA": {
             "id": "KCJQBA",
@@ -490,20 +465,18 @@
             "speakers": [
                 "bf8f79cc2ac1"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T10:35:00+00:00",
             "endTime": "2026-04-30T13:00:00+02:00",
-            "trackTitle": "Room 1"
+            "trackTitle": "Global room 1"
         },
         "KHG3TX": {
             "id": "KHG3TX",
             "title": "Agentic with Langchain4j and Quarkus Flow",
-            "speakers": [],
-            "tags": [
-                "Back-end, Cloud"
+            "speakers": [
+                "5077caabb7a4"
             ],
+            "tags": [],
             "startTime": "2026-04-29T08:15:00+00:00",
             "endTime": "2026-04-29T11:00:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -514,12 +487,10 @@
             "speakers": [
                 "5dd5e04c10fe"
             ],
-            "tags": [
-                "AI, Data"
-            ],
-            "startTime": "2026-04-30T00:45:00+00:00",
-            "endTime": "2026-04-30T03:10:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-29T04:55:00+00:00",
+            "endTime": "2026-04-29T07:20:00+02:00",
+            "trackTitle": "[SYD] Local room"
         },
         "LPK7KP": {
             "id": "LPK7KP",
@@ -527,12 +498,10 @@
             "speakers": [
                 "5054b189a787"
             ],
-            "tags": [
-                "AI, Data"
-            ],
-            "startTime": "2026-04-30T16:55:00+00:00",
-            "endTime": "2026-04-30T19:20:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T15:45:00+00:00",
+            "endTime": "2026-04-30T18:10:00+02:00",
+            "trackTitle": "[BOG] Local room"
         },
         "MPY7WH": {
             "id": "MPY7WH",
@@ -540,12 +509,10 @@
             "speakers": [
                 "58a2cdc7b496"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
-            "startTime": "2026-04-29T23:15:00+00:00",
-            "endTime": "2026-04-30T01:40:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-29T03:30:00+00:00",
+            "endTime": "2026-04-29T05:55:00+02:00",
+            "trackTitle": "[SYD] Local room"
         },
         "MTTDQX": {
             "id": "MTTDQX",
@@ -553,12 +520,10 @@
             "speakers": [
                 "6e37249930ed"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
-            "startTime": "2026-04-30T01:40:00+00:00",
-            "endTime": "2026-04-30T04:05:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-29T04:00:00+00:00",
+            "endTime": "2026-04-29T06:25:00+02:00",
+            "trackTitle": "[SYD] Local room"
         },
         "MVDVYQ": {
             "id": "MVDVYQ",
@@ -567,12 +532,10 @@
                 "0cb7601c17fe",
                 "33e19e67327f"
             ],
-            "tags": [
-                "UX, Front-end"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T04:30:00+00:00",
             "endTime": "2026-04-29T08:30:00+02:00",
-            "trackTitle": "[BLR] Local room - 3"
+            "trackTitle": "[BLR] Local room 3"
         },
         "N3DMKL": {
             "id": "N3DMKL",
@@ -580,12 +543,10 @@
             "speakers": [
                 "47819fb3f8e7"
             ],
-            "tags": [
-                "Back-end, Cloud"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T10:35:00+00:00",
             "endTime": "2026-04-30T13:00:00+02:00",
-            "trackTitle": "Room 2"
+            "trackTitle": "Global room 2"
         },
         "NDCRNH": {
             "id": "NDCRNH",
@@ -593,12 +554,21 @@
             "speakers": [
                 "9b2928094bdf"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T10:35:00+00:00",
             "endTime": "2026-04-30T13:00:00+02:00",
-            "trackTitle": "Room 3"
+            "trackTitle": "Global room 3"
+        },
+        "NEWKN7": {
+            "id": "NEWKN7",
+            "title": "Predictive Crowd Intelligence using Satellite computer vision and predictive travel analytics",
+            "speakers": [
+                "187972b9e084"
+            ],
+            "tags": [],
+            "startTime": "2026-04-30T10:00:00+00:00",
+            "endTime": "2026-04-30T12:25:00+02:00",
+            "trackTitle": "Global room 2"
         },
         "NL33Q9": {
             "id": "NL33Q9",
@@ -606,26 +576,31 @@
             "speakers": [
                 "fc2f04dad1cb"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
-            "startTime": "2026-04-30T13:05:00+00:00",
-            "endTime": "2026-04-30T15:30:00+02:00",
-            "trackTitle": "[ERD] Local room - 2"
+            "tags": [],
+            "startTime": "2026-04-30T13:10:00+00:00",
+            "endTime": "2026-04-30T15:35:00+02:00",
+            "trackTitle": "[ERD] Local room 2"
+        },
+        "NXRNFE": {
+            "id": "NXRNFE",
+            "title": "Microsoft's vision on AI",
+            "speakers": [],
+            "tags": [],
+            "startTime": "2026-04-30T12:10:00+00:00",
+            "endTime": "2026-04-30T14:55:00+02:00",
+            "trackTitle": "[IST] Local room"
         },
         "PB89E8": {
             "id": "PB89E8",
             "title": "Orchestrating High‑Impact AI Agents with Gemini Enterprise",
             "speakers": [
-                "e94d352d9497",
-                "5e2647853af0"
+                "5e2647853af0",
+                "e94d352d9497"
             ],
-            "tags": [
-                "AI, Data"
-            ],
-            "startTime": "2026-04-30T12:05:00+00:00",
-            "endTime": "2026-04-30T14:30:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T12:00:00+00:00",
+            "endTime": "2026-04-30T14:25:00+02:00",
+            "trackTitle": "Global room 1"
         },
         "PF9R3R": {
             "id": "PF9R3R",
@@ -633,12 +608,10 @@
             "speakers": [
                 "8887f556c76b"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[NCE] Local room - 3"
+            "trackTitle": "[NCE] Local room 1"
         },
         "Q8FM9B": {
             "id": "Q8FM9B",
@@ -646,12 +619,10 @@
             "speakers": [
                 "ab3f04c16075"
             ],
-            "tags": [
-                "Development, QA"
-            ],
-            "startTime": "2026-04-30T12:05:00+00:00",
-            "endTime": "2026-04-30T14:30:00+02:00",
-            "trackTitle": "Room 2"
+            "tags": [],
+            "startTime": "2026-04-30T12:00:00+00:00",
+            "endTime": "2026-04-30T14:25:00+02:00",
+            "trackTitle": "Global room 2"
         },
         "QJRTKM": {
             "id": "QJRTKM",
@@ -659,12 +630,10 @@
             "speakers": [
                 "e7421e1da681"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
-            "trackTitle": "[BHO] Local room -1"
+            "trackTitle": "[BHO] Local room 1"
         },
         "QLJEDZ": {
             "id": "QLJEDZ",
@@ -672,12 +641,10 @@
             "speakers": [
                 "6c27b21ddd84"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
-            "trackTitle": "[ERD] Local room - 2"
+            "trackTitle": "[ERD] Local room 2"
         },
         "QUUS3R": {
             "id": "QUUS3R",
@@ -686,12 +653,10 @@
                 "ec975db1eebd",
                 "e5531b474844"
             ],
-            "tags": [
-                "AI, Data"
-            ],
-            "startTime": "2026-04-30T14:10:00+00:00",
-            "endTime": "2026-04-30T16:35:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T14:00:00+00:00",
+            "endTime": "2026-04-30T16:25:00+02:00",
+            "trackTitle": "Global room 1"
         },
         "SCBSB9": {
             "id": "SCBSB9",
@@ -699,12 +664,10 @@
             "speakers": [
                 "f626e01e92c3"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T09:00:00+00:00",
             "endTime": "2026-04-30T11:25:00+02:00",
-            "trackTitle": "Room 2"
+            "trackTitle": "Global room 2"
         },
         "SJGRAY": {
             "id": "SJGRAY",
@@ -712,12 +675,10 @@
             "speakers": [
                 "1fcc00c27589"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[BHO] Local room -1"
+            "trackTitle": "[BHO] Local room 1"
         },
         "SQU78J": {
             "id": "SQU78J",
@@ -726,12 +687,10 @@
                 "c1af8967358e",
                 "bf075cddeac3"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T09:35:00+00:00",
             "endTime": "2026-04-30T12:00:00+02:00",
-            "trackTitle": "Room 1"
+            "trackTitle": "Global room 1"
         },
         "SRJ3BA": {
             "id": "SRJ3BA",
@@ -740,12 +699,10 @@
                 "738f1fdbf56a",
                 "cd9bd4261ef0"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T09:35:00+00:00",
             "endTime": "2026-04-30T12:00:00+02:00",
-            "trackTitle": "Room 3"
+            "trackTitle": "Global room 3"
         },
         "SYXLZ8": {
             "id": "SYXLZ8",
@@ -753,12 +710,10 @@
             "speakers": [
                 "d10a82ea074e"
             ],
-            "tags": [
-                "UX, Front-end"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T04:00:00+00:00",
             "endTime": "2026-04-30T06:45:00+02:00",
-            "trackTitle": "Room 1"
+            "trackTitle": "Global room 1"
         },
         "TCZS9A": {
             "id": "TCZS9A",
@@ -766,25 +721,10 @@
             "speakers": [
                 "9c6d94b60c4b"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
-            "startTime": "2026-04-30T13:35:00+00:00",
-            "endTime": "2026-04-30T16:00:00+02:00",
-            "trackTitle": "Room 2"
-        },
-        "TGS9BS": {
-            "id": "TGS9BS",
-            "title": "Kafka: The Art of Building Systems That Never Wait",
-            "speakers": [
-                "392eadf631f1"
-            ],
-            "tags": [
-                "Back-end, Cloud"
-            ],
-            "startTime": "2026-04-30T10:00:00+00:00",
-            "endTime": "2026-04-30T12:25:00+02:00",
-            "trackTitle": "Room 2"
+            "tags": [],
+            "startTime": "2026-04-30T13:30:00+00:00",
+            "endTime": "2026-04-30T15:55:00+02:00",
+            "trackTitle": "Global room 2"
         },
         "TKTAUN": {
             "id": "TKTAUN",
@@ -792,12 +732,10 @@
             "speakers": [
                 "f226c7dae296"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T04:15:00+00:00",
             "endTime": "2026-04-30T07:00:00+02:00",
-            "trackTitle": "Room 2"
+            "trackTitle": "Global room 2"
         },
         "TWDNCN": {
             "id": "TWDNCN",
@@ -805,9 +743,7 @@
             "speakers": [
                 "5f9c3fd91dbc"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T10:05:00+00:00",
             "endTime": "2026-04-29T12:50:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -818,9 +754,7 @@
             "speakers": [
                 "cfc9157d5d51"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
             "trackTitle": "[LHR] Local room"
@@ -831,12 +765,10 @@
             "speakers": [
                 "4786df3e7841"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T10:00:00+00:00",
             "endTime": "2026-04-30T12:25:00+02:00",
-            "trackTitle": "Room 1"
+            "trackTitle": "Global room 1"
         },
         "UM8E8S": {
             "id": "UM8E8S",
@@ -844,12 +776,10 @@
             "speakers": [
                 "bad05d7189d7"
             ],
-            "tags": [
-                "AI, Data"
-            ],
-            "startTime": "2026-04-30T13:35:00+00:00",
-            "endTime": "2026-04-30T16:00:00+02:00",
-            "trackTitle": "Room 3"
+            "tags": [],
+            "startTime": "2026-04-30T13:30:00+00:00",
+            "endTime": "2026-04-30T15:55:00+02:00",
+            "trackTitle": "Global room 3"
         },
         "UPAJV9": {
             "id": "UPAJV9",
@@ -857,12 +787,10 @@
             "speakers": [
                 "f592c2eefac1"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T04:30:00+00:00",
             "endTime": "2026-04-29T08:30:00+02:00",
-            "trackTitle": "[BLR] Local room - 2"
+            "trackTitle": "[BLR] Local room 2"
         },
         "VWSPLY": {
             "id": "VWSPLY",
@@ -871,12 +799,10 @@
                 "064d4f89f4f1",
                 "077974ba2562"
             ],
-            "tags": [
-                "Back-end, Cloud"
-            ],
-            "startTime": "2026-04-30T13:35:00+00:00",
-            "endTime": "2026-04-30T16:00:00+02:00",
-            "trackTitle": "Room 1"
+            "tags": [],
+            "startTime": "2026-04-30T13:30:00+00:00",
+            "endTime": "2026-04-30T15:55:00+02:00",
+            "trackTitle": "Global room 1"
         },
         "WGEADR": {
             "id": "WGEADR",
@@ -884,20 +810,18 @@
             "speakers": [
                 "654c82ca84ce"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
-            "trackTitle": "[ERD] Local room - 1"
+            "trackTitle": "[ERD] Local room 1"
         },
         "WTPRCB": {
             "id": "WTPRCB",
             "title": "Kafka queues",
-            "speakers": [],
-            "tags": [
-                "Back-end, Cloud"
+            "speakers": [
+                "73e4c84827a4"
             ],
+            "tags": [],
             "startTime": "2026-04-29T09:05:00+00:00",
             "endTime": "2026-04-29T11:30:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -906,22 +830,20 @@
             "id": "WYCYZX",
             "title": "Perses - Evolution and next features for Amadeus",
             "speakers": [
-                "7a3b237ec6a2"
+                "7bac7a296cdb"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T09:00:00+00:00",
             "endTime": "2026-04-30T11:25:00+02:00",
-            "trackTitle": "Room 1"
+            "trackTitle": "Global room 1"
         },
         "WYQELC": {
             "id": "WYQELC",
             "title": "What’s new in Quarkus 3.33?",
-            "speakers": [],
-            "tags": [
-                "Back-end, Cloud"
+            "speakers": [
+                "5f9c3fd91dbc"
             ],
+            "tags": [],
             "startTime": "2026-04-29T07:05:00+00:00",
             "endTime": "2026-04-29T09:30:00+02:00",
             "trackTitle": "Java Cloud Native track"
@@ -932,12 +854,10 @@
             "speakers": [
                 "5ec717cfa5ed"
             ],
-            "tags": [
-                "Leadership, People"
-            ],
-            "startTime": "2026-04-30T12:05:00+00:00",
-            "endTime": "2026-04-30T14:30:00+02:00",
-            "trackTitle": "Room 3"
+            "tags": [],
+            "startTime": "2026-04-30T12:00:00+00:00",
+            "endTime": "2026-04-30T14:25:00+02:00",
+            "trackTitle": "Global room 3"
         },
         "XLG9VM": {
             "id": "XLG9VM",
@@ -945,12 +865,10 @@
             "speakers": [
                 "f9752ccc66a5"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T04:15:00+00:00",
             "endTime": "2026-04-30T07:00:00+02:00",
-            "trackTitle": "Room 3"
+            "trackTitle": "Global room 3"
         },
         "XVBN7E": {
             "id": "XVBN7E",
@@ -958,12 +876,10 @@
             "speakers": [
                 "2b90a7709e37"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
-            "trackTitle": "[NCE] Local room - 3"
+            "trackTitle": "[NCE] Local room 3"
         },
         "YSAKUW": {
             "id": "YSAKUW",
@@ -971,12 +887,10 @@
             "speakers": [
                 "78b73b974bb3"
             ],
-            "tags": [
-                "UX, Front-end"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T13:00:00+00:00",
             "endTime": "2026-04-29T17:00:00+02:00",
-            "trackTitle": "[NCE] Local room - 2"
+            "trackTitle": "[NCE] Local room 2"
         },
         "YSAUX7": {
             "id": "YSAUX7",
@@ -984,12 +898,10 @@
             "speakers": [
                 "3a4b80fceee3"
             ],
-            "tags": [
-                "Passion, pet projects"
-            ],
-            "startTime": "2026-04-30T14:10:00+00:00",
-            "endTime": "2026-04-30T16:35:00+02:00",
-            "trackTitle": "Room 3"
+            "tags": [],
+            "startTime": "2026-04-30T14:00:00+00:00",
+            "endTime": "2026-04-30T16:25:00+02:00",
+            "trackTitle": "Global room 3"
         },
         "YTJPUC": {
             "id": "YTJPUC",
@@ -997,12 +909,10 @@
             "speakers": [
                 "4f5fda6db094"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[ERD] Local room - 2"
+            "trackTitle": "[ERD] Local room 2"
         },
         "Z8TJ7J": {
             "id": "Z8TJ7J",
@@ -1010,12 +920,10 @@
             "speakers": [
                 "5d6cea0f82d9"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:30:00+00:00",
             "endTime": "2026-04-29T12:30:00+02:00",
-            "trackTitle": "[BLR] Local room - 2"
+            "trackTitle": "[BLR] Local room 2"
         },
         "ZFRUPZ": {
             "id": "ZFRUPZ",
@@ -1023,12 +931,10 @@
             "speakers": [
                 "2140aaec2aa3"
             ],
-            "tags": [
-                "Development, QA"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T09:35:00+00:00",
             "endTime": "2026-04-30T12:00:00+02:00",
-            "trackTitle": "Room 2"
+            "trackTitle": "Global room 2"
         },
         "ZS3LQ8": {
             "id": "ZS3LQ8",
@@ -1036,12 +942,10 @@
             "speakers": [
                 "a683b406530e"
             ],
-            "tags": [
-                "Passion, pet projects"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T11:30:00+00:00",
             "endTime": "2026-04-30T13:55:00+02:00",
-            "trackTitle": "Room 1"
+            "trackTitle": "Global room 1"
         },
         "ZSLFHL": {
             "id": "ZSLFHL",
@@ -1050,9 +954,7 @@
                 "eb1a92142b0a",
                 "b401c1913967"
             ],
-            "tags": [
-                "AI, Data"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T15:00:00+00:00",
             "endTime": "2026-04-29T19:00:00+02:00",
             "trackTitle": "[DFW] Local room"
@@ -1064,12 +966,10 @@
                 "c5044c576007",
                 "278d79d06b56"
             ],
-            "tags": [
-                "UX, Front-end"
-            ],
+            "tags": [],
             "startTime": "2026-04-30T08:05:00+00:00",
             "endTime": "2026-04-30T10:50:00+02:00",
-            "trackTitle": "Room 3"
+            "trackTitle": "Global room 3"
         },
         "ZWPAKS": {
             "id": "ZWPAKS",
@@ -1077,12 +977,10 @@
             "speakers": [
                 "0a771a3fcef1"
             ],
-            "tags": [
-                "DevOps, Security"
-            ],
+            "tags": [],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[ERD] Local room - 1"
+            "trackTitle": "[ERD] Local room 1"
         }
     },
     "speakers": {
@@ -1194,6 +1092,12 @@
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
+        "0e2f830dfabf": {
+            "id": "0e2f830dfabf",
+            "name": "Stéphane Epardaud",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
         "d8173ebed710": {
             "id": "d8173ebed710",
             "name": "Sertay AKPINAR",
@@ -1224,6 +1128,30 @@
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
+        "4c1fc9ef0aba": {
+            "id": "4c1fc9ef0aba",
+            "name": "Will VETT",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "d08a02411974": {
+            "id": "d08a02411974",
+            "name": "Mayada OMER",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "b0541dce4537": {
+            "id": "b0541dce4537",
+            "name": "Emre AKSOY",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "7e6225fd3deb": {
+            "id": "7e6225fd3deb",
+            "name": "Sabuha KAYA",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
         "f601989cbf45": {
             "id": "f601989cbf45",
             "name": "Veeresh ERCHED",
@@ -1233,6 +1161,12 @@
         "af3daad6d0ee": {
             "id": "af3daad6d0ee",
             "name": "Angayar Kannan RAJA",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "6134d5208c6f": {
+            "id": "6134d5208c6f",
+            "name": "Mahmut SEN",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
@@ -1257,6 +1191,12 @@
         "37ffe78ad012": {
             "id": "37ffe78ad012",
             "name": "Saikat CHATTERJEE",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "0163ce93a713": {
+            "id": "0163ce93a713",
+            "name": "Aditya MEHRA",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
@@ -1287,6 +1227,12 @@
         "44b6c989c3b9": {
             "id": "44b6c989c3b9",
             "name": "Hariprashadh SELLAMUTHU",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "53ca54330a9d": {
+            "id": "53ca54330a9d",
+            "name": "Eric BOURDIER",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
@@ -1323,6 +1269,12 @@
         "ac5fd4c05846": {
             "id": "ac5fd4c05846",
             "name": "Thomas LACROIX",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "5077caabb7a4": {
+            "id": "5077caabb7a4",
+            "name": "Clement Escoffier (IBM/RedHat)",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
@@ -1380,21 +1332,27 @@
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
+        "187972b9e084": {
+            "id": "187972b9e084",
+            "name": "Gunjan KHANDPUR",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
         "fc2f04dad1cb": {
             "id": "fc2f04dad1cb",
             "name": "Rahul AGRAWAL",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
-        "e94d352d9497": {
-            "id": "e94d352d9497",
-            "name": "Agathe Duboué (Google)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
-            "socials": []
-        },
         "5e2647853af0": {
             "id": "5e2647853af0",
             "name": "David Clauvel (Google)",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "e94d352d9497": {
+            "id": "e94d352d9497",
+            "name": "Agathe Duboué (Google)",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
@@ -1482,12 +1440,6 @@
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
-        "392eadf631f1": {
-            "id": "392eadf631f1",
-            "name": "Manish ANIL HIRVE",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
-            "socials": []
-        },
         "f226c7dae296": {
             "id": "f226c7dae296",
             "name": "Kamal BANA",
@@ -1542,9 +1494,15 @@
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
-        "7a3b237ec6a2": {
-            "id": "7a3b237ec6a2",
-            "name": "Augustin HUSSON",
+        "73e4c84827a4": {
+            "id": "73e4c84827a4",
+            "name": "Ozan Günalp",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "7bac7a296cdb": {
+            "id": "7bac7a296cdb",
+            "name": "Guillaume LADORME",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
