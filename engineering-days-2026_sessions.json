@@ -5,18 +5,16 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "After five years of building and operating our cloud platform on Azure, a shopping business case has prompted us to design and begin delivering an Amadeus Cloud Platform on Google Cloud Platform (GCP). This session shares where we are today: the current platform architecture on GCP, the decisions behind it, and what it means for teams used to Azure-first patterns.\r\n\r\nWe\u2019ll walk through the platform\u2019s foundational design (organization/landing zone structure, networking, identity and access, security guardrails, deployment patterns, and observability) and highlight the most important differences compared to Azure\u2014both in cloud concepts and in day-to-day implementation. We\u2019ll also summarize the pros and cons identified so far, including operational considerations, scalability and reliability trade-offs, and cost/effort implications as we build towards production readiness.\r\n\r\nTo close, we\u2019ll briefly outline our multi-cloud strategy: why we\u2019re investing in GCP alongside Azure, how we\u2019re balancing cloud-native capabilities with portability, and what the next milestones look like for the platform.",
     "Speaker names": [
       "Francesco PACE"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
-    "Start": "2026-04-30T12:40:00+00:00",
-    "End": "2026-04-30T15:25:00+02:00",
+    "Start": "2026-04-30T12:35:00+00:00",
+    "End": "2026-04-30T15:20:00+02:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -25,15 +23,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Have you ever wondered why a model, trained on the entire knowledge of internet, sometimes still hallucinates about a library that doesn't exist, keeps forgetting small details as time goes by, or gets your current existing code (or your prompt itself) completely wrong?\r\n\r\nWe often think of LLMs as some real person standing right in front of us and chatting with us, but underneath, what drives its \"next-token prediction\" mechanism is actually the application of heavy linear algebra with backpropagation, together with probability theory. Understanding this architecture and realizing its powerful sides (as well as its flaws) is the first step towards making effective use of these tools.\r\n\r\nIn this 25-minute talk, we will focus on __**context window management**__. \r\n\r\nWe are going to explore why \"chatting\" with LLMs is the wrong paradigm for engineering tasks, why outdated information persists even in top-tier models (and features like web search or RAG cannot fully overcome it), and how can we -at least partially- take manual steps in solving the current problems of LLM usage in development. \r\n\r\n# Content\r\nWe are going to go over some simple but verified, researched \"tips and tricks\" for the purpose of reaching reliability while using LLMs: \r\n#### \"Frontloading\"\r\nWhat I like to describe as \"Frontloading\" (a technique to exploit attention mechanisms of LLMs by placing critical keywords and sentences with upmost importance at the very beginning and end of your prompts)\r\n#### The \"One-shot\" approach\r\nWhy you should be starting a new chat for every major task and performing manual conversation summarization, rather than letting the agent (or the text editor/IDE itself) dissect and dilute the context of your past conversation history\r\n#### GitIngest\r\nA new, simple, small, but very powerful web-based tool that allows you to dump specific GitHub path URLs (like documentation folders of frameworks, tools, or libraries) into a single Markdown file\r\n#### Custom Context Injection\r\nHow to make use of custom Markdown (.md) files together with GitHub Copilot custom instructions in a meaningful way.\r\n#### A brief look at other new cutting-edge tools currently under development\r\nFinally, we'll only have a brief look at the cutting-edge, still-under-development tools like __**specs.md**__ and __**btca**__ to automatize what we discussed earlier. \r\n##### **specs.md**\r\nThanks to specs.md,  instead of asking an AI to \"build a login page\", you can first collaborate with the AI to write a detailed specification in a Markdown file. Once the spec is finalized, you \"freeze\" it, and the AI agent uses it as its main guide for generating code. It is aimed at preventing hallucinations by forcing the model to follow a documented plan rather than making probabilistic guesses. \r\n##### **RAG-as-a-Service (?): btca (better context for agents)**\r\nbtca (btca.dev) is a tool and protocol currently under development, to solve the \"outdated knowledge\" problem in LLMs and 'streamline' the process of providing it with up-to-date context. \r\nYou add a btca.config to your project; then, it finds your dependencies by scanning your repository for files related to dependency management (requirements.txt, package.json, pom.xmls etc...) and fetches the latest documentation, for agents to use. It's being designed to automatically inject the most recent API references into your agent's context window.",
     "Speaker names": [
       "Emir GENC"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
     "Start": "2026-04-30T11:00:00+00:00",
     "End": "2026-04-30T13:25:00+02:00",
@@ -45,18 +41,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "In September 2025, the NPM ecosystem identified Shai-Hulud, a new type of supply chain attack. In November, its second version caused significant disruption in the community and a massive secret theft.\r\n\r\nWe'll examine why Shaid-Hulud is so unique and dangerous, the community's response as well as Amadeus's reaction.\r\nFinally, we'll discuss our key learnings and explore ways to strengthen our supply chain security.\r\n\r\nYou don't need to be a JavaScript expert or even a developer. If you enjoy engaging tech stories, don't miss it !",
     "Speaker names": [
       "Benjamin HILAIRE"
     ],
     "Room": {
-      "en": "Room 2"
+      "en": "Global room 2"
     },
-    "Start": "2026-04-30T14:10:00+00:00",
-    "End": "2026-04-30T16:35:00+02:00",
+    "Start": "2026-04-30T14:00:00+00:00",
+    "End": "2026-04-30T16:25:00+02:00",
     "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
@@ -65,18 +59,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "The Skill Matrix provides a clear view of the team\u2019s capabilities, making it easier to identify skill gaps, distribute work effectively, and define development plans. This leads to more balanced, autonomous teams that are aligned with business needs.",
     "Speaker names": [
       "Jorge Canal"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[BOG] Local room"
     },
-    "Start": "2026-04-30T14:50:00+00:00",
-    "End": "2026-04-30T17:15:00+02:00",
+    "Start": "2026-04-30T13:45:00+00:00",
+    "End": "2026-04-30T16:10:00+02:00",
     "From which Amadeus site do you plan to present?": "Bogot\u00e1, Colombia"
   },
   {
@@ -85,15 +77,13 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "\"Everyday I'm Struggling - Increase your productivity with AI (PM/PjM)\u201d is a practical session that shows how to turn repetitive, error\u2011prone work into lightweight tools, templates, Excel automations, dashboards, and small scripts, using the Amadeus/M365 ecosystem and AI.\r\nHow to spot the right opportunities, select the appropriate tool type and maturity level, and use AI to accelerate both daily tasks and the building of those tools.",
     "Speaker names": [
       "Fabrice ROSSET"
     ],
     "Room": {
-      "en": "Room 2"
+      "en": "Global room 2"
     },
     "Start": "2026-04-30T08:05:00+00:00",
     "End": "2026-04-30T10:50:00+02:00",
@@ -105,9 +95,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "The  AppSec booth is back ! Let's have a more practical, engaging, and easy to approach during Engineering Days.\r\nHere's some activities we cooked for you:\r\nSDL Wall of Curiosity \u2013 Posters, memes, dev hacks, and maybe a flowchart or two that makes sense.\r\nBackdoor & Breaches Card Game put your AppSec instincts to the test \u2014 can you patch the holes before the hacker wins?\r\nStop by the \u201cAsk AppSec Anything\u201d corner for open, judgment\u2011free security conversations\r\nThis 3\u2011hour lunchtime session blends games, awareness, and direct interaction to encourage secure development practices in a relaxed and accessible way....and we'll have tons of goodies .",
     "Speaker names": [
       "Benjamin HILAIRE"
@@ -123,18 +111,16 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "This presentation introduces how ServiceNow App Engine Studio can be used as a centralized automation orchestrator across the organization. We will introduce key Flow Designer features\u2014such as approvals, custom actions, flow logic, notifications, and execution tracking\u2014and show how ServiceNow can seamlessly trigger external automation platforms like AWX and Jenkins. We will also cover how catalog items allow teams to expose complex automations through simple self\u2011service interfaces. Finally, we present a real use case from our team where ServiceNow orchestrates an end\u2011to\u2011end automation process, demonstrating the value of integrating people, tools, and workflows into a single cohesive flow.",
     "Speaker names": [
       "Juan Sebastian Jordan"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[BOG] Local room"
     },
-    "Start": "2026-04-30T16:00:00+00:00",
-    "End": "2026-04-30T18:45:00+02:00",
+    "Start": "2026-04-30T14:55:00+00:00",
+    "End": "2026-04-30T17:40:00+02:00",
     "From which Amadeus site do you plan to present?": "Bogot\u00e1, Colombia"
   },
   {
@@ -143,9 +129,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD"
@@ -161,9 +145,7 @@
     "Session type": {
       "en": "Deep-dive talk"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "Let\u2019s explore software testing through the lens of the Four Quadrants of Testing, using them as a framework to reason about quality in a holistic way.\r\nWe\u2019ll examine how, in an Agile context, different testing activities contribute to both business confidence and technical safety, why no single type of test is sufficient on its own, and which techniques can help us at each stage of the development process.",
     "Speaker names": [
       "Xavi AMETLLER"
@@ -181,9 +163,7 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "Spec as Code introduces a modern, version\u2011controlled approach to writing and reviewing specifications, bringing PDAs to the next level! \r\nThe session walks through a full demo, explains why this shift matters by addressing long\u2011standing review and quality challenges, and shows how the ORDER organization is implementing it.\r\nWe\u2019ll also show what AI brings on top, automation, dashboards, KPIs, and higher efficiency.",
     "Speaker names": [
       "Florian LACOURT",
@@ -191,10 +171,10 @@
       "Fatma ATTIA"
     ],
     "Room": {
-      "en": "Room 2"
+      "en": "Global room 2"
     },
-    "Start": "2026-04-30T12:40:00+00:00",
-    "End": "2026-04-30T15:25:00+02:00",
+    "Start": "2026-04-30T12:35:00+00:00",
+    "End": "2026-04-30T15:20:00+02:00",
     "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
@@ -203,18 +183,16 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "Speaker: Daniel Penagos (Red Hat)\r\n\r\nChoosing \"Vanilla\" Kubernetes is often seen as the ultimate badge of open-source purity, but for many organizations, the reality of Day 2 operations\u2014security patching, API deprecations, and multi-cluster management\u2014quickly turns a \"clean\" build into a fragmented \"Snowflake\" cluster.\r\n\r\nThis session explores the engineering philosophy of the Upstream First model. We will break down how a sustainable enterprise distribution is built by contributing to the core rather than forking it. We\u2019ll move past the \"what\" of a specific platform and dive into the \"how\" of maintaining a hardened, lifecycle-managed environment that remains 100% CNCF-compliant.",
     "Speaker names": [
       "Daniel Penagos (Red Hat)"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[BOG] Local room"
     },
-    "Start": "2026-04-30T19:00:00+00:00",
-    "End": "2026-04-30T21:45:00+02:00",
+    "Start": "2026-04-30T16:20:00+00:00",
+    "End": "2026-04-30T19:05:00+02:00",
     "From which Amadeus site do you plan to present?": "Bogot\u00e1, Colombia"
   },
   {
@@ -223,9 +201,7 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "**Threat Modeling as Code: How Structure Enables AI Assistance**\r\n\r\nAs architectures grow more complex, threat modeling must scale with our systems. This session explores how structured threat models unlock multiple perspectives, reusability, and AI collaboration\u2014while shifting focus from layout to security logic.\r\n\r\n- **Modeling over layout** How YAML specifications automatically generate Threat Dragon diagrams\u2014letting you focus on security design (actors, flows, boundaries, threats) instead of manually arranging boxes and lines\r\n\r\n- **Multiple views from one source** Use tags to generate different stakeholder perspectives (full architecture, high security flows, subsystem views) without duplicating models\r\n\r\n- **Reusability through composition** Extract and recombine threat model components across projects\u2014define once, reuse everywhere\r\n\r\n- **Enabling AI assistance** How structured data enables AI to help with model creation, gap analysis or threat suggestion\r\n\r\n**Key insight**\r\nWhen you model security as structured data, you focus on what matters\u2014trust boundaries, data flows, threat scenarios\u2014not diagram aesthetics. Multi-perspective views, component reuse, and AI readiness follow naturally.\r\n\r\nFor everyone involved in security by design\u2014security specialists, architects, developers, and engineering teams.",
     "Speaker names": [
       "Dirk KANITZ"
@@ -243,9 +219,7 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "Join the Cloud Native Experience (CNE) team for a hands\u2011on into the real power of event\u2011driven architectures at Amadeus.\r\n\r\nIn this workshop, you\u2019ll walk through the full journey of a feature in a Cloud\u2011Native world:\r\nfrom creating a brand\u2011new endpoint using OpenAPI standards and Amadeus Arcad solution, to emitting an event with Kafka, to watching it travel across microservices, all the way to its final storage in a MongoDb database.\r\n\r\nThrough live coding, concrete examples, and guided exploration of our reference patterns, you\u2019ll learn:\r\n\r\n- How to design and expose a new service endpoint following CNA standards\r\n- How to publish domain events that trigger downstream processing\r\n- How microservices collaborate through event propagation\r\n- How to safely persist data while keeping systems scalable, decoupled, and observable\r\n- How these principles come together in a real Amadeus architecture\r\n\r\nWhether you\u2019re new to CNA or looking to sharpen your understanding of event\u2011driven flows, this workshop will give you both the concepts and the practical skills to build robust, modern, cloud\u2011native services.\r\n\r\nCome ready to experiment, learn, and see how everything connects \u2014 literally!",
     "Speaker names": [
       "Benoit Faurie",
@@ -254,7 +228,7 @@
       "Sonia Belhadj"
     ],
     "Room": {
-      "en": "[NCE] Local room - 1"
+      "en": "[NCE] Local room 1"
     },
     "Start": "2026-04-29T13:00:00+00:00",
     "End": "2026-04-29T17:00:00+02:00",
@@ -266,9 +240,7 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Speaker: Mandi Buswell (Red Hat)\r\n\r\nAs the AI landscape shifts from simple chat interfaces to autonomous, goal-oriented agents, developers need a standardised way to build and scale these systems. This hands-on workshop dives into Llama Stack, an open-source framework designed to simplify the development of agentic applications by providing a consistent API for models, memory, and tools.\r\n\r\nParticipants will walk through the entire lifecycle of an AI agent, from deploying the Llama Stack on Red Hat OpenShift AI to integrating advanced capabilities like Retrieval-Augmented Generation (RAG), Model Context Protocol (MCP), and multi-framework agent orchestration.\r\n\r\nThis hands-on workshop on building agentic AI applications using Llama Stack, LangGraph, Langfuse, FastAPI and FastMCP on Red Hat OpenShift AI. This lab series takes you from deploying your first Llama Stack instance to building AI agents that interact with enterprise systems through the Model Context Protocol (MCP).\r\n\r\nWhat You Will Learn\r\nArchitecting Agentic Systems: Understand the Llama Stack ecosystem and how it standardizes interactions between LLMs, tools, and memory.\r\n\r\nHands-on Deployment: Deploy Llama Stack on a production-grade Kubernetes environment (Red Hat OpenShift).\r\n\r\nTool Use & Connectivity: Integrate \"Search\" tools and utilise the Model Context Protocol (MCP) to connect agents to external data sources.\r\n\r\nAgent Orchestration: Compare and build agents using different approaches, including native Llama Stack Agents, LangGraph for complex state management, and Langflow for visual low-code design.\r\n\r\nTrust & Safety: Implement Llama Guard (Shields) to ensure AI responses remain safe and compliant.",
     "Speaker names": [
       "Mandi Buswell (IBM/Red Hat)"
@@ -286,9 +258,7 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "Prioritizing complex backlogs often takes too long, involves the wrong stakeholders, or leads to endless debates instead of clear decisions. In this session, I will introduce a gamified agile prioritization method designed to bring  the right people together in a neutral, structured way. The approach helps teams align quickly and transparently while keeping the tie investment to just a few hours. It has proven effective in turning complex prioritization challenges into focused, collaborative decision making. If you are looking for a practical, engaging MIRO Round table experience of prioritization exercise - Let's play!",
     "Speaker names": [
       "Annett Dawoud"
@@ -306,11 +276,11 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "/",
-    "Speaker names": [],
+    "Speaker names": [
+      "St\u00e9phane Epardaud"
+    ],
     "Room": {
       "en": "Java Cloud Native track"
     },
@@ -324,16 +294,14 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "GitHub Actions \u00b7 ServiceNow \u00b7 Real\u2011World Automation at Amadeus\r\nFormat: Hands\u2011on technical workshop\r\nAudience: DevOps, Platform, Automation & Tooling Engineers and Anybody Else \r\nSpeakers: Sertay Akpinar & Bernhard Sellmair\r\n\r\n\ud83e\udd14Why should you vote for this workshop?\r\nManual change processes are slowing teams down.\r\nTool sprawl is increasing.\r\nAnd yet\u2026 automation across GitHub, ServiceNow, and enterprise workflows is still painfully fragmented.\r\nIn this hands\u2011on Engineering Days workshop, you\u2019ll build a real end\u2011to\u2011end automation pipeline used today by Amadeus teams \u2014 turning a GitHub Pull Request into a fully automated ServiceNow change lifecycle, orchestrated by Maestro.\r\nNo toy examples.\r\nYou\u2019ll walk away with working patterns you can reuse in your own Business Unit to save your time and cost for more important things\r\n\r\n\ud83d\udee0\ufe0fWhat you\u2019ll actually build (live)\r\nBy the end of the session, you will have implemented this real scenario:\r\n\u201cWhen a Pull Request is merged in GitHub, automatically open or update a ServiceNow Change Request, attach validation evidence, execute an automated Maestro workflow, and close the CR when everything succeeds.\u201d\r\nThis reflects the exact migration path many teams are following:\r\nWin@proach \u2192 ServiceNow\r\nBitbucket / Jenkins \u2192 GitHub Actions\r\nManual glue \u2192 Maestro orchestration\r\n\r\n\ud83e\udde0What you\u2019ll learn (and reuse)\r\n\ud83e\udde9 Automate from GitHub\r\nTrigger Maestro workflows directly from GitHub Actions\r\nPass PR metadata, commits, and artifacts\r\nCompare authentication models (classic token vs GitHub App)\r\n\ud83e\udde9 Integrate ServiceNow the right way\r\nCreate and update CR / TR / WO tickets from Maestro\r\nRetrieve status, comments, and attachments\r\nReplace Win@proach-style automations with API\u2011driven flows\r\n\ud83e\udde9 Orchestrate everything with Maestro\r\nBuild event\u2011driven workflows reacting to GitHub\r\nImplement 4\u2011eyes validation, branching logic, retries, and error handling\r\nVisualize executions, logs, and outputs in real time\r\n\ud83e\udde9 (Bonus, if ready) Secure credentials with CyberArk in a real automation chain\r\n\r\n\ud83d\udca1What you\u2019ll take back to your team\r\n\u2705 Ready\u2011to\u2011reuse Maestro tasks for GitHub & ServiceNow\r\n\u2705 Sample GitHub Actions pipelines\r\n\u2705 Proven workflow\u2011as\u2011code patterns for enterprise automation\r\n\u2705 A complete, working demo you can replicate in your Business Unit\r\n\r\n\ud83c\udfafWhy this workshop matters now\r\nAmadeus is actively moving toward:\r\n\ud83e\udd1dServiceNow replacing Win@proach\r\n\ud83e\udd1dGitHub Actions replacing legacy CI pipelines\r\n\ud83e\udd1dMaestro as a cross\u2011domain automation hub\r\n\r\nThis workshop helps you future\u2011proof your automation stack and apply patterns aligned with the 2026 engineering toolchain strategy \u2014 not next year, but now.",
     "Speaker names": [
       "Sertay AKPINAR",
       "Bernhard SELLMAIR"
     ],
     "Room": {
-      "en": "[ERD] Local room - 1"
+      "en": "[ERD] Local room 1"
     },
     "Start": "2026-04-29T13:00:00+00:00",
     "End": "2026-04-29T17:00:00+02:00",
@@ -345,7 +313,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": null,
+    "Tags": null,
     "Description": "/",
     "Speaker names": [],
     "Room": null,
@@ -359,9 +327,7 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "This hands-on lab introduces participants to Microsoft Databricks and the Lakehouse architecture on Azure. Learners will explore the Databricks workspace, work with notebooks, ingest and transform data, and run basic analytics using Apache Spark with SQL and Python. By the end of the lab, participants will understand how Databricks fits into modern data platforms and how to perform common day\u2011one tasks in a Databricks environment.\r\nThe lab is intentionally lightweight and practical, focusing on core concepts and workflows rather than deep optimization or advanced Spark internals.",
     "Speaker names": [
       "Matt HORTON"
@@ -379,18 +345,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "Concepts from the 2025 YOW Conference, empowering software engineering teams to make decisions.",
     "Speaker names": [
       "Maria COLUBRIALE"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[SYD] Local room"
     },
-    "Start": "2026-04-30T01:10:00+00:00",
-    "End": "2026-04-30T03:35:00+02:00",
+    "Start": "2026-04-29T05:20:00+00:00",
+    "End": "2026-04-29T07:45:00+02:00",
     "From which Amadeus site do you plan to present?": "Sydney, Australia"
   },
   {
@@ -399,9 +363,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Learn what are your benefits to use COMPaaS! And do you know that you can also collaborate and contribute? Come meet the COMPaaS team and find out how!",
     "Speaker names": [
       "Carol ZAMPIERI"
@@ -417,9 +379,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD"
@@ -435,7 +395,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": null,
+    "Tags": null,
     "Description": "Let's meet Bernhard Cygan from Red Hat!",
     "Speaker names": [],
     "Room": null,
@@ -449,15 +409,15 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Calling all developers, engineers, solution owners, and anyone using, developing or deploying with AI at Amadeus!\r\nJoin this practical, fast\u2011paced workshop to learn:\r\n\ud83c\udf0d AI regulations made simple \u2014 what\u2019s happening globally and why it matters\r\n\ud83d\udee1\ufe0f Our Amadeus AI Compliance process \u2014 what you need to do, step by step\r\n\ud83d\uddc2\ufe0f How to complete the AI Governance platform (Archer) \u2014 register and manage your AI use cases with confidence\r\n\ud83e\uddea Hands\u2011on exercises + live guidance\r\n\ud83d\udcac Your questions, answered\r\n\r\n\ud83d\udc49 Don\u2019t miss it \u2014 join us and level up your AI compliance expertise!",
     "Speaker names": [
-      "Sofia HERNANDEZ"
+      "Sofia HERNANDEZ",
+      "Will VETT",
+      "Mayada OMER"
     ],
     "Room": {
-      "en": "[ERD] Local room - 3"
+      "en": "[ERD] Local room 3"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
@@ -469,9 +429,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "The  AppSec booth is back ! Let's have a more practical, engaging, and easy to approach during Engineering Days.\r\nHere's some activities we cooked for you:\r\nSDL Wall of Curiosity \u2013 Posters, memes, dev hacks, and maybe a flowchart or two that makes sense.\r\nBackdoor & Breaches Card Game put your AppSec instincts to the test \u2014 can you patch the holes before the hacker wins?\r\nStop by the \u201cAsk AppSec Anything\u201d corner for open, judgment\u2011free security conversations\r\nThis 3\u2011hour lunchtime session blends games, awareness, and direct interaction to encourage secure development practices in a relaxed and accessible way....and we'll have tons of goodies .",
     "Speaker names": [
       "Prakash Kumar MISHRA & Kavana ADVE"
@@ -482,14 +440,31 @@
     "From which Amadeus site do you plan to present?": "Bengaluru, India"
   },
   {
+    "ID": "ASJU9Q",
+    "Proposal title": "\"From Blind Spots to Clarity: Building a Layered Observability & Alerting Ecosystem\"",
+    "Session type": {
+      "en": "Long talk"
+    },
+    "Tags": null,
+    "Description": "You can't fix what you can't see. And you can't respond to what you're not notified about.\r\nOur challenge? Monitoring dashboards that showed pretty graphs while real issues went unnoticed, and alerts that fired so randomly that engineers started ignoring them. \ud83d\ude05\r\nWe rebuilt our observability and alerting infrastructure from the ground up, integrating multiple monitoring layers with intelligent alert routing to catch issues before they escalate.\r\n\ud83d\udee0\ufe0f Our Stack:\r\nGrafana + Prometheus: Performance monitoring for slowness, resource issues, and availability\r\nAmbrosia (Amadeus internal): Continuous functional API testing triggering SNOW alerts and oncall when APIs fail\r\nArgos (Amadeus internal): Alert orchestration using PromQL queries, routing to email, Teams, and oncall\r\nGit: Version-controlled alert definitions as infrastructure-as-code\r\n\ud83c\udfaf What You'll Learn:\r\n\u2728 Architecting monitoring and alerting as one unified system, not separate tools duct-taped together\r\n\ud83d\udd0d Layering performance monitoring (is it fast?) with functional testing (is it working?)\r\n\u26a1 Transforming PromQL queries into actionable Argos alerts with smart routing\r\n\ud83d\udcdd GitOps approach: managing monitoring configs and alert rules in Git repos for peer review and reproducibility\r\nYou'll leave with practical patterns for building observability that reveals problems and alerting that drives action. \ud83c\udfaf",
+    "Speaker names": [
+      "Emre AKSOY",
+      "Sabuha KAYA"
+    ],
+    "Room": {
+      "en": "[IST] Local room"
+    },
+    "Start": "2026-04-30T13:05:00+00:00",
+    "End": "2026-04-30T15:50:00+02:00",
+    "From which Amadeus site do you plan to present?": "\u0130stanbul, Turkiye"
+  },
+  {
     "ID": "ATEN7V",
     "Proposal title": "AI Compliance \u00e0 la Carte - BENGALURU",
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Calling all developers, engineers, solution owners, and anyone using, developing or deploying with AI at Amadeus!\r\n\r\n\ud83c\udf7d\ufe0f Grab a bite of responsible AI!\r\n\r\n\ud83e\udd57 Starter: AI Regulations \r\nBegin with a light tapas\u2011style sampler of what\u2019s cooking in the global regulatory kitchen. Small bites, big clarity.\r\n\r\n\ud83c\udf5d Main Course: The Amadeus AI Compliance Process\r\nYour hearty entr\u00e9e: the full recipe for building AI the right way \u2014 steps, roles, and the secret sauce to stay compliant.\r\n\r\n\ud83e\uddc1 Dessert: Archer & Real Examples\r\nA sweet finish: tips on how to register your AI use cases in Archer \u2014 quick, practical, and very digestible.\r\n\r\n\u2615 Digestif: Q&A\r\nA quick espresso to wrap it up \u2014 ask anything, we\u2019ll serve answers.\r\n\r\n\ud83c\udf74 Come hungry. Leave AI compliant.",
     "Speaker names": [
       "Sofia HERNANDEZ"
@@ -505,20 +480,36 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Conversational Knowledge - Implement a Retrieval-Augmented Generation (RAG) powered AI chatbot that consolidates all knowledge sources ( training materials, training videos, support emails, Teams channels, FAQs and tutorials) into a unified, searchable context. The chatbot delivers accurate, context-aware responses to user queries, ensuring up-to-date information aligned with monthly release updates. Delivery Specialists will maintain and supply these data sources for continuous improvement.\r\n\r\nConversational Reporting - Develop a conversational interface that integrates with Sky Internal API's using MCP Server, allowing users to query and retrieve real-time metrics and summaries in plain language. This improves accessibility and speeds up operational visibility.\r\n\r\nConversational Automation - Develop a conversational interface integrated with automation and orchestration tools, allowing users to start, stop, or rerun jobs and workflows without domain expertise. This approach streamlines operations, enhances agility, and minimizes manual intervention.\r\n\r\nFinOps Cost Optimization -  Implement an AI-driven automation system that predicts idle periods and schedules shutdowns for underutilized resources. Additionally, provide a conversational interface that allows users to check the status of internal environments and turn them on or off on demand. This combines proactive automation with user-driven control, aligning with FinOps principles for cost efficiency.",
     "Speaker names": [
       "Veeresh ERCHED",
       "Angayar Kannan RAJA"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[DFW] Local room"
     },
-    "Start": "2026-04-30T20:40:00+00:00",
-    "End": "2026-04-30T23:25:00+02:00",
+    "Start": "2026-04-30T15:35:00+00:00",
+    "End": "2026-04-30T18:20:00+02:00",
     "From which Amadeus site do you plan to present?": "Dallas, USA"
+  },
+  {
+    "ID": "B3NZ3S",
+    "Proposal title": "Why Oracle Database Partitioning is Important ?",
+    "Session type": {
+      "en": "Long talk"
+    },
+    "Tags": null,
+    "Description": "This presentation explains why \"Oracle Database Partitioning\" is actually a necessity for Amadeus databases, especially for those larger than 1 Terabyte.\r\nWe will demonstrate how \"Table Partitioning\" is done with an example to make the topic of Table Partitioning clearer for the participants.",
+    "Speaker names": [
+      "Mahmut SEN"
+    ],
+    "Room": {
+      "en": "[IST] Local room"
+    },
+    "Start": "2026-04-30T08:20:00+00:00",
+    "End": "2026-04-30T11:05:00+02:00",
+    "From which Amadeus site do you plan to present?": "\u0130stanbul, Turkiye"
   },
   {
     "ID": "CZ9MPA",
@@ -526,18 +517,18 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": [
+      "Exploration"
+    ],
     "Description": "In this talk i'll showcase how someone can run a given \"small\"ish AI model on laptop.\r\n(or even a raspberry pi).\r\nI'll go through various models and demo how it can be run offline using a gpu or even on cpu.",
     "Speaker names": [
       "Amit KUMAR"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[SYD] Local room"
     },
-    "Start": "2026-04-29T23:50:00+00:00",
-    "End": "2026-04-30T02:35:00+02:00",
+    "Start": "2026-04-29T05:50:00+00:00",
+    "End": "2026-04-29T08:35:00+02:00",
     "From which Amadeus site do you plan to present?": "Sydney, Australia"
   },
   {
@@ -546,15 +537,13 @@
     "Session type": {
       "en": "Deep-dive talk"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "Let's talk about stepping up our Open Platform offering.\r\n \r\nSay \"No more!\" to the implementation tickets and deep-dive with us in the new Platform Self-Service offering a.k.a. HARBOR (Hub for Amadeus Resource-Based ORchestration).\r\n \r\nJoin us to discover how Amadeus plans to onboard GCP as our second cloud provider for 70% of Shopping traffic by 2029 and what a key role HARBOR is playing in this challenge.\r\n \r\n...and the best part is: HARBOR is not only for GCP ;)",
     "Speaker names": [
       "Anna KOZACHENKO"
     ],
     "Room": {
-      "en": "[NCE] Local room - 2"
+      "en": "[NCE] Local room 3"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
@@ -566,15 +555,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "In this workshop, **you will experience how it feels to contribute effectively to a Rust codebase**, even if you\u2019re new to the language. Through a sequence of self\u2011contained exercises, you will experiment with Rust\u2019s strengths in correctness, clarity, and performance.\r\nYou will:\r\n\r\n- **Discover how Rust guides you to avoid common logic mistakes**, and experience how its compiler and tooling help you reason about code safely.\r\n- **Extend an existing piece of functionality**, learning how Rust\u2019s design encourages small, focused contributions that are easy to read, test, and review.\r\n- **Investigate a performance bottleneck**, learning what makes Rust fast and how to boost performance with confidence.\r\n\r\nThroughout the session, **you will get a feel of how working with Rust looks like**: how code evolves, how changes are validated, and why Rust enables reliable, high\u2011quality contributions from engineers with diverse backgrounds.\r\n\r\nBy the end, you will have **hands\u2011on experience demonstrating that anyone can meaningfully contribute to a Rust project**\u2014and you\u2019ll understand why Rust is a compelling choice for productive, efficient and scalable long\u2011term development at Amadeus.\r\n\r\nThis is a **distributed workshop**, apply to the session of your local site:\r\n- Bel-Air (FR)\r\n- Bad Homburg (DE): link TBD\r\n- Bangalore (IN): link TBD",
     "Speaker names": [
       "Apurva RAI"
     ],
     "Room": {
-      "en": "[BLR] Local room - 1"
+      "en": "[BLR] Local room 1"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
@@ -586,9 +573,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "KITE Tool:\r\nRAG based AI tool to generate Test plan (Gherkin  test cases) and Robot Test cases for DMX application and it has capabilities to customize for other frameworks/applications",
     "Speaker names": [
       "Rajesh Khanna VISWANATHAM"
@@ -604,15 +589,14 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "In today\u2019s rapidly evolving digital environment, cryptography and certificates form the foundation of how organizations establish trust, protect data, and secure communications. As businesses shift toward cloud, automation, and zero trust models, understanding how these mechanisms work is no longer optional \u2014 it\u2019s essential for ensuring resilience and preventing avoidable outages. This session provides a simplified, high level look at how cryptography enables confidentiality and integrity, and how digital certificates validate identity and secure interactions across our platforms. We will also explore the certificate lifecycle, why effective management is critical, and how shortening public certificate validity timelines are reshaping operational expectations. The goal is to help the audience clearly understand the hidden infrastructure behind trust \u2014 and the risks and opportunities associated with it.\r\n \r\nKey Topics:\r\n\u2022\tBasics of Cryptography \u2014 How encryption, hashing, and keys build the foundation of digital security\r\n\u2022\tSymmetric & Asymmetric Encryption \u2014 Why modern systems use a hybrid approach\r\n\u2022\tTLS Handshake \u2014 How secure communication channels are negotiated\r\n\u2022\tDigital Certificates & Their Purpose \u2014 Identity, trust, and secure communication\r\n\u2022\tCertificate Lifecycle Management \u2014 Issue, deploy, renew, revoke\r\n\u2022\tChain of Trust \u2014 Root, intermediate, and server certificates\r\n\u2022\tPublic Certificate Timelines \u2014 Impact of shorter validity periods on operations\r\n\u2022\tAssociated Complexities \u2014 Operational risks, outage prevention, and compliance requirements",
     "Speaker names": [
-      "Saikat CHATTERJEE"
+      "Saikat CHATTERJEE",
+      "Aditya MEHRA"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
     "Start": "2026-04-30T10:00:00+00:00",
     "End": "2026-04-30T12:25:00+02:00",
@@ -624,9 +608,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "Revived in 2020 by just a handful of passionate members, the PDA Community has grown into one of the largest communities today, with more than 1,100 people across all regions and divisions. \r\n\r\nDriven by a dynamic core team, the community leads impactful initiatives every year covering documentation, tooling (including AI), training, recruitment, career development, and much more, all with one purpose: to make every PDA\u2019s life easier and more rewarding in an industry constantly evolving.\r\n \r\nJoin us to discover the story behind this remarkable growth and explore the achievements that have shaped the community into what it is today!",
     "Speaker names": [
       "Srinath HARI & Pierre FEUILLET"
@@ -642,10 +624,8 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
-    "Description": "Speaker: Antoine Richet (Microsoft)\r\n\r\nHow Microsoft Fabric Real-Time Intelligence enables organizations to detect patterns, anomalies, and business events in real time, using streaming data and business rules, and to trigger immediate actions\u2014without building complex, custom streaming architectures.\r\n\r\n\ud83d\udcdd Synopsis:\r\n\r\nModern digital platforms generate massive volumes of data in motion\u2014events, logs, telemetry, and transactional signals. The challenge is no longer collecting this data, but detecting the right signals at the right time and acting on them immediately.\r\n\r\nIn this session, we introduce Real-Time Intelligence in Microsoft Fabric, and explain how it enables:\r\nreal-time ingestion of streaming data from operational systems,\r\ndetection of business situations using rules and conditions (thresholds, patterns, correlations),\r\nimmediate actions such as alerts, workflows, or downstream automation.\r\n\r\nWe will show how Azure Fabric simplifies real-time detection by combining event ingestion, analytics, and rule-based activation in a unified, SaaS platform\u2014allowing teams to move from reactive monitoring to proactive detection, while maintaining scalability, governance, and operational simplicity.",
+    "Tags": null,
+    "Description": "Speaker: Emmanuel Deletang and Antoine Richet (Microsoft)\r\n\r\nHow Microsoft Fabric Real-Time Intelligence enables organizations to detect patterns, anomalies, and business events in real time, using streaming data and business rules, and to trigger immediate actions\u2014without building complex, custom streaming architectures.\r\n\r\n\ud83d\udcdd Synopsis:\r\n\r\nModern digital platforms generate massive volumes of data in motion\u2014events, logs, telemetry, and transactional signals. The challenge is no longer collecting this data, but detecting the right signals at the right time and acting on them immediately.\r\n\r\nIn this session, we introduce Real-Time Intelligence in Microsoft Fabric, and explain how it enables:\r\nreal-time ingestion of streaming data from operational systems,\r\ndetection of business situations using rules and conditions (thresholds, patterns, correlations),\r\nimmediate actions such as alerts, workflows, or downstream automation.\r\n\r\nWe will show how Azure Fabric simplifies real-time detection by combining event ingestion, analytics, and rule-based activation in a unified, SaaS platform\u2014allowing teams to move from reactive monitoring to proactive detection, while maintaining scalability, governance, and operational simplicity.",
     "Speaker names": [
       "Antoine Richet (Microsoft)"
     ],
@@ -662,18 +642,16 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "TL;DR: A personal, practical look at why I ditched using proprietary software on the cloud and instead rebuilt my digital life using only open source running on hardware at home.\r\n-----\r\nWhile Amadeus has spent the past years moving from self\u2011hosted systems in Erding to Microsoft Azure, I\u2019ve been heading in the opposite direction\u2014away from cloud services and proprietary platforms, and toward running (mostly) open\u2011source software on hardware in my own basement.\r\n\r\nWhy make that shift? Recent events have shown how fragile our dependence on centralized services can be: the OVH data\u2011center fire in Strasbourg, major DNS outages at Cloudflare, and even governments blocking access to parts of the internet. Add to that the growing pressure on cloud and software providers to introduce backdoors, and the result is a landscape where user data, privacy, and autonomy feel increasingly at risk. At the same time, subscription costs keep climbing. It\u2019s no surprise that more people are looking for digital sovereignty\u2014control over their data, their infrastructure, and their costs.\r\n\r\nIn this session, I\u2019ll walk through my own journey back to self\u2011hosting, using real examples from my setup, including:\r\n\r\n- Network and infrastructure\r\n- Hypervisor, storage, and backup\r\n- Remote access\r\n- Self\u2011hosted applications  \r\n  - Docker, reverse proxying, note taking, flight & country tracking, file storage, photo backup, LLMs for chat and coding, and plenty more\r\n- Future evolution of the setup\r\n\r\nMy goal is to show that self\u2011hosting isn\u2019t just for people with racks of hardware and endless free time. You can build something powerful\u2014or something simple\u2014whether you have a dedicated server room or just an old laptop or Raspberry Pi. If this talk nudges you to start your own journey, or simply demystifies what\u2019s possible, then it has done its job.\r\n\r\nDisclaimer: This is one person\u2019s setup, shaped by personal needs and preferences. It\u2019s not perfect, and it\u2019s certainly not the only way to do things.",
     "Speaker names": [
       "Kristian SCHUHMACHER"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
-    "Start": "2026-04-30T12:40:00+00:00",
-    "End": "2026-04-30T15:25:00+02:00",
+    "Start": "2026-04-30T12:35:00+00:00",
+    "End": "2026-04-30T15:20:00+02:00",
     "From which Amadeus site do you plan to present?": "Bad Homburg, Germany"
   },
   {
@@ -682,9 +660,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "/",
     "Speaker names": [
       "Srinath HARI & Pierre FEUILLET"
@@ -700,15 +676,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "AI development tools like GitHub Copilot are powerful, but they remain generalists. How can you provide them with your standards and domain-specific knowledge without repeating the same instructions in every conversation?\r\n\r\nAgent Skills is a new standard designed to solve this challenge. A \"\"Skill\"\" is a folder containing instructions, scripts, and resources that the agent automatically loads based on the context, specializing its behavior for specific tasks.\r\n\r\nTugdual will share the keys to creating, using, and sharing your own skills through live demos based on his experience as a developer (Windr.org) and as an AI/Copilot specialist at GitHub.\r\n\r\nIn this session, we will:\r\n\r\n- Discover the Agent Skills standard\r\n- Implement concrete skills together during live demos focused on software development.\r\n- Explore the ecosystem: portability between agents, community resources, and best practices.\r\n\r\nTransform your general-purpose AI into a truly specialized assistant.",
     "Speaker names": [
       "Tugdual Grall (GitHub)"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
     "Start": "2026-04-30T07:30:00+00:00",
     "End": "2026-04-30T09:55:00+02:00",
@@ -720,18 +694,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "What happens when you give an LLM a flashlight and drop it into Zork? In this talk we walk through building an agent that plays classic text adventures end-to-end, using the ReAct pattern to for reasoning and action, Jericho (Microsoft Research) to interface with Z-machine games programmatically, and the Model Context Protocol to wire everything together into a clean, debuggable tool layer. \r\n\r\nWe'll cover what the agent gets right (systematic exploration, map-building, stagnation recovery), where it falls apart (multi-step puzzles, loops after 50 moves), and what a jump from a 3B to a 72B model \u2014 or swapping in a frontier model \u2014 actually buys you in practice.",
     "Speaker names": [
       "Kevin HAMON"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[DFW] Local room"
     },
-    "Start": "2026-04-30T20:05:00+00:00",
-    "End": "2026-04-30T22:30:00+02:00",
+    "Start": "2026-04-30T15:00:00+00:00",
+    "End": "2026-04-30T17:25:00+02:00",
     "From which Amadeus site do you plan to present?": "Dallas, USA"
   },
   {
@@ -740,15 +712,15 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": [
+      "Exploration"
+    ],
     "Description": "Engineering organizations everywhere are discovering that AI doesn\u2019t just accelerate tasks\u2014\ud835\uddf6\ud835\ude01 \ud835\uddf3\ud835\ude02\ud835\uddfb\ud835\uddf1\ud835\uddee\ud835\uddfa\ud835\uddf2\ud835\uddfb\ud835\ude01\ud835\uddee\ud835\uddf9\ud835\uddf9\ud835\ude06 \ud835\uddf0\ud835\uddf5\ud835\uddee\ud835\uddfb\ud835\uddf4\ud835\uddf2\ud835\ude00 \ud835\uddf5\ud835\uddfc\ud835\ude04 \ud835\ude04\ud835\uddf2 \ud835\ude00\ud835\uddf5\ud835\uddfc\ud835\ude02\ud835\uddf9\ud835\uddf1 \ud835\uddef\ud835\ude02\ud835\uddf6\ud835\uddf9\ud835\uddf1, \ud835\ude00\ud835\uddf0\ud835\uddee\ud835\uddf9\ud835\uddf2, \ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\uddf9\ud835\uddf2\ud835\uddee\ud835\uddf1 \ud835\ude01\ud835\uddf2\ud835\uddf0\ud835\uddf5\ud835\uddfb\ud835\uddfc\ud835\uddf9\ud835\uddfc\ud835\uddf4\ud835\ude06 \ud835\ude01\ud835\uddf2\ud835\uddee\ud835\uddfa\ud835\ude00. In this session, we explore how AI enables a transformative shift from projects to platforms\u2014from one\u2011off delivery to reusable capabilities, from isolated teams to shared acceleration layers, from effort to leverage.\r\n\r\nYou will learn:\r\n\r\n\u2022 How is AI redefining the way we work\r\n\u2022 How platformization act as \u201cforce multipliers\u201d for every team\r\n\u2022 Real examples of platformization: self\u2011service, automation, reusable assets, and AI\u2011enhanced engineering workflows\r\n\u2022 What are the 5 strategic tensions for leaders in AI and how to overcome it\r\n\r\nThis talk is for engineering managers, tech leads, architects, and anyone who wants to lead their team into the next phase of AI-driven execution. If you want to move beyond incremental improvements and redesign how your teams deliver, innovate, and operate\u2014this session will show you the path.",
     "Speaker names": [
       "Hariprashadh SELLAMUTHU"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
     "Start": "2026-04-30T09:00:00+00:00",
     "End": "2026-04-30T11:25:00+02:00",
@@ -760,15 +732,13 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Four years ago, we discovered how GitHub Copilot revolutionized the way we write code. In 2026, AI no longer just suggests\u2014it executes, plans, and collaborates as a true member of the engineering team.\r\n\r\nWelcome to the era of Agentic Development.\r\n\r\nIn this demo-driven session, Tug will show you how to leverage autonomous AI to move from simple intent to full production. We will explore the shift from \"\"Vibe Coding\"\" to Spec-Driven Development.\r\n\r\nWhat\u2019s on the Agenda?\r\n - Context Engineering: Learn to supercharge your agents by coupling MCP (Model Context Protocol) connectivity with custom agent skills, while framing their behavior via agents.md files and personalized instructions.\r\n - Mastering the Modes: Harness Ask (assistance) and Plan (design) modes\u2014along with custom agents\u2014directly in your IDE, CLI, or on GitHub.com. (PR creation, Code Reviews, Log Analysis, Issue Management, etc.)\r\nHuman-in-the-Loop: How to maintain control and steer these agents without sacrificing your technical expertise or creative vision.\r\n - Real-World Scenarios\r\nWhether you are starting from a blank page to bootstrap a new app or navigating a complex legacy system, Tug will demonstrate how GitHub Copilot assists throughout the entire development lifecycle, transforming your intentions into code and documentation.\r\n\r\nNote: This session is entirely based on concrete demonstrations and field experience.",
     "Speaker names": [
       "Tugdual Grall (GitHub)"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
     "Start": "2026-04-30T08:05:00+00:00",
     "End": "2026-04-30T10:50:00+02:00",
@@ -780,9 +750,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD"
@@ -798,15 +766,14 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "Problem Management is often seen as a retrospective exercise\u2014find the root cause, document it, and move on. But what if our reviews became the engine for **real, measurable improvement**?\r\n\r\n \r\n\r\nIn this talk, we\u2019ll **challenge the traditional approach** to Problem Management Reviews and go **beyond root cause analysis**. We\u2019ll demystify what good improvement actually looks like in practice\u2014and how to make it stick.\r\n\r\nJoin us to see an **introduction from Stephane Claude** and we explore together how to:\r\n\r\n- Translate insights into **high\u2011impact quality improvements**\r\n\r\n- Define and track **meaningful corrective actions** that actually reduce risk\r\n\r\n- Assess action items not just by existence, but by **age, criticality, and effectiveness**\r\n\r\n- Shift the conversation from \u201cclosed\u201d actions to **sustained outcomes**\r\n\r\n- Build a culture of **continuous improvement** that strengthens service stability over time\r\n\r\nThis session is about moving from **analysis to action**, from **reactive fixes to proactive stability**, and from **process compliance to customer impact**. Whether you\u2019re running reviews, contributing to them, or depending on their outcomes, you\u2019ll leave with a clearer understanding of how Problem Management can directly enable **more reliable services and improved customer experiences.**",
     "Speaker names": [
+      "Eric BOURDIER",
       "Antonie METZ"
     ],
     "Room": {
-      "en": "[ERD] Local room - 2"
+      "en": "[ERD] Local room 2"
     },
     "Start": "2026-04-30T11:30:00+00:00",
     "End": "2026-04-30T13:55:00+02:00",
@@ -818,15 +785,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "Objective:\r\nTo bring PMs, Developers, and UX Designers together to collaboratively explore, ideate, and validate improved solutions for one of two high impact impact workflows:\r\n1.\tContext Sharing Flow (sharing full conversation history after interacting with the AI bot) or\r\n2.\tFlight Disruption Handling Flow\r\nThe goal is to rapidly co create solutions that are user centric, feasible to build, and aligned with product strategy.\r\n\r\nExpected Outcomes\r\n\u2022\tA validated user journey for a high impact flow\r\n\u2022\tA collaboratively designed solution concept\r\n\u2022\tEarly feasibility insights from engineering\r\n\u2022\tClear next steps for prototyping and development\r\n\u2022\tStronger shared understanding between UX, PM, and Dev teams\r\n \r\nWhy This Workshop Is Valuable\r\n\u2022\tEncourages cross discipline collaboration\r\n\u2022\tSpeeds up problem solving\r\n\u2022\tEnsures solutions are user centered and technically grounded\r\n\u2022\tProvides a structured approach that enables efficient and rapid innovation when working with PLC.",
     "Speaker names": [
       "Purva KONDE"
     ],
     "Room": {
-      "en": "[BLR] Local room - 3"
+      "en": "[BLR] Local room 3"
     },
     "Start": "2026-04-29T08:30:00+00:00",
     "End": "2026-04-29T12:30:00+02:00",
@@ -838,9 +803,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "Questions? Suggestions? Want to know why we started the Amadeus Descriptor? Do you remember life before the AUD and the cloud?",
     "Speaker names": [
       "Jill LUSTER"
@@ -856,9 +819,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "/",
     "Speaker names": [],
     "Room": null,
@@ -872,9 +833,7 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Calling all developers, engineers, solution owners, and anyone using, developing or deploying with AI at Amadeus!\r\nJoin this practical, fast\u2011paced workshop to learn:\r\n\ud83c\udf0d AI regulations made simple \u2014 what\u2019s happening globally and why it matters\r\n\ud83d\udee1\ufe0f Our Amadeus AI Compliance process \u2014 what you need to do, step by step\r\n\ud83d\uddc2\ufe0f How to complete the AI Governance platform (Archer) \u2014 register and manage your AI use cases with confidence\r\n\ud83e\uddea Hands\u2011on exercises + live guidance\r\n\ud83d\udcac Your questions, answered\r\n\r\n\ud83d\udc49 Don\u2019t miss it \u2014 join us and level up your AI compliance expertise!",
     "Speaker names": [
       "Sofia HERNANDEZ"
@@ -890,18 +849,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "## 1. How the PoC Became a Production Problem\r\nI started this project by building a simple Proof of Concept meant only to validate the integration between a traditional operational workflow and an AI component. My intention was always to discard the PoC afterward and build a proper, production\u2011ready cloud\u2011native architecture. But inside the organization, that distinction wasn\u2019t fully understood. People began using the PoC as if it were a real system, even loading production data into it. Suddenly I found myself explaining why something that \u201calready worked\u201d couldn\u2019t support real workloads, why it lacked security, resilience, observability, and why keeping it in production was far more expensive and risky than rebuilding it correctly. What seemed like a technical issue quickly turned into a deeper cultural and economic challenge: the team didn\u2019t understand the purpose\u2014or the limitations\u2014of a PoC.\r\n\r\n## 2. What I Did to Fix It\r\nTo move forward, I focused on educating the team and communicating clearly what was at stake. I walked them through the risks, the missing engineering practices, and the long\u2011term costs of relying on a prototype. Then I led the migration toward a robust cloud\u2011native architecture with proper security, CI/CD, observability, data governance, and scalable integration with AI. We ran both systems in parallel, migrated data safely, and gradually decommissioned the PoC without impacting operations. In the end, I not only delivered a stable, secure, and scalable platform, but also helped shift the organization\u2019s understanding of what it means to build technology the right way\u2014showing that overcoming cultural resistance can be just as important as solving the technical problems.\r\n\r\nAnd that is precisely the purpose of this talk: to walk you through both sides of the journey. I want to show the architecture not only from a technical perspective\u2014how it was designed, secured, scaled, and migrated\u2014but also from the cultural perspective, where the biggest challenges often live. My goal is to illustrate how technical excellence and cultural alignment must work together, and how understanding both is essential when transforming a PoC into a real, reliable, cloud\u2011native solution.",
     "Speaker names": [
       "Juan David P\u00e1ez S\u00e1nchez"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[BOG] Local room"
     },
-    "Start": "2026-04-30T15:25:00+00:00",
-    "End": "2026-04-30T17:50:00+02:00",
+    "Start": "2026-04-30T14:15:00+00:00",
+    "End": "2026-04-30T16:40:00+02:00",
     "From which Amadeus site do you plan to present?": "Bogot\u00e1, Colombia"
   },
   {
@@ -910,15 +867,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "Ever wonder why we still need a network? Lets dive into how the we support stable, transparent, multicloud connectivity.",
     "Speaker names": [
       "Jill LUSTER"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
     "Start": "2026-04-30T11:30:00+00:00",
     "End": "2026-04-30T13:55:00+02:00",
@@ -930,18 +885,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "Is your Azure bill a monthly surprise? What if your monitoring system could learn your spending patterns, detect anomalies automatically, and visually show you exactly what changed and why?\r\n \r\nIn this session, I'll show you how to build a production-ready Azure FinOps system that protects enterprise-scale budgets and identifies significant savings opportunities\u2014using only native Azure services. We'll combine Azure Monitor's statistical queries, interactive Workbooks for root cause analysis, and Logic Apps for intelligent notifications.\r\n \r\nYou'll see live:\r\n    - Statistical anomaly detection using Z-score analysis in KQL (adapts to YOUR patterns)\r\n    - Azure Workbooks that automatically correlate cost spikes with configuration changes\r\n    - Visual timelines linking VM resizing, performance metrics, and cost impact\r\n    - Multi-tier budget protection with ML-powered forecasting\r\n    - Complete deployment in <10 minutes via Infrastructure as Code\r\n\r\nNo more spreadsheet investigations\u2014watch an Azure Workbook automatically identify that a VM SKU change caused a major cost increase, then validate whether it was justified based on performance metrics.",
     "Speaker names": [
       "Andreea Catalina ILICI"
     ],
     "Room": {
-      "en": "[ERD] Local room - 2"
+      "en": "[ERD] Local room 2"
     },
-    "Start": "2026-04-30T12:40:00+00:00",
-    "End": "2026-04-30T15:05:00+02:00",
+    "Start": "2026-04-30T12:35:00+00:00",
+    "End": "2026-04-30T15:00:00+02:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -950,15 +903,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "In this workshop, **you will experience how it feels to contribute effectively to a Rust codebase**, even if you\u2019re new to the language. Through a sequence of self\u2011contained exercises, you will experiment with Rust\u2019s strengths in correctness, clarity, and performance.\r\nYou will:\r\n\r\n- **Discover how Rust guides you to avoid common logic mistakes**, and experience how its compiler and tooling help you reason about code safely.\r\n- **Extend an existing piece of functionality**, learning how Rust\u2019s design encourages small, focused contributions that are easy to read, test, and review.\r\n- **Investigate a performance bottleneck**, learning what makes Rust fast and how to boost performance with confidence.\r\n\r\nThroughout the session, **you will get a feel of how working with Rust looks like**: how code evolves, how changes are validated, and why Rust enables reliable, high\u2011quality contributions from engineers with diverse backgrounds.\r\n\r\nBy the end, you will have **hands\u2011on experience demonstrating that anyone can meaningfully contribute to a Rust project**\u2014and you\u2019ll understand why Rust is a compelling choice for productive, efficient and scalable long\u2011term development at Amadeus.\r\n\r\nThis is a **distributed workshop**, apply to the session of your local site:\r\n- Bel-Air (FR)\r\n- Bad Homburg (DE): link TBD\r\n- Bangalore (IN): link TBD",
     "Speaker names": [
       "Thomas LACROIX"
     ],
     "Room": {
-      "en": "[NCE] Local room - 1"
+      "en": "[NCE] Local room 2"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
@@ -970,11 +921,11 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "/",
-    "Speaker names": [],
+    "Speaker names": [
+      "Clement Escoffier (IBM/RedHat)"
+    ],
     "Room": {
       "en": "Java Cloud Native track"
     },
@@ -988,19 +939,33 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "Abstract\r\nPlatform engineering is rapidly evolving, and teams are looking for reliable ways to deliver standardized, secure, and self-service infrastructure to their developers. Kratix, an open-source framework for building platform-as-a-product, provides a powerful model for defining and delivering platform capabilities using Promises.\r\nIn this 2-hour hands-on workshop, participants will learn how to build their first Promise from scratch, publish it to a platform, and consume it from a workload cluster\u2014gaining end-to-end understanding of how Kratix enables scalable platform engineering practices.\r\n\r\n\ud83c\udfaf What Participants Will Learn\r\nBy the end of the session, attendees will be able to:\r\n\r\nUnderstand the core architecture and principles behind Kratix.\r\nDevelop a full Kratix Promise, including:\r\n\r\nAPI schema\r\nWorkflows\r\nWorkload resources\r\n\r\nDeploy the Promise onto a Platform cluster.\r\nRequest and consume the Promise from a Worker cluster.\r\nObserve how Kratix handles scheduling, resource creation, and delivery pipelines.\r\nApply best practices for structuring real-world Promises.\r\n\r\nNo prior Kratix experience is required; basic Kubernetes knowledge is helpful.\r\n\r\n\ud83e\uddea Workshop Format\r\nA highly interactive, guided session featuring:\r\n\r\nShort conceptual segments to build understanding.\r\nStep-by-step live development and deployment of a Promise.\r\nHands-on exercises where participants create and test their own Promises.\r\nTroubleshooting tips and practical patterns for production-grade Promise design.\r\n\r\nParticipants will walk away with working code samples, reference materials, and the confidence to adopt Promises for their own platform engineering initiatives.\r\n\r\n\ud83d\udc65 Target Audience\r\n\r\nPlatform Engineers\r\nSREs\r\nDevOps Engineers\r\nInfrastructure/Cloud Engineers\r\nArchitects exploring internal developer platforms\r\n\r\nIdeal for practitioners looking to adopt or enhance self-service platform capabilities.\r\n\r\n\u23f1\ufe0f Duration\r\n2 hours (Hands-on)",
     "Speaker names": [
       "Mohamed Hamdan Faris S M"
     ],
     "Room": {
-      "en": "[BLR] Local room - 1"
+      "en": "[BLR] Local room 1"
     },
     "Start": "2026-04-29T04:30:00+00:00",
     "End": "2026-04-29T08:30:00+02:00",
     "From which Amadeus site do you plan to present?": "Bengaluru, India"
+  },
+  {
+    "ID": "JQXFZ8",
+    "Proposal title": "From Full-Text to Vector Search: Modern Search Architectures",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Tags": null,
+    "Description": "/",
+    "Speaker names": [],
+    "Room": {
+      "en": "[IST] Local room"
+    },
+    "Start": "2026-04-30T07:20:00+00:00",
+    "End": "2026-04-30T09:45:00+02:00",
+    "From which Amadeus site do you plan to present?": "\u0130stanbul, Turkiye"
   },
   {
     "ID": "K8DQCM",
@@ -1008,9 +973,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Calling all developers, engineers, solution owners, and anyone using, developing or deploying with AI at Amadeus!\r\n\r\n\ud83c\udf7d\ufe0f Grab a bite of responsible AI!\r\n\r\n\ud83e\udd57 Starter: AI Regulations \r\nBegin with a light tapas\u2011style sampler of what\u2019s cooking in the global regulatory kitchen. Small bites, big clarity.\r\n\r\n\ud83c\udf5d Main Course: The Amadeus AI Compliance Process\r\nYour hearty entr\u00e9e: the full recipe for building AI the right way \u2014 steps, roles, and the secret sauce to stay compliant.\r\n\r\n\ud83e\uddc1 Dessert: Archer & Real Examples\r\nA sweet finish: tips on how to register your AI use cases in Archer \u2014 quick, practical, and very digestible.\r\n\r\n\u2615 Digestif: Q&A\r\nA quick espresso to wrap it up \u2014 ask anything, we\u2019ll serve answers.\r\n\r\n\ud83c\udf74 Come hungry. Leave AI compliant.",
     "Speaker names": [
       "Sofia HERNANDEZ"
@@ -1021,20 +984,34 @@
     "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
+    "ID": "KBTMWK",
+    "Proposal title": "From Clicks to Context: Building Smarter Recommendations with Couchbase and Vector Search",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Tags": null,
+    "Description": "Speaker: Mustafa Cantekin (Couchbase)\r\n\r\nUsers generate rich signals through every click, transaction, and preference they make. This session shows how Couchbase, as an operational data layer with built-in Vector Search, turns that data into real-time recommendations that match user intent semantically. Attendees will see it in action through a\u00a0 demo using vector search and real-time eventing.",
+    "Speaker names": [],
+    "Room": {
+      "en": "[IST] Local room"
+    },
+    "Start": "2026-04-30T07:50:00+00:00",
+    "End": "2026-04-30T10:15:00+02:00",
+    "From which Amadeus site do you plan to present?": "\u0130stanbul, Turkiye"
+  },
+  {
     "ID": "KCJQBA",
     "Proposal title": "MLOps with ArgoWorkflow",
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "## MLOps with ArgoWorkflows\r\n\r\n### Introduction\r\nArgoWorkflows and ArgoCD are the official CD tools for all Cloud Native Applications in Amadeus. It is already being used by products like Argos, ServiceNow, Orion, Nevio etc. to deploy to cloud.\r\n\r\nBut the versatility and prowess of ArgoWorkflows is not just limited to cloud. It can be leveraged to orchestrate any flow, including MLOps - from data ingestion and cleaning pipelines to model training and deploying.\r\n\r\nIn this presentation we will demonstrate how ArgoWorkflows can provide orchestration, traceability, security and, the most important feature, Change Management for any and every flow.\r\n\r\n### Advantages of ArgoWorkflows\r\n- Automated End-to-End Release Orchestration\r\n- Change Management with ServiceNow\r\n- Fallback and Rollback Capabilities\r\n- Multi-PAAS Functionality\r\n\r\n### What to Expect\r\nA brief intro to ArgoWorkflows and a demonstration on how it can be leveraged to automate MLOps pipelines delivering seamless orchestration from data to training pipelines and deploying ML models with GitOps pull model.",
     "Speaker names": [
       "D AJAY KUMAR"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
     "Start": "2026-04-30T10:35:00+00:00",
     "End": "2026-04-30T13:00:00+02:00",
@@ -1046,11 +1023,11 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "/",
-    "Speaker names": [],
+    "Speaker names": [
+      "Clement Escoffier (IBM/RedHat)"
+    ],
     "Room": {
       "en": "Java Cloud Native track"
     },
@@ -1064,18 +1041,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Frontline support teams face a constant challenge: rapidly diagnosing complex infrastructure issues across dozens of monitoring systems. We've transformed our First Line Support operations by leveraging AI agents that don't just answer questions\u2014they actively investigate, diagnose, and assist in resolving production incidents.\r\nUsing the Model Context Protocol (MCP), we've created a custom server that gives AI models secure, structured access to critical internal systems including Grafana dashboards, Thanos metrics, Splunk logs, ServiceNow incidents, Win@proach records, Confluence pages, and our EventViewer.\r\nAI Agents in Practice: How we leverage multiple LLM models (Claude, GPT-4) as autonomous agents that can execute multi-step diagnostic workflows\r\nCustom MCP Server Architecture: Design patterns for building secure, production-grade MCP servers that bridge AI assistants with enterprise tools\r\nReal-World Impact: Concrete examples of AI-assisted incident resolution, from network flow analysis to application troubleshooting\r\nTool Integration Patterns: How we expose complex systems (Prometheus/Thanos queries, Splunk searches, SI/OTF configuration databases) through MCP tools\r\nOperational Procedures as AI Context: Leveraging our extensive runbook library to guide AI decision-making",
     "Speaker names": [
       "Nikko Clarin"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[SYD] Local room"
     },
-    "Start": "2026-04-30T00:45:00+00:00",
-    "End": "2026-04-30T03:10:00+02:00",
+    "Start": "2026-04-29T04:55:00+00:00",
+    "End": "2026-04-29T07:20:00+02:00",
     "From which Amadeus site do you plan to present?": "Sydney, Australia"
   },
   {
@@ -1084,9 +1059,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "ARO is one of the few applications that is pure CNA. We would like to setup our booth to share the functional, technical as well as general queries on CNA development. We also have a unique blend of individuals who have moved from OBE development to CNA development. Their experiences may provide a great insight to those who may be working on the OBE.",
     "Speaker names": [
       "Nilesh SINHA"
@@ -1102,9 +1075,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "UX, Front-end"
-    },
+    "Tags": null,
     "Description": "Amadeus India is home to more than 15% of Amadeus\u2019 global UX talent, serving as a vibrant hub that shapes the future of travel through human\u2011centred design. It enables seamless, intuitive experiences across platforms and products, driving both customer satisfaction and business impact.\r\n\r\nTo reinforce this vision and strengthen cross\u2011functional understanding, the UXC Booth aims to create an interactive space within the Bangalore office where employees from all teams can engage with UX practices, principles, and processes. The goal is to showcase how UX contributes to the Product Life Cycle (PLC), highlight the value of early collaboration, and accelerate UX maturity across the organization.\r\n\r\nBy bringing teams closer to UX thinking and demonstrating its role in building meaningful product experiences, the UXC Booth will help foster alignment, spark curiosity, and cultivate a shared sense of ownership in delivering exceptional travel technology solutions.",
     "Speaker names": [
       "Ankita RAJ"
@@ -1120,9 +1091,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "/",
     "Speaker names": [],
     "Room": null,
@@ -1136,18 +1105,18 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": [
+      "Exploration"
+    ],
     "Description": "This session shows, through a real live example, that creating an AI proof of concept is far more accessible than most people imagine. I demonstrate how anyone\u2014whether technical or not\u2014can build a functional AI workflow in just a couple of minutes using simple tools and clear reasoning about the problem they want to solve. The goal is to break the myth that AI requires complex engineering from day one and instead show how easy it is to begin experimenting with meaningful prototypes.\r\n\r\nI also emphasize my commitment to **democratizing the use of AI** by encouraging teams and individuals to adopt a mindset of rapid exploration. In the talk, I explain how fast prototyping accelerates learning, reduces risk, and helps organizations validate ideas early without large investments. Participants leave with a practical and repeatable approach they can apply immediately, reinforcing the idea that getting started with AI is not only simple\u2014it\u2019s something anyone can do today.",
     "Speaker names": [
       "Juan David P\u00e1ez S\u00e1nchez"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[BOG] Local room"
     },
-    "Start": "2026-04-30T16:55:00+00:00",
-    "End": "2026-04-30T19:20:00+02:00",
+    "Start": "2026-04-30T15:45:00+00:00",
+    "End": "2026-04-30T18:10:00+02:00",
     "From which Amadeus site do you plan to present?": "Bogot\u00e1, Colombia"
   },
   {
@@ -1156,7 +1125,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": null,
+    "Tags": null,
     "Description": "/",
     "Speaker names": [],
     "Room": null,
@@ -1170,18 +1139,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "We'll explore what the role involves, the skillsets needed and some career tips on how to get there. It may also provide insight into your own manager's mind and what makes them tick.\r\nThis talk is open to anyone potentially interested in pursuing people management as a career path, specifically those that have never seriously considered it before.",
     "Speaker names": [
       "Ash PRAGASAM"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[SYD] Local room"
     },
-    "Start": "2026-04-29T23:15:00+00:00",
-    "End": "2026-04-30T01:40:00+02:00",
+    "Start": "2026-04-29T03:30:00+00:00",
+    "End": "2026-04-29T05:55:00+02:00",
     "From which Amadeus site do you plan to present?": "Sydney, Australia"
   },
   {
@@ -1190,18 +1157,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "GOAT - GitOps Automation Tool - was developed by and is in use by the Ticketing team. \r\nIt is a GitOps tool providing a Git-based, as-code model for Control-M jobs. It\u2019s designed to run in a Jenkins pipeline, just like you work with AUD.\r\nYou can as easily update a single job, or mass-update 100 folders. All you need is one pull-request and one TR. Using GOAT, you can take back control on your jobs.\r\n\r\nDCH is one of the first applications outisde Ticketing to implement GOAT. It is also the first DCS (Departure Control System) application to use GOAT.\r\n\r\nDuring this talk, I will present:\r\n- Why we chose to implement GOAT for DCH\r\n- Our experience with implementing GOAT for DCH\r\n- A demonstation of using GOAT for DCH",
     "Speaker names": [
       "Morten KLISCH"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "[SYD] Local room"
     },
-    "Start": "2026-04-30T01:40:00+00:00",
-    "End": "2026-04-30T04:05:00+02:00",
+    "Start": "2026-04-29T04:00:00+00:00",
+    "End": "2026-04-29T06:25:00+02:00",
     "From which Amadeus site do you plan to present?": "Sydney, Australia"
   },
   {
@@ -1210,9 +1175,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD"
@@ -1228,16 +1191,14 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "UX, Front-end"
-    },
+    "Tags": null,
     "Description": "Effective requirement gathering is the foundation of every successful product outcome. Yet, in fast paced project environments, teams often rush into solutioning without achieving true clarity on user needs, business goals, and underlying constraints. This leads to misalignment, rework, delays, and products that miss the mark.\r\n\r\nThis workshop is designed to address exactly that gap.\r\n\r\nIn this interactive 120 minute session, participants will learn how to conduct structured, empathetic, and outcome driven requirement gathering sessions. Through a blend of a short theory module, real-world best practices, and a hands on group simulation with a hypothetical scenario, attendees will experience both the challenges and the rewards of uncovering meaningful requirements.\r\n\r\nThe workshop encourages active participation from PMs, POs, UX Designers, and Developers, enabling them to understand each other\u2019s perspectives and build a shared language for discovery.",
     "Speaker names": [
       "Ankita RAJ",
       "Sachin Singh GUSAIN"
     ],
     "Room": {
-      "en": "[BLR] Local room - 3"
+      "en": "[BLR] Local room 3"
     },
     "Start": "2026-04-29T04:30:00+00:00",
     "End": "2026-04-29T08:30:00+02:00",
@@ -1249,15 +1210,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "Cloud workloads can run surprisingly slow even when backed by high\u2011end Premium or Ultra disks. The real culprit is often overlooked: Azure Virtual Machines have their own IOPS and throughput caps, and these limits can silently throttle disks that are otherwise capable of much higher performance. This mismatch leads to warnings such as \u201cThe current VM size supports 23 MBps while attached disks require 160 MBps.\u201d\r\n\r\nIn this fast, practical, engineering\u2011focused session, we\u2019ll break down how Azure\u2019s storage pipeline works\u2014uncached I/O paths, cached I/O behavior, baseline vs burst throughput, and the performance limits defined by different VM and disk SKUs. You\u2019ll learn why attaching a higher\u2011tier disk does not automatically guarantee higher performance, and how to read Azure\u2019s published SKU specifications to identify mismatches before they become production bottlenecks.\r\n\r\nThe session includes a lightweight, Azure\u2011Monitor\u2011free demonstration using standard benchmarking tools such as fio or DiskSpd to validate real disk throughput and clearly illustrate VM\u2011level bottlenecking. We\u2019ll also walk through a simple, repeatable framework for selecting the right VM size based on workload throughput needs, disk requirements, and expected traffic bursts.\r\n\r\nAttendees will leave with the knowledge and tools needed to prevent disk throttling, size their infrastructure more effectively, and ensure their workloads achieve the performance they were designed for\u2014without guesswork, surprises, or expensive over\u2011provisioning.",
     "Speaker names": [
       "Abhilash B N"
     ],
     "Room": {
-      "en": "Room 2"
+      "en": "Global room 2"
     },
     "Start": "2026-04-30T10:35:00+00:00",
     "End": "2026-04-30T13:00:00+02:00",
@@ -1269,18 +1228,36 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": [
+      "Exploration"
+    ],
     "Description": "Design Thinking:\r\n- What is Design Thinking Framework?\r\n- Design Thinking Mindsets.\r\n- 5 action phases of Design Thinking\r\n- Tools and Templates\r\n- Critical Success Factors",
     "Speaker names": [
       "Harish V"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
     "Start": "2026-04-30T10:35:00+00:00",
     "End": "2026-04-30T13:00:00+02:00",
+    "From which Amadeus site do you plan to present?": "Bengaluru, India"
+  },
+  {
+    "ID": "NEWKN7",
+    "Proposal title": "Predictive Crowd Intelligence using Satellite computer vision and predictive travel analytics",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Tags": null,
+    "Description": "An advanced platform that combines satellite computer vision, mobile network analytics, and machine learning to provide real-time and predictive crowd density analysis for tourism destinations.\r\n\r\nThis is an Open-Source solution that went public in Dec'25. \r\nhttps://github.com/AmadeusITGroup/Predictive-Crowd-Intelligence\r\n\r\nThe platform integrates multiple data sources for comprehensive crowd analysis:\r\n\r\n\ud83d\udef0\ufe0f Satellite Imagery: Google Earth Engine, Sentinel Hub, NASA Earthdata\r\n\ud83d\udcf1 Mobile Networks: Cell tower congestion, coverage mapping\r\n\ud83c\udf24\ufe0f Weather Data: OpenWeatherMap, impact on crowd patterns\r\n\ud83d\udcc5 Event Data: Local events, festivals, holidays\r\n\ud83d\ude87 Transit Data: Public transportation load\r\n\ud83d\udcc8 Booking Trends: Travel reservation patterns\r\n\ud83d\uddfa\ufe0f Geographic Data: OpenStreetMap POI analysis\r\n\r\nIn this talk, I will explain the problem of existing systems and how we are trying to use this solution to improve the traveler safety throughout their journey and demo the working prototype. \r\n\r\nWith this talk, my aim is to introduce the topic of Predictive Crowd Intelligence to the broader engineering community and encourage user adoption of this open-source platform.",
+    "Speaker names": [
+      "Gunjan KHANDPUR"
+    ],
+    "Room": {
+      "en": "Global room 2"
+    },
+    "Start": "2026-04-30T10:00:00+00:00",
+    "End": "2026-04-30T12:25:00+02:00",
     "From which Amadeus site do you plan to present?": "Bengaluru, India"
   },
   {
@@ -1289,19 +1266,33 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "Operations improvement doesn\u2019t always need a new platform\u2014sometimes it\u2019s one focused initiative that removes a daily drain of human attention. In this talk, I\u2019ll share how we took a high-volume Control\u2011M incident stream and turned it into an automated, end\u2011to\u2011end workflow in Victor: ingest incident updates from MQ, enrich each IR with Control\u2011M job context (status, job details, output/log signals), and apply deterministic routing rules that automatically assign the right queue and Parallel Investigations (PIs), then keep monitoring until auto\u2011closure.\r\n\r\nThe punchline is real impact: this system has helped resolve ~29,000 incidents in last 6 months through automation-driven handling. We\u2019ll translate that into what it means operationally\u2014fewer repetitive triage loops, faster time-to-action, and more engineer time returned to higher-value work.\r\n\r\nBeyond the \u201cwhat,\u201d the talk focuses on the \u201chow to drive change\u201d: picking the highest-leverage pain point, designing safe automation with guardrails (rule priority, exclusions, history-based PI discovery), and closing the loop with monitoring so the system doesn\u2019t just route\u2014 it finishes the job.",
     "Speaker names": [
       "Rahul AGRAWAL"
     ],
     "Room": {
-      "en": "[ERD] Local room - 2"
+      "en": "[ERD] Local room 2"
     },
-    "Start": "2026-04-30T13:05:00+00:00",
-    "End": "2026-04-30T15:30:00+02:00",
+    "Start": "2026-04-30T13:10:00+00:00",
+    "End": "2026-04-30T15:35:00+02:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "NXRNFE",
+    "Proposal title": "Microsoft's vision on AI",
+    "Session type": {
+      "en": "Long talk"
+    },
+    "Tags": null,
+    "Description": "We will likely focus on key agentic capabilities, such as Foundry, MCP, Hosted Agents & Multi Agentic workflows\u2026",
+    "Speaker names": [],
+    "Room": {
+      "en": "[IST] Local room"
+    },
+    "Start": "2026-04-30T12:10:00+00:00",
+    "End": "2026-04-30T14:55:00+02:00",
+    "From which Amadeus site do you plan to present?": "\u0130stanbul, Turkiye"
   },
   {
     "ID": "PB89E8",
@@ -1309,19 +1300,17 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
-    "Description": "Speaker: Agathe Duboué (Google), David Clauvel (Google)\r\n\r\nDiscover how to build and deploy high-impact AI agents using Gemini Enterprise as the central orchestration hub, leveraging Google\u2019s Agent Development Kit (ADK) and running on Agent Engine within Vertex AI.\r\nThis session will explore an agent from code to deployment in Gemini Enterprise with Google's Antigravity.",
+    "Tags": null,
+    "Description": "Speaker: Agathe Dubou\u00e9, David Clauvel (Google)\r\n\r\nDiscover how to build and deploy high-impact AI agents using Gemini Enterprise as the central orchestration hub, leveraging Google\u2019s Agent Development Kit (ADK) and running on Agent Engine within Vertex AI.\r\nThis session will explore an agent from code to deployment in Gemini Enterprise with Google's Antigravity.",
     "Speaker names": [
-      "Agathe Duboué (Google)",
-      "David Clauvel (Google)"
+      "David Clauvel (Google)",
+      "Agathe Dubou\u00e9 (Google)"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
-    "Start": "2026-04-30T12:05:00+00:00",
-    "End": "2026-04-30T14:30:00+02:00",
+    "Start": "2026-04-30T12:00:00+00:00",
+    "End": "2026-04-30T14:25:00+02:00",
     "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
@@ -1330,7 +1319,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": null,
+    "Tags": null,
     "Description": "Let's meet AWS team and discover their video demos!",
     "Speaker names": [
       "Thomas Geoffroy (AWS)"
@@ -1346,15 +1335,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Speaker: Mehdi Lamrani (Databricks)\r\n\r\nMoving beyond simple question-answering chatbots to compound AI systems that can plan, collaborate, and take real actions across our infrastructure. In this talk, we\u2019ll walk through how to design and implement such systems so that each agent has a clear role (planner, data retriever, executor, reviewer) while sharing context safely and efficiently.\r\n\r\nWe will focus on how these agents connect to internal \u201ctools\u201d such as databases, microservices, and workflow engines, and how to enforce strict security boundaries around those integrations. This includes patterns for least-privilege access, network isolation, and auditable tool calls, so agents can perform powerful operations without expanding your attack surface.\r\n\r\nBy the end, engineers will understand the core architecture of complex multi-agent systems, how to expose internal capabilities as secure tools, and how to evolve from a single chatbot to a robust, production-ready agent ecosystem.",
     "Speaker names": [
       "Mehdi Lamrani (Databricks)"
     ],
     "Room": {
-      "en": "[NCE] Local room - 3"
+      "en": "[NCE] Local room 1"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
@@ -1366,18 +1353,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "### **The Missing Layer in Your Observability Stack**\r\n\r\nYou already have **metrics**.  \r\nYou already have **traces**.  \r\n\r\nBut when **CPU spikes**, **memory grows**, or **costs increase** \u2014 you\u2019re still left asking:  \r\n\r\n**Which exact lines of code are responsible?**\r\n\r\n**Continuous Profiling** provides always-on, low-overhead visibility into how your application actually spends **CPU** and **memory** \u2014 directly at the **source code level**.\r\n\r\nIt connects **symptoms** to the exact **functions, methods, and code paths** causing them.\r\n\r\n---\r\n\r\n### **From Signals to Answers**\r\n\r\nContinuous Profiling delivers value across **two critical dimensions**:\r\n\r\n#### \ud83d\ude80 Real-Time Deep Dives\r\nWhen performance degrades in production, you don\u2019t have time for guesswork:\r\n\r\n- **Instantly identify hot paths and expensive functions**  \r\n- **See exactly which code is consuming CPU and memory in real time**  \r\n- **Troubleshoot bottlenecks live with minimal setup**  \r\n- **Understand root causes at the code level without reproducing issues locally**\r\n\r\n#### \ud83c\udfaf Proactive Optimization\r\nPerformance issues don\u2019t start at scale \u2014 they **compound at scale**:\r\n\r\n- **Surface inefficient logic before it becomes costly**  \r\n- **Identify wasteful resource usage across services**  \r\n- **Optimize CPU and memory consumption systematically**  \r\n- **Reduce costs without compromising performance**\r\n\r\n---\r\n\r\n**Join us to learn how to spot costly bottlenecks and make your applications leaner and faster with Continuous Profiling.**",
     "Speaker names": [
       "Lucas WEGLARZ"
     ],
     "Room": {
-      "en": "Room 2"
+      "en": "Global room 2"
     },
-    "Start": "2026-04-30T12:05:00+00:00",
-    "End": "2026-04-30T14:30:00+02:00",
+    "Start": "2026-04-30T12:00:00+00:00",
+    "End": "2026-04-30T14:25:00+02:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -1386,9 +1371,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "Principal Engineers (PEs) play a critical role in shaping technical direction and long\u2011term product sustainability. Yet their role and responsibilities are not officially defined in SAFe.\r\n\r\nWith a group of Principal Engineers, we started to explore how PEs fit into the SAFe landscape with 2 aspects in mind: \r\n- As an organization, how to take the most out of my PEs?\r\n- As a PE how to be impactful in my area? \r\n\r\nGoal of the discussions is to clarify the role of the PE in SAFe, raise awareness on the topic and provide set of guidelines and best-practices on the 5 key topics we have identified \"Influence channels, collaboration and visibility\", \"Knowledge sharing\", \"Early involvements\", \"Exploration, improvements and initiatives\" and \"Time management and prioritization\".\r\n\r\nAt this Amadeus Engineering days booth, we will share insights, and invite participants to challenge, enrich, and refine our vision. We\u2019re inviting people from all corners of the organization, across varied roles and positions, to come on the stand to engage in discussions, exchange experiences and help to shape a shared understanding of the PE role in SAFe.",
     "Speaker names": [
       "Andre NAZ",
@@ -1405,15 +1388,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "Modern development workflows demand consistency, portability, and fast onboarding. In this hands\u2011on workshop, we explore how **Devcontainers** can transform the way you build and run your projects\u2014locally and within the Amadeus ecosystem.\r\n\r\nWe\u2019ll start by preparing a machine to work with Devcontainers and walk through how to integrate them into any project. You\u2019ll see how to manage and automatically update container images, ensuring your development environment stays reproducible and up to date with minimal effort.\r\n\r\nNext, we\u2019ll dive into the **Amadeus internal implementation of Devcontainers: DevBoxes and CDS**. You\u2019ll learn how they work under the hood, how to configure VS Code to use them seamlessly, and how these platform tools simplify collaboration across teams. Finally, we\u2019ll compare **local Devcontainers vs. DevBoxes** and discuss practical scenarios for choosing one over the other.\r\n\r\nWhether you\u2019re new to Devcontainers or looking to level up your workflow with Amadeus\u2011specific tooling, this workshop will give you the knowledge and confidence to adopt containerized development effectively.\r\n\r\n**Join this session if you want to:**\r\n- Reduce \u201cworks on my machine\u201d issues\r\n- Onboard to projects faster with zero manual setup\r\n- Understand the Amadeus DevBox/CDS ecosystem\r\n- Bring reproducibility and scalability into your daily development workflow\r\n\r\nLet\u2019s build development environments that *just work* - every time, everywhere.",
     "Speaker names": [
       "Tjark BUSSMANN"
     ],
     "Room": {
-      "en": "[BHO] Local room -1"
+      "en": "[BHO] Local room 1"
     },
     "Start": "2026-04-29T13:00:00+00:00",
     "End": "2026-04-29T17:00:00+02:00",
@@ -1425,15 +1406,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "Jujutsu is a new version control system being talked about a lot. It aims to be simpler to use, both for newbies and for power users, by introducing a few key concepts:\r\n - Branchless change model\r\n - No working tree / index\r\n - Easy amending/changing commits\r\n - Automatic rebases\r\n - First-class conflicts\r\n - Undo/redo functionality\r\n\r\nIn this talk, we'll discuss these concepts and try them out together. We will not need 2 hours, just about an hour (there is no option in the tool for a 1 hour hands-on workshop).\r\n\r\n**Attendees should have basic git knowledge.** No need to be a git guru, but you should feel comfortable with branches, working with commits, and git history. If you need a bit of a refresher, you can always read the classic tome https://git-scm.com/book !",
     "Speaker names": [
       "Benjamin Schwalb LANDAU"
     ],
     "Room": {
-      "en": "[ERD] Local room - 2"
+      "en": "[ERD] Local room 2"
     },
     "Start": "2026-04-29T13:00:00+00:00",
     "End": "2026-04-29T17:00:00+02:00",
@@ -1445,7 +1424,7 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": null,
+    "Tags": null,
     "Description": "/",
     "Speaker names": [
       "Sarah Cohadon"
@@ -1461,19 +1440,17 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "An overview of the major themes that will structure Amadeus\u2019 Big Data & ML journey in 2026 and the coming years: from platform evolution and governance to applied AI opportunities and long\u2011term vision for data\u2011driven engineering.",
     "Speaker names": [
       "Thibault TOLEDANO",
       "Lorine PORNET"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
-    "Start": "2026-04-30T14:10:00+00:00",
-    "End": "2026-04-30T16:35:00+02:00",
+    "Start": "2026-04-30T14:00:00+00:00",
+    "End": "2026-04-30T16:25:00+02:00",
     "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
@@ -1482,9 +1459,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "Discover how Chaos Engineering can helps make your application more resilient and reliable.\r\nJoin us to explore chaos experiments, learn how to safely inject disruptions, and see how Amadeus teams are using them.\r\nPresentation of Chaos Engineering, live demos, and showcasing previous campaign available at the booth!",
     "Speaker names": [
       "Calvin AUDIER"
@@ -1500,9 +1475,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Learn what are your benefits to use COMPaaS! And do you know that you can also collaborate and contribute? Come meet the COMPaaS team and find out how!",
     "Speaker names": [
       "Carol ZAMPIERI"
@@ -1518,15 +1491,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Legal Contractual Documents  are a goldmine of business data \u2014 if you can unlock them.\r\nIn this session, we will present how Amadeus is using Microsoft Foundry  to transform large volumes of unstructured, heterogeneous contracts into structured, reusable digital assets using Generative AI.\r\n\r\nThe talk will cover a real\u2011world engineering journey: handling complex contract typologies, scanned and low\u2011quality documents, multiple languages, and inconsistent formats at scale. Using advanced OCR, robust GenAI extraction, and batch inference with parallel processing, we built a solution that is scalable, reliable, cost\u2011efficient, and highly customizable.\r\n\r\nWe will walk through the end\u2011to\u2011end architecture on Microsoft Foundry, explain key design choices, and share lessons learned from production\u2011grade pilots supporting multiple regions and business lines.\r\n\r\nAttendees will gain practical insights into how Generative AI can be safely and effectively applied to enterprise document digitalization, turning legal contractual documents  into a strategic asset that powers product inventory, analytics, and future automation use cases.",
     "Speaker names": [
       "Akash TYAGI"
     ],
     "Room": {
-      "en": "Room 2"
+      "en": "Global room 2"
     },
     "Start": "2026-04-30T09:00:00+00:00",
     "End": "2026-04-30T11:25:00+02:00",
@@ -1538,9 +1509,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD"
@@ -1556,15 +1525,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "In this workshop, **you will experience how it feels to contribute effectively to a Rust codebase,** even if you\u2019re new to the language. Through a sequence of self\u2011contained exercises, you will experiment with Rust\u2019s strengths in correctness, clarity, and performance.\r\nYou will:\r\n\r\n- **Discover how Rust guides you to avoid common logic mistakes,** and experience how its compiler and tooling help you reason about code safely.\r\n- **Extend an existing piece of functionality,** learning how Rust\u2019s design encourages small, focused contributions that are easy to read, test, and review.\r\n- **Investigate a performance bottleneck,** learning what makes Rust fast and how to boost performance with confidence.\r\n\r\nThroughout the session, **you will get a feel of how working with Rust looks like:** how code evolves, how changes are validated, and why Rust enables reliable, high\u2011quality contributions from engineers with diverse backgrounds.\r\n\r\nBy the end, **you will have hands\u2011on experience demonstrating that anyone can meaningfully contribute to a Rust project** \u2013 and you\u2019ll understand why Rust is a compelling choice for productive, efficient and scalable long\u2011term development at Amadeus.\r\n\r\nThis is a **distributed workshop,** apply in the session of your local site:\r\n- Bel-Air (FR): link TBD\r\n- Bad Homburg (DE)\r\n- Bangalore (IN): link TBD",
     "Speaker names": [
       "Daniel PFEIFFER"
     ],
     "Room": {
-      "en": "[BHO] Local room -1"
+      "en": "[BHO] Local room 1"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
@@ -1576,16 +1543,14 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "# Abstract\r\n\r\nAs an official replacement for Postman, Bruno is a relatively new player on the API testing field. As such, this tool capabilities deserves to be properly introduced beyond the surface of a friendly UI. \r\n\r\nYou will learn how developers, QA engineers and Product Owners can share the same test suite to build and efficient validation process and share knowledge using single source of truth.\r\n\r\nThis can be achieved by strong collaboration and consensual test suite writing guidelines and common documentation effort.\r\n\r\nAs a shared platform Bruno can improve collaboration, shared knowledge and maintaining high quality deliveries.\r\n\r\n# Target Audience\r\n\r\nAPI developers, QA and PO.\r\n\r\n# Key Takeaways\r\n\r\n- Getting over the UI and learn to use more advanced automation for Bruno test suites.\r\n- Using CLI for automated tests, reporting and performance analysis.\r\n- Concrete example of writing guidelines, how to structure a collection.\r\n- Typical iterative improvement of test suite from development to PO validation.",
     "Speaker names": [
       "Sylvain GAMEL",
       "Alexandru DAFINEI"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
     "Start": "2026-04-30T09:35:00+00:00",
     "End": "2026-04-30T12:00:00+02:00",
@@ -1597,16 +1562,14 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "As Amadeus accelerates its cloud migration, operational stability increasingly depends on fast, reliable responses to frequent but repetitive infrastructure and application issues. Traditionally, many of these incidents require manual intervention\u2014leading to delayed recovery, operational fatigue, and increased risk of customer impact.\r\nThis talk introduces the Self\u2011Healing Engine (SHE), a proactive automation approach that detects, diagnoses, and remediates operational issues in real time\u2014without human intervention where it is safe to do so. By integrating monitoring, alerting, orchestration, and ITSM workflows, SHE moves operations from a reactive firefighting model to an intelligent, automated recovery model.\r\nThe session will cover:\r\n1) The problem statement behind self\u2011healing in large\u2011scale cloud platforms\r\n2) The architecture and process flow of the Self\u2011Healing Engine\r\n3) Real production use cases implemented with Deployment Manager and Argo CD\r\n4) Measurable impact, including significant reduction in manual effort and MTTR\r\n5) How to balance autonomy with control using guardrails and human\u2011in\u2011the\u2011loop mechanisms\r\n\r\nAttendees will gain practical insights into designing, governing, and scaling self\u2011healing systems in complex cloud environments.\r\n\r\nWhat Attendees Will Learn\r\n\r\nHow to identify operational issues suitable for self\u2011healing\r\nA reference architecture for building a self\u2011healing platform\r\nHow monitoring, alerting, orchestration, and ITSM integrate end\u2011to\u2011end\r\nLessons learned from real infra and functional self\u2011healing implementations\r\nBest practices to avoid risks like false positives and over\u2011automation\r\n\r\n\r\nTarget Audience\r\n\r\nPlatform Engineers\r\nDevOps & SRE teams\r\nCloud Engineers\r\nEngineering Leads and Architects\r\nAnyone interested in improving operational reliability through automation\r\n\r\n\r\nSession Format\r\n\r\nTalk + Live Demo\r\nIncludes real examples of infra and functional self\u2011healing flows",
     "Speaker names": [
       "Bhargav NALLAPPAREDDYGARI",
       "Sai Mahendra KARUMURI"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
     "Start": "2026-04-30T09:35:00+00:00",
     "End": "2026-04-30T12:00:00+02:00",
@@ -1618,15 +1581,13 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "UX, Front-end"
-    },
+    "Tags": null,
     "Description": "Explore the technologies which have been developed by Amadeus and how those patented technologies have been built into our latest self-service check-in hardware concepts and systems.\r\n\r\nWe will be exploring how these technologies provide us with distinct competitive advantages, and we will discuss the possible future directions of innovation, why we are excited for it, and how these new technologies align with the Amadeus vision. \r\n\r\nThis very practical talk is lead by the innovation team based in Sydney who work on designing and building next generation airport technologies.\r\n\r\nThis talk is recommended for anyone who is in the airport self-service space. Join us and discover how we see self-service technology evolving!",
     "Speaker names": [
       "Benjamin Crumpton"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
     "Start": "2026-04-30T04:00:00+00:00",
     "End": "2026-04-30T06:45:00+02:00",
@@ -1638,39 +1599,17 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": null,
     "Description": "Every transformation starts with a story\u2014and ours began with a backlog that felt overwhelming and costs that kept creeping up. Instead of sweeping changes, we focused on tiny, intentional actions: changing the way we work, improving communication, celebrating wins, and aligning priorities. Over six months, these small steps led to a 48% reduction in backlog, cost per PI closed reduced by 25%, efficiency increased by 40%, and\u2014most importantly\u2014a team that felt heard, valued, and motivated. In this talk, I\u2019ll share the journey behind these results, the leadership habits that made the difference, and how you can spark your own ripple effect of success\u2014one small action at a time.",
     "Speaker names": [
       "Andrea RINALDI"
     ],
     "Room": {
-      "en": "Room 2"
+      "en": "Global room 2"
     },
-    "Start": "2026-04-30T13:35:00+00:00",
-    "End": "2026-04-30T16:00:00+02:00",
+    "Start": "2026-04-30T13:30:00+00:00",
+    "End": "2026-04-30T15:55:00+02:00",
     "From which Amadeus site do you plan to present?": "Nice, France"
-  },
-  {
-    "ID": "TGS9BS",
-    "Proposal title": "Kafka: The Art of Building Systems That Never Wait",
-    "Session type": {
-      "en": "Talk"
-    },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
-    "Description": "Waiting is the enemy of scale. Kafka redefined how distributed systems communicate by embracing asynchrony, durability, and replayable history. We\u2019ll unpack the beauty of Kafka\u2019s design, compare it with traditional messaging systems, explore real-world implementation patterns, and learn what happens when Kafka itself breaks\u2014and why that\u2019s part of its brilliance.",
-    "Speaker names": [
-      "Manish ANIL HIRVE"
-    ],
-    "Room": {
-      "en": "Room 2"
-    },
-    "Start": "2026-04-30T10:00:00+00:00",
-    "End": "2026-04-30T12:25:00+02:00",
-    "From which Amadeus site do you plan to present?": "Bengaluru, India"
   },
   {
     "ID": "TH9LCG",
@@ -1678,9 +1617,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Let's meet Laurent Serot, Gaelle Molle and all the specialists from Red Hat that will be on site to deliver topics selected!",
     "Speaker names": [],
     "Room": null,
@@ -1694,15 +1631,13 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Large Language Models (LLMs) like ChatGPT appear magical from the outside\u2014but beneath the surface lies a clear, understandable system that anyone can learn. This talk takes the audience on a guided tour through the full lifecycle of an LLM: from massive internet\u2011scale pretraining datasets, to the mathematics of tokens and transformers, to the post\u2011training processes that shape their behavior, reasoning, and personality.\r\nWe\u2019ll explore how these models \u201cthink,\u201d why they hallucinate, how they use tools, and why their intelligence can feel uneven or \u201cjagged.\u201d Along the way, we\u2019ll build simple mental models for understanding their psychology\u2014how they learn, how they store knowledge, how they infer context, and why they sometimes struggle with something as simple as spelling.\r\nDesigned for a general audience, this talk connects the technical foundations\u2014tokenization, attention, neural network internals, supervised fine\u2011tuning, reinforcement learning, and RLHF\u2014to the practical reality of working with AI today. The goal is to replace mystery with intuition, and empower everyone to use these systems more effectively, creatively, and responsibly in their work and life.\r\nBy the end, the audience will not only understand how these AI systems are built, but also how to think with them, think about them, and anticipate what\u2019s coming next in the rapidly evolving world of machine intelligence.",
     "Speaker names": [
       "Kamal BANA"
     ],
     "Room": {
-      "en": "Room 2"
+      "en": "Global room 2"
     },
     "Start": "2026-04-30T04:15:00+00:00",
     "End": "2026-04-30T07:00:00+02:00",
@@ -1714,9 +1649,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "/",
     "Speaker names": [],
     "Room": null,
@@ -1730,7 +1663,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": null,
+    "Tags": null,
     "Description": "Got a burning question about your MongoDB cluster? Looking for a \"sanity check\" on your latest project? Join your MongoDB team during the lunch break for an informal booth session.\r\n\r\nWhy stop by?\r\n\r\n- Project Reviews: Get direct feedback on your current MongoDB implementations.\r\n- What's new : Hear the latest news on feature releases and roadmap updates.\r\n- Resilience First: Get an early look at our new Disaster Recovery functionality and learn how to keep your data safe, no matter what happens.",
     "Speaker names": [],
     "Room": null,
@@ -1744,9 +1677,7 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "Speaker: Guillaume Smet (Red Hat /IBM)\r\n\r\nQuarkus is faster than your traditional Java framework, we all know that, right? But can it get faster than itself?\r\n\r\nWe've spent years obsessing over Quarkus startup time and runtime performance. Build times, on the other hand, didn\u2019t get nearly the same attention. And that was a mistake. Faster builds mean a tighter feedback loop for developers and fewer resources burned in CI.\r\n\r\nIn this session, we'll start with an overview of the work we've done in recent releases to significantly speed up the build of Quarkus JVM applications.\r\n\r\nNow that we got our builds faster, could we also start our JVM applications faster?\r\nAs it turns out, yes. We'll present what Project Leyden and AOT class loading can bring to Quarkus (and, more broadly, to Java itself). We\u2019ll cover the improvements we've made, the limitations we're still wrestling with, and why Leyden is reshaping the Java startup performance landscape.\r\n\r\nExpect flame graphs, war stories, and technical details you didn't know you cared about. The session stays accessible, though, no deep Quarkus background required.",
     "Speaker names": [
       "Guillaume Smet (IBM/Red Hat)"
@@ -1764,9 +1695,7 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Speaker: Emmanuel Deletang (Microsoft)\r\n\r\nBy the end of this hands-on workshop, participants will have:\r\n\r\nA fully working Azure DocumentDB (MongoDB-compatible) database configured for AI workloads\r\nAn existing document dataset ingested and queried using the MongoDB API\r\nAn AI enrichment pipeline (embeddings + metadata) applied directly to documents\r\nA functional RAG (Retrieval-Augmented Generation) prototype combining:\r\n\r\nVector search\r\nFull-text search\r\nHybrid retrieval\r\n\r\n\r\nA clear understanding of how to bring AI to the data, without refactoring existing applications",
     "Speaker names": [
       "Emmanuel Deletang (Microsoft)"
@@ -1784,9 +1713,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Learn what are your benefits to use COMPaaS! And do you know that you can also collaborate and contribute? Come meet the COMPaaS team and find out how!",
     "Speaker names": [
       "Carol ZAMPIERI"
@@ -1802,9 +1729,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "As the Big Data Platform team, we enable application teams to build, deploy, and scale their solutions on the cloud with data and AI at the core.\r\nWe provide a standardized cloud foundation through landing zones and workspaces, allowing teams to securely deploy and operate a wide range of cloud services, including Databricks, Synapse, Web Apps, Function Apps, OpenAI, AI Search, Power BI, Azure SQL, Snowflake, Azure ML, PostgreSQL, and Cosmos DB.\r\nBeyond infrastructure, we also support teams in starting their AI journey, offering reusable AI services and frameworks that accelerate development while ensuring governance and reliability.\r\nTo reduce operational overhead and improve developer productivity, we\u2019ve built in-house tools and frameworks, including:\r\nToken Renewal Solution \u2013 Automatically renews expiring Service Principal secrets and Databricks tokens, preventing unexpected outages.\r\nDatabricks CI/CD Framework \u2013 A standardized pipeline to deploy Databricks jobs and assets seamlessly into application workspaces.\r\nHexa ML \u2013 An MLOps framework that enables teams to build, test, deploy, and publish machine learning models with consistency and confidence.\r\nTogether, these capabilities help application teams focus on building business value, while the platform handles cloud, data, security, and AI enablement at scale.",
     "Speaker names": [
       "Pranav GOSUKONDA VENKATA SAI",
@@ -1821,9 +1746,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Explore how REEF BI provides actionable insights to boost engineering performance across Amadeus.\r\nOur booth will highlight the platform\u2019s capabilities to monitor and improve tools stability, tools adoption, engineering efficiency, and the impact of Generative AI in our daily development workflows.",
     "Speaker names": [
       "Yvan LABRIT"
@@ -1839,15 +1762,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "In today\u2019s complex distributed systems, traditional monitoring is no longer enough. Dashboards and alerts can tell you that something is wrong, but they rarely explain why it\u2019s happening. This talk explores the art and science of true observability\u2014the ability to understand your system\u2019s behavior in production, detect unknown failures, and quickly identify root causes.\r\n\r\nWe will dive into the five pillars of observability\u2014metrics, logs, traces, events, and context\u2014and uncover common pitfalls that make telemetry ineffective. Using real-world examples and architectural patterns, you\u2019ll learn how to design systems that are self-explanatory, scalable, and resilient.\r\n\r\nAttendees will gain practical insights into:\r\n\r\nHow to correlate logs, metrics, and traces for end-to-end visibility\r\n\r\nBest practices for instrumentation with OpenTelemetry\r\n\r\nDesigning observability architectures that support SLO-driven reliability\r\n\r\nAvoiding hidden traps like high-cardinality metrics, broken trace propagation, and telemetry bottlenecks\r\n\r\nBy the end of this session, you\u2019ll understand how to move beyond reactive monitoring to proactive root-cause analysis, ensuring your systems are both observable and reliable.",
     "Speaker names": [
       "Kavin S"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
     "Start": "2026-04-30T10:00:00+00:00",
     "End": "2026-04-30T12:25:00+02:00",
@@ -1859,18 +1780,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "Building production-ready AI agents requires more than just an LLM. Agents need retrieval (RAG), persistent memory to survive crashes, and secure access to operational data. The industry\u2019s default response has been to bolt together a fragmented mess of vector stores, state databases, and custom APIs.\r\nJoin this 25-minute session to learn how to unify your AI architecture. We\u2019ll explore how to combine the Model Context Protocol (MCP) with stateful memory, and vector search entirely on a single, secure data layer using MongoDB Enterprise Advanced. Alongside the recent partnership with LangChain explaining how MongoDB is now considered a complete AI Agent Backend.",
     "Speaker names": [
       "Thomas Scott (MongoDB)"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
-    "Start": "2026-04-30T13:35:00+00:00",
-    "End": "2026-04-30T16:00:00+02:00",
+    "Start": "2026-04-30T13:30:00+00:00",
+    "End": "2026-04-30T15:55:00+02:00",
     "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
@@ -1879,15 +1798,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "Corporations spend millions of dollars and thousands of hours onboarding new people to development teams and troubleshooting incidents where nobody knows who owns what. Tribal knowledge remains locked in individuals' heads while PowerPoint diagrams and Visio files scatter across shared drives like \"a novel written on napkins and sticky notes.\" Traditional tools simply cannot handle modern enterprise complexity.\r\n\r\nThis workshop introduces Architecture as Code (AaC), a paradigm shift that treats architectural artifacts as version-controlled software assets. According to TOGAF, architecture encompasses the fundamental concepts and relationships of a system. \"As Code\" means expressing these in text-based, human-readable formats stored alongside the software they describe, with semantic URIs for cross-referencing and the ability to build holistic models from multiple sources.\r\n\r\nParticipants will learn to implement diagrams using tools like Structurizr DSL and Drawio, enforce policies with Open Policy Agent, and manage Architecture Decision Records programmatically. We will explore dimensions of expansion including metamodels, federated architecture models, progressive elaboration, and integration with AI agents for human-in-the-loop workflows. By the end of this session, participants will be equipped to establish a single source of truth that can be branched, merged, reviewed, and evolved - readable by both humans and machines.\r\n\r\nKey Topics\r\n\r\nEvolution from manual documentation to codified architecture\r\n\r\nTOGAF definition and \"As Code\" principles\r\n\r\nInfrastructure as Code, Diagrams as Code, Policy as Code\r\n\r\nArchitecture Decision Records (ADRs)\r\n\r\nC4 Model and metamodel extension\r\n\r\nAutomated validation and compliance checking\r\n\r\nDimensions of expansion: progressive elaboration, integrations, federation\r\n\r\nAI agents and human-in-the-loop architectural workflows\r\n\r\nBest practices for organizational adoption",
     "Speaker names": [
       "Bijay SWAIN"
     ],
     "Room": {
-      "en": "[BLR] Local room - 2"
+      "en": "[BLR] Local room 2"
     },
     "Start": "2026-04-29T04:30:00+00:00",
     "End": "2026-04-29T08:30:00+02:00",
@@ -1899,9 +1816,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD",
@@ -1918,9 +1833,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD"
@@ -1936,9 +1849,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "Problem Statement:\r\nBetween 2023 and 2025, the HRS and PDL systems have experienced recurring batch job failures due to a range of technical issues, including FO node capacity constraints, instability in the Object Store, and other system-level challenges. These failures have triggered repeated customer escalations, resulting in multiple IRS incidents.\r\n\r\nFurthermore, the resource-intensive nature of recovery efforts has led to delays in data restoration\u2014directly impacting customer-facing services and operational continuity.\r\n\r\nSolution:\r\nOn PDL side, the History batch jobs are monolithic in nature, processing HRS data sequentially, peak by peak. This results in longer execution times, and any failure in a single HRS peak prevents data from successfully completed HRS jobs from being processed. To address this, we propose decomposing the monolithic PDL job into smaller, modular jobs\u2014each corresponding to an individual HRS peak. This approach will enable parallel processing of HRS peak data within PDL, improving efficiency and fault tolerance.\u200b\r\n\r\nOn HRS side, we already have data getting processed in parallel but we need to move jobs to batch pods to gain stability and benefit from the resources of an allocated Machine Set.\u200b\r\n\r\nAdditionally, observability will be embedded into the solution by pushing batch job metrics (such as job duration, success/failure counts, and throughput) to Splunk. These metrics will be used to build dashboards and configure alerts, enabling real-time monitoring, faster issue detection, and improved operational transparency across the batch processing pipeline",
     "Speaker names": [
       "Kv NARASIMHA REDDY",
@@ -1955,19 +1866,17 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "Microservice architectures multiply packaging and deployment complexity, which can cause technical debt and operational overhead.\r\n\r\nIn this talk we\u2019ll see how SKube solves these challenges via patterns implemented across both Java and .NET cloud-native stacks:\r\n\r\n* __Source2Chart__: auto-detect build-time capabilities and eliminate the need for Helm templates or Dockerfiles\r\n* __Configuration source merging__: unify build-time and GitOps overrides into a single coherent runtime state\r\n* __Multi-tenancy via dependency injection__: abstract tenant management from business code\r\n* __OpenTelemetry instrumentation__: shift troubleshooting from log-first to trace-first, for faster root cause analysis",
     "Speaker names": [
       "Romain QUINIO",
       "Christopher PARKINS"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
-    "Start": "2026-04-30T13:35:00+00:00",
-    "End": "2026-04-30T16:00:00+02:00",
+    "Start": "2026-04-30T13:30:00+00:00",
+    "End": "2026-04-30T15:55:00+02:00",
     "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
@@ -1976,15 +1885,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "A new troubleshooting skill makes its way at Amadeus: Correlating bumps and spikes in monitoring data, to guide a path through potential causes to effects in a highly distributed and inter-connected system architecture. Among the data sources are Prometheus with its Grafana display, the Azure portal, and Splunk visualisations of log data, not yet all accessible with the same interface.\r\nThe talk wants to introduce to experimental work in progress, to detect correlations between metrics, to take conclusions of the monitoring data.",
     "Speaker names": [
       "Fritz REICHMANN"
     ],
     "Room": {
-      "en": "[ERD] Local room - 1"
+      "en": "[ERD] Local room 1"
     },
     "Start": "2026-04-30T11:30:00+00:00",
     "End": "2026-04-30T13:55:00+02:00",
@@ -1996,11 +1903,11 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "/",
-    "Speaker names": [],
+    "Speaker names": [
+      "Ozan G\u00fcnalp"
+    ],
     "Room": {
       "en": "Java Cloud Native track"
     },
@@ -2014,7 +1921,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": null,
+    "Tags": null,
     "Description": "/",
     "Speaker names": [],
     "Room": null,
@@ -2028,15 +1935,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "Perses is the CNCF open dashboard solution. Initially developed internally in Amadeus, it has been open sourced really earlier in its development and it  It is here to achieve several goals: \r\n\r\n* Open specification for dashboards. Perses is also an initiative to define a standardized dashboard specification, fostering interoperability across observability tools.\r\n* Integrability. Perses provides various npm packages that allow developers to embed panels and dashboards into their own UIs, benefiting from the work done in Perses. For instance, these packages could be used in the future to enhance data visualization in the Prometheus UI.\r\n* Extensibility. Perses supports multiple kinds of plugins, enabling users to extend the tool\u2019s native capabilities to suit specific needs.\r\n* GitOps-friendly. SDKs, CI/CD libraries, static validation, native CLI.. Perses provides everything you need for a great Dashboard-as-Code experience.\r\n* Kubernetes-native mode. Dashboard definitions will be deployable into and readable from individual application namespaces using Custom Resource Definitions (CRDs). For more information on that topic you can take a look at the\u00a0Perses Operator.\r\n\r\nThis session will give you a short introduction about this project, what has been achieved and what is going to happen in 2026 in Amadeus for this project.",
     "Speaker names": [
-      "Augustin HUSSON"
+      "Guillaume LADORME"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
     "Start": "2026-04-30T09:00:00+00:00",
     "End": "2026-04-30T11:25:00+02:00",
@@ -2048,11 +1953,11 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Back-end, Cloud"
-    },
+    "Tags": null,
     "Description": "/",
-    "Speaker names": [],
+    "Speaker names": [
+      "Guillaume Smet (IBM/Red Hat)"
+    ],
     "Room": {
       "en": "Java Cloud Native track"
     },
@@ -2066,18 +1971,18 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Leadership, People"
-    },
+    "Tags": [
+      "Exploration"
+    ],
     "Description": "embark on a journey into the wild world of slides, fonts, and transitions that should never have happened. In 25 minutes participants will be treated to a showcase of exactly how not to PowerPoint \u2014 so we can finally stop traumatising our audiences one slide at a time!",
     "Speaker names": [
       "Karl VARLEY"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
-    "Start": "2026-04-30T12:05:00+00:00",
-    "End": "2026-04-30T14:30:00+02:00",
+    "Start": "2026-04-30T12:00:00+00:00",
+    "End": "2026-04-30T14:25:00+02:00",
     "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
@@ -2086,15 +1991,13 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "Change management signals are fragmented across code repositories, CI/CD pipelines, and automation systems, making it difficult for engineers to understand the true impact of changes.\r\n\r\nThis talk presents a running AI-powered MCP (Model Context Protocol) system designed to analyze change management data by continuously ingesting DevOps events from tools such as Bitbucket, Jenkins, and AWX.\r\n\r\nUsing an event-driven architecture, the system builds evolving operational context as changes progress, allowing AI to surface recurring patterns, hidden dependencies, and meaningful engineering insights. Rather than automating actions, the focus is on supporting better human decision-making.\r\n\r\nThe session walks through the system architecture, how MCP grounds AI responses in real operational data, and the guardrails required to avoid hallucinations and false confidence. It also highlights what worked in practice, what didn\u2019t, and how engineers interacted with AI-generated insights during real change scenarios.",
     "Speaker names": [
       "T J Tejas MALADHKAR"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
     "Start": "2026-04-30T04:15:00+00:00",
     "End": "2026-04-30T07:00:00+02:00",
@@ -2106,15 +2009,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "In today's complex and distributed systems, it is crucial to ensure their resilience and reliability.\r\nChaos Engineering is a discipline that helps engineers proactively identify weaknesses and vulnerabilities in their systems by intentionally injecting failures and disruptions (which mean finding issues by breaking things).\r\n\r\nThis workshop aims to provide you with a better understanding of Chaos Engineering and how it can be implemented in using the tool LitmusChaos.\r\n\r\nLet's take on the role of Chaos scientists, creating disruptions through Chaos Experiments to simulate some network failures for example.\r\nBreaking things is fun but let's discover how we can transform these disruptions into tests that validate the strength of systems using the notion of probes.\r\nLitmusChaos also offers convenient features, such as code sharing, that we will explore together.",
     "Speaker names": [
       "Calvin AUDIER"
     ],
     "Room": {
-      "en": "[NCE] Local room - 3"
+      "en": "[NCE] Local room 3"
     },
     "Start": "2026-04-29T13:00:00+00:00",
     "End": "2026-04-29T17:00:00+02:00",
@@ -2126,9 +2027,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD"
@@ -2144,9 +2043,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD"
@@ -2162,15 +2059,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "UX, Front-end"
-    },
+    "Tags": null,
     "Description": "Accessibility isn\u2019t just about improving user experience \u2014 it\u2019s also a legal obligation. With regulations like the reinforced European Accessibility Act, teams working on digital products and content need to ensure their work meets the WCAG 2.x standards.\r\n \r\nThis two-hour workshop is a practical introduction to accessibility testing. You\u2019ll learn how to spot common issues in both web interfaces and PDF documents, and how to test them using widely available tools.\r\n \r\nWhat we\u2019ll cover:\r\nWhat WCAG 2.x means in practice\r\nWhere accessibility issues often show up in websites and PDFs\r\nHow to test using tools like Axe DevTools, PAC, screen readers, etc.\r\nHow to check keyboard accessibility\r\nHow to write clear reports that developers and content teams can act on\r\n \r\nThis session is open to anyone involved in designing, building, publishing, or testing digital products or content.",
     "Speaker names": [
       "Habib RAGELHASSI"
     ],
     "Room": {
-      "en": "[NCE] Local room - 2"
+      "en": "[NCE] Local room 2"
     },
     "Start": "2026-04-29T13:00:00+00:00",
     "End": "2026-04-29T17:00:00+02:00",
@@ -2182,18 +2077,16 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Most note\u2011taking apps feel convenient: until they disappear, get decommissioned, remove features, or lock your data behind yet another subscription. **[Obsidian](https://obsidian.md/)** takes a completely different approach: every note is a simple Markdown file stored locally. You own the files, you control where they live, and nothing breaks if the app or a service shuts down.\r\n\r\nIn this talk, I\u2019ll explain why Obsidian has become my core productivity/note taking tool for both work and personal life: not just because it's flexible, but because it enables things most note apps simply don't. Want a custom note structure? Write it. Need automation? Use Shortcuts/ scripts on your machine. Missing a feature? Install or develop a plugin. there are thousands, and the ecosystem keeps growing.\r\n\r\nI\u2019ll share how I use templates, the Tasks plugin, and daily/weekly notes to structure my work. Finally, we\u2019ll explore how Obsidian\u2019s Markdown\u2011based knowledge base integrates naturally with modern AI tools, turning your notes into a powerful private knowledge source you can query from your IDE.\r\n\r\nAttendees will leave with a clear understanding of **why** Obsidian stands out, and **what it enables that other tools simply can\u2019t**.\r\n\r\n*(This talk is not related to Amadeus tools or internal systems. and it is NOT a sponsored talk! I genuinely love this tool :D)*",
     "Speaker names": [
       "Minji KIM"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
-    "Start": "2026-04-30T14:10:00+00:00",
-    "End": "2026-04-30T16:35:00+02:00",
+    "Start": "2026-04-30T14:00:00+00:00",
+    "End": "2026-04-30T16:25:00+02:00",
     "From which Amadeus site do you plan to present?": "Madrid, Spain"
   },
   {
@@ -2202,15 +2095,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "In this hands-on workshop you will learn how to transform recovery procedures into executable workflows using the concept of Recovery as Code. With ROSA ( Recovery Orchestration and Switch Automation ), participants will define recovery flows in JSON, trigger orchestrated workflows in ServiceNow and execute automated recovery actions using Ansible AWX.",
     "Speaker names": [
       "Siddi SIDDA"
     ],
     "Room": {
-      "en": "[ERD] Local room - 2"
+      "en": "[ERD] Local room 2"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
@@ -2222,15 +2113,13 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "In this two\u2011hour hands\u2011on workshop, you\u2019ll learn how to build a complete application using Spec\u2011Driven Development powered by GitHub Copilot, custom skills, structured instructions, and agent-based workflows. Instead of relying on traditional coding from scratch, you\u2019ll define the system through clear specifications\u2014and let Copilot generate consistent models, API routes, UI components, and logic.\r\nWe\u2019ll build a lightweight but feature\u2011rich Movie Watchlist application\u2014an ideal real\u2011world example that\u2019s simple enough to complete within an hour, yet rich enough to showcase Copilot\u2019s advanced capabilities.\r\nParticipants will learn how to:\r\n\r\nWrite specs describing models, fields (title, genre, rating, status), and validation rules\r\nUse GitHub\u2019s Spec\u2011Driven Development library/plugin to generate the app structure\r\nApply Copilot skills to automate CRUD scaffolding, UI templates, and page flows\r\nProvide structured instructions for formatting, naming conventions, and design patterns\r\nCreate custom agent behaviors to coordinate multi-step development tasks\r\nIteratively refine UI, API, and models through conversational workflows with Copilot\r\nAdopt best practices for maintainable, repeatable, and AI-friendly development patterns\r\n\r\nThe Movie Watchlist App will include:\r\n\r\nAdd/edit/delete movies\r\nStatus: To Watch, Watching, Completed\r\nOptional rating & notes\r\nGenre tagging\r\nFilter & sorting\r\nSimple mobile-friendly layout\r\n\r\nBy the end of this workshop, you\u2019ll understand how to turn clear specifications into a fully functioning application\u2014using Copilot not just as a code assistant, but as an engineering partner that supports the entire development lifecycle.",
     "Speaker names": [
       "Gokul Rajan THANGAVELU"
     ],
     "Room": {
-      "en": "[BLR] Local room - 2"
+      "en": "[BLR] Local room 2"
     },
     "Start": "2026-04-29T08:30:00+00:00",
     "End": "2026-04-29T12:30:00+02:00",
@@ -2242,15 +2131,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Development, QA"
-    },
+    "Tags": null,
     "Description": "Speaker: Alexis Dagu\u00e8s - Principal Solutions Architect  (Amazon Web Services)\r\n\r\nThe AI-Driven Development Life Cycle (AI-DLC) represents a transformative approach to software engineering that positions AI as a central collaborator throughout the development process. Unlike traditional AI-assisted development methods, AI-DLC reimagines the entire software lifecycle through two key dimensions: AI-powered execution with human oversight and dynamic team collaboration. The methodology operates in three phases - Inception, Construction, and Operations - where AI initiates workflows while maintaining persistent context across all stages. This innovative approach delivers significant benefits including increased velocity, enhanced quality, improved market responsiveness, and better developer experience, all while ensuring critical human oversight and collaboration.",
     "Speaker names": [
       "Alexis Dagu\u00e8s (AWS)"
     ],
     "Room": {
-      "en": "Room 2"
+      "en": "Global room 2"
     },
     "Start": "2026-04-30T09:35:00+00:00",
     "End": "2026-04-30T12:00:00+02:00",
@@ -2262,9 +2149,7 @@
     "Session type": {
       "en": "Lunch-time booth"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "Discover how IP powers innovation at Amadeus!\r\nThis April, come visit the Intellectual Property Booth and explore how IP is a true enabler of creativity, technology excellence, and engineering impact.\r\nFrom protecting breakthrough ideas to supporting open source collaboration, IP is deeply embedded in our engineering culture. Whether you're curious about patents, invention submissions, publications, or how IP accelerates our R&D strategy, our booth is the perfect place to learn, ask, and get inspired.\r\nJoin us and see how your ideas can shape the future safely, strategically, and proudly.",
     "Speaker names": [
       "Celine RAVILLARD"
@@ -2280,15 +2165,13 @@
     "Session type": {
       "en": "Talk"
     },
-    "Track": {
-      "en": "Passion, pet projects"
-    },
+    "Tags": null,
     "Description": "I\u2019ve built a cozy little setup at home that lets me stream my movies, TV shows, and game console\u2014whether I\u2019m on my couch with my tablet or away from home using my phone. It\u2019s a simple, personal hobby project that makes all my media easily accessible from anywhere.",
     "Speaker names": [
       "Omer YAZICI"
     ],
     "Room": {
-      "en": "Room 1"
+      "en": "Global room 1"
     },
     "Start": "2026-04-30T11:30:00+00:00",
     "End": "2026-04-30T13:55:00+02:00",
@@ -2300,9 +2183,7 @@
     "Session type": {
       "en": "Hands-on workshop"
     },
-    "Track": {
-      "en": "AI, Data"
-    },
+    "Tags": null,
     "Description": "**Workshop Overview**\r\n\r\nAI is rapidly becoming a core component of modern engineering workflows. However, many teams still see AI tools as productivity add-ons rather than foundational building blocks for system design.\r\n\r\nThis workshop is designed to bridge that gap.\r\n\r\nOur goal is to make AI-native development concepts practical and accessible \u2014 even for engineers who have not yet worked directly with AI system components. By the end of the session, participants will understand the foundational ideas, see concrete examples, and gain hands-on experience building a simple MCP server.\r\n\r\nOn the practical side, we will focus specifically on developing an MCP server in detail, using two different examples to illustrate key patterns and design decisions. The emphasis will be on understanding how MCP works and how to experiment with it effectively.\r\n\r\nWe will combine conceptual clarity with guided implementation so that attendees leave with a solid understanding of MCP and the confidence to continue exploring and experimenting on their own.\r\n\r\n\r\n**What Participants Will Learn**\r\n\r\n1. Introduction to AI & LLMs (5 minutes)\r\nA concise refresher on AI systems and large language models to align terminology and establish a common foundation.\r\n\r\n2. General and Advanced Prompting Techniques (10 minutes)\r\nPractical prompting strategies that move beyond basic instructions \u2014 including structured prompting, context control, and iterative refinement techniques.\r\n\r\n3. Designing AI-Native Workflows (30 minutes)\r\nHow to shift from \u201cusing AI tools\u201d to architecting workflows where AI is a first-class component, and your assistant in day-to-day life.\r\nWe will cover:\r\n- AI-assisted development patterns\r\n- Human-in-the-loop design\r\n- Iterative experimentation cycles\r\n- Practical workflow integration in engineering environments\r\n\r\n4. What is Model Context Protocol (MCP)? (30 minutes)\r\nAn introduction to MCP and its role in enabling structured, scalable AI integrations.\r\nParticipants will understand:\r\n- The motivation behind MCP\r\n- How it manages context and tool interaction\r\n- Why it matters for production-ready AI systems\r\n\r\n5. Hands-On Session: Building a Simple MCP Workflow with GitHub Copilot (45 minutes)\r\nA guided practical session where participants:\r\n- Set up a simple MCP-based workflow\r\n- Use GitHub Copilot to interact with it\r\n- Experiment with modifications and extensions\r\n- The focus is on enabling participants to replicate and expand on what they build during the workshop.\r\n\r\n**Intended Outcome**\r\nBy the end of the session, attendees will:\r\n- Understand what AI-native development means in practice\r\n- Gain clarity on MCP and how it supports AI system design\r\n- Have hands-on experience building and interacting with a simple AI workflow\r\n- Be equipped to begin experimenting with AI-native approaches in their own projects\r\n\r\n**Pre-requisites**\r\nParticipants should:\r\n- Have basic familiarity with AI, LLMs, and general prompting concepts. You can start here to get yourself familiar. Link: https://amadeus.atlassian.net/wiki/spaces/GHC/pages/3096873543\r\n- Ideally have access to GitHub Copilot. Link: https://amadeus.atlassian.net/wiki/spaces/GHC/pages/1436680207 \r\n\r\n*This workshop is not just a presentation, it is a practical starting point. We aim to demystify AI-native development and empower engineers to confidently begin integrating AI system components into their workflows.*",
     "Speaker names": [
       "Ravish THIND",
@@ -2321,16 +2202,14 @@
     "Session type": {
       "en": "Long talk"
     },
-    "Track": {
-      "en": "UX, Front-end"
-    },
+    "Tags": null,
     "Description": "We can generate a prototype in seconds. But speed alone does not solve user problems. That requires a truly user centered approach.\r\n\r\nIn this talk, we will show how Generative AI is transforming design and how our teams use AI prototyping tools to bring ideas to life in minutes, accelerating discovery and experimentation.\r\n\r\nHowever, real impact does not come from speed. It comes from collaboration. When AI is embedded in a cross functional, user centered process where UX, PMs, Developers, and business teams co create, the outcome is not just faster prototypes, but stronger alignment and products that truly deliver value.\r\n\r\nThrough real world stories and the collaborative recipes we have developed, you will discover how to move beyond the magic of instant prototypes and turn AI into a strategic advantage across the entire product lifecycle.",
     "Speaker names": [
       "Edinson ZAMORA",
       "Celine PETIT"
     ],
     "Room": {
-      "en": "Room 3"
+      "en": "Global room 3"
     },
     "Start": "2026-04-30T08:05:00+00:00",
     "End": "2026-04-30T10:50:00+02:00",
@@ -2342,15 +2221,13 @@
     "Session type": {
       "en": "Deep-dive talk"
     },
-    "Track": {
-      "en": "DevOps, Security"
-    },
+    "Tags": null,
     "Description": "Cloud costs keep rising \u2014 but where do they come from? How do we translate them into meaningful Product and Service Costs? And how can you make data-driven decisions that actually reduce waste while improving performance?\r\n\r\nIn this deep-dive session, we demystify the world of FinOps, the operating model adopted by Amadeus to manage, control, and optimize cloud spending at scale. You will learn how raw cloud usage transforms into cost allocation, how Product and Service Cost models are built, and how teams can use FinOps practices to drive accountability, transparency, and efficiency.\r\n\r\nThis session blends practical examples, live demos, and real scenarios from our own cloud environment (Azure, GCP, AWS). Whether you build products, manage infrastructure, or oversee budgets, this deep-dive will give you the insights and tools to understand cloud economics and make smarter cost decisions.\r\n\r\nIf you\u2019ve ever wondered: \u201cWhere do these numbers come from?\u201d \u2014 this session is for you.",
     "Speaker names": [
       "Bert BOS"
     ],
     "Room": {
-      "en": "[ERD] Local room - 1"
+      "en": "[ERD] Local room 1"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
