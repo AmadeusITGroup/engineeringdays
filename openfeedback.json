@@ -762,10 +762,10 @@
         },
         "QUUS3R": {
             "id": "QUUS3R",
-            "title": "Big Data & ML in Amadeus : challenges, opportunities and vision",
+            "title": "Your Questions on Data & AI @ Amadeus for 2026",
             "speakers": [
-                "ec975db1eebd",
-                "e5531b474844"
+                "e5531b474844",
+                "9ee1cd20e93a"
             ],
             "tags": [
                 "AI, Data"
@@ -1554,15 +1554,15 @@
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
-        "ec975db1eebd": {
-            "id": "ec975db1eebd",
-            "name": "Thibault TOLEDANO",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
-            "socials": []
-        },
         "e5531b474844": {
             "id": "e5531b474844",
             "name": "Lorine PORNET",
+            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "socials": []
+        },
+        "9ee1cd20e93a": {
+            "id": "9ee1cd20e93a",
+            "name": "Rodrigo ACUNA AGOST",
             "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
             "socials": []
         },
