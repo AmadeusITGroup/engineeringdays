@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "test-event-2000",
+    "name": "Amadeus Test Event 2000",
+    "dates": {
+      "display": "24-28 June 2026",
+      "end": ""
+    },
+    "tagline": "Join us for Amadeus Test Event 2000!",
+    "sessions": 0,
+    "sites": 2
+  },
+  {
+    "slug": "engineering-days-2026",
+    "name": "Engineering Days 2026",
+    "dates": {
+      "display": "29-30 April 2026",
+      "end": "2026-04-30"
+    },
+    "tagline": "Two days of exploration, knowledge sharing, and networking. 50+ talks & workshops across 16 Amadeus sites worldwide.",
+    "sessions": 126,
+    "sites": 16
+  },
+  {
+    "slug": "test-amadeus-evt-2026",
+    "name": "Test Amadeus Evt",
+    "dates": {
+      "display": "24 July 2026",
+      "end": ""
+    },
+    "tagline": "Join us for Test Amadeus Evt!",
+    "sessions": 0,
+    "sites": 1
+  }
+]

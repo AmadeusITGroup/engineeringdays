@@ -262,10 +262,7 @@
             <h2 class="section-title">
                 <span class="title-accent">//</span> Upcoming Events
             </h2>
-            <div class="events-grid">
-
-                <!-- Add new upcoming event cards here -->
-
+            <div class="events-grid" id="upcoming-grid">
             </div>
         </div>
     </section>
@@ -276,24 +273,8 @@
             <h2 class="section-title">
                 <span class="title-accent">//</span> Past Events
             </h2>
-            <div class="past-events-grid">
-
-                <a href="engineering-days-2026/index.html" class="past-event-card animate-on-scroll">
-                    <div class="event-card-date">29-30 April 2026</div>
-                    <h3 class="event-card-title">Engineering Days 2026</h3>
-                    <p class="event-card-description">
-                        Two days of exploration, knowledge sharing, and networking.
-                        50+ talks & workshops across 16 Amadeus sites worldwide.
-                    </p>
-                    <div class="event-card-meta">
-                        <span class="event-tag">2026</span>
-                        <span class="event-tag">50+ sessions</span>
-                        <span class="event-tag">16 sites</span>
-                    </div>
-                </a>
-
+            <div class="past-events-grid" id="past-grid">
             </div>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -319,5 +300,65 @@
     </footer>
 
     <script src="shared/script-base.js"></script>
+    <script>
+        // Load events from events.json and render cards dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('events.json')
+                .then(r => r.json())
+                .then(renderEvents)
+                .catch(err => console.error('Could not load events.json:', err));
+        });
+
+        function renderEvents(events) {
+            const now = new Date();
+            const upcoming = [];
+            const past = [];
+
+            events.forEach(event => {
+                const endDate = event.dates.end ? new Date(event.dates.end + 'T23:59:59') : null;
+                if (endDate && endDate < now) {
+                    past.push(event);
+                } else {
+                    upcoming.push(event);
+                }
+            });
+
+            const upcomingGrid = document.getElementById('upcoming-grid');
+            const pastGrid = document.getElementById('past-grid');
+
+            if (upcomingGrid) {
+                upcomingGrid.innerHTML = upcoming.map(event => `
+                    <a href="${event.slug}/index.html" class="event-card animate-on-scroll">
+                        <div class="event-card-banner"></div>
+                        <div class="event-card-content">
+                            <div class="event-card-date">${event.dates.display}</div>
+                            <h3 class="event-card-title">${event.name}</h3>
+                            <p class="event-card-description">${event.tagline}</p>
+                            <div class="event-card-meta">
+                                <span class="event-tag upcoming">Upcoming</span>
+                                ${event.sessions ? `<span class="event-tag">${event.sessions} sessions</span>` : ''}
+                                ${event.sites ? `<span class="event-tag">${event.sites} sites</span>` : ''}
+                            </div>
+                        </div>
+                    </a>
+                `).join('');
+            }
+
+            if (pastGrid) {
+                pastGrid.innerHTML = past.map(event => `
+                    <a href="${event.slug}/index.html" class="past-event-card animate-on-scroll">
+                        <div class="event-card-date">${event.dates.display}</div>
+                        <h3 class="event-card-title">${event.name}</h3>
+                        <p class="event-card-description">${event.tagline}</p>
+                        <div class="event-card-meta">
+                            <span class="event-tag">${event.dates.end ? event.dates.end.slice(0, 4) : ''}</span>
+                            ${event.sessions ? `<span class="event-tag">${event.sessions} sessions</span>` : ''}
+                            ${event.sites ? `<span class="event-tag">${event.sites} sites</span>` : ''}
+                        </div>
+                    </a>
+                `).join('');
+            }
+        }
+    </script>
 </body>
 </html>

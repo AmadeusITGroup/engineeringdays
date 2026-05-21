@@ -147,7 +147,7 @@ def get_track_icon(track_name):
 
 def generate_event_json(meta, args):
     """Generate event.json configuration."""
-    date_display = format_date_display(meta["start_date"], meta["end_date"])
+    date_display = meta.get("date_display_override") or format_date_display(meta["start_date"], meta["end_date"])
 
     stats = [
         {
@@ -174,22 +174,40 @@ def generate_event_json(meta, args):
         )
 
     tracks = []
-    for track_name in meta["tracks"]:
-        tracks.append(
-            {
-                "icon": get_track_icon(track_name),
-                "name": track_name,
-                "description": "",
-            }
-        )
+    if meta["tracks"]:
+        for track_name in meta["tracks"]:
+            tracks.append(
+                {
+                    "icon": get_track_icon(track_name),
+                    "name": track_name,
+                    "description": "",
+                }
+            )
+    else:
+        # CFP mode: provide example tracks for the user to customize
+        tracks = [
+            {"icon": "🤖", "name": "AI & Data", "description": "Machine learning, data engineering, and AI applications"},
+            {"icon": "☁️", "name": "Cloud & DevOps", "description": "Cloud infrastructure, CI/CD, and platform engineering"},
+            {"icon": "🎨", "name": "Frontend & UX", "description": "Web development, design systems, and user experience"},
+            {"icon": "🔒", "name": "Security", "description": "Application security, compliance, and best practices"},
+            {"icon": "👔", "name": "Leadership & People", "description": "Engineering management, culture, and career growth"},
+        ]
 
     session_types = []
-    for stype_name, count in sorted(
-        meta["session_types"].items(), key=lambda x: -x[1]
-    ):
-        session_types.append(
-            {"name": stype_name, "count": count, "description": ""}
-        )
+    if meta["session_types"]:
+        for stype_name, count in sorted(
+            meta["session_types"].items(), key=lambda x: -x[1]
+        ):
+            session_types.append(
+                {"name": stype_name, "count": count, "description": ""}
+            )
+    else:
+        # CFP mode: provide example session types
+        session_types = [
+            {"name": "Talk", "duration": "45 min", "description": "Standard presentation with Q&A"},
+            {"name": "Workshop", "duration": "90 min", "description": "Hands-on interactive session"},
+            {"name": "Lightning Talk", "duration": "10 min", "description": "Short focused presentation"},
+        ]
 
     return {
         "eventName": args.name,
@@ -211,7 +229,7 @@ def generate_event_json(meta, args):
     }
 
 
-def generate_index_html(event_config):
+def generate_index_html(event_config, has_sessions=True):
     """Generate the event index.html."""
     name = event_config["eventName"]
     dates = event_config["dates"]["display"]
@@ -258,6 +276,17 @@ def generate_index_html(event_config):
     if len(event_config["locations"]) > 5:
         locations_str += f" and {len(event_config['locations']) - 5} more"
 
+    # Build conditional links based on whether sessions exist
+    if has_sessions:
+        nav_program_link = '<a href="program.html">Program</a>'
+        hero_cta = '<a href="program.html" class="btn btn-primary">View Program <span class="arrow">→</span></a>'
+        footer_program_link = '<a href="program.html">Program</a>'
+    else:
+        cfp_mailto = f'mailto:{contact}?subject=Talk proposal for {name}'
+        nav_program_link = f'<a href="{cfp_mailto}">Submit a Talk</a>'
+        hero_cta = f'<a href="{cfp_mailto}" class="btn btn-primary">Submit a Talk (CFP) <span class="arrow">→</span></a>'
+        footer_program_link = f'<a href="{cfp_mailto}">Submit a Talk</a>'
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -283,7 +312,7 @@ def generate_index_html(event_config):
             <div class="nav-links">
                 <a href="../index.html">All Events</a>
                 <a href="#about">About</a>
-                <a href="program.html">Program</a>
+                {nav_program_link}
                 <a href="#tracks">Tracks</a>
                 <a href="mailto:{contact}">Contact</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
@@ -311,9 +340,7 @@ def generate_index_html(event_config):
                 </div>
                 <p class="hero-subtitle">{tagline}</p>
                 <div class="cta-buttons">
-                    <a href="program.html" class="btn btn-primary">
-                        View Program <span class="arrow">→</span>
-                    </a>
+                    {hero_cta}
                     <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
@@ -345,11 +372,11 @@ def generate_index_html(event_config):
                 <span class="title-accent">//</span> About the Event
             </h2>
             <div class="about-content">
-                <p class="lead-text">{description}</p>
-                <p>Hosted at {locations_str}.</p>
+                <p class="lead-text" id="event-description">{description}</p>
+                <p id="event-locations">Hosted at {locations_str}.</p>
             </div>
 
-            <div class="stats-grid">
+            <div class="stats-grid" id="stats-grid">
 {stats_html}            </div>
         </div>
     </section>
@@ -360,7 +387,7 @@ def generate_index_html(event_config):
             <h2 class="section-title">
                 <span class="title-accent">//</span> Session Types
             </h2>
-            <div class="sessions-grid">
+            <div class="sessions-grid" id="sessions-grid">
 {sessions_html}            </div>
         </div>
     </section>
@@ -371,7 +398,7 @@ def generate_index_html(event_config):
             <h2 class="section-title">
                 <span class="title-accent">//</span> Tracks
             </h2>
-            <div class="tracks-grid">
+            <div class="tracks-grid" id="tracks-grid">
 {tracks_html}            </div>
         </div>
     </section>
@@ -405,7 +432,7 @@ def generate_index_html(event_config):
                 </div>
                 <div class="footer-links">
                     <a href="../index.html">All Events</a>
-                    <a href="program.html">Program</a>
+                    {footer_program_link}
                     <a href="mailto:{contact}">Contact</a>
                 </div>
             </div>
@@ -910,96 +937,122 @@ def generate_styles_css(event_config):
 
 
 def generate_script_js():
-    """Generate a minimal event script.js."""
+    """Generate event script.js that hydrates page from event.json."""
     return """// Event-specific JavaScript
-// The shared base script handles dark mode, mobile menu, and scroll animations.
-// Add event-specific behavior here.
+// Loads event.json and renders dynamic sections (tracks, session types, stats).
+// Non-technical users can edit event.json to update the website content.
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('event.json')
+        .then(r => r.json())
+        .then(renderEvent)
+        .catch(err => console.warn('Could not load event.json:', err));
+});
+
+function renderEvent(event) {
+    // Render stats
+    const statsGrid = document.getElementById('stats-grid');
+    if (statsGrid && event.stats && event.stats.length) {
+        statsGrid.innerHTML = event.stats.map(stat => `
+            <div class="stat-card">
+                <div class="stat-icon">${stat.icon}</div>
+                <div class="stat-number">${stat.number}</div>
+                <div class="stat-label">${stat.label}</div>
+                <p class="stat-description">${stat.description}</p>
+            </div>
+        `).join('');
+    }
+
+    // Render session types
+    const sessionsGrid = document.getElementById('sessions-grid');
+    if (sessionsGrid && event.sessionTypes && event.sessionTypes.length) {
+        sessionsGrid.innerHTML = event.sessionTypes.map(stype => `
+            <div class="session-card">
+                <div class="session-header">
+                    <h3>${stype.name}</h3>
+                    <span class="session-duration">${stype.duration || (stype.count ? stype.count + ' sessions' : '')}</span>
+                </div>
+                <p>${stype.description}</p>
+            </div>
+        `).join('');
+    }
+
+    // Render tracks
+    const tracksGrid = document.getElementById('tracks-grid');
+    if (tracksGrid && event.tracks && event.tracks.length) {
+        tracksGrid.innerHTML = event.tracks.map(track => `
+            <div class="track-card">
+                <div class="track-icon">${track.icon}</div>
+                <h3>${track.name}</h3>
+                <p>${track.description}</p>
+            </div>
+        `).join('');
+    }
+
+    // Update description if present
+    const descEl = document.getElementById('event-description');
+    if (descEl && event.description) {
+        descEl.textContent = event.description;
+    }
+
+    // Update locations
+    const locEl = document.getElementById('event-locations');
+    if (locEl && event.locations && event.locations.length) {
+        locEl.innerHTML = 'Hosted at ' + event.locations.map(l => `<strong>${l}</strong>`).join(', ') + '.';
+    }
+}
 """
 
 
 def add_to_landing_page(event_config, meta, repo_root):
-    """Add event card to root index.html."""
-    index_path = repo_root / "index.html"
-    if not index_path.exists():
-        print("Warning: Root index.html not found, skipping landing page update.")
-        return
+    """Add or update event entry in root events.json."""
+    events_path = repo_root / "events.json"
 
-    content = index_path.read_text()
-
-    name = event_config["eventName"]
-    slug = event_config["eventSlug"]
-    dates = event_config["dates"]["display"]
-    tagline = event_config["tagline"]
-    session_count = meta["session_count"]
-    locations_count = len(meta["locations"])
-
-    # Determine if event is upcoming or past
-    now = datetime.now().astimezone()
-    is_past = meta["end_date"] and meta["end_date"] < now
-
-    if is_past:
-        card_html = f"""
-                <a href="{slug}/index.html" class="past-event-card animate-on-scroll">
-                    <div class="event-card-date">{dates}</div>
-                    <h3 class="event-card-title">{name}</h3>
-                    <p class="event-card-description">{tagline}</p>
-                    <div class="event-card-meta">
-                        <span class="event-tag">{meta['start_date'].year if meta['start_date'] else ''}</span>
-                        <span class="event-tag">{session_count} sessions</span>
-                        <span class="event-tag">{locations_count} sites</span>
-                    </div>
-                </a>
-"""
-        # Insert before closing </div> of past-events-grid
-        marker = "</div>\n        </div>\n    </section>\n\n    <!-- Footer -->"
-        if marker in content:
-            # Find the past-events-grid closing
-            past_section = content.find("past-events-grid")
-            if past_section != -1:
-                # Find the closing </div> for past-events-grid
-                close_pos = content.find("</div>", past_section + 100)
-                if close_pos != -1:
-                    content = content[:close_pos] + card_html + "\n            " + content[close_pos:]
+    # Load existing registry or start fresh
+    if events_path.exists():
+        events = json.loads(events_path.read_text())
     else:
-        card_html = f"""
-                <a href="{slug}/index.html" class="event-card animate-on-scroll">
-                    <div class="event-card-banner"></div>
-                    <div class="event-card-content">
-                        <div class="event-card-date">{dates}</div>
-                        <h3 class="event-card-title">{name}</h3>
-                        <p class="event-card-description">{tagline}</p>
-                        <div class="event-card-meta">
-                            <span class="event-tag upcoming">Upcoming</span>
-                            <span class="event-tag">{session_count} sessions</span>
-                            <span class="event-tag">{locations_count} sites</span>
-                        </div>
-                    </div>
-                </a>
-"""
-        # Insert into events-grid
-        marker = "events-grid"
-        grid_pos = content.find("events-grid")
-        if grid_pos != -1:
-            # Find the closing </div> for events-grid (skip past the opening tag)
-            close_pos = content.find("</div>", grid_pos + 50)
-            if close_pos != -1:
-                content = content[:close_pos] + card_html + "\n            " + content[close_pos:]
+        events = []
 
-    index_path.write_text(content)
-    print(f"  ✓ Updated root index.html")
+    slug = event_config["eventSlug"]
+
+    # Build the registry entry
+    entry = {
+        "slug": slug,
+        "name": event_config["eventName"],
+        "dates": {
+            "display": event_config["dates"]["display"],
+            "end": meta["end_date"].strftime("%Y-%m-%d") if meta["end_date"] else "",
+        },
+        "tagline": event_config["tagline"],
+        "sessions": meta["session_count"],
+        "sites": len(meta["locations"]),
+    }
+
+    # Replace existing entry for this slug, or append
+    existing_idx = next((i for i, e in enumerate(events) if e["slug"] == slug), None)
+    if existing_idx is not None:
+        events[existing_idx] = entry
+    else:
+        events.append(entry)
+
+    events_path.write_text(json.dumps(events, indent=2, ensure_ascii=False) + "\n")
+    print(f"  ✓ Updated root events.json")
 
 
 def main():
     parser = argparse.ArgumentParser(
         description="Generate a complete event website from a pretalx sessions JSON."
     )
-    parser.add_argument("sessions_file", help="Path to the pretalx sessions JSON export")
+    parser.add_argument("sessions_file", nargs="?", default=None, help="Path to the pretalx sessions JSON export (optional — omit to create event without sessions)")
     parser.add_argument("--name", required=True, help="Event name (e.g., 'Amadeus Engineering Days 2026')")
     parser.add_argument("--slug", help="Event folder name (e.g., 'engineering-days-2026'). Auto-generated from name if omitted.")
     parser.add_argument("--tagline", default="", help="Short tagline for the event")
     parser.add_argument("--description", default="", help="Longer description for the about section")
     parser.add_argument("--organizer", default="DevRel", help="Organizing team name")
     parser.add_argument("--contact", default="devrel@amadeus.com", help="Contact email")
+    parser.add_argument("--dates", default="", help="Event dates display string (e.g., '15-16 June 2027'). Used when no sessions JSON.")
+    parser.add_argument("--locations", default="", help="Comma-separated list of locations (e.g., 'Nice FR, London UK')")
     args = parser.parse_args()
 
     # Auto-generate slug if not provided
@@ -1012,26 +1065,43 @@ def main():
     if not args.description:
         args.description = f"Welcome to {args.name}, an event organized by the {args.organizer} team at Amadeus."
 
-    # Load sessions
-    sessions_path = Path(args.sessions_file)
-    if not sessions_path.exists():
-        print(f"Error: Sessions file not found: {sessions_path}")
-        sys.exit(1)
-
-    with open(sessions_path) as f:
-        sessions_data = json.load(f)
+    # Load sessions (or use empty list if no file provided)
+    has_sessions = False
+    if args.sessions_file:
+        sessions_path = Path(args.sessions_file)
+        if not sessions_path.exists():
+            print(f"Error: Sessions file not found: {sessions_path}")
+            sys.exit(1)
+        with open(sessions_path) as f:
+            sessions_data = json.load(f)
+        has_sessions = len(sessions_data) > 0
+    else:
+        sessions_data = []
+        sessions_path = None
 
     print(f"📦 Creating event: {args.name}")
     print(f"   Slug: {args.slug}")
-    print(f"   Sessions file: {sessions_path.name} ({len(sessions_data)} sessions)")
+    if has_sessions:
+        print(f"   Sessions file: {sessions_path.name} ({len(sessions_data)} sessions)")
+    else:
+        print(f"   Sessions: None (CFP mode — program will be added later)")
 
     # Parse metadata from sessions
     meta = parse_sessions(sessions_data)
-    print(f"   Dates: {format_date_display(meta['start_date'], meta['end_date'])}")
-    print(f"   Tracks: {', '.join(meta['tracks'])}")
-    print(f"   Session types: {', '.join(meta['session_types'].keys())}")
+
+    # Override dates/locations from CLI if provided (useful when no sessions JSON)
+    if args.dates:
+        meta["date_display_override"] = args.dates
+    if args.locations:
+        meta["locations"] = sorted(set(loc.strip() for loc in args.locations.split(",") if loc.strip()))
+
+    print(f"   Dates: {args.dates or format_date_display(meta['start_date'], meta['end_date'])}")
+    if has_sessions:
+        print(f"   Tracks: {', '.join(meta['tracks'])}")
+        print(f"   Session types: {', '.join(meta['session_types'].keys())}")
     print(f"   Locations: {len(meta['locations'])} sites")
-    print(f"   Speakers: {meta['speakers_count']}")
+    if has_sessions:
+        print(f"   Speakers: {meta['speakers_count']}")
 
     # Generate event config
     event_config = generate_event_json(meta, args)
@@ -1042,11 +1112,12 @@ def main():
     event_dir.mkdir(exist_ok=True)
 
     # Generate files
-    (event_dir / "index.html").write_text(generate_index_html(event_config))
+    (event_dir / "index.html").write_text(generate_index_html(event_config, has_sessions=has_sessions))
     print(f"  ✓ {args.slug}/index.html")
 
-    (event_dir / "program.html").write_text(generate_program_html(event_config))
-    print(f"  ✓ {args.slug}/program.html")
+    if has_sessions:
+        (event_dir / "program.html").write_text(generate_program_html(event_config))
+        print(f"  ✓ {args.slug}/program.html")
 
     (event_dir / "styles.css").write_text(generate_styles_css(event_config))
     print(f"  ✓ {args.slug}/styles.css")
@@ -1057,9 +1128,12 @@ def main():
     (event_dir / "event.json").write_text(json.dumps(event_config, indent=2, ensure_ascii=False))
     print(f"  ✓ {args.slug}/event.json")
 
-    # Copy sessions as sessions.json (the program page loads this)
-    import shutil
-    shutil.copy2(sessions_path, event_dir / "sessions.json")
+    # Copy sessions as sessions.json (or create empty one)
+    if has_sessions:
+        import shutil
+        shutil.copy2(sessions_path, event_dir / "sessions.json")
+    else:
+        (event_dir / "sessions.json").write_text("[]")
     print(f"  ✓ {args.slug}/sessions.json")
 
     # Update landing page
@@ -1067,7 +1141,10 @@ def main():
 
     print(f"\n🎉 Done! Event created at: {event_dir}/")
     print(f"   Preview: open {event_dir}/index.html in a browser")
-    print(f"   Program: open {event_dir}/program.html in a browser")
+    if has_sessions:
+        print(f"   Program: open {event_dir}/program.html in a browser")
+    else:
+        print(f"   ℹ️  No program page yet — add a sessions JSON later to generate it.")
 
 
 if __name__ == "__main__":

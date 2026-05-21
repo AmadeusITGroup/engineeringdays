@@ -1,21 +1,23 @@
 ---
 mode: agent
-description: "Create a new event website from a pretalx sessions JSON export"
+description: "Create a new event website from a pretalx sessions JSON export (or without one)"
 ---
 
 # Create a New Event Website
 
 You are helping create a new event website for the Amadeus Events hub.
-The user will provide a pretalx sessions JSON file. Your job is to run the automation script that generates the complete event site.
+The user may or may not have a pretalx sessions JSON file. Your job is to gather the required info and run the automation script.
 
 ## Step 1: Gather Required Information
 
 Ask the user for:
-1. **Sessions JSON file** — The pretalx export (a JSON array of session objects). The user should provide the file path or drop it in the repo root.
-2. **Event name** — e.g., "Amadeus Hackathon 2027"
-3. **Event slug** (optional) — The folder name. If not provided, auto-generate from the name (lowercase, hyphens, include year).
+1. **Event name** — e.g., "Amadeus Hackathon 2027"
+2. **Event dates** — e.g., "15-16 June 2027"
+3. **Locations** — e.g., "Nice FR, London UK, Bangalore IN"
+4. **Sessions JSON file** (optional) — The pretalx export. If not available yet, the event will be created in "CFP mode" (Call for Papers) with a link to submit talks via email.
 
 Optional (script will use sensible defaults if not provided):
+- **Event slug** — The folder name. If not provided, auto-generate from the name (lowercase, hyphens, include year).
 - **Tagline** — Short phrase for the hero section
 - **Description** — Longer about text
 - **Organizer** — Team name (default: "DevRel")
@@ -23,21 +25,39 @@ Optional (script will use sensible defaults if not provided):
 
 ## Step 2: Run the Script
 
-Run `create_event.py` with the gathered information:
-
+### With sessions JSON:
 ```bash
 python3 create_event.py <sessions.json> \
   --name "Event Name" \
   --slug "event-slug-year" \
+  --dates "15-16 June 2027" \
+  --locations "Nice FR, London UK" \
   --tagline "Optional tagline" \
   --description "Optional description" \
   --organizer "Team Name" \
   --contact "email@amadeus.com"
 ```
 
+### Without sessions JSON (CFP mode):
+```bash
+python3 create_event.py \
+  --name "Event Name" \
+  --slug "event-slug-year" \
+  --dates "15-16 June 2027" \
+  --locations "Nice FR, London UK" \
+  --tagline "Optional tagline" \
+  --organizer "Team Name" \
+  --contact "email@amadeus.com"
+```
+
+When no sessions JSON is provided:
+- No `program.html` is generated
+- The event page shows a "Submit a Talk (CFP)" button that opens a mailto: link
+- An empty `sessions.json` is created (ready to be populated later)
+
 The script will:
-- Parse the sessions JSON to extract dates, tracks, session types, locations, speakers
-- Generate the full event folder: `index.html`, `program.html`, `styles.css`, `script.js`, `event.json`, `sessions.json`
+- Parse the sessions JSON (if provided) to extract tracks, session types, speakers
+- Generate the event folder: `index.html`, `styles.css`, `script.js`, `event.json`, `sessions.json`, and optionally `program.html`
 - Add an event card to the root `index.html` (upcoming or past based on dates)
 
 ## Step 3: Verify
@@ -46,14 +66,28 @@ After running the script:
 1. Start a local server: `python3 -m http.server 8000`
 2. Check the landing page at http://localhost:8000/ — confirm the new event card appears
 3. Check the event page at http://localhost:8000/<slug>/index.html
-4. Check the program page at http://localhost:8000/<slug>/program.html — confirm sessions load and filters work
+4. If sessions were provided, check http://localhost:8000/<slug>/program.html
 
-## Step 4: Customization (Optional)
+## Step 4: Customization via event.json
 
-If the user wants customization:
-- **Colors**: Edit `<slug>/styles.css` to override CSS variables (`--primary`, `--secondary`, `--accent`)
-- **Tracks**: The script auto-detects tracks from the sessions JSON
-- **Content**: Edit `<slug>/index.html` to update about text, add sections, etc.
+The event page reads from `event.json` at runtime. **Non-technical users can edit this file directly** to update the website without re-running the script.
+
+Editable fields in `<slug>/event.json`:
+- **`eventName`** — Event title displayed everywhere
+- **`tagline`** — Short subtitle shown in the hero
+- **`description`** — About section text
+- **`dates.display`** — Date string shown on the page
+- **`locations`** — Array of location strings (e.g., `["Nice FR", "London UK"]`)
+- **`tracks`** — Array of track objects with `icon`, `name`, `description`
+- **`sessionTypes`** — Array with `name`, `duration`, `description`
+- **`stats`** — Array of stat cards with `icon`, `number`, `label`, `description`
+- **`contact`** — Contact email
+- **`colors`** — Brand color overrides (`primary`, `secondary`, `accent`)
+
+In CFP mode, tracks and session types are pre-filled with examples — the user should replace them with the real ones for their event.
+
+For CSS-level customization:
+- **Colors**: Edit `<slug>/styles.css` to override CSS variables
 
 ## Pretalx JSON Format Reference
 
