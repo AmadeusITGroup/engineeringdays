@@ -1,12 +1,12 @@
 // Event-specific JavaScript
-// Loads event.json and renders dynamic sections (tracks, session types, stats).
-// Non-technical users can edit event.json to update the website content.
+// Loads config.json and renders dynamic sections (tracks, session types, stats).
+// Non-technical users can edit config.json to update the website content.
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('event.json')
+    fetch('config.json')
         .then(r => r.json())
         .then(renderEvent)
-        .catch(err => console.warn('Could not load event.json:', err));
+        .catch(err => console.warn('Could not load config.json:', err));
 });
 
 function renderEvent(event) {

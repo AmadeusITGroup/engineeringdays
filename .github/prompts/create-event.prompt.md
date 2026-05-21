@@ -57,7 +57,7 @@ When no sessions JSON is provided:
 
 The script will:
 - Parse the sessions JSON (if provided) to extract tracks, session types, speakers
-- Generate the event folder: `index.html`, `styles.css`, `script.js`, `event.json`, `sessions.json`, and optionally `program.html`
+- Generate the event folder: `index.html`, `styles.css`, `script.js`, `config.json`, `sessions.json`, and optionally `program.html`
 - Add an event card to the root `index.html` (upcoming or past based on dates)
 
 ## Step 3: Verify
@@ -68,11 +68,11 @@ After running the script:
 3. Check the event page at http://localhost:8000/<slug>/index.html
 4. If sessions were provided, check http://localhost:8000/<slug>/program.html
 
-## Step 4: Customization via event.json
+## Step 4: Customization via config.json
 
-The event page reads from `event.json` at runtime. **Non-technical users can edit this file directly** to update the website without re-running the script.
+The event page reads from `config.json` at runtime. **Non-technical users can edit this file directly** to update the website without re-running the script.
 
-Editable fields in `<slug>/event.json`:
+Editable fields in `<slug>/config.json`:
 - **`eventName`** — Event title displayed everywhere
 - **`tagline`** — Short subtitle shown in the hero
 - **`description`** — About section text

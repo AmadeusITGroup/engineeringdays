@@ -21,7 +21,7 @@ python3 create_event.py <sessions.json> --name "Event Name" --slug "event-slug-y
 
 This single command:
 1. Parses the pretalx sessions JSON to extract all metadata (dates, tracks, types, locations, speakers)
-2. Generates a complete event folder: `index.html`, `program.html`, `styles.css`, `script.js`, `event.json`, `sessions.json`
+2. Generates a complete event folder: `index.html`, `program.html`, `styles.css`, `script.js`, `config.json`, `sessions.json`
 3. Adds an event card to the root `index.html` (auto-classifies as upcoming/past)
 
 Optional flags: `--tagline`, `--description`, `--organizer`, `--contact`
@@ -48,7 +48,7 @@ All events use a pretalx JSON export as source of truth. Required fields per ses
 ## File Naming Conventions
 - Event folders: `{event-name}-{year}` (e.g., `hackathon-2027`)
 - Sessions data: `sessions.json` (inside event folder)
-- Config: `event.json` (inside event folder)
+- Config: `config.json` (inside event folder)
 - OpenFeedback: `openfeedback.json` + `generate_openfeedback.py` (if applicable)
 
 ## GitHub Actions

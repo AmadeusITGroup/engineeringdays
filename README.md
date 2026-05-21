@@ -38,7 +38,7 @@ Or use the reusable prompt skill at `.github/prompts/create-event.prompt.md`.
 │   ├── styles.css                      # Event-specific styles
 │   ├── script.js                       # Event-specific JS
 │   ├── sessions.json                   # Session data (loaded at runtime)
-│   ├── event.json                      # Event configuration/metadata
+│   ├── config.json                     # Event configuration/metadata
 │   ├── generate_openfeedback.py        # OpenFeedback integration
 │   └── openfeedback.json               # Generated feedback data
 ├── _template/                          # Reference template (used by script)

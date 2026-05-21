@@ -7,7 +7,7 @@ Usage:
 
 The script will:
 1. Parse the sessions JSON to extract dates, tracks, session types, locations
-2. Generate the event folder with index.html, program.html, styles.css, script.js, event.json
+2. Generate the event folder with index.html, program.html, styles.css, script.js, config.json
 3. Add an event card to the root index.html
 
 Minimal manual input required — just the event name and optionally:
@@ -146,7 +146,7 @@ def get_track_icon(track_name):
 
 
 def generate_event_json(meta, args):
-    """Generate event.json configuration."""
+    """Generate config.json configuration."""
     date_display = meta.get("date_display_override") or format_date_display(meta["start_date"], meta["end_date"])
 
     stats = [
@@ -937,16 +937,16 @@ def generate_styles_css(event_config):
 
 
 def generate_script_js():
-    """Generate event script.js that hydrates page from event.json."""
+    """Generate event script.js that hydrates page from config.json."""
     return """// Event-specific JavaScript
-// Loads event.json and renders dynamic sections (tracks, session types, stats).
-// Non-technical users can edit event.json to update the website content.
+// Loads config.json and renders dynamic sections (tracks, session types, stats).
+// Non-technical users can edit config.json to update the website content.
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('event.json')
+    fetch('config.json')
         .then(r => r.json())
         .then(renderEvent)
-        .catch(err => console.warn('Could not load event.json:', err));
+        .catch(err => console.warn('Could not load config.json:', err));
 });
 
 function renderEvent(event) {
@@ -1125,8 +1125,8 @@ def main():
     (event_dir / "script.js").write_text(generate_script_js())
     print(f"  ✓ {args.slug}/script.js")
 
-    (event_dir / "event.json").write_text(json.dumps(event_config, indent=2, ensure_ascii=False))
-    print(f"  ✓ {args.slug}/event.json")
+    (event_dir / "config.json").write_text(json.dumps(event_config, indent=2, ensure_ascii=False))
+    print(f"  ✓ {args.slug}/config.json")
 
     # Copy sessions as sessions.json (or create empty one)
     if has_sessions:

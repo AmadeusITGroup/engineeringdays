@@ -12,7 +12,7 @@
 
 // Example: Countdown timer
 function updateCountdown() {
-    // Update the target date from event.json
+    // Update the target date from config.json
     const eventDate = new Date('2026-06-15T09:00:00');
     const now = new Date();
     const diff = eventDate - now;
