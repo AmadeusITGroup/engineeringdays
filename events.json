@@ -20,16 +20,5 @@
     "tagline": "Two days of exploration, knowledge sharing, and networking. 50+ talks & workshops across 16 Amadeus sites worldwide.",
     "sessions": 126,
     "sites": 16
-  },
-  {
-    "slug": "test-amadeus-evt-2026",
-    "name": "Test Amadeus Evt",
-    "dates": {
-      "display": "24 July 2026",
-      "end": ""
-    },
-    "tagline": "Join us for Test Amadeus Evt!",
-    "sessions": 0,
-    "sites": 1
   }
 ]
