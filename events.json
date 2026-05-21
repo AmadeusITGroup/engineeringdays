@@ -3,12 +3,12 @@
     "slug": "test-event-2000",
     "name": "Amadeus Test Event 2000",
     "dates": {
-      "display": "24-28 June 2026",
-      "end": ""
+      "display": "29-30 April 2026",
+      "end": "2026-04-30"
     },
     "tagline": "Join us for Amadeus Test Event 2000!",
-    "sessions": 0,
-    "sites": 2
+    "sessions": 126,
+    "sites": 13
   },
   {
     "slug": "engineering-days-2026",

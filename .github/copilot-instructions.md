@@ -26,6 +26,22 @@ This single command:
 
 Optional flags: `--tagline`, `--description`, `--organizer`, `--contact`
 
+## Updating an Event (after CFP closes)
+
+When the Call for Papers is done and you have the finalized pretalx JSON:
+
+```bash
+python3 update_event.py <sessions.json> --slug "event-slug-year"
+```
+
+This command:
+1. Parses the sessions JSON for real tracks, types, speakers
+2. Updates `config.json` (replaces CFP example data with real metadata)
+3. Regenerates `index.html` (removes CFP links, adds "View Program")
+4. Generates `program.html` with filters
+5. Copies sessions into `sessions.json`
+6. Updates `events.json` registry with session count
+
 If you need the full guided flow, use the **Create Event** prompt skill (`.github/prompts/create-event.prompt.md`).
 
 ## Pretalx Sessions JSON Format

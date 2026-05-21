@@ -15,6 +15,16 @@ python3 create_event.py sessions.json --name "My Event 2027" --slug "my-event-20
 That's it. The script generates a complete event website and adds it to the landing page.  
 See [CREATING_AN_EVENT.md](CREATING_AN_EVENT.md) for full details and options.
 
+### Update an Event (after CFP closes)
+
+Once you have the finalized sessions JSON from pretalx:
+
+```bash
+python3 update_event.py sessions.json --slug "my-event-2027"
+```
+
+This replaces CFP placeholders with real data, generates `program.html`, and links it from the homepage.
+
 ### Using GitHub Copilot
 
 Open Copilot Chat and say:
@@ -28,7 +38,8 @@ Or use the reusable prompt skill at `.github/prompts/create-event.prompt.md`.
 ```
 /
 ├── index.html                          # Landing page (links to all events)
-├── create_event.py                     # 🚀 Automation script (one command → full event)
+├── create_event.py                     # 🚀 Create event (one command → full event)
+├── update_event.py                     # 🔄 Update event with finalized program
 ├── shared/                             # Shared assets used by all events
 │   ├── styles-base.css                 # Common CSS (variables, nav, footer, buttons)
 │   └── script-base.js                  # Common JS (dark mode, mobile menu, scroll)

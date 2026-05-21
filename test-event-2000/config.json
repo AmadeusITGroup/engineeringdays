@@ -3,79 +3,110 @@
   "eventSlug": "test-event-2000",
   "tagline": "Join us for Amadeus Test Event 2000!",
   "dates": {
-    "start": "",
-    "end": "",
-    "display": "24-28 June 2026"
+    "start": "2026-04-29T00:00:00+00:00",
+    "end": "2026-04-30T16:20:00+00:00",
+    "display": "29-30 April 2026"
   },
   "organizer": "DevRel",
   "contact": "devrel@amadeus.com",
   "description": "Welcome to Amadeus Test Event 2000, an event organized by the DevRel team at Amadeus.",
   "locations": [
-    "London UK",
-    "Nice FR"
+    "Aachen, Germany",
+    "Bad Homburg, Germany",
+    "Barcelona, Spain",
+    "Bengaluru, India",
+    "Bogotá, Colombia",
+    "Dallas, USA",
+    "Erding, Germany",
+    "London, UK",
+    "Madrid, Spain",
+    "Nice, France",
+    "Salt Lake City USA",
+    "Sydney, Australia",
+    "İstanbul, Turkiye"
   ],
   "stats": [
     {
       "icon": "🎤",
-      "number": "0+",
+      "number": "126+",
       "label": "Sessions",
       "description": "Talks and workshops"
     },
     {
       "icon": "🎙️",
-      "number": "0",
+      "number": "115",
       "label": "Speakers",
       "description": "Sharing their expertise"
     },
     {
       "icon": "🌐",
-      "number": "2",
+      "number": "13",
       "label": "Sites",
       "description": "Hosting locations"
     }
   ],
   "tracks": [
     {
-      "icon": "🤖",
-      "name": "AI & Data",
-      "description": "Machine learning, data engineering, and AI applications"
+      "icon": "📊",
+      "name": "AI, Data",
+      "description": ""
     },
     {
       "icon": "☁️",
-      "name": "Cloud & DevOps",
-      "description": "Cloud infrastructure, CI/CD, and platform engineering"
+      "name": "Back-end, Cloud",
+      "description": ""
     },
     {
-      "icon": "🎨",
-      "name": "Frontend & UX",
-      "description": "Web development, design systems, and user experience"
+      "icon": "💻",
+      "name": "DevOps, Security",
+      "description": ""
     },
     {
-      "icon": "🔒",
-      "name": "Security",
-      "description": "Application security, compliance, and best practices"
+      "icon": "💻",
+      "name": "Development, QA",
+      "description": ""
     },
     {
       "icon": "👔",
-      "name": "Leadership & People",
-      "description": "Engineering management, culture, and career growth"
+      "name": "Leadership, People",
+      "description": ""
+    },
+    {
+      "icon": "✨",
+      "name": "Passion, pet projects",
+      "description": ""
+    },
+    {
+      "icon": "🎨",
+      "name": "UX, Front-end",
+      "description": ""
     }
   ],
   "sessionTypes": [
     {
       "name": "Talk",
-      "duration": "45 min",
-      "description": "Standard presentation with Q&A"
+      "count": 43,
+      "description": ""
     },
     {
-      "name": "Workshop",
-      "duration": "90 min",
-      "description": "Hands-on interactive session"
+      "name": "Lunch-time booth",
+      "count": 38,
+      "description": ""
     },
     {
-      "name": "Lightning Talk",
-      "duration": "10 min",
-      "description": "Short focused presentation"
+      "name": "Hands-on workshop",
+      "count": 24,
+      "description": ""
+    },
+    {
+      "name": "Long talk",
+      "count": 18,
+      "description": ""
+    },
+    {
+      "name": "Deep-dive talk",
+      "count": 3,
+      "description": ""
     }
   ],
   "colors": {
