@@ -189,7 +189,7 @@
         },
         "8UDHJ9": {
             "id": "8UDHJ9",
-            "title": "🚀 From Code to Production Change: Automating the Full Lifecycle with Maestro",
+            "title": "[Hybrid] 🚀 From Code to Production Change: Automating the Full Lifecycle with Maestro",
             "speakers": [
                 "d8173ebed710",
                 "eaeaaf56375a"
@@ -307,7 +307,7 @@
             ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[NCE] Local room 3"
+            "trackTitle": "[NCE] Local room 2"
         },
         "D7CNNE": {
             "id": "D7CNNE",
@@ -467,19 +467,6 @@
             "endTime": "2026-04-30T13:55:00+02:00",
             "trackTitle": "Global room 3"
         },
-        "JMFEMW": {
-            "id": "JMFEMW",
-            "title": "Stop the Spend Spiral: Intelligent Cost Anomaly Detection Before Budget Impact",
-            "speakers": [
-                "09292d1746a1"
-            ],
-            "tags": [
-                "DevOps, Security"
-            ],
-            "startTime": "2026-04-30T12:35:00+00:00",
-            "endTime": "2026-04-30T15:00:00+02:00",
-            "trackTitle": "[ERD] Local room 2"
-        },
         "JNRXHF": {
             "id": "JNRXHF",
             "title": "[NCE] 🦀 Rust for All: From Rookie to Rustacean",
@@ -491,7 +478,7 @@
             ],
             "startTime": "2026-04-29T08:00:00+00:00",
             "endTime": "2026-04-29T12:00:00+02:00",
-            "trackTitle": "[NCE] Local room 2"
+            "trackTitle": "[NCE] Local room 3"
         },
         "JNTY3E": {
             "id": "JNTY3E",
@@ -543,7 +530,7 @@
             "id": "KCJQBA",
             "title": "MLOps with ArgoWorkflow",
             "speakers": [
-                "bf8f79cc2ac1"
+                "814f54e0e1d3"
             ],
             "tags": [
                 "DevOps, Security"
@@ -1161,607 +1148,601 @@
         "f2bd1bad0a1a": {
             "id": "f2bd1bad0a1a",
             "name": "Francesco PACE",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "b46dd33c20c6": {
             "id": "b46dd33c20c6",
             "name": "Emir GENC",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "12cf96f945c1": {
             "id": "12cf96f945c1",
             "name": "Benjamin HILAIRE",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "a730bb59f151": {
             "id": "a730bb59f151",
             "name": "Jorge Canal",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "18239911f8d9": {
             "id": "18239911f8d9",
             "name": "Fabrice ROSSET",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "f691c0b66337": {
             "id": "f691c0b66337",
             "name": "Juan Sebastian Jordan",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "6bbefcc087f5": {
             "id": "6bbefcc087f5",
             "name": "Xavi AMETLLER",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "a58532560cb0": {
             "id": "a58532560cb0",
             "name": "Florian LACOURT",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "ce33e339c06b": {
             "id": "ce33e339c06b",
             "name": "Leonardo ANDOLFI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "a4994ffbd21f": {
             "id": "a4994ffbd21f",
             "name": "Fatma ATTIA",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "eb4dda51d0d2": {
             "id": "eb4dda51d0d2",
             "name": "Daniel Penagos (Red Hat)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "4255ae229aa2": {
             "id": "4255ae229aa2",
             "name": "Dirk KANITZ",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "9371168caaba": {
             "id": "9371168caaba",
             "name": "Benoit Faurie",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "135633843bff": {
             "id": "135633843bff",
             "name": "Davy BATSALLE",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "75bfd4e41772": {
             "id": "75bfd4e41772",
             "name": "Clement OLIVA",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "8f18230b955b": {
             "id": "8f18230b955b",
             "name": "Sonia Belhadj",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "c033769a5e89": {
             "id": "c033769a5e89",
             "name": "Mandi Buswell (IBM/Red Hat)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "8c0e0e107eee": {
             "id": "8c0e0e107eee",
             "name": "Annett Dawoud",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "0e2f830dfabf": {
             "id": "0e2f830dfabf",
             "name": "Stéphane Epardaud",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "d8173ebed710": {
             "id": "d8173ebed710",
             "name": "Sertay AKPINAR",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "eaeaaf56375a": {
             "id": "eaeaaf56375a",
             "name": "Bernhard SELLMAIR",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "f5406273458c": {
             "id": "f5406273458c",
             "name": "Matt HORTON",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "370a1f718a04": {
             "id": "370a1f718a04",
             "name": "Maria COLUBRIALE",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "094de28b2b0f": {
             "id": "094de28b2b0f",
             "name": "Sofia HERNANDEZ",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "4c1fc9ef0aba": {
             "id": "4c1fc9ef0aba",
             "name": "Will VETT",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "d08a02411974": {
             "id": "d08a02411974",
             "name": "Mayada OMER",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "b0541dce4537": {
             "id": "b0541dce4537",
             "name": "Emre AKSOY",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "7e6225fd3deb": {
             "id": "7e6225fd3deb",
             "name": "Sabuha KAYA",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "f601989cbf45": {
             "id": "f601989cbf45",
             "name": "Veeresh ERCHED",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "af3daad6d0ee": {
             "id": "af3daad6d0ee",
             "name": "Angayar Kannan RAJA",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "6134d5208c6f": {
             "id": "6134d5208c6f",
             "name": "Mahmut SEN",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "13b48e4a304c": {
             "id": "13b48e4a304c",
             "name": "Amit KUMAR",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "62b4bc3c8954": {
             "id": "62b4bc3c8954",
             "name": "Anna KOZACHENKO",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "2714e08e1f3d": {
             "id": "2714e08e1f3d",
             "name": "Apurva RAI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "37ffe78ad012": {
             "id": "37ffe78ad012",
             "name": "Saikat CHATTERJEE",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "0163ce93a713": {
             "id": "0163ce93a713",
             "name": "Aditya MEHRA",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "f5c9184ed527": {
             "id": "f5c9184ed527",
             "name": "Antoine Richet (Microsoft)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "6131ed37fac6": {
             "id": "6131ed37fac6",
             "name": "Kristian SCHUHMACHER",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "52489b3d0a2b": {
             "id": "52489b3d0a2b",
             "name": "Tugdual Grall (GitHub)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "568bc3e05f14": {
             "id": "568bc3e05f14",
             "name": "Kevin HAMON",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "44b6c989c3b9": {
             "id": "44b6c989c3b9",
             "name": "Hariprashadh SELLAMUTHU",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "53ca54330a9d": {
             "id": "53ca54330a9d",
             "name": "Eric BOURDIER",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "f91eed8fe17a": {
             "id": "f91eed8fe17a",
             "name": "Antonie METZ",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "6c7a321ad093": {
             "id": "6c7a321ad093",
             "name": "Purva KONDE",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "5054b189a787": {
             "id": "5054b189a787",
             "name": "Juan David Páez Sánchez",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "3565c2fdd6d1": {
             "id": "3565c2fdd6d1",
             "name": "Jill LUSTER",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
-            "socials": []
-        },
-        "09292d1746a1": {
-            "id": "09292d1746a1",
-            "name": "Andreea Catalina ILICI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "ac5fd4c05846": {
             "id": "ac5fd4c05846",
             "name": "Thomas LACROIX",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "5077caabb7a4": {
             "id": "5077caabb7a4",
             "name": "Clement Escoffier (IBM/RedHat)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "4ec7e1050ea9": {
             "id": "4ec7e1050ea9",
             "name": "Mohamed Hamdan Faris S M",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
-        "bf8f79cc2ac1": {
-            "id": "bf8f79cc2ac1",
-            "name": "D AJAY KUMAR",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+        "814f54e0e1d3": {
+            "id": "814f54e0e1d3",
+            "name": "Gaurang MISHRA",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "5dd5e04c10fe": {
             "id": "5dd5e04c10fe",
             "name": "Nikko Clarin",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "58a2cdc7b496": {
             "id": "58a2cdc7b496",
             "name": "Ash PRAGASAM",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "6e37249930ed": {
             "id": "6e37249930ed",
             "name": "Morten KLISCH",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "0cb7601c17fe": {
             "id": "0cb7601c17fe",
             "name": "Ankita RAJ",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "33e19e67327f": {
             "id": "33e19e67327f",
             "name": "Sachin Singh GUSAIN",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "47819fb3f8e7": {
             "id": "47819fb3f8e7",
             "name": "Abhilash B N",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "9b2928094bdf": {
             "id": "9b2928094bdf",
             "name": "Harish V",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "187972b9e084": {
             "id": "187972b9e084",
             "name": "Gunjan KHANDPUR",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "fc2f04dad1cb": {
             "id": "fc2f04dad1cb",
             "name": "Rahul AGRAWAL",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "5e2647853af0": {
             "id": "5e2647853af0",
             "name": "David Clauvel (Google)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "e94d352d9497": {
             "id": "e94d352d9497",
             "name": "Agathe Duboué (Google)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "8887f556c76b": {
             "id": "8887f556c76b",
             "name": "Mehdi Lamrani (Databricks)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "ab3f04c16075": {
             "id": "ab3f04c16075",
             "name": "Lucas WEGLARZ",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "e7421e1da681": {
             "id": "e7421e1da681",
             "name": "Tjark BUSSMANN",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "6c27b21ddd84": {
             "id": "6c27b21ddd84",
             "name": "Benjamin Schwalb LANDAU",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "e5531b474844": {
             "id": "e5531b474844",
             "name": "Lorine PORNET",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "9ee1cd20e93a": {
             "id": "9ee1cd20e93a",
             "name": "Rodrigo ACUNA AGOST",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "f626e01e92c3": {
             "id": "f626e01e92c3",
             "name": "Akash TYAGI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "1fcc00c27589": {
             "id": "1fcc00c27589",
             "name": "Daniel PFEIFFER",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "c1af8967358e": {
             "id": "c1af8967358e",
             "name": "Sylvain GAMEL",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "bf075cddeac3": {
             "id": "bf075cddeac3",
             "name": "Alexandru DAFINEI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "738f1fdbf56a": {
             "id": "738f1fdbf56a",
             "name": "Bhargav NALLAPPAREDDYGARI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "cd9bd4261ef0": {
             "id": "cd9bd4261ef0",
             "name": "Sai Mahendra KARUMURI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "d10a82ea074e": {
             "id": "d10a82ea074e",
             "name": "Benjamin Crumpton",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "9c6d94b60c4b": {
             "id": "9c6d94b60c4b",
             "name": "Andrea RINALDI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "f226c7dae296": {
             "id": "f226c7dae296",
             "name": "Kamal BANA",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "5f9c3fd91dbc": {
             "id": "5f9c3fd91dbc",
             "name": "Guillaume Smet (IBM/Red Hat)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "cfc9157d5d51": {
             "id": "cfc9157d5d51",
             "name": "Emmanuel Deletang (Microsoft)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "4786df3e7841": {
             "id": "4786df3e7841",
             "name": "Kavin S",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "bad05d7189d7": {
             "id": "bad05d7189d7",
             "name": "Thomas Scott (MongoDB)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "f592c2eefac1": {
             "id": "f592c2eefac1",
             "name": "Bijay SWAIN",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "064d4f89f4f1": {
             "id": "064d4f89f4f1",
             "name": "Romain QUINIO",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "077974ba2562": {
             "id": "077974ba2562",
             "name": "Christopher PARKINS",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "654c82ca84ce": {
             "id": "654c82ca84ce",
             "name": "Fritz REICHMANN",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "73e4c84827a4": {
             "id": "73e4c84827a4",
             "name": "Ozan Günalp",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "7bac7a296cdb": {
             "id": "7bac7a296cdb",
             "name": "Guillaume LADORME",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "5ec717cfa5ed": {
             "id": "5ec717cfa5ed",
             "name": "Karl VARLEY",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "f9752ccc66a5": {
             "id": "f9752ccc66a5",
             "name": "T J Tejas MALADHKAR",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "2b90a7709e37": {
             "id": "2b90a7709e37",
             "name": "Calvin AUDIER",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "78b73b974bb3": {
             "id": "78b73b974bb3",
             "name": "Habib RAGELHASSI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "3a4b80fceee3": {
             "id": "3a4b80fceee3",
             "name": "Minji KIM",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "4f5fda6db094": {
             "id": "4f5fda6db094",
             "name": "Siddi SIDDA",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "5d6cea0f82d9": {
             "id": "5d6cea0f82d9",
             "name": "Gokul Rajan THANGAVELU",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "2140aaec2aa3": {
             "id": "2140aaec2aa3",
             "name": "Alexis Daguès (AWS)",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "a683b406530e": {
             "id": "a683b406530e",
             "name": "Omer YAZICI",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "eb1a92142b0a": {
             "id": "eb1a92142b0a",
             "name": "Ravish THIND",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "b401c1913967": {
             "id": "b401c1913967",
             "name": "Leta Melkamu JIFAR",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "c5044c576007": {
             "id": "c5044c576007",
             "name": "Edinson ZAMORA",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "278d79d06b56": {
             "id": "278d79d06b56",
             "name": "Celine PETIT",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         },
         "0a771a3fcef1": {
             "id": "0a771a3fcef1",
             "name": "Bert BOS",
-            "photoUrl": "https://amadeusitgroup.github.io/engineeringdays/image.png",
+            "photoUrl": "https://amadeusitgroup.github.io/events/engineering-days-2026/image.png",
             "socials": []
         }
     }
