@@ -4,34 +4,63 @@ Multi-event website for Amadeus tech conferences and community events, hosted on
 
 **Live site:** https://amadeusitgroup.github.io/events/
 
-## Quick Start — Create a New Event
+---
 
-All you need is a **pretalx sessions JSON export**. Then run one command:
+## 🤖 AI Commands (Copilot Chat)
+
+| Command | What it does |
+|---------|-------------|
+| **`/create-event`** | Create a new event website (with or without sessions JSON) |
+| **`/update-event`** | Update an existing event with the finalized program after CFP closes |
+| **`/remove-event`** | Remove an event (runs `remove_event.py` interactively) |
+
+Just open Copilot Chat and use the command or describe what you want.  
+Prompt files live in `.github/prompts/`.
+
+---
+
+## 🖥️ CLI Commands (Terminal)
 
 ```bash
+# Create a new event (with sessions)
 python3 create_event.py sessions.json --name "My Event 2027" --slug "my-event-2027"
+
+# Create a new event (CFP mode — no sessions yet)
+python3 create_event.py --name "My Event 2027" --slug "my-event-2027" --dates "15-16 June 2027" --locations "Nice FR, London UK"
+
+# Update an event with finalized program
+python3 update_event.py sessions.json --slug "my-event-2027"
+
+# Remove an event (interactive)
+python3 remove_event.py
 ```
 
-That's it. The script generates a complete event website and adds it to the landing page.  
 See [CREATING_AN_EVENT.md](CREATING_AN_EVENT.md) for full details and options.
 
-### Update an Event (after CFP closes)
+---
 
-Once you have the finalized sessions JSON from pretalx:
+## ✏️ Manual Edits (no code needed)
 
-```bash
-python3 update_event.py sessions.json --slug "my-event-2027"
-```
+Each event has a `config.json` file that controls what's displayed on the website.  
+**Non-technical users can edit this file directly** — changes appear on the next page load.
 
-This replaces CFP placeholders with real data, generates `program.html`, and links it from the homepage.
+### Editable fields in `<event-folder>/config.json`:
 
-### Using GitHub Copilot
+| Field | What it controls | Example |
+|-------|-----------------|---------|
+| `eventName` | Event title shown everywhere | `"Amadeus Engineering Days 2026"` |
+| `tagline` | Short subtitle in the hero section | `"Code. Share. Inspire."` |
+| `description` | About section paragraph | `"Welcome to our annual..."` |
+| `dates.display` | Date string shown on the page | `"29-30 April 2026"` |
+| `locations` | Array of hosting sites | `["Nice FR", "London UK"]` |
+| `tracks[]` | Track cards (icon, name, description) | `{"icon": "🤖", "name": "AI & Data", "description": "..."}` |
+| `sessionTypes[]` | Session type cards | `{"name": "Talk", "count": 42, "description": "..."}` |
+| `stats[]` | Stat cards in the about section | `{"icon": "🎤", "number": "126+", "label": "Sessions"}` |
+| `organizer` | Team name in nav/footer | `"DevRel"` |
+| `contact` | Contact email for mailto links | `"devrel@amadeus.com"` |
+| `colors` | Brand color overrides | `{"primary": "#26005a", "secondary": "#b650ff", "accent": "#ff58ac"}` |
 
-Open Copilot Chat and say:
-
-> "Create a new event from this sessions JSON" (attach the file)
-
-Or use the reusable prompt skill at `.github/prompts/create-event.prompt.md`.
+> **Tip:** In CFP mode, tracks and session types are pre-filled with examples. Replace them with your real ones, or wait until you run `/update-event` with the sessions JSON.
 
 ## Repository Structure
 
