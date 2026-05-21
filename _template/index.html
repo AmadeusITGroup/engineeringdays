@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{EVENT_NAME}} | Amadeus Events</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="stylesheet" href="../shared/styles-base.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="nav-logo-line">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">{{EVENT_NAME}}</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </div>
+                <div class="nav-byline">by {{ORGANIZER}}</div>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html">All Events</a>
+                <a href="#about">About</a>
+                <a href="program.html">Program</a>
+                <a href="#tracks">Tracks</a>
+                <a href="mailto:{{CONTACT_EMAIL}}">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="glitch-wrapper">
+                    <h1 class="hero-title">{{EVENT_NAME}}</h1>
+                </div>
+                <div class="hero-date">
+                    <span class="date-highlight">{{EVENT_DATES}}</span>
+                </div>
+                <p class="hero-subtitle">{{EVENT_TAGLINE}}</p>
+                <div class="cta-buttons">
+                    <a href="program.html" class="btn btn-primary">
+                        View Program <span class="arrow">→</span>
+                    </a>
+                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-graphic">
+                <div class="code-window">
+                    <div class="window-controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="code-content">
+                        <pre><code><span class="code-keyword">const</span> <span class="code-variable">event</span> = {
+  <span class="code-property">name</span>: <span class="code-string">"{{EVENT_NAME}}"</span>,
+  <span class="code-property">dates</span>: <span class="code-string">"{{EVENT_DATES}}"</span>,
+  <span class="code-property">mode</span>: <span class="code-string">"hybrid"</span>,
+  <span class="code-property">status</span>: <span class="code-string">"awesome"</span>
+};</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">//</span> About the Event
+            </h2>
+            <div class="about-content">
+                <p class="lead-text">{{EVENT_DESCRIPTION}}</p>
+            </div>
+
+            <div class="stats-grid">
+                <!-- Stats are generated from event.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Sessions Section -->
+    <section id="sessions" class="section sessions-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">//</span> Session Types
+            </h2>
+            <div class="sessions-grid">
+                <!-- Session types are generated from event.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracks Section -->
+    <section id="tracks" class="section tracks-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">//</span> Tracks
+            </h2>
+            <div class="tracks-grid">
+                <!-- Tracks are generated from event.json -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-accent">//</span> Get in Touch
+            </h2>
+            <div class="contact-content">
+                <p class="contact-text">
+                    Questions? Reach out to the organizing team.
+                </p>
+                <a href="mailto:{{CONTACT_EMAIL}}" class="btn btn-primary btn-large">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">{{EVENT_NAME}}</span>
+                    <span class="logo-bracket">/&gt;</span>
+                    <p class="footer-tagline">An Amadeus Event</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">All Events</a>
+                    <a href="program.html">Program</a>
+                    <a href="mailto:{{CONTACT_EMAIL}}">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Amadeus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../shared/script-base.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

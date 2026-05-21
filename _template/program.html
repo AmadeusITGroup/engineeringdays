@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program | {{EVENT_NAME}}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="stylesheet" href="../shared/styles-base.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo-line">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">{{EVENT_NAME}}</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </div>
+                <div class="nav-byline">by {{ORGANIZER}}</div>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">All Events</a>
+                <a href="index.html">Home</a>
+                <a href="#schedule">Schedule</a>
+                <a href="mailto:{{CONTACT_EMAIL}}">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Program Hero -->
+    <header class="program-hero">
+        <div class="container">
+            <h1>Program</h1>
+            <p class="subtitle">{{EVENT_NAME}} — {{EVENT_DATES}}</p>
+        </div>
+    </header>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="program-schedule">
+        <div class="container">
+            <div id="sessions-container">
+                <!-- Sessions will be loaded from sessions.json if available -->
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading program...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">{{EVENT_NAME}}</span>
+                    <span class="logo-bracket">/&gt;</span>
+                    <p class="footer-tagline">An Amadeus Event</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">All Events</a>
+                    <a href="index.html">Home</a>
+                    <a href="mailto:{{CONTACT_EMAIL}}">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Amadeus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../shared/script-base.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

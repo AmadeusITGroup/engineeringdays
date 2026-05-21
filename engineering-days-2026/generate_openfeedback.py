@@ -39,7 +39,7 @@ def transform_sessions_to_openfeedback(sessions_data):
                     speakers[speaker_guid] = {
                         'id': speaker_guid,
                         'name': speaker_name,
-                        'photoUrl': 'https://amadeusitgroup.github.io/engineeringdays/image.png',
+                        'photoUrl': 'https://amadeusitgroup.github.io/events/engineering-days-2026/image.png',
                         'socials': []
                     }
         

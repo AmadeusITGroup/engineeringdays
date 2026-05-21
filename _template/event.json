@@ -1,0 +1,41 @@
+{
+    "eventName": "My Event Name",
+    "eventSlug": "my-event-2026",
+    "tagline": "A short tagline describing the event",
+    "dates": {
+        "start": "2026-06-15",
+        "end": "2026-06-16",
+        "display": "15-16 June 2026"
+    },
+    "organizer": "DevRel",
+    "contact": "devrel@amadeus.com",
+    "description": "A longer description of the event for the about section.",
+    "locations": [
+        "Nice FR",
+        "Remote"
+    ],
+    "stats": [
+        { "icon": "🎤", "number": "20+", "label": "Sessions", "description": "Talks and workshops" },
+        { "icon": "👥", "number": "200+", "label": "Attendees", "description": "On-site participants" },
+        { "icon": "🌐", "number": "5", "label": "Sites", "description": "Hosting locations" }
+    ],
+    "tracks": [
+        { "icon": "💻", "name": "Development", "description": "coding, tools, frameworks" },
+        { "icon": "☁️", "name": "Cloud & Infra", "description": "architecture, hosting, DevOps" },
+        { "icon": "📊", "name": "AI & Data", "description": "machine learning, analytics" }
+    ],
+    "sessionTypes": [
+        { "name": "Talk", "duration": "25min", "description": "Short presentation to introduce a topic." },
+        { "name": "Workshop", "duration": "120min", "description": "Hands-on session with attendees." }
+    ],
+    "colors": {
+        "primary": "#26005a",
+        "secondary": "#b650ff",
+        "accent": "#ff58ac"
+    },
+    "features": {
+        "program": true,
+        "openfeedback": false,
+        "countdown": true
+    }
+}

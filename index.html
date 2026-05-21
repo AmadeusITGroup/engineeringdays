@@ -3,27 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amadeus Engineering Days 2026 | Tech Conference</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-    <link rel="stylesheet" href="styles.css">
+    <title>Amadeus Events | Tech Conferences & Community</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎪</text></svg>">
+    <link rel="stylesheet" href="shared/styles-base.css">
+    <style>
+        /* Landing page specific styles */
+        .hero-landing {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: calc(80px + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-landing::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-accent) 50%, var(--secondary) 100%);
+            opacity: 0.08;
+            z-index: -1;
+        }
+
+        [data-theme="dark"] .hero-landing::before {
+            opacity: 0.3;
+        }
+
+        .hero-landing h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        [data-theme="dark"] .hero-landing h1 {
+            color: var(--secondary);
+        }
+
+        .hero-landing .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        /* Events Grid */
+        .events-section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: var(--spacing-lg);
+            color: var(--primary);
+        }
+
+        [data-theme="dark"] .section-title {
+            color: var(--secondary);
+        }
+
+        .title-accent {
+            color: var(--accent);
+            font-family: var(--font-mono);
+            margin-right: 0.5rem;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .event-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px var(--shadow);
+            border-color: var(--secondary);
+        }
+
+        .event-card-banner {
+            height: 8px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+
+        .event-card-content {
+            padding: var(--spacing-md);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: var(--spacing-xs);
+            font-family: var(--font-mono);
+        }
+
+        .event-card-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        [data-theme="dark"] .event-card-title {
+            color: var(--text-color);
+        }
+
+        .event-card-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-sm);
+            flex: 1;
+        }
+
+        .event-card-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-top: auto;
+        }
+
+        .event-tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        [data-theme="dark"] .event-tag {
+            background: var(--dark-accent);
+        }
+
+        .event-tag.upcoming {
+            background: var(--secondary);
+            color: #ffffff;
+        }
+
+        /* Past Events Section */
+        .past-events-section {
+            padding: var(--spacing-xl) 0;
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-light) 100%);
+        }
+
+        [data-theme="dark"] .past-events-section {
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--primary) 100%);
+        }
+
+        .past-events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .past-event-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: var(--spacing-md);
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+            opacity: 0.85;
+        }
+
+        .past-event-card:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px var(--shadow);
+        }
+
+        .past-event-card .event-card-date {
+            font-size: 0.8rem;
+        }
+
+        .past-event-card .event-card-title {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .past-events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">
+            <a href="index.html" class="nav-brand">
                 <div class="nav-logo-line">
                     <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">Amadeus Engineering Days</span>
+                    <span class="logo-text">Amadeus Events</span>
                     <span class="logo-bracket">/&gt;</span>
                 </div>
                 <div class="nav-byline">by DevRel</div>
-            </div>
+            </a>
             <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="program.html">Program</a>
-                <a href="#sessions">Sessions</a>
-                <a href="#tracks">Tracks</a>
+                <a href="#upcoming">Upcoming</a>
+                <a href="#past">Past Events</a>
                 <a href="mailto:devrel@amadeus.com">Contact</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                     <span class="icon-sun">☀️</span>
@@ -39,269 +246,52 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
+    <header class="hero-landing">
         <div class="container">
-            <div class="hero-content">
-                <div class="glitch-wrapper">
-                    <h1 class="hero-title" data-text="Amadeus Engineering Days">Amadeus Engineering Days</h1>
-                </div>
-                <div class="hero-date">
-                    <span class="date-highlight">29-30 April 2026</span>
-                </div>
-                <p class="hero-subtitle">
-                    <span class="typed-text">Two days of exploration, knowledge sharing, and networking</span>
-                </p>
-                <div class="cta-buttons">
-                    <a href="program.html" class="btn btn-primary">
-                        View Program <span class="arrow">→</span>
-                    </a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
-                </div>
-            </div>
-            <div class="hero-graphic">
-                <div class="code-window">
-                    <div class="window-controls">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="code-content">
-                        <pre><code><span class="code-keyword">const</span> <span class="code-variable">event</span> = {
-  <span class="code-property">name</span>: <span class="code-string">"1AEngDays"</span>,
-  <span class="code-property">dates</span>: <span class="code-string">"2026-04-29/2026-04-30"</span>,
-  <span class="code-property">talks</span>: <span class="code-number">50</span>,
-  <span class="code-property">attendees</span>: <span class="code-number">1300+</span>,
-  <span class="code-property">mode</span>: <span class="code-string">"physical-first"</span>,
-  <span class="code-property">locations</span>: [
-    <span class="code-string">"Sydney AU"</span>,
-    <span class="code-string">"Bengaluru IN"</span>,
-    <span class="code-string">"İstanbul TR"</span>,
-    <span class="code-string">"Berlin DE"</span>,
-    <span class="code-string">"Erding DE"</span>,
-    <span class="code-string">"Frankfurt DE"</span>,
-    <span class="code-string">"Aachen DE"</span>,
-    <span class="code-string">"Nice FR"</span>,
-    <span class="code-string">"Antwerpen BE"</span>,
-    <span class="code-string">"London UK"</span>,
-    <span class="code-string">"Barcelona ES"</span>,
-    <span class="code-string">"Madrid ES"</span>,
-    <span class="code-string">"Portsmouth USA"</span>,
-    <span class="code-string">"Dallas USA"</span>,
-    <span class="code-string">"Salt Lake City USA"</span>,
-    <span class="code-string">"Bogotá CO"</span>
-  ]
-};</code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>↓</span>
+            <h1>Amadeus Events</h1>
+            <p class="subtitle">
+                Tech conferences, workshops, and community events organized by the Amadeus DevRel team.
+                Explore our upcoming and past events below.
+            </p>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="section about-section">
+    <!-- Upcoming Events -->
+    <section id="upcoming" class="events-section">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-accent">//</span> About the Event
+                <span class="title-accent">//</span> Upcoming Events
             </h2>
-            <div class="about-content">
-                <p class="lead-text">
-                    Join us for an exciting 2-day tech conference filled with <strong>tech talks & workshops</strong>, 
-                    taking place on <strong>29-30 April 2026</strong>.
-                </p>
-                <p>
-                    Event is hosted at various Amadeus offices, including <strong>Sydney AU</strong>, <strong>Bengaluru IN</strong>, <strong>Istanbul TR</strong>, 
-                    <strong>Erding DE</strong>, <strong>Nice FR</strong>, <strong>London UK</strong>, <strong>Bogotá CO</strong> and 
-                    <strong>live-streamed</strong> to the 10k Amadeus engineers worldwide.
-                </p>
-            </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">🎤</div>
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Talks & Workshops</div>
-                    <p class="stat-description">Provided by Amadeus speakers & partners</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">👥</div>
-                    <div class="stat-number">300+</div>
-                    <div class="stat-label">On-site Attendees</div>
-                    <p class="stat-description">Connect and network in person</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">🌐</div>
-                    <div class="stat-number">16</div>
-                    <div class="stat-label">Hosting Sites</div>
-                    <p class="stat-description">Live-stream available for all Amadeus sites</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">🎪</div>
-                    <div class="stat-number">20</div>
-                    <div class="stat-label">Partner Booths</div>
-                    <p class="stat-description">& Afterwork Events</p>
-                </div>
+            <div class="events-grid">
+
+                <!-- Add new upcoming event cards here -->
+
             </div>
         </div>
     </section>
 
-    <!-- Sessions Section -->
-    <section id="sessions" class="section sessions-section">
+    <!-- Past Events -->
+    <section id="past" class="past-events-section">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-accent">//</span> Session Types
+                <span class="title-accent">//</span> Past Events
             </h2>
+            <div class="past-events-grid">
 
-            <div class="sessions-grid">
-                <div class="session-card">
-                    <div class="session-header">
-                        <h3>Talk</h3>
-                        <span class="session-duration">25min</span>
-                    </div>
-                    <p>
-                        25 minutes - and not a single more! - to introduce your favourite topic, framework or tool 
-                        and provide pointers for the attendees to delve deeper on their own.
+                <a href="engineering-days-2026/index.html" class="past-event-card animate-on-scroll">
+                    <div class="event-card-date">29-30 April 2026</div>
+                    <h3 class="event-card-title">Engineering Days 2026</h3>
+                    <p class="event-card-description">
+                        Two days of exploration, knowledge sharing, and networking.
+                        50+ talks & workshops across 16 Amadeus sites worldwide.
                     </p>
-                </div>
-
-                <div class="session-card">
-                    <div class="session-header">
-                        <h3>Long Talk</h3>
-                        <span class="session-duration">45min</span>
+                    <div class="event-card-meta">
+                        <span class="event-tag">2026</span>
+                        <span class="event-tag">50+ sessions</span>
+                        <span class="event-tag">16 sites</span>
                     </div>
-                    <p>
-                        Present a topic you care about in one of our many tracks. We are open to a wide spectrum of 
-                        topics, tech or adjacent to tech. Five additional minutes provided for questions.
-                    </p>
-                </div>
-
-                <div class="session-card">
-                    <div class="session-header">
-                        <h3>Deep-dive Talk</h3>
-                        <span class="session-duration">120min</span>
-                    </div>
-                    <p>
-                        Dive at the heart of an exciting topic of yours. This format allows for a comprehensive 
-                        presentation, which can cover large topics, while allowing many concrete examples.
-                    </p>
-                </div>
-
-                <div class="session-card">
-                    <div class="session-header">
-                        <h3>Hands-on Workshop</h3>
-                        <span class="session-duration">120min</span>
-                    </div>
-                    <p>
-                        Bring your attendees further along with a concrete application of a subject you'd want to share. 
-                        Attendees come with laptops and have wifi access. You can communicate your pre-requirements ahead 
-                        of the workshop.
-                    </p>
-                </div>
-
-                <div class="session-card">
-                    <div class="session-header">
-                        <h3>Lunch-time Booth</h3>
-                        <span class="session-duration">Lunch</span>
-                    </div>
-                    <p>
-                        Advertise your community, passion or brand on a dedicated booth during lunch time.<br />
-                        We ask anyone with a booth to strive to make it attractive for our geeky crowd. A table, electricity and 
-                        logistics support will be provided.
-                    </p>
-                </div>
-
-                <div class="session-card session-card-highlight">
-                    <div class="session-header">
-                        <h3 style="color: #000000;">Closing Keynote & Cocktail</h3>
-                        <span class="session-duration">Exclusive</span>
-                    </div>
-                    <p>
-                        Own the grand finale! 
-                        Amadeus provides the stage and venue, 
-                        while you bring the inspiring closing keynote & the afterwork party vibes.<br />
-                        This is an exclusive opportunity to showcase your brand and connect with our engineering community.<br />
-                        <a href="mailto:devrel@amadeus.com?subject=Closing%20Keynote%20%26%20Cocktail%20Opportunity">Contact the Amadeus DevRel team</a> for more details.
-                    </p>
-                </div>
-            </div>
-
-            <div class="session-note">
-                <p>
-                    <a href="mailto:devrel@amadeus.com?subject=About%20Amadeus%20Engineering%20Days">Let us know</a> 
-                    if you have any specific need or constraints, we'll be happy to help.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tracks Section -->
-    <section id="tracks" class="section tracks-section">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-accent">//</span> Tracks
-            </h2>
-
-            <div class="tracks-grid">
-                <div class="track-card">
-                    <div class="track-icon">🎨</div>
-                    <h3>UX & Front-end</h3>
-                    <p>usability, design, CSS, UI, front-end frameworks</p>
-                </div>
-
-                <div class="track-card">
-                    <div class="track-icon">☁️</div>
-                    <h3>Back-end & Cloud</h3>
-                    <p>architecture, programming languages, performances, hosting, serverless, managed services</p>
-                </div>
-
-                <div class="track-card">
-                    <div class="track-icon">💻</div>
-                    <h3>Development & QA</h3>
-                    <p>toolchain, local dev, internal developer portal, open source, Green IT, automated testing & tools</p>
-                </div>
-
-                <div class="track-card">
-                    <div class="track-icon">📊</div>
-                    <h3>AI & Data</h3>
-                    <p>LLM, MCP, databases, data stores, streaming, API</p>
-                </div>
-
-                <div class="track-card">
-                    <div class="track-icon">🏗️</div>
-                    <h3>DevOps & Security</h3>
-                    <p>containerization, orchestration, FinOps, platform engineering, CI/CD, observability, AppSec, cybersecurity</p>
-                </div>
-
-                <div class="track-card">
-                    <div class="track-icon">👔</div>
-                    <h3>Leadership & People</h3>
-                    <p>agility, thought leadership, project management, product roadmaps</p>
-                </div>
-
-                <div class="track-card track-card-special">
-                    <div class="track-icon">✨</div>
-                    <h3>Other</h3>
-                    <p>share your passion beyond the day-job – open source, 3D-printing or home automation... if you love doing it, our audience will love hearing about it too!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
-        <div class="container">
-            <h2 class="section-title">
-                <span class="title-accent">//</span> Get in Touch
-            </h2>
-            <div class="contact-content">
-                <p class="contact-text">
-                    Let us know if you have any specific need or constraints, we’ll be happy to help.
-                </p>
-                <a href="mailto:devrel@amadeus.com" class="btn btn-primary btn-large">
-                    Contact the Amadeus DevRel Team
                 </a>
+
             </div>
         </div>
     </section>
@@ -312,23 +302,22 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">Amadeus Engineering Days</span>
+                    <span class="logo-text">Amadeus Events</span>
                     <span class="logo-bracket">/&gt;</span>
-                    <p class="footer-tagline">2026</p>
+                    <p class="footer-tagline">Organized by the Amadeus DevRel team</p>
                 </div>
                 <div class="footer-links">
-                    <a href="program.html">Program</a>
+                    <a href="#upcoming">Upcoming</a>
+                    <a href="#past">Past Events</a>
                     <a href="mailto:devrel@amadeus.com">Contact</a>
-                    <a href="#about">About</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Amadeus. All rights reserved.</p>
-                <p class="ai-disclaimer">🤖 Built with AI assistance — we had conferences to organize, not pixels to push!</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="shared/script-base.js"></script>
 </body>
 </html>

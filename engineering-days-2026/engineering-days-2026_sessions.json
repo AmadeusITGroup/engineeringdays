@@ -338,7 +338,7 @@
   },
   {
     "ID": "8UDHJ9",
-    "Proposal title": "\ud83d\ude80 From Code to Production Change: Automating the Full Lifecycle with Maestro",
+    "Proposal title": "[Hybrid] \ud83d\ude80 From Code to Production Change: Automating the Full Lifecycle with Maestro",
     "Session type": {
       "en": "Hands-on workshop"
     },
@@ -346,7 +346,7 @@
       "en": "Development, QA"
     },
     "Tags": null,
-    "Description": "GitHub Actions \u00b7 ServiceNow \u00b7 Real\u2011World Automation at Amadeus\r\nFormat: Hands\u2011on technical workshop\r\nAudience: DevOps, Platform, Automation & Tooling Engineers and Anybody Else \r\nSpeakers: Sertay Akpinar & Bernhard Sellmair\r\n\r\n\ud83e\udd14Why should you vote for this workshop?\r\nManual change processes are slowing teams down.\r\nTool sprawl is increasing.\r\nAnd yet\u2026 automation across GitHub, ServiceNow, and enterprise workflows is still painfully fragmented.\r\nIn this hands\u2011on Engineering Days workshop, you\u2019ll build a real end\u2011to\u2011end automation pipeline used today by Amadeus teams \u2014 turning a GitHub Pull Request into a fully automated ServiceNow change lifecycle, orchestrated by Maestro.\r\nNo toy examples.\r\nYou\u2019ll walk away with working patterns you can reuse in your own Business Unit to save your time and cost for more important things\r\n\r\n\ud83d\udee0\ufe0fWhat you\u2019ll actually build (live)\r\nBy the end of the session, you will have implemented this real scenario:\r\n\u201cWhen a Pull Request is merged in GitHub, automatically open or update a ServiceNow Change Request, attach validation evidence, execute an automated Maestro workflow, and close the CR when everything succeeds.\u201d\r\nThis reflects the exact migration path many teams are following:\r\nWin@proach \u2192 ServiceNow\r\nBitbucket / Jenkins \u2192 GitHub Actions\r\nManual glue \u2192 Maestro orchestration\r\n\r\n\ud83e\udde0What you\u2019ll learn (and reuse)\r\n\ud83e\udde9 Automate from GitHub\r\nTrigger Maestro workflows directly from GitHub Actions\r\nPass PR metadata, commits, and artifacts\r\nCompare authentication models (classic token vs GitHub App)\r\n\ud83e\udde9 Integrate ServiceNow the right way\r\nCreate and update CR / TR / WO tickets from Maestro\r\nRetrieve status, comments, and attachments\r\nReplace Win@proach-style automations with API\u2011driven flows\r\n\ud83e\udde9 Orchestrate everything with Maestro\r\nBuild event\u2011driven workflows reacting to GitHub\r\nImplement 4\u2011eyes validation, branching logic, retries, and error handling\r\nVisualize executions, logs, and outputs in real time\r\n\ud83e\udde9 (Bonus, if ready) Secure credentials with CyberArk in a real automation chain\r\n\r\n\ud83d\udca1What you\u2019ll take back to your team\r\n\u2705 Ready\u2011to\u2011reuse Maestro tasks for GitHub & ServiceNow\r\n\u2705 Sample GitHub Actions pipelines\r\n\u2705 Proven workflow\u2011as\u2011code patterns for enterprise automation\r\n\u2705 A complete, working demo you can replicate in your Business Unit\r\n\r\n\ud83c\udfafWhy this workshop matters now\r\nAmadeus is actively moving toward:\r\n\ud83e\udd1dServiceNow replacing Win@proach\r\n\ud83e\udd1dGitHub Actions replacing legacy CI pipelines\r\n\ud83e\udd1dMaestro as a cross\u2011domain automation hub\r\n\r\nThis workshop helps you future\u2011proof your automation stack and apply patterns aligned with the 2026 engineering toolchain strategy \u2014 not next year, but now.",
+    "Description": "GitHub Actions \u00b7 ServiceNow \u00b7 Real\u2011World Automation at Amadeus\r\nFormat: Hands\u2011on technical workshop\r\nAudience: DevOps, Platform, Automation & Tooling Engineers and Anybody Else \r\n\u260e\ufe0f Remote attendance is also possible:  [Meeting Invitation](https://amadeusworkplace.sharepoint.com/sites/tpeculture-transformationalleadership/_layouts/15/download.aspx?UniqueId=a8c8480d-1da2-4389-a315-ea4f4c56995a&Translate=false&ApiVersion=2.0&correlationId=0348bcd0-e9f4-4abb-a1cf-27c83d9b605f)\r\n[Register](https://forms.office.com/e/H3R53Pxzgj)\r\n\r\n\ud83e\udd14Why should you vote for this workshop?\r\nManual change processes are slowing teams down.\r\nTool sprawl is increasing.\r\nAnd yet\u2026 automation across GitHub, ServiceNow, and enterprise workflows is still painfully fragmented.\r\nIn this hands\u2011on Engineering Days workshop, you\u2019ll build a real end\u2011to\u2011end automation pipeline used today by Amadeus teams \u2014 turning a GitHub Pull Request into a fully automated ServiceNow change lifecycle, orchestrated by Maestro.\r\nNo toy examples.\r\nYou\u2019ll walk away with working patterns you can reuse in your own Business Unit to save your time and cost for more important things\r\n\r\n\ud83d\udee0\ufe0fWhat you\u2019ll actually build (live)\r\nBy the end of the session, you will have implemented this real scenario:\r\n\u201cWhen a Pull Request is merged in GitHub, automatically open or update a ServiceNow Change Request, attach validation evidence, execute an automated Maestro workflow, and close the CR when everything succeeds.\u201d\r\nThis reflects the exact migration path many teams are following:\r\nWin@proach \u2192 ServiceNow\r\nBitbucket / Jenkins \u2192 GitHub Actions\r\nManual glue \u2192 Maestro orchestration\r\n\r\n\ud83e\udde0What you\u2019ll learn (and reuse)\r\n\ud83e\udde9 Automate from GitHub\r\nTrigger Maestro workflows directly from GitHub Actions\r\nPass PR metadata, commits, and artifacts\r\nCompare authentication models (classic token vs GitHub App)\r\n\ud83e\udde9 Integrate ServiceNow the right way\r\nCreate and update CR / TR / WO tickets from Maestro\r\nRetrieve status, comments, and attachments\r\nReplace Win@proach-style automations with API\u2011driven flows\r\n\ud83e\udde9 Orchestrate everything with Maestro\r\nBuild event\u2011driven workflows reacting to GitHub\r\nImplement 4\u2011eyes validation, branching logic, retries, and error handling\r\nVisualize executions, logs, and outputs in real time\r\n\r\n\ud83d\udca1What you\u2019ll take back to your team\r\n\u2705 Ready\u2011to\u2011reuse Maestro tasks for GitHub & ServiceNow\r\n\u2705 Sample GitHub Actions pipelines\r\n\u2705 Proven workflow\u2011as\u2011code patterns for enterprise automation\r\n\u2705 A complete, working demo you can replicate in your Business Unit\r\n\r\n\ud83c\udfafWhy this workshop matters now\r\nAmadeus is actively moving toward:\r\n\ud83e\udd1dServiceNow replacing Win@proach\r\n\ud83e\udd1dGitHub Actions replacing legacy CI pipelines\r\n\ud83e\udd1dMaestro as a cross\u2011domain automation hub\r\n\r\nThis workshop helps you future\u2011proof your automation stack and apply patterns aligned with the 2026 engineering toolchain strategy \u2014 not next year, but now.",
     "Speaker names": [
       "Sertay AKPINAR",
       "Bernhard SELLMAIR"
@@ -632,7 +632,7 @@
       "Anna KOZACHENKO"
     ],
     "Room": {
-      "en": "[NCE] Local room 3"
+      "en": "[NCE] Local room 2"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
@@ -834,7 +834,7 @@
     "Tags": [
       "Exploration"
     ],
-    "Description": "Engineering organizations everywhere are discovering that AI doesn\u2019t just accelerate tasks\u2014\ud835\uddf6\ud835\ude01 \ud835\uddf3\ud835\ude02\ud835\uddfb\ud835\uddf1\ud835\uddee\ud835\uddfa\ud835\uddf2\ud835\uddfb\ud835\ude01\ud835\uddee\ud835\uddf9\ud835\uddf9\ud835\ude06 \ud835\uddf0\ud835\uddf5\ud835\uddee\ud835\uddfb\ud835\uddf4\ud835\uddf2\ud835\ude00 \ud835\uddf5\ud835\uddfc\ud835\ude04 \ud835\ude04\ud835\uddf2 \ud835\ude00\ud835\uddf5\ud835\uddfc\ud835\ude02\ud835\uddf9\ud835\uddf1 \ud835\uddef\ud835\ude02\ud835\uddf6\ud835\uddf9\ud835\uddf1, \ud835\ude00\ud835\uddf0\ud835\uddee\ud835\uddf9\ud835\uddf2, \ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\uddf9\ud835\uddf2\ud835\uddee\ud835\uddf1 \ud835\ude01\ud835\uddf2\ud835\uddf0\ud835\uddf5\ud835\uddfb\ud835\uddfc\ud835\uddf9\ud835\uddfc\ud835\uddf4\ud835\ude06 \ud835\ude01\ud835\uddf2\ud835\uddee\ud835\uddfa\ud835\ude00. In this session, we explore how AI enables a transformative shift from projects to platforms\u2014from one\u2011off delivery to reusable capabilities, from isolated teams to shared acceleration layers, from effort to leverage.\r\n\r\nYou will learn:\r\n\r\n\u2022 How is AI redefining the way we work\r\n\u2022 How platformization act as \u201cforce multipliers\u201d for every team\r\n\u2022 Real examples of platformization: self\u2011service, automation, reusable assets, and AI\u2011enhanced engineering workflows\r\n\u2022 What are the 5 strategic tensions for leaders in AI and how to overcome it\r\n\r\nThis talk is for engineering managers, tech leads, architects, and anyone who wants to lead their team into the next phase of AI-driven execution. If you want to move beyond incremental improvements and redesign how your teams deliver, innovate, and operate\u2014this session will show you the path.",
+    "Description": "Engineering organizations everywhere are discovering that AI doesn\u2019t just accelerate tasks\u2014\ud835\uddf6\ud835\ude01 \ud835\uddf3\ud835\ude02\ud835\uddfb\ud835\uddf1\ud835\uddee\ud835\uddfa\ud835\uddf2\ud835\uddfb\ud835\ude01\ud835\uddee\ud835\uddf9\ud835\uddf9\ud835\ude06 \ud835\uddf0\ud835\uddf5\ud835\uddee\ud835\uddfb\ud835\uddf4\ud835\uddf2\ud835\ude00 \ud835\uddf5\ud835\uddfc\ud835\ude04 \ud835\ude04\ud835\uddf2 \ud835\ude00\ud835\uddf5\ud835\uddfc\ud835\ude02\ud835\uddf9\ud835\uddf1 \ud835\uddef\ud835\ude02\ud835\uddf6\ud835\uddf9\ud835\uddf1, \ud835\ude00\ud835\uddf0\ud835\uddee\ud835\uddf9\ud835\uddf2, \ud835\uddee\ud835\uddfb\ud835\uddf1 \ud835\uddf9\ud835\uddf2\ud835\uddee\ud835\uddf1 \ud835\ude01\ud835\uddf2\ud835\uddf0\ud835\uddf5\ud835\uddfb\ud835\uddfc\ud835\uddf9\ud835\uddfc\ud835\uddf4\ud835\ude06 \ud835\ude01\ud835\uddf2\ud835\uddee\ud835\uddfa\ud835\ude00. In this session, we explore how AI enables a transformative shift from projects to platforms\u2014from one\u2011off delivery to reusable capabilities, from isolated teams to shared acceleration layers, from effort to leverage.\r\n\r\nYou will learn:\r\n\r\n\u2022 How is AI redefining the way we work\r\n\u2022 What are the 4 strategic tensions for leaders in AI and how to overcome it\r\n\u2022 How platformization act as \u201cforce multipliers\u201d : Real examples of platformization\r\n\r\nThis talk is for engineering managers, tech leads, architects, and anyone who wants to lead their team into the next phase of AI-driven execution. If you want to move beyond incremental improvements and redesign how your teams deliver, innovate, and operate\u2014this session will show you the path.",
     "Speaker names": [
       "Hariprashadh SELLAMUTHU"
     ],
@@ -1026,27 +1026,6 @@
     "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
-    "ID": "JMFEMW",
-    "Proposal title": "Stop the Spend Spiral: Intelligent Cost Anomaly Detection Before Budget Impact",
-    "Session type": {
-      "en": "Talk"
-    },
-    "Track": {
-      "en": "DevOps, Security"
-    },
-    "Tags": null,
-    "Description": "Is your Azure bill a monthly surprise? What if your monitoring system could learn your spending patterns, detect anomalies automatically, and visually show you exactly what changed and why?\r\n \r\nIn this session, I'll show you how to build a production-ready Azure FinOps system that protects enterprise-scale budgets and identifies significant savings opportunities\u2014using only native Azure services. We'll combine Azure Monitor's statistical queries, interactive Workbooks for root cause analysis, and Logic Apps for intelligent notifications.\r\n \r\nYou'll see live:\r\n    - Statistical anomaly detection using Z-score analysis in KQL (adapts to YOUR patterns)\r\n    - Azure Workbooks that automatically correlate cost spikes with configuration changes\r\n    - Visual timelines linking VM resizing, performance metrics, and cost impact\r\n    - Multi-tier budget protection with ML-powered forecasting\r\n    - Complete deployment in <10 minutes via Infrastructure as Code\r\n\r\nNo more spreadsheet investigations\u2014watch an Azure Workbook automatically identify that a VM SKU change caused a major cost increase, then validate whether it was justified based on performance metrics.",
-    "Speaker names": [
-      "Andreea Catalina ILICI"
-    ],
-    "Room": {
-      "en": "[ERD] Local room 2"
-    },
-    "Start": "2026-04-30T12:35:00+00:00",
-    "End": "2026-04-30T15:00:00+02:00",
-    "From which Amadeus site do you plan to present?": "Erding, Germany"
-  },
-  {
     "ID": "JNRXHF",
     "Proposal title": "[NCE] \ud83e\udd80 Rust for All: From Rookie to Rustacean",
     "Session type": {
@@ -1061,7 +1040,7 @@
       "Thomas LACROIX"
     ],
     "Room": {
-      "en": "[NCE] Local room 2"
+      "en": "[NCE] Local room 3"
     },
     "Start": "2026-04-29T08:00:00+00:00",
     "End": "2026-04-29T12:00:00+02:00",
@@ -1176,7 +1155,7 @@
     "Tags": null,
     "Description": "## MLOps with ArgoWorkflows\r\n\r\n### Introduction\r\nArgoWorkflows and ArgoCD are the official CD tools for all Cloud Native Applications in Amadeus. It is already being used by products like Argos, ServiceNow, Orion, Nevio etc. to deploy to cloud.\r\n\r\nBut the versatility and prowess of ArgoWorkflows is not just limited to cloud. It can be leveraged to orchestrate any flow, including MLOps - from data ingestion and cleaning pipelines to model training and deploying.\r\n\r\nIn this presentation we will demonstrate how ArgoWorkflows can provide orchestration, traceability, security and, the most important feature, Change Management for any and every flow.\r\n\r\n### Advantages of ArgoWorkflows\r\n- Automated End-to-End Release Orchestration\r\n- Change Management with ServiceNow\r\n- Fallback and Rollback Capabilities\r\n- Multi-PAAS Functionality\r\n\r\n### What to Expect\r\nA brief intro to ArgoWorkflows and a demonstration on how it can be leveraged to automate MLOps pipelines delivering seamless orchestration from data to training pipelines and deploying ML models with GitOps pull model.",
     "Speaker names": [
-      "D AJAY KUMAR"
+      "Gaurang MISHRA"
     ],
     "Room": {
       "en": "Global room 1"
@@ -1650,23 +1629,6 @@
     "Start": "2026-04-29T13:00:00+00:00",
     "End": "2026-04-29T17:00:00+02:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
-  },
-  {
-    "ID": "QSTFAG",
-    "Proposal title": "TEST",
-    "Session type": {
-      "en": "Talk"
-    },
-    "Track": null,
-    "Tags": null,
-    "Description": "/",
-    "Speaker names": [
-      "Sarah Cohadon"
-    ],
-    "Room": null,
-    "Start": null,
-    "End": null,
-    "From which Amadeus site do you plan to present?": "Nice, France"
   },
   {
     "ID": "QUUS3R",
