@@ -19,7 +19,7 @@ Multi-event website for Amadeus tech conferences and community events, hosted on
 | Command | What it does |
 |---------|-------------|
 | **`/create-event`** | Create a new event website (with or without sessions JSON) |
-| **`/update-event`** | Update an existing event with the finalized program after CFP closes |
+| **`/update-event`** | Update an existing event with finalized program data (from pretalx JSON or manually entered talks) |
 | **`/remove-event`** | Remove an event (runs `remove_event.py` interactively) |
 
 Just open Copilot Chat and use the command or describe what you want.  
@@ -38,6 +38,10 @@ python3 create_event.py --name "My Event 2027" --slug "my-event-2027" --dates "1
 
 # Update an event with finalized program
 python3 update_event.py sessions.json --slug "my-event-2027"
+
+# If you don't have a pretalx JSON yet, build one manually first
+python3 build_sessions_json.py --out sessions-manual.json
+python3 update_event.py sessions-manual.json --slug "my-event-2027"
 
 # Remove an event (interactive)
 python3 remove_event.py

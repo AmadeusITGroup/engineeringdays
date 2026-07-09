@@ -29,35 +29,25 @@
     {
       "icon": "🌐",
       "number": "1",
-      "label": "Sites",
+      "label": "Site",
       "description": "Hosting locations"
     }
   ],
   "tracks": [
     {
       "icon": "🤖",
-      "name": "AI & Data",
-      "description": "Machine learning, data engineering, and AI applications"
+      "name": "AIOps",
+      "description": "Transform how services are operated. No touch ops, autonomous platform agents, predictive observability, self-healing architectures, intelligent monitoring"
     },
     {
       "icon": "☁️",
-      "name": "Cloud & DevOps",
-      "description": "Cloud infrastructure, CI/CD, and platform engineering"
+      "name": "Platforming at scale",
+      "description": "Transform how systems are built to cope with an AI-assisted workload. Operational excellence, culture of stability, resilience & security, AI-DLC, fleet management, internal developer platforms & knowledge graphs. Cloud infrastructure, CI/CD, and platform engineering"
     },
     {
       "icon": "🎨",
-      "name": "Frontend & UX",
-      "description": "Web development, design systems, and user experience"
-    },
-    {
-      "icon": "🔒",
-      "name": "Security",
-      "description": "Application security, compliance, and best practices"
-    },
-    {
-      "icon": "👔",
-      "name": "Leadership & People",
-      "description": "Engineering management, culture, and career growth"
+      "name": "AI-first teams",
+      "description": "Transform how engineers & ops work. Leading teams through AI transformation, new engineering skillsets, AI-first engineering practices."
     }
   ],
   "sessionTypes": [

@@ -10,8 +10,18 @@ You are helping update an existing event that was created in CFP mode. The Call 
 ## Step 1: Gather Required Information
 
 Ask the user for:
-1. **Sessions JSON file** — The pretalx export with finalized sessions (required)
+1. **Sessions JSON file** — The pretalx export with finalized sessions (preferred)
 2. **Event slug** — The folder name of the event to update (e.g., "engineering-days-2026")
+
+If no sessions JSON is available yet, collect talks manually and generate one:
+```bash
+python3 build_sessions_json.py --out sessions-manual.json
+```
+
+Then continue with:
+```bash
+python3 update_event.py sessions-manual.json --slug "event-slug-year"
+```
 
 If the user doesn't know the slug, list available events:
 ```bash
@@ -74,6 +84,8 @@ The sessions JSON must be an array of objects with these fields:
   "End": "2026-04-29T09:45:00+02:00"
 }
 ```
+
+If you generated the file via `build_sessions_json.py`, it already follows this format.
 
 ## Important Notes
 
