@@ -23,9 +23,9 @@
             <div class="nav-links">
                 <a href="../index.html">All Events</a>
                 <a href="#about">About</a>
-                <a href="program.html">Program</a>
+                <a id="program-nav-link" href="program.html">Program</a>
                 <a href="#tracks">Tracks</a>
-                <a href="mailto:{{CONTACT_EMAIL}}">Contact</a>
+                <a id="nav-contact-link" href="mailto:{{CONTACT_EMAIL}}">Contact</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                     <span class="icon-sun">☀️</span>
                     <span class="icon-moon">🌙</span>
@@ -51,7 +51,7 @@
                 </div>
                 <p class="hero-subtitle">{{EVENT_TAGLINE}}</p>
                 <div class="cta-buttons">
-                    <a href="program.html" class="btn btn-primary">
+                    <a id="program-hero-cta" href="program.html" class="btn btn-primary">
                         View Program <span class="arrow">→</span>
                     </a>
                     <a href="#about" class="btn btn-secondary">Learn More</a>
@@ -84,10 +84,11 @@
                 <span class="title-accent">//</span> About the Event
             </h2>
             <div class="about-content">
-                <p class="lead-text">{{EVENT_DESCRIPTION}}</p>
+                <p class="lead-text" id="event-description">{{EVENT_DESCRIPTION}}</p>
+                <p id="event-locations">Hosted at <strong>{{EVENT_LOCATION}}</strong>.</p>
             </div>
 
-            <div class="stats-grid">
+            <div class="stats-grid" id="stats-grid">
                 <!-- Stats are generated from config.json -->
             </div>
         </div>
@@ -99,7 +100,7 @@
             <h2 class="section-title">
                 <span class="title-accent">//</span> Session Types
             </h2>
-            <div class="sessions-grid">
+            <div class="sessions-grid" id="sessions-grid">
                 <!-- Session types are generated from config.json -->
             </div>
         </div>
@@ -111,7 +112,7 @@
             <h2 class="section-title">
                 <span class="title-accent">//</span> Tracks
             </h2>
-            <div class="tracks-grid">
+            <div class="tracks-grid" id="tracks-grid">
                 <!-- Tracks are generated from config.json -->
             </div>
         </div>
@@ -127,7 +128,7 @@
                 <p class="contact-text">
                     Questions? Reach out to the organizing team.
                 </p>
-                <a href="mailto:{{CONTACT_EMAIL}}" class="btn btn-primary btn-large">
+                <a id="contact-cta-link" href="mailto:{{CONTACT_EMAIL}}" class="btn btn-primary btn-large">
                     Contact Us
                 </a>
             </div>
@@ -146,8 +147,8 @@
                 </div>
                 <div class="footer-links">
                     <a href="../index.html">All Events</a>
-                    <a href="program.html">Program</a>
-                    <a href="mailto:{{CONTACT_EMAIL}}">Contact</a>
+                    <a id="program-footer-link" href="program.html">Program</a>
+                    <a id="footer-contact-link" href="mailto:{{CONTACT_EMAIL}}">Contact</a>
                 </div>
             </div>
             <div class="footer-bottom">

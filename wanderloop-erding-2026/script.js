@@ -1,63 +1,246 @@
 // Event-specific JavaScript
-// Loads config.json and renders dynamic sections (tracks, session types, stats).
-// Non-technical users can edit config.json to update the website content.
+// Loads config.json and renders index.html from config-driven data.
 
-document.addEventListener('DOMContentLoaded', () => {
-    fetch('config.json')
-        .then(r => r.json())
-        .then(renderEvent)
-        .catch(err => console.warn('Could not load config.json:', err));
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch('config.json', { cache: 'no-store' });
+        const event = await response.json();
+        renderEvent(event);
+        await updateProgramLinks(event);
+    } catch (err) {
+        console.warn('Could not load config.json:', err);
+    }
 });
 
 function renderEvent(event) {
-    // Render stats
+    applyMetadata(event);
+    renderStats(event.stats);
+    renderSessionTypes(event.sessionTypes);
+    renderTracks(event.tracks);
+    renderAboutSection(event);
+    renderCodeSnippet(event);
+}
+
+function applyMetadata(event) {
+    if (event.eventName) {
+        document.title = `${event.eventName} | Amadeus Events`;
+
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) {
+            heroTitle.textContent = event.eventName;
+        }
+
+        const navLogo = document.querySelector('.nav-brand .logo-text');
+        if (navLogo) {
+            navLogo.textContent = event.eventName;
+        }
+
+        const footerLogo = document.querySelector('.footer-brand .logo-text');
+        if (footerLogo) {
+            footerLogo.textContent = event.eventName;
+        }
+    }
+
+    if (event.organizer) {
+        const navByline = document.querySelector('.nav-byline');
+        if (navByline) {
+            navByline.textContent = `by ${event.organizer}`;
+        }
+    }
+
+    if (event.tagline) {
+        const heroSubtitle = document.querySelector('.hero-subtitle');
+        if (heroSubtitle) {
+            heroSubtitle.textContent = event.tagline;
+        }
+
+        const footerTagline = document.querySelector('.footer-tagline');
+        if (footerTagline) {
+            footerTagline.textContent = `An ${event.organizer || 'Amadeus'} Event`;
+        }
+    }
+
+    const dateEl = document.querySelector('.date-highlight');
+    if (dateEl && event.dates && event.dates.display) {
+        dateEl.textContent = event.dates.display;
+    }
+
+    if (event.contact) {
+        const mailto = `mailto:${event.contact}`;
+        const navContact = document.getElementById('nav-contact-link');
+        const ctaContact = document.getElementById('contact-cta-link');
+        const footerContact = document.getElementById('footer-contact-link');
+
+        if (navContact) {
+            navContact.href = mailto;
+        }
+        if (ctaContact) {
+            ctaContact.href = mailto;
+        }
+        if (footerContact) {
+            footerContact.href = mailto;
+        }
+    }
+
+    if (event.dates && event.dates.start) {
+        const eventYear = new Date(event.dates.start).getFullYear();
+        if (!Number.isNaN(eventYear)) {
+            const footerYear = document.querySelector('.footer-bottom p');
+            if (footerYear) {
+                footerYear.textContent = `(c) ${eventYear} Amadeus. All rights reserved.`;
+            }
+        }
+    }
+}
+
+function renderStats(stats) {
     const statsGrid = document.getElementById('stats-grid');
-    if (statsGrid && event.stats && event.stats.length) {
-        statsGrid.innerHTML = event.stats.map(stat => `
-            <div class="stat-card">
-                <div class="stat-icon">${stat.icon}</div>
-                <div class="stat-number">${stat.number}</div>
-                <div class="stat-label">${stat.label}</div>
-                <p class="stat-description">${stat.description}</p>
-            </div>
-        `).join('');
+    if (!statsGrid || !Array.isArray(stats) || stats.length === 0) {
+        return;
     }
 
-    // Render session types
+    statsGrid.innerHTML = stats.map(stat => `
+        <div class="stat-card">
+            <div class="stat-icon">${stat.icon || ''}</div>
+            <div class="stat-number">${stat.number || ''}</div>
+            <div class="stat-label">${stat.label || ''}</div>
+            <p class="stat-description">${stat.description || ''}</p>
+        </div>
+    `).join('');
+}
+
+function renderSessionTypes(sessionTypes) {
     const sessionsGrid = document.getElementById('sessions-grid');
-    if (sessionsGrid && event.sessionTypes && event.sessionTypes.length) {
-        sessionsGrid.innerHTML = event.sessionTypes.map(stype => `
-            <div class="session-card">
-                <div class="session-header">
-                    <h3>${stype.name}</h3>
-                    <span class="session-duration">${stype.duration || (stype.count ? stype.count + ' sessions' : '')}</span>
-                </div>
-                <p>${stype.description}</p>
-            </div>
-        `).join('');
+    if (!sessionsGrid || !Array.isArray(sessionTypes) || sessionTypes.length === 0) {
+        return;
     }
 
-    // Render tracks
+    sessionsGrid.innerHTML = sessionTypes.map(stype => `
+        <div class="session-card">
+            <div class="session-header">
+                <h3>${stype.name || ''}</h3>
+                <span class="session-duration">${stype.duration || (stype.count ? `${stype.count} sessions` : '')}</span>
+            </div>
+            <p>${stype.description || ''}</p>
+        </div>
+    `).join('');
+}
+
+function renderTracks(tracks) {
     const tracksGrid = document.getElementById('tracks-grid');
-    if (tracksGrid && event.tracks && event.tracks.length) {
-        tracksGrid.innerHTML = event.tracks.map(track => `
-            <div class="track-card">
-                <div class="track-icon">${track.icon}</div>
-                <h3>${track.name}</h3>
-                <p>${track.description}</p>
-            </div>
-        `).join('');
+    if (!tracksGrid || !Array.isArray(tracks) || tracks.length === 0) {
+        return;
     }
 
-    // Update description if present
+    tracksGrid.innerHTML = tracks.map(track => `
+        <div class="track-card">
+            <div class="track-icon">${track.icon || ''}</div>
+            <h3>${track.name || ''}</h3>
+            <p>${track.description || ''}</p>
+        </div>
+    `).join('');
+}
+
+function renderAboutSection(event) {
     const descEl = document.getElementById('event-description');
     if (descEl && event.description) {
         descEl.textContent = event.description;
     }
 
-    // Update locations
     const locEl = document.getElementById('event-locations');
-    if (locEl && event.locations && event.locations.length) {
-        locEl.innerHTML = 'Hosted at ' + event.locations.map(l => `<strong>${l}</strong>`).join(', ') + '.';
+    if (locEl && Array.isArray(event.locations) && event.locations.length) {
+        locEl.innerHTML = `Hosted at ${event.locations.map(location => `<strong>${location}</strong>`).join(', ')}.`;
+    }
+}
+
+function renderCodeSnippet(event) {
+    const codeBlock = document.querySelector('.code-content code');
+    if (!codeBlock) {
+        return;
+    }
+
+    const sessionCount = Array.isArray(event.sessionTypes)
+        ? event.sessionTypes.reduce((total, type) => total + (Number(type.count) || 0), 0)
+        : 0;
+
+    const speakerStat = Array.isArray(event.stats)
+        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'speakers')
+        : null;
+    const speakersValue = speakerStat ? speakerStat.number : 'n/a';
+
+    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\n  <span class="code-property">dates</span>: <span class="code-string">"${(event.dates && event.dates.display) || ''}"</span>,\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionCount || 'n/a'}</span>,\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\n  <span class="code-property">status</span>: <span class="code-string">"configured"</span>\n};`;
+}
+
+function getCfpHref(eventName, contact) {
+    return `mailto:${contact}?subject=${encodeURIComponent(`Talk proposal for ${eventName}`)}`;
+}
+
+function switchToCfpMode(cfpHref) {
+    const nav = document.getElementById('program-nav-link');
+    const hero = document.getElementById('program-hero-cta');
+    const footer = document.getElementById('program-footer-link');
+
+    if (nav) {
+        nav.href = cfpHref;
+        nav.textContent = 'Submit a Talk';
+    }
+    if (hero) {
+        hero.href = cfpHref;
+        hero.innerHTML = 'Submit a Talk (CFP) <span class="arrow">→</span>';
+    }
+    if (footer) {
+        footer.href = cfpHref;
+        footer.textContent = 'Submit a Talk';
+    }
+}
+
+function switchToProgramMode() {
+    const nav = document.getElementById('program-nav-link');
+    const hero = document.getElementById('program-hero-cta');
+    const footer = document.getElementById('program-footer-link');
+
+    if (nav) {
+        nav.href = 'program.html';
+        nav.textContent = 'Program';
+    }
+    if (hero) {
+        hero.href = 'program.html';
+        hero.innerHTML = 'View Program <span class="arrow">→</span>';
+    }
+    if (footer) {
+        footer.href = 'program.html';
+        footer.textContent = 'Program';
+    }
+}
+
+async function updateProgramLinks(event) {
+    const eventName = event.eventName || 'Amadeus Event';
+    const contact = event.contact || 'devrel@amadeus.com';
+    const cfpHref = getCfpHref(eventName, contact);
+
+    let hasSessions = false;
+    let hasProgramPage = false;
+
+    try {
+        const sessionsResponse = await fetch('sessions.json', { cache: 'no-store' });
+        if (sessionsResponse.ok) {
+            const sessions = await sessionsResponse.json();
+            hasSessions = Array.isArray(sessions) && sessions.length > 0;
+        }
+    } catch (error) {
+        hasSessions = false;
+    }
+
+    try {
+        const programResponse = await fetch('program.html', { method: 'HEAD', cache: 'no-store' });
+        hasProgramPage = programResponse.ok;
+    } catch (error) {
+        hasProgramPage = false;
+    }
+
+    if (hasSessions && hasProgramPage) {
+        switchToProgramMode();
+    } else {
+        switchToCfpMode(cfpHref);
     }
 }
