@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wanderloop@Erding 2026 | Amadeus Events</title>
+    <title>Amadeus Wanderloop@Erding 2026 | Amadeus Events</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     <link rel="stylesheet" href="../shared/styles-base.css">
     <link rel="stylesheet" href="styles.css">
@@ -15,7 +15,7 @@
             <div class="nav-brand">
                 <div class="nav-logo-line">
                     <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">Wanderloop@Erding 2026</span>
+                    <span class="logo-text">Amadeus Wanderloop@Erding 2026</span>
                     <span class="logo-bracket">/&gt;</span>
                 </div>
                 <div class="nav-byline">by DevRel</div>
@@ -23,7 +23,7 @@
             <div class="nav-links">
                 <a href="../index.html">All Events</a>
                 <a href="#about">About</a>
-                <a href="mailto:devrel@amadeus.com?subject=Talk proposal for Wanderloop@Erding 2026">Submit a Talk</a>
+                <a id="program-nav-link" href="mailto:devrel@amadeus.com?subject=Talk proposal for Amadeus Wanderloop@Erding 2026">Submit a Talk</a>
                 <a href="#tracks">Tracks</a>
                 <a href="mailto:devrel@amadeus.com">Contact</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
@@ -44,14 +44,14 @@
         <div class="container">
             <div class="hero-content">
                 <div class="glitch-wrapper">
-                    <h1 class="hero-title">Wanderloop@Erding 2026</h1>
+                    <h1 class="hero-title">Amadeus Wanderloop@Erding 2026</h1>
                 </div>
                 <div class="hero-date">
-                    <span class="date-highlight">10-11 November 2026</span>
+                    <span class="date-highlight">10 November 2026</span>
                 </div>
                 <p class="hero-subtitle">Compiled exploration, out-of-bounds curiosity</p>
                 <div class="cta-buttons">
-                    <a href="mailto:devrel@amadeus.com?subject=Talk proposal for Wanderloop@Erding 2026" class="btn btn-primary">Submit a Talk (CFP) <span class="arrow">→</span></a>
+                    <a id="program-hero-cta" href="mailto:devrel@amadeus.com?subject=Talk proposal for Amadeus Wanderloop@Erding 2026" class="btn btn-primary">Submit a Talk (CFP) <span class="arrow">→</span></a>
                     <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
@@ -64,10 +64,10 @@
                     </div>
                     <div class="code-content">
                         <pre><code><span class="code-keyword">const</span> <span class="code-variable">event</span> = {
-  <span class="code-property">name</span>: <span class="code-string">"Wanderloop@Erding 2026"</span>,
-  <span class="code-property">dates</span>: <span class="code-string">"10-11 November 2026"</span>,
-  <span class="code-property">sessions</span>: <span class="code-number">0+</span>,
-  <span class="code-property">speakers</span>: <span class="code-number">0</span>,
+  <span class="code-property">name</span>: <span class="code-string">"Amadeus Wanderloop@Erding 2026"</span>,
+  <span class="code-property">dates</span>: <span class="code-string">"10 November 2026"</span>,
+  <span class="code-property">sessions</span>: <span class="code-number">1+</span>,
+  <span class="code-property">speakers</span>: <span class="code-number">2</span>,
   <span class="code-property">status</span>: <span class="code-string">"awesome"</span>
 };</code></pre>
                     </div>
@@ -90,13 +90,13 @@
             <div class="stats-grid" id="stats-grid">
                 <div class="stat-card">
                     <div class="stat-icon">🎤</div>
-                    <div class="stat-number">0+</div>
+                    <div class="stat-number">1+</div>
                     <div class="stat-label">Sessions</div>
                     <p class="stat-description">Talks and workshops</p>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">🎙️</div>
-                    <div class="stat-number">0</div>
+                    <div class="stat-number">2</div>
                     <div class="stat-label">Speakers</div>
                     <p class="stat-description">Sharing their expertise</p>
                 </div>
@@ -120,23 +120,9 @@
                 <div class="session-card">
                     <div class="session-header">
                         <h3>Talk</h3>
-                        <span class="session-duration"> sessions</span>
+                        <span class="session-duration">1 sessions</span>
                     </div>
-                    <p>Standard presentation with Q&A</p>
-                </div>
-                <div class="session-card">
-                    <div class="session-header">
-                        <h3>Workshop</h3>
-                        <span class="session-duration"> sessions</span>
-                    </div>
-                    <p>Hands-on interactive session</p>
-                </div>
-                <div class="session-card">
-                    <div class="session-header">
-                        <h3>Lightning Talk</h3>
-                        <span class="session-duration"> sessions</span>
-                    </div>
-                    <p>Short focused presentation</p>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -150,29 +136,9 @@
             </h2>
             <div class="tracks-grid" id="tracks-grid">
                 <div class="track-card">
-                    <div class="track-icon">🤖</div>
-                    <h3>AI & Data</h3>
-                    <p>Machine learning, data engineering, and AI applications</p>
-                </div>
-                <div class="track-card">
                     <div class="track-icon">☁️</div>
-                    <h3>Cloud & DevOps</h3>
-                    <p>Cloud infrastructure, CI/CD, and platform engineering</p>
-                </div>
-                <div class="track-card">
-                    <div class="track-icon">🎨</div>
-                    <h3>Frontend & UX</h3>
-                    <p>Web development, design systems, and user experience</p>
-                </div>
-                <div class="track-card">
-                    <div class="track-icon">🔒</div>
-                    <h3>Security</h3>
-                    <p>Application security, compliance, and best practices</p>
-                </div>
-                <div class="track-card">
-                    <div class="track-icon">👔</div>
-                    <h3>Leadership & People</h3>
-                    <p>Engineering management, culture, and career growth</p>
+                    <h3>Backend</h3>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -201,13 +167,13 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">Wanderloop@Erding 2026</span>
+                    <span class="logo-text">Amadeus Wanderloop@Erding 2026</span>
                     <span class="logo-bracket">/&gt;</span>
                     <p class="footer-tagline">An Amadeus Event</p>
                 </div>
                 <div class="footer-links">
                     <a href="../index.html">All Events</a>
-                    <a href="mailto:devrel@amadeus.com?subject=Talk proposal for Wanderloop@Erding 2026">Submit a Talk</a>
+                    <a id="program-footer-link" href="mailto:devrel@amadeus.com?subject=Talk proposal for Amadeus Wanderloop@Erding 2026">Submit a Talk</a>
                     <a href="mailto:devrel@amadeus.com">Contact</a>
                 </div>
             </div>
@@ -218,6 +184,81 @@
     </footer>
 
     <script src="../shared/script-base.js"></script>
+    <script>
+    (function() {
+        const eventName = "Amadeus Wanderloop@Erding 2026";
+        const contact = "devrel@amadeus.com";
+        const cfpHref = `mailto:${contact}?subject=${encodeURIComponent(`Talk proposal for ${eventName}`)}`;
+
+        function switchToCfpMode() {
+            const nav = document.getElementById('program-nav-link');
+            const hero = document.getElementById('program-hero-cta');
+            const footer = document.getElementById('program-footer-link');
+
+            if (nav) {
+                nav.href = cfpHref;
+                nav.textContent = 'Submit a Talk';
+            }
+            if (hero) {
+                hero.href = cfpHref;
+                hero.innerHTML = 'Submit a Talk (CFP) <span class="arrow">→</span>';
+            }
+            if (footer) {
+                footer.href = cfpHref;
+                footer.textContent = 'Submit a Talk';
+            }
+        }
+
+        function switchToProgramMode() {
+            const nav = document.getElementById('program-nav-link');
+            const hero = document.getElementById('program-hero-cta');
+            const footer = document.getElementById('program-footer-link');
+
+            if (nav) {
+                nav.href = 'program.html';
+                nav.textContent = 'Program';
+            }
+            if (hero) {
+                hero.href = 'program.html';
+                hero.innerHTML = 'View Program <span class="arrow">→</span>';
+            }
+            if (footer) {
+                footer.href = 'program.html';
+                footer.textContent = 'Program';
+            }
+        }
+
+        async function detectMode() {
+            let hasSessions = false;
+            let hasProgramPage = false;
+
+            try {
+                const sessionsResponse = await fetch('sessions.json', { cache: 'no-store' });
+                if (sessionsResponse.ok) {
+                    const sessions = await sessionsResponse.json();
+                    hasSessions = Array.isArray(sessions) && sessions.length > 0;
+                }
+            } catch (error) {
+                hasSessions = false;
+            }
+
+            try {
+                const programResponse = await fetch('program.html', { method: 'HEAD', cache: 'no-store' });
+                hasProgramPage = programResponse.ok;
+            } catch (error) {
+                hasProgramPage = false;
+            }
+
+            if (hasSessions && hasProgramPage) {
+                switchToProgramMode();
+            } else {
+                switchToCfpMode();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', detectMode);
+    })();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

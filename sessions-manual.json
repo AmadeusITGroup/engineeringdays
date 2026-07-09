@@ -1,0 +1,22 @@
+[
+  {
+    "ID": "MANUAL001",
+    "Proposal title": "Building Resilient APIs",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Track": {
+      "en": "Backend"
+    },
+    "Description": "Patterns for resilient APIs",
+    "Speaker names": [
+      "Alice Doe",
+      "Bob Ray"
+    ],
+    "Room": {
+      "en": "Room A"
+    },
+    "Start": "2026-11-10T09:00:00+01:00",
+    "End": "2026-11-10T09:45:00+01:00"
+  }
+]

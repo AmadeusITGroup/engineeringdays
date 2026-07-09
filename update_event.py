@@ -64,9 +64,9 @@ def main():
     with open(sessions_path) as f:
         sessions_data = json.load(f)
 
-    if not sessions_data:
-        print("Error: Sessions file is empty.")
-        sys.exit(1)
+    has_sessions = len(sessions_data) > 0
+    if not has_sessions:
+        print("⚠️  Sessions file is empty. Switching event to CFP mode.")
 
     print(f"🔄 Updating event: {existing_config['eventName']}")
     print(f"   Slug: {args.slug}")
@@ -81,9 +81,10 @@ def main():
     if not meta["start_date"] and existing_config.get("dates", {}).get("display"):
         meta["date_display_override"] = existing_config["dates"]["display"]
 
-    print(f"   Tracks: {', '.join(meta['tracks'])}")
-    print(f"   Session types: {', '.join(meta['session_types'].keys())}")
-    print(f"   Speakers: {meta['speakers_count']}")
+    if has_sessions:
+        print(f"   Tracks: {', '.join(meta['tracks'])}")
+        print(f"   Session types: {', '.join(meta['session_types'].keys())}")
+        print(f"   Speakers: {meta['speakers_count']}")
     print(f"   Locations: {len(meta['locations'])} sites")
 
     # Build a fake args namespace with preserved values from existing config
@@ -97,8 +98,11 @@ def main():
 
     update_args = UpdateArgs()
 
-    # Generate updated config (now with real session data, not CFP placeholders)
-    event_config = generate_event_json(meta, update_args)
+    # Generate updated config. If there are no sessions, keep existing config and switch links to CFP mode.
+    if has_sessions:
+        event_config = generate_event_json(meta, update_args)
+    else:
+        event_config = dict(existing_config)
 
     # Preserve any custom colors from existing config
     if existing_config.get("colors"):
@@ -108,24 +112,39 @@ def main():
     config_path.write_text(json.dumps(event_config, indent=2, ensure_ascii=False))
     print(f"  ✓ {args.slug}/config.json (updated with real data)")
 
-    (event_dir / "index.html").write_text(generate_index_html(event_config, has_sessions=True))
-    print(f"  ✓ {args.slug}/index.html (CFP removed, program linked)")
+    (event_dir / "index.html").write_text(generate_index_html(event_config, has_sessions=has_sessions))
+    if has_sessions:
+        print(f"  ✓ {args.slug}/index.html (CFP removed, program linked)")
+    else:
+        print(f"  ✓ {args.slug}/index.html (CFP mode activated)")
 
-    (event_dir / "program.html").write_text(generate_program_html(event_config))
-    print(f"  ✓ {args.slug}/program.html (generated)")
+    program_path = event_dir / "program.html"
+    if has_sessions:
+        program_path.write_text(generate_program_html(event_config))
+        print(f"  ✓ {args.slug}/program.html (generated)")
+    elif program_path.exists():
+        program_path.unlink()
+        print(f"  ✓ {args.slug}/program.html (removed for CFP mode)")
 
     (event_dir / "script.js").write_text(generate_script_js())
     print(f"  ✓ {args.slug}/script.js")
 
-    shutil.copy2(sessions_path, event_dir / "sessions.json")
+    if has_sessions:
+        shutil.copy2(sessions_path, event_dir / "sessions.json")
+    else:
+        (event_dir / "sessions.json").write_text("[]")
     print(f"  ✓ {args.slug}/sessions.json ({len(sessions_data)} sessions)")
 
     # Update landing page registry
     add_to_landing_page(event_config, meta, repo_root)
 
-    print(f"\n🎉 Done! Event updated with finalized program.")
+    if has_sessions:
+        print(f"\n🎉 Done! Event updated with finalized program.")
+    else:
+        print(f"\n🎉 Done! Event switched to CFP mode.")
     print(f"   Preview: open {event_dir}/index.html in a browser")
-    print(f"   Program: open {event_dir}/program.html in a browser")
+    if has_sessions:
+        print(f"   Program: open {event_dir}/program.html in a browser")
 
 
 if __name__ == "__main__":

@@ -3,9 +3,9 @@
   "eventSlug": "wanderloop-erding-2026",
   "tagline": "Compiled exploration, out-of-bounds curiosity",
   "dates": {
-    "start": "2026-11-10T00:00:00",
-    "end": "2026-11-11T00:00:00",
-    "display": "10-11 November 2026"
+    "start": "2026-11-10T09:00:00+01:00",
+    "end": "2026-11-10T09:00:00+01:00",
+    "display": "10 November 2026"
   },
   "organizer": "DevRel",
   "contact": "devrel@amadeus.com",
@@ -16,55 +16,35 @@
   "stats": [
     {
       "icon": "🎤",
-      "number": "0+",
+      "number": "1+",
       "label": "Sessions",
       "description": "Talks and workshops"
     },
     {
       "icon": "🎙️",
-      "number": "0",
+      "number": "2",
       "label": "Speakers",
       "description": "Sharing their expertise"
     },
     {
       "icon": "🌐",
       "number": "1",
-      "label": "Site",
+      "label": "Sites",
       "description": "Hosting locations"
     }
   ],
   "tracks": [
     {
-      "icon": "🤖",
-      "name": "AIOps",
-      "description": "Transform how services are operated. No touch ops, autonomous platform agents, predictive observability, self-healing architectures, intelligent monitoring"
-    },
-    {
       "icon": "☁️",
-      "name": "Platforming at scale",
-      "description": "Transform how systems are built to cope with an AI-assisted workload. Operational excellence, culture of stability, resilience & security, AI-DLC, fleet management, internal developer platforms & knowledge graphs. Cloud infrastructure, CI/CD, and platform engineering"
-    },
-    {
-      "icon": "🎨",
-      "name": "AI-first teams",
-      "description": "Transform how engineers & ops work. Leading teams through AI transformation, new engineering skillsets, AI-first engineering practices."
+      "name": "Backend",
+      "description": ""
     }
   ],
   "sessionTypes": [
     {
       "name": "Talk",
-      "duration": "45 min",
-      "description": "Standard presentation with Q&A"
-    },
-    {
-      "name": "Workshop",
-      "duration": "90 min",
-      "description": "Hands-on interactive session"
-    },
-    {
-      "name": "Lightning Talk",
-      "duration": "10 min",
-      "description": "Short focused presentation"
+      "count": 1,
+      "description": ""
     }
   ],
   "colors": {

@@ -364,6 +364,7 @@ def generate_index_html(event_config, has_sessions=True):
     description = event_config["description"]
     organizer = event_config["organizer"]
     contact = event_config["contact"]
+    cfp_mailto = f'mailto:{contact}?subject=Talk proposal for {name}'
 
     # Build stats HTML
     stats_html = ""
@@ -403,16 +404,21 @@ def generate_index_html(event_config, has_sessions=True):
     if len(event_config["locations"]) > 5:
         locations_str += f" and {len(event_config['locations']) - 5} more"
 
-    # Build conditional links based on whether sessions exist
+    # Initial links (runtime check can still switch mode based on actual files)
     if has_sessions:
-        nav_program_link = '<a href="program.html">Program</a>'
-        hero_cta = '<a href="program.html" class="btn btn-primary">View Program <span class="arrow">→</span></a>'
-        footer_program_link = '<a href="program.html">Program</a>'
+        nav_program_href = "program.html"
+        nav_program_text = "Program"
+        hero_cta_href = "program.html"
+        hero_cta_text = 'View Program <span class="arrow">→</span>'
+        footer_program_href = "program.html"
+        footer_program_text = "Program"
     else:
-        cfp_mailto = f'mailto:{contact}?subject=Talk proposal for {name}'
-        nav_program_link = f'<a href="{cfp_mailto}">Submit a Talk</a>'
-        hero_cta = f'<a href="{cfp_mailto}" class="btn btn-primary">Submit a Talk (CFP) <span class="arrow">→</span></a>'
-        footer_program_link = f'<a href="{cfp_mailto}">Submit a Talk</a>'
+        nav_program_href = cfp_mailto
+        nav_program_text = "Submit a Talk"
+        hero_cta_href = cfp_mailto
+        hero_cta_text = 'Submit a Talk (CFP) <span class="arrow">→</span>'
+        footer_program_href = cfp_mailto
+        footer_program_text = "Submit a Talk"
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -439,7 +445,7 @@ def generate_index_html(event_config, has_sessions=True):
             <div class="nav-links">
                 <a href="../index.html">All Events</a>
                 <a href="#about">About</a>
-                {nav_program_link}
+                <a id="program-nav-link" href="{nav_program_href}">{nav_program_text}</a>
                 <a href="#tracks">Tracks</a>
                 <a href="mailto:{contact}">Contact</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
@@ -467,7 +473,7 @@ def generate_index_html(event_config, has_sessions=True):
                 </div>
                 <p class="hero-subtitle">{tagline}</p>
                 <div class="cta-buttons">
-                    {hero_cta}
+                    <a id="program-hero-cta" href="{hero_cta_href}" class="btn btn-primary">{hero_cta_text}</a>
                     <a href="#about" class="btn btn-secondary">Learn More</a>
                 </div>
             </div>
@@ -559,275 +565,7 @@ def generate_index_html(event_config, has_sessions=True):
                 </div>
                 <div class="footer-links">
                     <a href="../index.html">All Events</a>
-                    {footer_program_link}
-                    <a href="mailto:{contact}">Contact</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; {datetime.now().year} Amadeus. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../shared/script-base.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
-"""
-
-
-def generate_program_html(event_config):
-    """Generate the event program.html with dynamic session loading."""
-    name = event_config["eventName"]
-    dates = event_config["dates"]["display"]
-    organizer = event_config["organizer"]
-    contact = event_config["contact"]
-
-    # Build track colors for CSS
-    track_colors = [
-        "#2218a8", "#b650ff", "#ff58ac", "#27c93f", "#ffbd2e", "#ff5f56", "#0099cc"
-    ]
-    track_css = ""
-    for i, track in enumerate(event_config["tracks"]):
-        color = track_colors[i % len(track_colors)]
-        safe_name = track["name"].lower().replace(" ", "-").replace(",", "")
-        track_css += f'        .track-{safe_name} {{ background: {color}; }}\n'
-
-    return f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program | {name}</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
-    <link rel="stylesheet" href="../shared/styles-base.css">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Program-specific styles */
-        .program-hero {{
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-accent) 50%, var(--secondary) 100%);
-            padding: calc(80px + var(--spacing-xl)) var(--spacing-md) var(--spacing-xl);
-            text-align: center;
-        }}
-        .program-hero h1 {{
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            color: #ffffff;
-            margin-bottom: var(--spacing-sm);
-        }}
-        .program-hero .subtitle {{
-            font-size: 1.25rem;
-            color: var(--highlight-light);
-        }}
-        .program-schedule {{
-            padding: var(--spacing-xl) 0;
-            min-height: 60vh;
-        }}
-        .filters-bar {{
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
-            margin-bottom: var(--spacing-lg);
-            align-items: center;
-        }}
-        .filter-select {{
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-md);
-            background: var(--card-bg);
-            color: var(--text-color);
-            font-size: 0.9rem;
-            cursor: pointer;
-        }}
-        .filter-select:focus {{
-            border-color: var(--secondary);
-            outline: none;
-        }}
-        .schedule-grid {{
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: var(--spacing-md);
-        }}
-        .schedule-card {{
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            transition: var(--transition);
-        }}
-        .schedule-card:hover {{
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px var(--shadow);
-            border-color: var(--secondary);
-        }}
-        .schedule-card.hidden {{ display: none; }}
-        .schedule-track-bar {{
-            height: 4px;
-            width: 100%;
-        }}
-        .schedule-card-content {{
-            padding: var(--spacing-md);
-        }}
-        .schedule-card-meta {{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-bottom: var(--spacing-sm);
-            font-size: 0.75rem;
-        }}
-        .schedule-card-meta span {{
-            padding: 0.2rem 0.5rem;
-            border-radius: var(--radius-sm);
-            font-weight: 600;
-        }}
-        .meta-time {{
-            background: var(--primary);
-            color: white;
-            font-family: var(--font-mono);
-        }}
-        .meta-type {{
-            background: var(--bg-light);
-            color: var(--text-secondary);
-        }}
-        [data-theme="dark"] .meta-type {{
-            background: var(--dark-accent);
-        }}
-        .meta-room {{
-            background: var(--bg-light);
-            color: var(--text-secondary);
-        }}
-        [data-theme="dark"] .meta-room {{
-            background: var(--dark-accent);
-        }}
-        .schedule-card-title {{
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: var(--spacing-xs);
-            line-height: 1.35;
-        }}
-        .schedule-card-speaker {{
-            font-size: 0.85rem;
-            color: var(--accent);
-            font-weight: 500;
-        }}
-        .schedule-card-track {{
-            display: inline-block;
-            margin-top: var(--spacing-xs);
-            padding: 0.15rem 0.45rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.65rem;
-            font-weight: 600;
-            color: white;
-        }}
-        .results-info {{
-            text-align: center;
-            padding: var(--spacing-sm);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }}
-        .results-count {{ font-weight: 700; color: var(--secondary); }}
-        .day-header {{
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            margin: var(--spacing-lg) 0 var(--spacing-md);
-            padding-bottom: var(--spacing-sm);
-            border-bottom: 3px solid var(--secondary);
-        }}
-        .day-header h2 {{
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin: 0;
-        }}
-        [data-theme="dark"] .day-header h2 {{ color: var(--secondary); }}
-        .no-results {{
-            text-align: center;
-            padding: var(--spacing-xl);
-            color: var(--text-secondary);
-        }}
-        .no-results h3 {{ margin-bottom: var(--spacing-sm); color: var(--text-color); }}
-{track_css}
-        @media (max-width: 768px) {{
-            .schedule-grid {{ grid-template-columns: 1fr; }}
-            .filters-bar {{ flex-direction: column; align-items: stretch; }}
-        }}
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="nav-brand">
-                <div class="nav-logo-line">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">{name}</span>
-                    <span class="logo-bracket">/&gt;</span>
-                </div>
-                <div class="nav-byline">by {organizer}</div>
-            </a>
-            <div class="nav-links">
-                <a href="../index.html">All Events</a>
-                <a href="index.html">Home</a>
-                <a href="#schedule">Schedule</a>
-                <a href="mailto:{contact}">Contact</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <span class="icon-sun">☀️</span>
-                    <span class="icon-moon">🌙</span>
-                </button>
-            </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Program Hero -->
-    <header class="program-hero">
-        <div class="container">
-            <h1>Program</h1>
-            <p class="subtitle">{name} &mdash; {dates}</p>
-        </div>
-    </header>
-
-    <!-- Schedule -->
-    <section id="schedule" class="program-schedule">
-        <div class="container">
-            <div class="filters-bar">
-                <select id="filter-day" class="filter-select">
-                    <option value="all">All Days</option>
-                </select>
-                <select id="filter-track" class="filter-select">
-                    <option value="all">All Tracks</option>
-                </select>
-                <select id="filter-type" class="filter-select">
-                    <option value="all">All Types</option>
-                </select>
-                <select id="filter-room" class="filter-select">
-                    <option value="all">All Rooms</option>
-                </select>
-            </div>
-            <div class="results-info">
-                <span class="results-count" id="results-count">0</span> sessions
-            </div>
-            <div id="schedule-container" class="schedule-grid"></div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">{name}</span>
-                    <span class="logo-bracket">/&gt;</span>
-                    <p class="footer-tagline">An Amadeus Event</p>
-                </div>
-                <div class="footer-links">
-                    <a href="../index.html">All Events</a>
-                    <a href="index.html">Home</a>
+                    <a id="program-footer-link" href="{footer_program_href}">{footer_program_text}</a>
                     <a href="mailto:{contact}">Contact</a>
                 </div>
             </div>
@@ -840,201 +578,115 @@ def generate_program_html(event_config):
     <script src="../shared/script-base.js"></script>
     <script>
     (function() {{
-        'use strict';
+        const eventName = {json.dumps(name)};
+        const contact = {json.dumps(contact)};
+        const cfpHref = `mailto:${{contact}}?subject=${{encodeURIComponent(`Talk proposal for ${{eventName}}`)}}`;
 
-        const TRACK_COLORS = {json.dumps({t['name']: track_colors[i % len(track_colors)] for i, t in enumerate(event_config['tracks'])})};
+        function switchToCfpMode() {{
+            const nav = document.getElementById('program-nav-link');
+            const hero = document.getElementById('program-hero-cta');
+            const footer = document.getElementById('program-footer-link');
 
-        function getTrackColor(trackName) {{
-            return TRACK_COLORS[trackName] || '#888888';
+            if (nav) {{
+                nav.href = cfpHref;
+                nav.textContent = 'Submit a Talk';
+            }}
+            if (hero) {{
+                hero.href = cfpHref;
+                hero.innerHTML = 'Submit a Talk (CFP) <span class="arrow">→</span>';
+            }}
+            if (footer) {{
+                footer.href = cfpHref;
+                footer.textContent = 'Submit a Talk';
+            }}
         }}
 
-        function getTrackClass(trackName) {{
-            return 'track-' + trackName.toLowerCase().replace(/[\\s]+/g, '-').replace(/,/g, '');
+        function switchToProgramMode() {{
+            const nav = document.getElementById('program-nav-link');
+            const hero = document.getElementById('program-hero-cta');
+            const footer = document.getElementById('program-footer-link');
+
+            if (nav) {{
+                nav.href = 'program.html';
+                nav.textContent = 'Program';
+            }}
+            if (hero) {{
+                hero.href = 'program.html';
+                hero.innerHTML = 'View Program <span class="arrow">→</span>';
+            }}
+            if (footer) {{
+                footer.href = 'program.html';
+                footer.textContent = 'Program';
+            }}
         }}
 
-        async function loadSessions() {{
+        async function detectMode() {{
+            let hasSessions = false;
+            let hasProgramPage = false;
+
             try {{
-                const response = await fetch('sessions.json');
-                if (!response.ok) throw new Error('No sessions.json found');
-                return await response.json();
-            }} catch (e) {{
-                document.getElementById('schedule-container').innerHTML =
-                    '<div class="no-results"><h3>Program coming soon</h3><p>Sessions will be announced shortly.</p></div>';
-                return [];
+                const sessionsResponse = await fetch('sessions.json', {{ cache: 'no-store' }});
+                if (sessionsResponse.ok) {{
+                    const sessions = await sessionsResponse.json();
+                    hasSessions = Array.isArray(sessions) && sessions.length > 0;
+                }}
+            }} catch (error) {{
+                hasSessions = false;
+            }}
+
+            try {{
+                const programResponse = await fetch('program.html', {{ method: 'HEAD', cache: 'no-store' }});
+                hasProgramPage = programResponse.ok;
+            }} catch (error) {{
+                hasProgramPage = false;
+            }}
+
+            if (hasSessions && hasProgramPage) {{
+                switchToProgramMode();
+            }} else {{
+                switchToCfpMode();
             }}
         }}
 
-        function formatTime(isoString) {{
-            if (!isoString) return '';
-            const d = new Date(isoString);
-            return d.toLocaleTimeString([], {{ hour: '2-digit', minute: '2-digit' }});
-        }}
-
-        function formatDate(isoString) {{
-            if (!isoString) return '';
-            const d = new Date(isoString);
-            return d.toLocaleDateString([], {{ weekday: 'long', day: 'numeric', month: 'long' }});
-        }}
-
-        function getSessionTrack(session) {{
-            const track = session.Track;
-            if (typeof track === 'object' && track) return track.en || '';
-            return track || '';
-        }}
-
-        function getSessionType(session) {{
-            const t = session['Session type'];
-            if (typeof t === 'object' && t) return t.en || '';
-            return t || '';
-        }}
-
-        function getSessionRoom(session) {{
-            const r = session.Room;
-            if (typeof r === 'object' && r) return r.en || '';
-            return r || '';
-        }}
-
-        function renderSessions(sessions) {{
-            const container = document.getElementById('schedule-container');
-            const filterDay = document.getElementById('filter-day').value;
-            const filterTrack = document.getElementById('filter-track').value;
-            const filterType = document.getElementById('filter-type').value;
-            const filterRoom = document.getElementById('filter-room').value;
-
-            // Filter
-            let filtered = sessions.filter(s => s.Start);
-            if (filterDay !== 'all') {{
-                filtered = filtered.filter(s => new Date(s.Start).toDateString() === filterDay);
-            }}
-            if (filterTrack !== 'all') {{
-                filtered = filtered.filter(s => getSessionTrack(s) === filterTrack);
-            }}
-            if (filterType !== 'all') {{
-                filtered = filtered.filter(s => getSessionType(s) === filterType);
-            }}
-            if (filterRoom !== 'all') {{
-                filtered = filtered.filter(s => getSessionRoom(s) === filterRoom);
-            }}
-
-            // Sort by start time
-            filtered.sort((a, b) => new Date(a.Start) - new Date(b.Start));
-
-            document.getElementById('results-count').textContent = filtered.length;
-
-            if (filtered.length === 0) {{
-                container.innerHTML = '<div class="no-results"><h3>No sessions match your filters</h3><p>Try adjusting your filters.</p></div>';
-                return;
-            }}
-
-            // Group by day
-            const days = {{}};
-            filtered.forEach(s => {{
-                const day = new Date(s.Start).toDateString();
-                if (!days[day]) days[day] = [];
-                days[day].push(s);
-            }});
-
-            let html = '';
-            Object.entries(days).forEach(([day, daySessions]) => {{
-                html += `<div class="day-header" style="grid-column: 1 / -1;"><h2>${{formatDate(daySessions[0].Start)}}</h2></div>`;
-                daySessions.forEach(session => {{
-                    const track = getSessionTrack(session);
-                    const trackColor = getTrackColor(track);
-                    const type = getSessionType(session);
-                    const room = getSessionRoom(session);
-                    const speakers = (session['Speaker names'] || []).join(', ');
-                    const title = session['Proposal title'] || session.title || 'Untitled';
-
-                    html += `
-                    <div class="schedule-card">
-                        <div class="schedule-track-bar" style="background: ${{trackColor}};"></div>
-                        <div class="schedule-card-content">
-                            <div class="schedule-card-meta">
-                                <span class="meta-time">${{formatTime(session.Start)}}</span>
-                                ${{type ? `<span class="meta-type">${{type}}</span>` : ''}}
-                                ${{room ? `<span class="meta-room">${{room}}</span>` : ''}}
-                            </div>
-                            <div class="schedule-card-title">${{title}}</div>
-                            ${{speakers ? `<div class="schedule-card-speaker">${{speakers}}</div>` : ''}}
-                            ${{track ? `<span class="schedule-card-track" style="background: ${{trackColor}}">${{track}}</span>` : ''}}
-                        </div>
-                    </div>`;
-                }});
-            }});
-
-            container.innerHTML = html;
-        }}
-
-        function populateFilters(sessions) {{
-            const days = new Set();
-            const tracks = new Set();
-            const types = new Set();
-            const rooms = new Set();
-
-            sessions.filter(s => s.Start).forEach(s => {{
-                days.add(new Date(s.Start).toDateString());
-                const track = getSessionTrack(s);
-                if (track) tracks.add(track);
-                const type = getSessionType(s);
-                if (type) types.add(type);
-                const room = getSessionRoom(s);
-                if (room) rooms.add(room);
-            }});
-
-            const daySelect = document.getElementById('filter-day');
-            [...days].sort((a, b) => new Date(a) - new Date(b)).forEach(d => {{
-                const opt = document.createElement('option');
-                opt.value = d;
-                opt.textContent = new Date(d).toLocaleDateString([], {{ weekday: 'short', day: 'numeric', month: 'short' }});
-                daySelect.appendChild(opt);
-            }});
-
-            const trackSelect = document.getElementById('filter-track');
-            [...tracks].sort().forEach(t => {{
-                const opt = document.createElement('option');
-                opt.value = t;
-                opt.textContent = t;
-                trackSelect.appendChild(opt);
-            }});
-
-            const typeSelect = document.getElementById('filter-type');
-            [...types].sort().forEach(t => {{
-                const opt = document.createElement('option');
-                opt.value = t;
-                opt.textContent = t;
-                typeSelect.appendChild(opt);
-            }});
-
-            const roomSelect = document.getElementById('filter-room');
-            [...rooms].sort().forEach(r => {{
-                const opt = document.createElement('option');
-                opt.value = r;
-                opt.textContent = r;
-                roomSelect.appendChild(opt);
-            }});
-        }}
-
-        async function init() {{
-            const sessions = await loadSessions();
-            if (sessions.length === 0) return;
-
-            populateFilters(sessions);
-            renderSessions(sessions);
-
-            document.getElementById('filter-day').addEventListener('change', () => renderSessions(sessions));
-            document.getElementById('filter-track').addEventListener('change', () => renderSessions(sessions));
-            document.getElementById('filter-type').addEventListener('change', () => renderSessions(sessions));
-            document.getElementById('filter-room').addEventListener('change', () => renderSessions(sessions));
-        }}
-
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', detectMode);
     }})();
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
 """
 
 
+def generate_program_html(event_config):
+    """Generate the event program.html using the rich shared template."""
+    name = event_config["eventName"]
+    dates = event_config["dates"]["display"]
+    organizer = event_config["organizer"]
+    contact = event_config["contact"]
+
+    track_colors = ["#2218a8", "#b650ff", "#ff58ac", "#27c93f", "#ffbd2e", "#ff5f56", "#0099cc"]
+    track_color_map = {
+        track["name"]: track_colors[i % len(track_colors)]
+        for i, track in enumerate(event_config.get("tracks", []))
+    }
+
+    template_path = Path(__file__).parent / "_template" / "program-rich.html"
+    template = template_path.read_text()
+
+    replacements = {
+        "{{EVENT_NAME}}": name,
+        "{{EVENT_DATES}}": dates,
+        "{{ORGANIZER}}": organizer,
+        "{{CONTACT_EMAIL}}": contact,
+        "{{YEAR}}": str(datetime.now().year),
+        "{{TRACK_COLORS_JSON}}": json.dumps(track_color_map),
+        "{{OPENFEEDBACK_BASE}}": event_config.get("openFeedbackBaseUrl", ""),
+    }
+
+    for token, value in replacements.items():
+        template = template.replace(token, value)
+
+    return template
 def generate_styles_css(event_config):
     """Generate the event styles.css."""
     colors = event_config.get("colors", {})
