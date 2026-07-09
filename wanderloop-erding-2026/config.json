@@ -16,28 +16,38 @@
   "stats": [
     {
       "icon": "🎤",
-      "number": "1+",
+      "number": "10+",
       "label": "Sessions",
       "description": "Talks and workshops"
     },
     {
       "icon": "🎙️",
-      "number": "2",
+      "number": "10+",
       "label": "Speakers",
       "description": "Sharing their expertise"
     },
     {
       "icon": "🌐",
       "number": "1",
-      "label": "Sites",
+      "label": "Site",
       "description": "Hosting locations"
     }
   ],
   "tracks": [
     {
-      "icon": "☁️",
-      "name": "Backend",
-      "description": ""
+      "icon": "🤖",
+      "name": "AIOps",
+      "description": "Transform how services are operated. No touch ops, autonomous platform agents, predictive observability, self-healing architectures, intelligent monitoring"
+    },
+    {
+      "icon": "🛠️",
+      "name": "Platforming at scale",
+      "description": "Transform how systems are built to cope with an AI-assisted workload. Operational excellence, culture of stability, resilience & security, AI-DLC, fleet management, internal developer platforms & knowledge graphs"
+    },
+    {
+      "icon": "👩‍💻",
+      "name": "AI-first teams",
+      "description": "Transform how engineers & ops work. Leading teams through AI transformation, new engineering skillsets, AI-first engineering practices"
     }
   ],
   "sessionTypes": [
