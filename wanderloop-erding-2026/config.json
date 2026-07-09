@@ -1,0 +1,85 @@
+{
+  "eventName": "Amadeus Wanderloop@Erding 2026",
+  "eventSlug": "wanderloop-erding-2026",
+  "tagline": "Compiled exploration, out-of-bounds curiosity",
+  "dates": {
+    "start": "2026-11-10T00:00:00",
+    "end": "2026-11-11T00:00:00",
+    "display": "10-11 November 2026"
+  },
+  "organizer": "DevRel",
+  "contact": "devrel@amadeus.com",
+  "description": "Welcome to Wanderloop@Erding 2026, an event organized by the DevRel team at Amadeus.",
+  "locations": [
+    "Erding DE"
+  ],
+  "stats": [
+    {
+      "icon": "🎤",
+      "number": "0+",
+      "label": "Sessions",
+      "description": "Talks and workshops"
+    },
+    {
+      "icon": "🎙️",
+      "number": "0",
+      "label": "Speakers",
+      "description": "Sharing their expertise"
+    },
+    {
+      "icon": "🌐",
+      "number": "1",
+      "label": "Sites",
+      "description": "Hosting locations"
+    }
+  ],
+  "tracks": [
+    {
+      "icon": "🤖",
+      "name": "AI & Data",
+      "description": "Machine learning, data engineering, and AI applications"
+    },
+    {
+      "icon": "☁️",
+      "name": "Cloud & DevOps",
+      "description": "Cloud infrastructure, CI/CD, and platform engineering"
+    },
+    {
+      "icon": "🎨",
+      "name": "Frontend & UX",
+      "description": "Web development, design systems, and user experience"
+    },
+    {
+      "icon": "🔒",
+      "name": "Security",
+      "description": "Application security, compliance, and best practices"
+    },
+    {
+      "icon": "👔",
+      "name": "Leadership & People",
+      "description": "Engineering management, culture, and career growth"
+    }
+  ],
+  "sessionTypes": [
+    {
+      "name": "Talk",
+      "duration": "45 min",
+      "description": "Standard presentation with Q&A"
+    },
+    {
+      "name": "Workshop",
+      "duration": "90 min",
+      "description": "Hands-on interactive session"
+    },
+    {
+      "name": "Lightning Talk",
+      "duration": "10 min",
+      "description": "Short focused presentation"
+    }
+  ],
+  "colors": {
+    "primary": "#26005a",
+    "secondary": "#b650ff",
+    "accent": "#ff58ac"
+  }
+}

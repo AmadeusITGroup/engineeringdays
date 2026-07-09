@@ -314,6 +314,11 @@
             const upcoming = [];
             const past = [];
 
+            const pluralize = (count, singular, plural) => {
+                const n = Number(count);
+                return `${n} ${n === 1 ? singular : plural}`;
+            };
+
             events.forEach(event => {
                 const endDate = event.dates.end ? new Date(event.dates.end + 'T23:59:59') : null;
                 if (endDate && endDate < now) {
@@ -336,8 +341,8 @@
                             <p class="event-card-description">${event.tagline}</p>
                             <div class="event-card-meta">
                                 <span class="event-tag upcoming">Upcoming</span>
-                                ${event.sessions ? `<span class="event-tag">${event.sessions} sessions</span>` : ''}
-                                ${event.sites ? `<span class="event-tag">${event.sites} sites</span>` : ''}
+                                ${event.sessions ? `<span class="event-tag">${pluralize(event.sessions, 'session', 'sessions')}</span>` : ''}
+                                ${event.sites ? `<span class="event-tag">${pluralize(event.sites, 'site', 'sites')}</span>` : ''}
                             </div>
                         </div>
                     </a>
@@ -352,8 +357,8 @@
                         <p class="event-card-description">${event.tagline}</p>
                         <div class="event-card-meta">
                             <span class="event-tag">${event.dates.end ? event.dates.end.slice(0, 4) : ''}</span>
-                            ${event.sessions ? `<span class="event-tag">${event.sessions} sessions</span>` : ''}
-                            ${event.sites ? `<span class="event-tag">${event.sites} sites</span>` : ''}
+                            ${event.sessions ? `<span class="event-tag">${pluralize(event.sessions, 'session', 'sessions')}</span>` : ''}
+                            ${event.sites ? `<span class="event-tag">${pluralize(event.sites, 'site', 'sites')}</span>` : ''}
                         </div>
                     </a>
                 `).join('');

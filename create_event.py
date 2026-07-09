@@ -23,6 +23,10 @@ from datetime import datetime
 from pathlib import Path
 
 
+README_EVENTS_START = "<!-- EVENTS_LIST_START -->"
+README_EVENTS_END = "<!-- EVENTS_LIST_END -->"
+
+
 def parse_sessions(sessions_data):
     """Extract metadata from pretalx sessions export."""
     tracks = set()
@@ -115,6 +119,129 @@ def format_date_display(start_date, end_date):
     if start_date.month == end_date.month and start_date.year == end_date.year:
         return f"{start_date.day}-{end_date.day} {start_date.strftime('%B %Y')}"
     return f"{start_date.strftime('%-d %B')} - {end_date.strftime('%-d %B %Y')}"
+
+
+def parse_display_dates(date_display):
+    """Best-effort parse for human date ranges like '10-11 November 2026'."""
+    if not date_display:
+        return None, None
+
+    text = date_display.strip()
+    if not text:
+        return None, None
+
+    patterns = [
+        # 10-11 November 2026
+        (r"^(\d{1,2})\s*[-–]\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$", "same_month"),
+        # 10 November - 11 December 2026
+        (r"^(\d{1,2})\s+([A-Za-z]+)\s*[-–]\s*(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$", "two_months"),
+        # 10 November 2026
+        (r"^(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$", "single"),
+    ]
+
+    for pattern, kind in patterns:
+        match = re.match(pattern, text)
+        if not match:
+            continue
+        try:
+            if kind == "same_month":
+                start_day, end_day, month_name, year = match.groups()
+                start = datetime.strptime(f"{int(start_day)} {month_name} {year}", "%d %B %Y")
+                end = datetime.strptime(f"{int(end_day)} {month_name} {year}", "%d %B %Y")
+                return start, end
+
+            if kind == "two_months":
+                start_day, start_month, end_day, end_month, year = match.groups()
+                start = datetime.strptime(f"{int(start_day)} {start_month} {year}", "%d %B %Y")
+                end = datetime.strptime(f"{int(end_day)} {end_month} {year}", "%d %B %Y")
+                return start, end
+
+            if kind == "single":
+                day, month_name, year = match.groups()
+                start = datetime.strptime(f"{int(day)} {month_name} {year}", "%d %B %Y")
+                return start, start
+        except ValueError:
+            continue
+
+    return None, None
+
+
+def split_upcoming_and_past(events):
+    """Split events list by end date (falls back to parsed display date)."""
+    today = datetime.now().date()
+    upcoming = []
+    past = []
+
+    for event in events:
+        end_date = None
+
+        raw_end = event.get("dates", {}).get("end", "")
+        if raw_end:
+            try:
+                end_date = datetime.strptime(raw_end, "%Y-%m-%d").date()
+            except ValueError:
+                end_date = None
+
+        if not end_date:
+            _, parsed_end = parse_display_dates(event.get("dates", {}).get("display", ""))
+            if parsed_end:
+                end_date = parsed_end.date()
+
+        if end_date and end_date < today:
+            past.append(event)
+        else:
+            upcoming.append(event)
+
+    return upcoming, past
+
+
+def update_readme_events_section(repo_root, events):
+    """Keep README event lists synchronized with events.json."""
+    readme_path = repo_root / "README.md"
+    if not readme_path.exists():
+        return
+
+    upcoming, past = split_upcoming_and_past(events)
+    upcoming_lines = [
+        f"- [{e['name']}]({e['slug']}/index.html) - {e['dates']['display']}"
+        for e in upcoming
+    ]
+    past_lines = [
+        f"- [{e['name']}]({e['slug']}/index.html) - {e['dates']['display']}"
+        for e in past
+    ]
+
+    section = "\n".join(
+        [
+            README_EVENTS_START,
+            "## Upcoming Events",
+            *(upcoming_lines or ["- None"]),
+            "",
+            "## Past Events",
+            *(past_lines or ["- None"]),
+            README_EVENTS_END,
+        ]
+    )
+
+    content = readme_path.read_text()
+    block_pattern = re.compile(
+        rf"{re.escape(README_EVENTS_START)}.*?{re.escape(README_EVENTS_END)}",
+        re.DOTALL,
+    )
+
+    if block_pattern.search(content):
+        new_content = block_pattern.sub(section, content)
+    else:
+        insertion_point = content.find("---")
+        if insertion_point != -1:
+            new_content = (
+                content[:insertion_point].rstrip() + "\n\n" + section + "\n\n" + content[insertion_point:]
+            )
+        else:
+            new_content = content.rstrip() + "\n\n" + section + "\n"
+
+    readme_path.write_text(new_content)
+    print("  ✓ Updated README event lists")
 
 
 TRACK_ICONS = {
@@ -1022,6 +1149,7 @@ def add_to_landing_page(event_config, meta, repo_root):
         "name": event_config["eventName"],
         "dates": {
             "display": event_config["dates"]["display"],
+            "start": meta["start_date"].strftime("%Y-%m-%d") if meta["start_date"] else "",
             "end": meta["end_date"].strftime("%Y-%m-%d") if meta["end_date"] else "",
         },
         "tagline": event_config["tagline"],
@@ -1038,6 +1166,7 @@ def add_to_landing_page(event_config, meta, repo_root):
 
     events_path.write_text(json.dumps(events, indent=2, ensure_ascii=False) + "\n")
     print(f"  ✓ Updated root events.json")
+    update_readme_events_section(repo_root, events)
 
 
 def main():
@@ -1092,6 +1221,12 @@ def main():
     # Override dates/locations from CLI if provided (useful when no sessions JSON)
     if args.dates:
         meta["date_display_override"] = args.dates
+        if not meta["start_date"] or not meta["end_date"]:
+            parsed_start, parsed_end = parse_display_dates(args.dates)
+            if parsed_start and not meta["start_date"]:
+                meta["start_date"] = parsed_start
+            if parsed_end and not meta["end_date"]:
+                meta["end_date"] = parsed_end
     if args.locations:
         meta["locations"] = sorted(set(loc.strip() for loc in args.locations.split(",") if loc.strip()))
 

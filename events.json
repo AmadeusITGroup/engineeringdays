@@ -9,5 +9,17 @@
     "tagline": "Two days of exploration, knowledge sharing, and networking. 50+ talks & workshops across 16 Amadeus sites worldwide.",
     "sessions": 126,
     "sites": 16
+  },
+  {
+    "slug": "wanderloop-erding-2026",
+    "name": "Amadeus Wanderloop@Erding 2026",
+    "dates": {
+      "display": "10-11 November 2026",
+      "start": "2026-11-10",
+      "end": "2026-11-11"
+    },
+    "tagline": "Compiled exploration, out-of-bounds curiosity",
+    "sessions": 0,
+    "sites": 1
   }
 ]
