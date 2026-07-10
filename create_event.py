@@ -699,7 +699,7 @@ function applyMetadata(event) {
 
         const footerTagline = document.querySelector('.footer-tagline');
         if (footerTagline) {
-            footerTagline.textContent = `An ${event.organizer || 'Amadeus'} Event`;
+            footerTagline.textContent = `A ${event.organizer || 'Amadeus'} Event`;
         }
     }
 

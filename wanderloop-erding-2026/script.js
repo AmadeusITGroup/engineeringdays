@@ -159,9 +159,10 @@ function renderCodeSnippet(event) {
         return;
     }
 
-    const sessionCount = Array.isArray(event.sessionTypes)
-        ? event.sessionTypes.reduce((total, type) => total + (Number(type.count) || 0), 0)
-        : 0;
+    const sessionsStat = Array.isArray(event.stats)
+        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'sessions')
+        : null;
+    const sessionCount = sessionsStat ? sessionsStat.number : 'n/a';
 
     const speakerStat = Array.isArray(event.stats)
         ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'speakers')
