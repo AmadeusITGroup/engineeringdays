@@ -56,7 +56,7 @@ function applyMetadata(event) {
 
         const footerTagline = document.querySelector('.footer-tagline');
         if (footerTagline) {
-            footerTagline.textContent = `An ${event.organizer || 'Amadeus'} Event`;
+            footerTagline.textContent = event.organizer ? `A ${event.organizer} Event` : 'An Amadeus Event';
         }
     }
 
