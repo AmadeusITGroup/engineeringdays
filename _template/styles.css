@@ -77,6 +77,11 @@
     align-items: center;
 }
 
+/* Prevent grid tracks from expanding beyond 1fr due to long content */
+.hero .container > * {
+    min-width: 0;
+}
+
 .hero-content {
     text-align: left;
 }
@@ -86,6 +91,8 @@
 }
 
 .hero-title {
+    /* For events with long names (>20 chars), reduce to clamp(1.5rem, 3.5vw, 4rem)
+       so the title fits inside the 2-column hero without word-break. */
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 900;
     color: var(--primary);
