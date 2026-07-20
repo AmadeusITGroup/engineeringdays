@@ -328,10 +328,13 @@ body {
    Responsive
    =================================== */
 
-@media (max-width: 768px) {
-    :root {
-        --spacing-lg: 3rem;
-        --spacing-xl: 4rem;
+@media (max-width: 968px) {
+    .nav-brand {
+        font-size: 1rem;
+    }
+
+    .nav-logo-line {
+        white-space: normal;
     }
 
     .nav-links {
@@ -352,6 +355,13 @@ body {
 
     .mobile-menu-toggle {
         display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
     }
 
     .footer-content {

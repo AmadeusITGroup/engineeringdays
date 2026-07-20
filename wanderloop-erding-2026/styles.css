@@ -11,6 +11,34 @@
 } */
 
 /* ===================================
+   Nav override — long event name needs hamburger earlier
+   (shared default is 968px; raise this if the name is long)
+   =================================== */
+
+@media (max-width: 1150px) {
+    /* Nav only: hamburger triggers early for long event name */
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: var(--primary);
+        width: 100%;
+        padding: var(--spacing-md);
+        transition: left 0.3s ease;
+        box-shadow: 0 4px 10px var(--shadow);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+    }
+}
+
+/* ===================================
    Hero Section
    =================================== */
 
@@ -48,6 +76,11 @@
     align-items: center;
 }
 
+/* Prevent grid tracks from expanding due to overflowing content */
+.hero .container > * {
+    min-width: 0;
+}
+
 .hero-content {
     text-align: left;
 }
@@ -57,7 +90,7 @@
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: clamp(1.5rem, 3.5vw, 4rem);
     font-weight: 900;
     color: var(--primary);
     margin-bottom: var(--spacing-sm);
@@ -408,6 +441,10 @@
         order: -1;
         margin-bottom: var(--spacing-md);
     }
+
+    .track-card-special {
+        grid-column: span 1;
+    }
 }
 
 @media (max-width: 768px) {
@@ -424,6 +461,15 @@
     .btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .code-content {
+        font-size: 0.75rem;
+        padding: var(--spacing-sm);
+    }
+
+    .code-content pre {
+        overflow-x: auto;
     }
 }
 

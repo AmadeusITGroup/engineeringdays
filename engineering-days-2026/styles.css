@@ -904,12 +904,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
-    :root {
-        --spacing-lg: 3rem;
-        --spacing-xl: 4rem;
-    }
-    
+@media (max-width: 968px) {
     .nav-links {
         position: fixed;
         top: 70px;
@@ -928,6 +923,13 @@ body {
     
     .mobile-menu-toggle {
         display: flex;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
     }
     
     .stats-grid {
