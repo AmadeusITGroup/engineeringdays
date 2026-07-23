@@ -15,22 +15,34 @@
   ],
   "stats": [
     {
-      "icon": "🎤",
-      "number": "10+",
+      "icon": "🎙️",
+      "number": "30+",
       "label": "Sessions",
-      "description": "Talks and workshops"
+      "description": "Tech talks, hands-on workshops & more"
     },
     {
-      "icon": "🎙️",
-      "number": "10+",
+      "icon": "🗣️",
+      "number": "30+",
       "label": "Speakers",
       "description": "Sharing their expertise"
+    },
+    {
+      "icon": "👥",
+      "number": "80+",
+      "label": "Attendees",
+      "description": "To connect with"
+    },
+    {
+      "icon": "🤝",
+      "number": "5",
+      "label": "Partners",
+      "description": "Participating, with booths & demos"
     },
     {
       "icon": "🌐",
       "number": "1",
       "label": "Site",
-      "description": "Hosting locations"
+      "description": "Hosting the event"
     }
   ],
   "tracks": [
