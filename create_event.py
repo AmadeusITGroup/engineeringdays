@@ -255,10 +255,8 @@ TRACK_ICONS = {
     "test": "💻",
     "devops": "🏗️",
     "security": "🏗️",
-    "secur": "🏗️",
-    "leader": "👔",
+    "leadership": "👔",
     "people": "👔",
-    "manage": "👔",
 }
 
 
@@ -277,16 +275,28 @@ def generate_event_json(meta, args):
 
     stats = [
         {
-            "icon": "🎤",
+            "icon": "🎙️",
             "number": f"{meta['session_count']}+",
             "label": "Sessions",
-            "description": "Talks and workshops",
+            "description": "Tech talks and hands-on workshops",
         },
         {
-            "icon": "🎙️",
+            "icon": "🗣️",
             "number": str(meta["speakers_count"]),
             "label": "Speakers",
             "description": "Sharing their expertise",
+        },
+        {
+            "icon": "👥",
+            "number": str(meta["attendees_count"]),
+            "label": "Attendees",
+            "description": "To connect with",
+        },
+        {
+            "icon": "🎪",
+            "number": str(meta["partners_count"]),
+            "label": "Partners",
+            "description": "Involved with their booths & demos",
         },
     ]
     if meta["locations"]:
@@ -295,7 +305,7 @@ def generate_event_json(meta, args):
                 "icon": "🌐",
                 "number": str(len(meta["locations"])),
                 "label": "Sites",
-                "description": "Hosting locations",
+                "description": "Sites hosting the event",
             }
         )
 
