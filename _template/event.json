@@ -7,7 +7,7 @@
         "end": "2026-06-16",
         "display": "15-16 June 2026"
     },
-    "organizer": "DevRel",
+    "organizer": "Amadeus DevRel",
     "contact": "devrel@amadeus.com",
     "description": "A longer description of the event for the about section.",
     "locations": [
@@ -15,9 +15,9 @@
         "Remote"
     ],
     "stats": [
-        { "icon": "🎤", "number": "20+", "label": "Sessions", "description": "Talks and workshops" },
-        { "icon": "👥", "number": "200+", "label": "Attendees", "description": "On-site participants" },
-        { "icon": "🌐", "number": "5", "label": "Sites", "description": "Hosting locations" }
+        { "icon": "🎙️", "number": "20+", "label": "Sessions", "description": "Tech talks, hands-on workshops & more" },
+        { "icon": "👥", "number": "200+", "label": "Attendees", "description": "To connect with" },
+        { "icon": "🌐", "number": "5", "label": "Sites", "description": "Hosting the event" }
     ],
     "tracks": [
         { "icon": "💻", "name": "Development", "description": "coding, tools, frameworks" },

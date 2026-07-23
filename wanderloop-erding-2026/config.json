@@ -37,12 +37,6 @@
       "number": "5",
       "label": "Partners",
       "description": "Participating, with booths & demos"
-    },
-    {
-      "icon": "🌐",
-      "number": "1",
-      "label": "Site",
-      "description": "Hosting the event"
     }
   ],
   "tracks": [
