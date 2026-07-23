@@ -56,7 +56,7 @@ function applyMetadata(event) {
 
         const footerTagline = document.querySelector('.footer-tagline');
         if (footerTagline) {
-            footerTagline.textContent = event.organizer ? `A ${event.organizer} Event` : 'An Amadeus Event';
+            footerTagline.textContent = event.organizer ? `An event organized by ${event.organizer}` : 'An Amadeus event';
         }
     }
 
@@ -149,7 +149,7 @@ function renderAboutSection(event) {
 
     const locEl = document.getElementById('event-locations');
     if (locEl && Array.isArray(event.locations) && event.locations.length) {
-        locEl.innerHTML = `Hosted at ${event.locations.map(location => `<strong>${location}</strong>`).join(', ')}.`;
+        locEl.innerHTML = `The event is hosted at ${event.locations.map(location => `<strong>${location}</strong>`).join(', ')}.`;
     }
 }
 
