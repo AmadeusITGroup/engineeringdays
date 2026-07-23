@@ -499,7 +499,7 @@ def generate_index_html(event_config, has_sessions=True):
   <span class="code-property">dates</span>: <span class="code-string">"{dates}"</span>,
   <span class="code-property">sessions</span>: <span class="code-number">{event_config['stats'][0]['number']}</span>,
   <span class="code-property">speakers</span>: <span class="code-number">{event_config['stats'][1]['number']}</span>,
-  <span class="code-property">status</span>: <span class="code-string">"awesome"</span>
+  <span class="code-property">status</span>: <span class="code-string">"work in progress"</span>
 }};</code></pre>
                     </div>
                 </div>
