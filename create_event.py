@@ -293,10 +293,10 @@ def generate_event_json(meta, args):
             "description": "To connect with",
         },
         {
-            "icon": "🎪",
+            "icon": "🤝",
             "number": str(meta["partners_count"]),
             "label": "Partners",
-            "description": "Involved with their booths & demos",
+            "description": "Participating, with booths & demos",
         },
     ]
     if meta["locations"]:
@@ -305,7 +305,7 @@ def generate_event_json(meta, args):
                 "icon": "🌐",
                 "number": str(len(meta["locations"])),
                 "label": "Sites",
-                "description": "Sites hosting the event",
+                "description": "Hosting the event",
             }
         )
 
@@ -434,7 +434,7 @@ def generate_index_html(event_config, has_sessions=True):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{name} | Amadeus Events</title>
+    <title>{name} | Amadeus events</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
     <link rel="stylesheet" href="../shared/styles-base.css">
     <link rel="stylesheet" href="styles.css">
@@ -570,7 +570,7 @@ def generate_index_html(event_config, has_sessions=True):
                     <span class="logo-bracket">&lt;</span>
                     <span class="logo-text">{name}</span>
                     <span class="logo-bracket">/&gt;</span>
-                    <p class="footer-tagline">An Amadeus Event</p>
+                    <p class="footer-tagline">An Amadeus event</p>
                 </div>
                 <div class="footer-links">
                     <a href="../index.html">All Events</a>
