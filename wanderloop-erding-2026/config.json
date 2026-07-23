@@ -59,6 +59,18 @@
   "sessionTypes": [
     {
       "name": "Talk",
+      "duration": "35 min",
+      "count": 1,
+      "description": ""
+    },
+    {
+      "name": "Unconference",
+      "duration": "90 min",
+      "count": 1,
+      "description": ""
+    },
+    {
+      "name": "Cocktail & networking",
       "count": 1,
       "description": ""
     }
