@@ -166,6 +166,10 @@ body {
     width: 100%;
 }
 
+.nav-links a.always-underline:hover::after {
+    width: 0;
+}
+
 .nav-links a.cfp-link {
     color: var(--accent);
     font-weight: 700;
