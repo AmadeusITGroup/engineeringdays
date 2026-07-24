@@ -367,6 +367,15 @@
     border-color: var(--secondary);
 }
 
+.stat-card-highlight {
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--accent) 16%, var(--card-bg)) 0%,
+        color-mix(in srgb, var(--secondary) 12%, var(--card-bg)) 100%
+    );
+    border: 2px solid color-mix(in srgb, var(--secondary) 35%, var(--border-color));
+}
+
 .stat-icon { font-size: 3rem; margin-bottom: var(--spacing-sm); }
 
 .stat-number {
@@ -486,13 +495,13 @@
 
 .tracks-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--spacing-md);
 }
 
 .track-card {
     background: var(--card-bg);
-    padding: var(--spacing-md);
+    padding: calc(var(--spacing-md) * 1.5);
     border-radius: var(--radius-lg);
     text-align: center;
     border: 2px solid var(--border-color);
@@ -505,6 +514,15 @@
     border-color: var(--accent);
 }
 
+.track-card-highlight {
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--accent) 16%, var(--card-bg)) 0%,
+        color-mix(in srgb, var(--secondary) 12%, var(--card-bg)) 100%
+    );
+    border: 2px solid color-mix(in srgb, var(--secondary) 35%, var(--border-color));
+}
+
 .track-icon { font-size: 2.5rem; margin-bottom: var(--spacing-xs); }
 
 .track-card h3 {
@@ -514,6 +532,7 @@
 }
 
 [data-theme="dark"] .track-card h3 { color: var(--secondary); }
+
 .track-card p { font-size: 0.875rem; opacity: 0.8; }
 
 /* Contact Section */
@@ -557,6 +576,7 @@
     padding: var(--spacing-xl) 0;
     background: var(--bg-color);
     min-height: 60vh;
+    scroll-margin-top: calc(80px + var(--spacing-md));
 }
 
 /* Loading State */

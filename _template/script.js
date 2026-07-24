@@ -115,7 +115,7 @@ function renderStats(event) {
     });
 
     statsGrid.innerHTML = displayStats.map(stat => `
-        <div class="stat-card">
+        <div class="stat-card${stat.highlight ? ' stat-card-highlight' : ''}">
             <div class="stat-icon">${stat.icon || ''}</div>
             <div class="stat-number">${stat.number || ''}</div>
             <div class="stat-label">${stat.label || ''}</div>
@@ -148,7 +148,7 @@ function renderTracks(tracks) {
     }
 
     tracksGrid.innerHTML = tracks.map(track => `
-        <div class="track-card">
+        <div class="track-card${track.highlight ? ' track-card-highlight' : ''}">
             <div class="track-icon">${track.icon || ''}</div>
             <h3>${track.name || ''}</h3>
             <p>${track.description || ''}</p>

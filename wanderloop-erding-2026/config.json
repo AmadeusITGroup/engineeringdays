@@ -22,6 +22,7 @@
       "icon": "🎙️",
       "number": "30+",
       "label": "Sessions",
+      "highlight": true,
       "description": "Tech talks, hands-on workshops & more"
     },
     {
@@ -34,6 +35,7 @@
       "icon": "👥",
       "number": "80+",
       "label": "Attendees",
+      "highlight": true,
       "description": "To connect with"
     },
     {
@@ -47,17 +49,17 @@
     {
       "icon": "🤖",
       "name": "AIOps",
-      "description": "Transform how services are operated. No touch ops, autonomous platform agents, predictive observability, self-healing architectures, intelligent monitoring"
+      "description": "Transform how services are operated.<br/><br/>No touch ops, autonomous platform agents, predictive observability, self-healing architectures, intelligent monitoring"
     },
     {
       "icon": "🛠️",
       "name": "Platforming at scale",
-      "description": "Transform how systems are built to cope with an AI-assisted workload. Operational excellence, culture of stability, resilience & security, AI-DLC, fleet management, internal developer platforms & knowledge graphs"
+      "description": "Transform how systems are built to cope with an AI-assisted workload.<br/><br/>Operational excellence, culture of stability, resilience & security, AI-DLC, fleet management, internal developer platforms & knowledge graphs"
     },
     {
       "icon": "👩‍💻",
       "name": "AI-first teams",
-      "description": "Transform how engineers & ops work. Leading teams through AI transformation, new engineering skillsets, AI-first engineering practices"
+      "description": "Transform how engineers & ops work.<br/><br/>Leading teams through AI transformation, new engineering skillsets, AI-first engineering practices"
     }
   ],
   "sessionTypes": [
