@@ -107,6 +107,12 @@
             z-index: 100;
             padding: var(--spacing-sm) 0;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease;
+        }
+        @media (max-width: 768px) {
+            .filters-section.filters-hidden {
+                transform: translateY(-100%);
+            }
         }
 
         .filters-container {
@@ -1545,7 +1551,7 @@
         track: ''
     };
     let selectedTimezone = 'Europe/Paris'; // Conference timezone
-    let currentView = 'agenda'; // 'grid' or 'agenda'
+    let currentView = window.matchMedia('(max-width: 768px)').matches ? 'grid' : 'agenda'; // 'grid' or 'agenda'; overridden below by saved preference, if any
     const CONFERENCE_TZ = 'Europe/Paris';
     const CONFERENCE_DATE_DAY1 = '2026-04-29';
     const CONFERENCE_DATE_DAY2 = '2026-04-30';
@@ -2414,12 +2420,12 @@
             }
         }
         
-        // Load saved view preference
+        // Load saved view preference (falls back to the viewport-based default otherwise)
         const savedView = localStorage.getItem('preferredView');
         if (savedView) {
             currentView = savedView;
-            updateViewToggle();
         }
+        updateViewToggle();
     }
 
     // Initialize view toggle
@@ -2439,6 +2445,28 @@
         document.querySelectorAll('.view-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.view === currentView);
         });
+    }
+
+    // Hide/show the filters bar on scroll for mobile/tablet viewports
+    function initFiltersScrollHide() {
+        const filtersSection = document.querySelector('.filters-section');
+        if (!filtersSection) return;
+        const isCompactViewport = () => window.matchMedia('(max-width: 768px)').matches;
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            if (!isCompactViewport()) {
+                filtersSection.classList.remove('filters-hidden');
+                lastScrollY = window.scrollY;
+                return;
+            }
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 120) {
+                filtersSection.classList.add('filters-hidden');
+            } else {
+                filtersSection.classList.remove('filters-hidden');
+            }
+            lastScrollY = currentScrollY;
+        }, { passive: true });
     }
 
     // Date card click handlers
@@ -2549,6 +2577,7 @@
             initFilters();
             initViewToggle();
             initDateCards();
+            initFiltersScrollHide();
             renderSessions();
             
         } catch (error) {

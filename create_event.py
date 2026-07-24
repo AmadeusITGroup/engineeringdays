@@ -593,6 +593,61 @@ def generate_index_html(event_config, has_sessions=True):
 """
 
 
+# Best-effort keyword -> IANA timezone lookup for the site names/countries
+# that typically appear in a pretalx "site" question (e.g. "Nice, France").
+SITE_TIMEZONE_KEYWORDS = [
+    ("sydney", "Australia/Sydney"),
+    ("melbourne", "Australia/Sydney"),
+    ("brisbane", "Australia/Sydney"),
+    ("australia", "Australia/Sydney"),
+    ("bengaluru", "Asia/Kolkata"),
+    ("bangalore", "Asia/Kolkata"),
+    ("india", "Asia/Kolkata"),
+    ("istanbul", "Europe/Istanbul"),
+    ("turkey", "Europe/Istanbul"),
+    ("nice", "Europe/Paris"),
+    ("sophia", "Europe/Paris"),
+    ("paris", "Europe/Paris"),
+    ("france", "Europe/Paris"),
+    ("erding", "Europe/Berlin"),
+    ("berlin", "Europe/Berlin"),
+    ("germany", "Europe/Berlin"),
+    ("madrid", "Europe/Madrid"),
+    ("barcelona", "Europe/Madrid"),
+    ("spain", "Europe/Madrid"),
+    ("antwerp", "Europe/Brussels"),
+    ("brussels", "Europe/Brussels"),
+    ("belgium", "Europe/Brussels"),
+    ("london", "Europe/London"),
+    ("united kingdom", "Europe/London"),
+    (" uk", "Europe/London"),
+    ("dallas", "America/Chicago"),
+    ("chicago", "America/Chicago"),
+    ("bogot", "America/Bogota"),
+    ("colombia", "America/Bogota"),
+    ("salt lake", "America/Denver"),
+    ("denver", "America/Denver"),
+]
+
+
+def guess_site_timezones(locations):
+    """Best-effort mapping of free-text site names to IANA timezones.
+
+    Returns a de-duplicated list, ordered to match SITE_TIMEZONE_KEYWORDS
+    (roughly east to west). Locations that can't be matched are ignored;
+    if nothing matches, an empty list is returned so the page falls back
+    to auto-detecting the visitor's closest known timezone.
+    """
+    matched = []
+    for location in locations:
+        text = str(location).lower()
+        for keyword, tz in SITE_TIMEZONE_KEYWORDS:
+            if keyword in text and tz not in matched:
+                matched.append(tz)
+                break
+    return matched
+
+
 def generate_program_html(event_config):
     """Generate the event program.html using the rich shared template."""
     name = event_config["eventName"]
@@ -606,6 +661,8 @@ def generate_program_html(event_config):
         for i, track in enumerate(event_config.get("tracks", []))
     }
 
+    site_timezones = guess_site_timezones(event_config.get("locations", []))
+
     template_path = Path(__file__).parent / "_template" / "program-rich.html"
     template = template_path.read_text()
 
@@ -617,6 +674,7 @@ def generate_program_html(event_config):
         "{{YEAR}}": str(datetime.now().year),
         "{{TRACK_COLORS_JSON}}": json.dumps(track_color_map),
         "{{OPENFEEDBACK_BASE}}": event_config.get("openFeedbackBaseUrl", ""),
+        "{{SITE_TIMEZONES_JSON}}": json.dumps(site_timezones),
     }
 
     for token, value in replacements.items():

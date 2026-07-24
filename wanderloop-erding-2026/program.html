@@ -66,6 +66,12 @@
             z-index: 100;
             padding: var(--spacing-sm) 0;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.25s ease;
+        }
+        @media (max-width: 900px) {
+            .filters-section.filters-hidden {
+                transform: translateY(-100%);
+            }
         }
         .filters-container {
             display: flex;
@@ -617,9 +623,36 @@
             ['America/Denver', '🇺🇸 Salt Lake City']
         ];
 
+        // Timezone(s) of the event's own site(s). A single-site event always
+        // defaults to its own timezone; a multi-site event defaults to whichever
+        // known timezone is closest to the visitor.
+        const SITE_TIMEZONES = ['Europe/Berlin'];
+
+        function getUtcOffsetMinutes(tz, date) {
+            const part = new Intl.DateTimeFormat('en-US', { timeZone: tz, timeZoneName: 'shortOffset' })
+                .formatToParts(date).find(p => p.type === 'timeZoneName');
+            const match = part && part.value.match(/GMT([+-]\d+)(?::(\d+))?/);
+            if (!match) return 0;
+            const sign = match[1].startsWith('-') ? -1 : 1;
+            return parseInt(match[1], 10) * 60 + sign * parseInt(match[2] || '0', 10);
+        }
+
+        function pickDefaultTimezone() {
+            if (SITE_TIMEZONES.length === 1) return SITE_TIMEZONES[0];
+            const candidates = SITE_TIMEZONES.length ? SITE_TIMEZONES : TIMEZONE_OPTIONS.map(([tz]) => tz);
+            const visitorTz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+            if (candidates.includes(visitorTz)) return visitorTz;
+            const now = new Date();
+            const visitorOffset = getUtcOffsetMinutes(visitorTz, now);
+            return candidates.reduce((closest, tz) =>
+                Math.abs(getUtcOffsetMinutes(tz, now) - visitorOffset) < Math.abs(getUtcOffsetMinutes(closest, now) - visitorOffset) ? tz : closest,
+                candidates[0]);
+        }
+
         const activeFilters = { day: '', track: '', type: '', room: '' };
-        let currentView = 'timeline';
-        let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+        let currentView = window.matchMedia('(max-width: 900px)').matches ? 'grid' : 'timeline';
+        document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.view === currentView));
+        let timezone = pickDefaultTimezone();
         let allSessions = [];
 
         function getTrackColor(name) {
@@ -942,7 +975,29 @@
             renderSessions();
         }
 
+        function initFiltersScrollHide() {
+            const filtersSection = document.querySelector('.filters-section');
+            if (!filtersSection) return;
+            const isCompactViewport = () => window.matchMedia('(max-width: 900px)').matches;
+            let lastScrollY = window.scrollY;
+            window.addEventListener('scroll', () => {
+                if (!isCompactViewport()) {
+                    filtersSection.classList.remove('filters-hidden');
+                    lastScrollY = window.scrollY;
+                    return;
+                }
+                const currentScrollY = window.scrollY;
+                if (currentScrollY > lastScrollY && currentScrollY > 120) {
+                    filtersSection.classList.add('filters-hidden');
+                } else {
+                    filtersSection.classList.remove('filters-hidden');
+                }
+                lastScrollY = currentScrollY;
+            }, { passive: true });
+        }
+
         setupTimezoneFilter();
+        initFiltersScrollHide();
         document.addEventListener('DOMContentLoaded', bootstrap);
     })();
     </script>
