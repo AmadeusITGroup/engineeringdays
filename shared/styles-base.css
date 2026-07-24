@@ -290,8 +290,14 @@ body {
     justify-content: center;
     text-decoration: none;
     backdrop-filter: blur(4px);
-    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease, background 0.3s ease, opacity 0.2s ease, visibility 0.2s ease;
     animation: scroll-cue-wiggle 1.8s ease-in-out infinite;
+}
+
+.scroll-cue.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .scroll-cue span {
@@ -611,8 +617,23 @@ body {
         left: 0;
     }
 
+    .nav-separator {
+        font-size: 0;
+        width: 4%;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.35);
+        align-self: center;
+        margin: calc(var(--spacing-xs) * 0.5) 0;
+    }
+
     .mobile-menu-toggle {
         display: flex;
+    }
+
+    .scroll-cue {
+        position: fixed;
+        bottom: calc(var(--spacing-sm) + env(safe-area-inset-bottom));
+        z-index: 950;
     }
 }
 

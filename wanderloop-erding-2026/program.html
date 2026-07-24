@@ -295,7 +295,8 @@
         }
         .timeline-head div:first-child {
             background: var(--bg-light);
-            border-right: 2px solid var(--secondary);
+            border-right: 1px solid var(--border-color);
+            color: var(--text-secondary);
         }
         .timeline-body {
             display: grid;
@@ -306,7 +307,7 @@
         .timeline-time-col {
             position: relative;
             background: var(--bg-light);
-            border-right: 2px solid var(--secondary);
+            border-right: 1px solid var(--border-color);
         }
         .timeline-room-col {
             position: relative;
@@ -325,9 +326,15 @@
             font-size: 0.68rem;
             font-family: var(--font-mono);
             font-weight: 700;
-            color: var(--primary);
+            color: var(--text-secondary);
             background: var(--bg-light);
             padding: 0 0.25rem;
+        }
+        [data-theme="dark"] .timeline-head div:first-child,
+        [data-theme="dark"] .timeline-time-col,
+        [data-theme="dark"] .timeline-time-label {
+            background: var(--dark-accent);
+            color: var(--text-primary);
         }
         .timeline-session {
             position: absolute;

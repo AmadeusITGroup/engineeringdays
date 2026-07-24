@@ -93,4 +93,20 @@
             }
         });
     }
+
+    const scrollCue = document.querySelector('.scroll-cue');
+    const hero = document.querySelector('.hero');
+
+    if (scrollCue && hero) {
+        const updateScrollCueVisibility = () => {
+            const heroRect = hero.getBoundingClientRect();
+            const isAtPageTop = window.scrollY <= 1;
+            const isHeroFullyVisible = heroRect.bottom <= window.innerHeight;
+            scrollCue.classList.toggle('is-hidden', !(isAtPageTop && isHeroFullyVisible));
+        };
+
+        updateScrollCueVisibility();
+        window.addEventListener('scroll', updateScrollCueVisibility, { passive: true });
+        window.addEventListener('resize', updateScrollCueVisibility);
+    }
 })();
