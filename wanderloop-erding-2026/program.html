@@ -671,6 +671,10 @@
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: timezone });
         }
 
+        function pluralize(count, singular, plural) {
+            return `${count} ${count === 1 ? singular : (plural || singular + 's')}`;
+        }
+
         function createDateCards(days) {
             const container = document.getElementById('program-dates');
             container.innerHTML = days.map(dayKey => {
@@ -724,7 +728,7 @@
         }
 
         function renderGridDay(dayLabel, sessions) {
-            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${sessions.length} sessions</span></div><div class="sessions-grid">${sessions.map(s => `<article class="session-card" data-session-code="${s.id}"><div class="session-track-bar" style="background: ${getTrackColor(s.track)}"></div><div class="session-content"><div class="session-meta"><span class="session-time">${formatClock(s.start)}</span>${s.type ? `<span class="session-type">${s.type}</span>` : ''}${s.room ? `<span class="session-room">${s.room}</span>` : ''}</div><h3 class="session-title">${s.title}</h3>${s.speakers ? `<p class="session-speakers">${s.speakers}</p>` : ''}${s.track ? `<span class="session-track" style="background:${getTrackColor(s.track)}">${s.track}</span>` : ''}<a href="${getFeedbackUrl(s)}" target="_blank" rel="noopener" class="feedback-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Give Feedback</a></div></article>`).join('')}</div></div>`;
+            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${pluralize(sessions.length, 'session')}</span></div><div class="sessions-grid">${sessions.map(s => `<article class="session-card" data-session-code="${s.id}"><div class="session-track-bar" style="background: ${getTrackColor(s.track)}"></div><div class="session-content"><div class="session-meta"><span class="session-time">${formatClock(s.start)}</span>${s.type ? `<span class="session-type">${s.type}</span>` : ''}${s.room ? `<span class="session-room">${s.room}</span>` : ''}</div><h3 class="session-title">${s.title}</h3>${s.speakers ? `<p class="session-speakers">${s.speakers}</p>` : ''}${s.track ? `<span class="session-track" style="background:${getTrackColor(s.track)}">${s.track}</span>` : ''}<a href="${getFeedbackUrl(s)}" target="_blank" rel="noopener" class="feedback-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Give Feedback</a></div></article>`).join('')}</div></div>`;
         }
 
         function renderTimelineDay(dayLabel, sessions) {
@@ -759,7 +763,7 @@
             }).join('');
 
             const roomHeaders = safeRooms.map(r => `<div>${r}</div>`).join('');
-            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${sessions.length} sessions across ${safeRooms.length} rooms</span></div><div class="timeline-wrapper"><div class="timeline-scroll"><div class="timeline-inner" style="--room-count:${safeRooms.length}"><div class="timeline-head"><div>Time</div>${roomHeaders}</div><div class="timeline-body"><div class="timeline-time-col" style="height:${height}px">${timeMarks}</div>${roomCols}</div></div></div></div></div>`;
+            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${pluralize(sessions.length, 'session')} across ${pluralize(safeRooms.length, 'room')}</span></div><div class="timeline-wrapper"><div class="timeline-scroll"><div class="timeline-inner" style="--room-count:${safeRooms.length}"><div class="timeline-head"><div>Time</div>${roomHeaders}</div><div class="timeline-body"><div class="timeline-time-col" style="height:${height}px">${timeMarks}</div>${roomCols}</div></div></div></div></div>`;
         }
 
         function clearFilters() {
@@ -779,7 +783,7 @@
             const filtered = getFilteredSessions();
             const container = document.getElementById('schedule-container');
             const hasFilters = Object.values(activeFilters).some(Boolean);
-            document.getElementById('results-text').innerHTML = `Showing <span class="results-count">${filtered.length}</span> of ${allSessions.length} sessions` + (hasFilters ? '<button class="clear-filters" id="clear-filters">Clear filters</button>' : '');
+            document.getElementById('results-text').innerHTML = `Showing <span class="results-count">${filtered.length}</span> of ${pluralize(allSessions.length, 'session')}` + (hasFilters ? '<button class="clear-filters" id="clear-filters">Clear filters</button>' : '');
 
             if (!filtered.length) {
                 container.innerHTML = '<div class="no-results"><h3>No sessions found</h3><p>Try adjusting your filters.</p></div>';

@@ -1598,6 +1598,11 @@
         return hours * 60 + minutes;
     }
 
+    // Pluralize a count with a word (e.g. 1 session, 2 sessions)
+    function pluralize(count, singular, plural) {
+        return `${count} ${count === 1 ? singular : (plural || singular + 's')}`;
+    }
+
     // Convert time from conference timezone to selected timezone
     function convertTime(timeStr, dateStr) {
         // Create date in conference timezone (Europe/Paris)
@@ -1876,7 +1881,7 @@
             <div class="schedule-day">
                 <div class="day-header">
                     <h2>${dayLabel}</h2>
-                    <span class="session-count">${sessions.length} sessions</span>
+                    <span class="session-count">${pluralize(sessions.length, 'session')}</span>
                 </div>
                 <div class="agenda-view">
         `;
@@ -2039,7 +2044,7 @@
             <div class="schedule-day">
                 <div class="day-header">
                     <h2>${dayLabel}</h2>
-                    <span class="session-count">${sessions.length} sessions across ${roomCount} rooms</span>
+                    <span class="session-count">${pluralize(sessions.length, 'session')} across ${pluralize(roomCount, 'room')}</span>
                 </div>
                 <div class="timeline-wrapper">
                     <!-- Top scrollbar for horizontal scroll visibility -->
@@ -2099,7 +2104,7 @@
         const resultsText = document.getElementById('results-text');
         const hasFilters = Object.values(activeFilters).some(v => v);
         resultsText.innerHTML = `
-            Showing <span class="results-count">${filtered.length}</span> of ${allSessions.length} sessions
+            Showing <span class="results-count">${filtered.length}</span> of ${pluralize(allSessions.length, 'session')}
             ${hasFilters ? '<button class="clear-filters" onclick="clearFilters()">Clear filters</button>' : ''}
         `;
 
@@ -2136,7 +2141,7 @@
                     <div id="day1" class="schedule-day">
                         <div class="day-header">
                             <h2>Day 1 — Wednesday, April 29</h2>
-                            <span class="session-count">${day1Sessions.length} sessions</span>
+                            <span class="session-count">${pluralize(day1Sessions.length, 'session')}</span>
                         </div>
                         <div class="sessions-grid">
                             ${day1Sessions.map(createSessionCard).join('')}
@@ -2150,7 +2155,7 @@
                     <div id="day2" class="schedule-day">
                         <div class="day-header">
                             <h2>Day 2 — Thursday, April 30</h2>
-                            <span class="session-count">${day2Sessions.length} sessions</span>
+                            <span class="session-count">${pluralize(day2Sessions.length, 'session')}</span>
                         </div>
                         <div class="sessions-grid">
                             ${day2Sessions.map(createSessionCard).join('')}

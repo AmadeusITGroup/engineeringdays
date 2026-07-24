@@ -119,7 +119,7 @@ function renderSessionTypes(sessionTypes) {
         <div class="session-card">
             <div class="session-header">
                 <h3>${stype.name || ''}</h3>
-                <span class="session-duration">${stype.duration || (stype.count ? `${stype.count} sessions` : '')}</span>
+                <span class="session-duration">${stype.duration || (stype.count ? `${stype.count} ${stype.count === 1 ? 'session' : 'sessions'}` : '')}</span>
             </div>
             <p>${stype.description || ''}</p>
         </div>
