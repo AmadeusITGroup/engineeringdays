@@ -226,9 +226,12 @@
             border: 2px solid var(--border-color);
             border-radius: var(--radius-lg);
             overflow: hidden;
+            position: relative;
+            z-index: 1;
             transition: var(--transition);
         }
         .session-card:hover {
+            z-index: 10;
             transform: translateY(-4px);
             box-shadow: 0 10px 30px var(--shadow);
             border-color: var(--secondary);
@@ -347,6 +350,12 @@
             background: var(--card-bg);
             padding: 0.35rem 0.45rem;
             overflow: hidden;
+            z-index: 1;
+        }
+        .timeline-session.can-expand:hover {
+            z-index: 20;
+            height: max-content !important;
+            overflow: visible;
         }
         .timeline-session-time {
             font-size: 0.68rem;
@@ -877,6 +886,9 @@
             const btn = document.getElementById('clear-filters');
             if (btn) btn.addEventListener('click', clearFilters);
             makeSessionsClickable();
+            if (currentView === 'timeline') {
+                requestAnimationFrame(markExpandableTimelineSessions);
+            }
         }
 
         function openSessionModal(session) {
@@ -933,6 +945,15 @@
             document.body.style.overflow = '';
             document.removeEventListener('keydown', handleEscapeKey);
             setTimeout(() => modal.remove(), 200);
+        }
+
+        function markExpandableTimelineSessions() {
+            document.querySelectorAll('.timeline-session').forEach(card => {
+                card.classList.remove('can-expand');
+                if (card.scrollHeight > card.clientHeight + 1) {
+                    card.classList.add('can-expand');
+                }
+            });
         }
 
         function makeSessionsClickable() {
