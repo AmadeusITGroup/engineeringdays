@@ -360,7 +360,7 @@
             border-bottom: 1px dashed var(--border-color);
             padding: 0.25rem;
             font-size: 0.7rem;
-            font-weight: 600;
+            font-weight: 700;
             font-family: var(--font-mono);
             color: var(--primary);
             text-align: center;
@@ -436,7 +436,7 @@
             font-size: 0.55rem;
             font-family: var(--font-mono);
             color: var(--text-secondary);
-            font-weight: 600;
+            font-weight: 700;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -692,7 +692,7 @@
             color: white;
             padding: 0.2rem 0.5rem;
             border-radius: var(--radius-sm);
-            font-weight: 600;
+            font-weight: 700;
             font-family: var(--font-mono);
         }
 
@@ -700,6 +700,7 @@
             font-size: 0.85rem;
             color: var(--text-secondary);
             font-family: var(--font-mono);
+            font-weight: 700;
             margin-top: 0.15rem;
         }
 
@@ -912,7 +913,7 @@
             color: white;
             padding: 0.2rem 0.5rem;
             border-radius: var(--radius-sm);
-            font-weight: 600;
+            font-weight: 700;
             font-family: var(--font-mono);
         }
 
@@ -1380,9 +1381,7 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" class="nav-logo-line">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">Amadeus Engineering Days</span>
-                    <span class="logo-bracket">/&gt;</span>
+                    <span class="logo-bracket">&lt;</span><span class="logo-text">Amadeus Engineering Days</span><span class="logo-bracket">/&gt;</span>
                 </a>
                 <div class="nav-byline">by DevRel</div>
             </div>
@@ -1519,9 +1518,7 @@
         <div class="container">
             <div class="footer-content">
                 <a href="index.html" class="footer-brand">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">Amadeus Engineering Days</span>
-                    <span class="logo-bracket">/&gt;</span>
+                    <span class="logo-bracket">&lt;</span><span class="logo-text">Amadeus Engineering Days</span><span class="logo-bracket">/&gt;</span>
                     <p class="footer-tagline">2026</p>
                 </a>
                 <div class="footer-links">
@@ -2002,7 +1999,7 @@
         // Build time slots HTML
         const timeSlotsHtml = timeSlots.map(slot => {
             const top = (slot.minutes - dayStartMinutes) * pixelsPerMinute;
-            return `<div style="position: absolute; top: ${top}px; left: 0; right: 0; height: 60px; border-bottom: 1px dashed var(--border-color); display: flex; align-items: flex-start; justify-content: center; padding-top: 2px; font-size: 0.7rem; font-weight: 600; font-family: var(--font-mono); color: var(--primary);">${slot.label}</div>`;
+            return `<div style="position: absolute; top: ${top}px; left: 0; right: 0; height: 60px; border-bottom: 1px dashed var(--border-color); display: flex; align-items: flex-start; justify-content: center; padding-top: 2px; font-size: 0.7rem; font-weight: 700; font-family: var(--font-mono); color: var(--primary);">${slot.label}</div>`;
         }).join('');
         
         // Build room columns HTML

@@ -446,9 +446,7 @@ def generate_index_html(event_config, has_sessions=True):
         <div class="container">
             <div class="nav-brand">
                 <div class="nav-logo-line">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">{name}</span>
-                    <span class="logo-bracket">/&gt;</span>
+                    <span class="logo-bracket">&lt;</span><span class="logo-text">{name}</span><span class="logo-bracket">/&gt;</span>
                 </div>
                 <div class="nav-byline">by {organizer}</div>
             </div>
@@ -570,9 +568,7 @@ def generate_index_html(event_config, has_sessions=True):
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">{name}</span>
-                    <span class="logo-bracket">/&gt;</span>
+                    <span class="logo-bracket">&lt;</span><span class="logo-text">{name}</span><span class="logo-bracket">/&gt;</span>
                     <p class="footer-tagline">An Amadeus event</p>
                 </div>
                 <div class="footer-links">

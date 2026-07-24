@@ -190,6 +190,7 @@
 .code-content {
     padding: var(--spacing-md);
     font-family: var(--font-mono);
+    font-weight: 700;
     font-size: 0.875rem;
     line-height: 1.8;
 }
@@ -227,6 +228,7 @@
 .title-accent {
     color: var(--accent);
     font-family: var(--font-mono);
+    font-weight: 700;
     margin-right: 0.5rem;
 }
 

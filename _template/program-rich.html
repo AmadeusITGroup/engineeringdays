@@ -241,7 +241,7 @@
             padding: 0.2rem 0.45rem;
             font-weight: 600;
         }
-        .session-time { background: var(--primary); color: white; font-family: var(--font-mono); }
+        .session-time { background: var(--primary); color: white; font-family: var(--font-mono); font-weight: 700; }
         .session-type, .session-room { background: var(--bg-light); color: var(--text-secondary); }
         [data-theme="dark"] .session-type,
         [data-theme="dark"] .session-room { background: var(--dark-accent); }
@@ -324,6 +324,7 @@
             transform: translateX(-50%);
             font-size: 0.68rem;
             font-family: var(--font-mono);
+            font-weight: 700;
             color: var(--primary);
             background: var(--bg-light);
             padding: 0 0.25rem;
@@ -517,9 +518,7 @@
         <div class="container">
             <a href="index.html" class="nav-brand">
                 <div class="nav-logo-line">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">{{EVENT_NAME}}</span>
-                    <span class="logo-bracket">/&gt;</span>
+                    <span class="logo-bracket">&lt;</span><span class="logo-text">{{EVENT_NAME}}</span><span class="logo-bracket">/&gt;</span>
                 </div>
                 <div class="nav-byline">by {{ORGANIZER}}</div>
             </a>
@@ -597,9 +596,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="logo-bracket">&lt;</span>
-                    <span class="logo-text">{{EVENT_NAME}}</span>
-                    <span class="logo-bracket">/&gt;</span>
+                    <span class="logo-bracket">&lt;</span><span class="logo-text">{{EVENT_NAME}}</span><span class="logo-bracket">/&gt;</span>
                     <p class="footer-tagline">An Amadeus Event</p>
                 </div>
                 <div class="footer-links">
