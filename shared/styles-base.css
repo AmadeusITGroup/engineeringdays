@@ -415,26 +415,43 @@ body {
     cursor: pointer;
 }
 
+.cta-buttons .btn {
+    border: 2px solid transparent;
+}
+
 .btn-primary {
     background: var(--secondary);
     color: #ffffff;
+    border: 2px solid transparent;
 }
 
 .btn-primary:hover {
-    background: var(--accent);
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(182, 80, 255, 0.4);
+    box-shadow: none;
 }
 
 .btn-cfp {
     background: var(--accent);
     color: #ffffff;
+    border: 2px solid transparent;
 }
 
 .btn-cfp:hover {
-    background: var(--secondary);
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 88, 172, 0.4);
+    box-shadow: none;
+}
+
+[data-theme="dark"] .btn-primary:hover,
+[data-theme="dark"] .btn-cfp:hover {
+    background: transparent;
+    color: var(--secondary);
+    border-color: var(--secondary);
 }
 
 .btn-secondary {
@@ -456,6 +473,20 @@ body {
 [data-theme="dark"] .btn-secondary:hover {
     background: var(--secondary);
     color: #ffffff;
+}
+
+.cta-buttons .btn:hover {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: none;
+    transform: none;
+}
+
+[data-theme="dark"] .cta-buttons .btn:hover {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--accent);
 }
 
 .btn-large {
@@ -609,7 +640,7 @@ body {
         left: 0;
     }
 
-    .nav-separator {
+    .nav-links .nav-separator {
         font-size: 0;
         width: 4%;
         height: 2px;
@@ -641,8 +672,20 @@ body {
     }
 
     .footer-links {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: center;
         gap: var(--spacing-sm);
+        flex-wrap: wrap;
+    }
+
+    .footer-links .nav-separator {
+        font-size: 1rem;
+        width: auto;
+        height: auto;
+        background: none;
+        align-self: auto;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.7);
     }
 }
 
