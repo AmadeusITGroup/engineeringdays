@@ -720,6 +720,8 @@ body {
     border-radius: var(--radius-sm);
     font-size: 0.875rem;
     font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .session-note {
