@@ -356,6 +356,7 @@ def generate_event_json(meta, args):
         },
         "organizer": args.organizer,
         "contact": args.contact,
+        "showFeedback": False,
         "useLiveProgramStats": False,
         "description": args.description,
         "locations": list(meta["locations"]),

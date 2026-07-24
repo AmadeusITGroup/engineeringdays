@@ -72,6 +72,7 @@ Each event has a `config.json` file that controls what's displayed on the websit
 | `contact` | Contact email for mailto links | `"devrel@amadeus.com"` |
 | `colors` | Brand color overrides | `{"primary": "#26005a", "secondary": "#b650ff", "accent": "#ff58ac"}` |
 | `showCfp` | Show/hide the "Submit a talk" CFP link | `true` |
+| `showFeedback` | Show/hide the feedback links and modal feedback button on `program.html` | `false` |
 | `cfpUrl` | Where the CFP link/button points to | `"https://forms.cloud.microsoft/e/xxx"` |
 | `useLiveProgramStats` | Once `sessions.json` is populated, switch Sessions/Speakers counts and the displayed dates from the static advertised numbers to values computed live from the real program (Attendees/Partners/Sites always stay static) | `false` |
 

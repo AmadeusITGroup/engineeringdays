@@ -11,6 +11,7 @@
   "contact": "devrel@amadeus.com",
   "cfpUrl": "https://forms.cloud.microsoft/e/GnW7VfLnRv",
   "showCfp": true,
+  "showFeedback": false,
   "useLiveProgramStats": false,
   "description": "Welcome to Amadeus Wanderloop @ Erding 2026, a conference organized by the Amadeus Developer Relations team.",
   "locations": [

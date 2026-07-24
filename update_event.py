@@ -108,6 +108,11 @@ def main():
     if existing_config.get("colors"):
         event_config["colors"] = existing_config["colors"]
 
+    if "showFeedback" in existing_config:
+        event_config["showFeedback"] = existing_config["showFeedback"]
+    if existing_config.get("openFeedbackBaseUrl"):
+        event_config["openFeedbackBaseUrl"] = existing_config["openFeedbackBaseUrl"]
+
     # Write updated files
     config_path.write_text(json.dumps(event_config, indent=2, ensure_ascii=False))
     print(f"  ✓ {args.slug}/config.json (updated with real data)")

@@ -674,6 +674,7 @@
         document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.view === currentView));
         let timezone = pickDefaultTimezone();
         let allSessions = [];
+        let showFeedback = false;
 
         function getTrackColor(name) {
             return TRACK_COLORS[name] || '#6b7280';
@@ -721,6 +722,12 @@
                 return `${base}/${session.dayKey}/${session.id}`;
             }
             return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Feedback for ${session.title}`)}`;
+        }
+
+        function renderFeedbackLink(session, className, label, title = '') {
+            if (!showFeedback) return '';
+            const titleAttr = title ? ` title="${title}"` : '';
+            return `<a href="${getFeedbackUrl(session)}" target="_blank" rel="noopener" class="${className}"${titleAttr}><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>${label}</a>`;
         }
 
         function toDayLabel(dayKey) {
@@ -788,7 +795,7 @@
         }
 
         function renderGridDay(dayLabel, sessions) {
-            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${pluralize(sessions.length, 'session')}</span></div><div class="sessions-grid">${sessions.map(s => `<article class="session-card" data-session-code="${s.id}"><div class="session-track-bar" style="background: ${getTrackColor(s.track)}"></div><div class="session-content"><div class="session-meta"><span class="session-time">${formatClock(s.start)}</span>${s.type ? `<span class="session-type">${s.type}</span>` : ''}${s.room ? `<span class="session-room">${s.room}</span>` : ''}</div><h3 class="session-title">${s.title}</h3>${s.speakers ? `<p class="session-speakers">${s.speakers}</p>` : ''}${s.track ? `<span class="session-track" style="background:${getTrackColor(s.track)}">${s.track}</span>` : ''}<a href="${getFeedbackUrl(s)}" target="_blank" rel="noopener" class="feedback-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Give Feedback</a></div></article>`).join('')}</div></div>`;
+            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${pluralize(sessions.length, 'session')}</span></div><div class="sessions-grid">${sessions.map(s => `<article class="session-card" data-session-code="${s.id}"><div class="session-track-bar" style="background: ${getTrackColor(s.track)}"></div><div class="session-content"><div class="session-meta"><span class="session-time">${formatClock(s.start)}</span>${s.type ? `<span class="session-type">${s.type}</span>` : ''}${s.room ? `<span class="session-room">${s.room}</span>` : ''}</div><h3 class="session-title">${s.title}</h3>${s.speakers ? `<p class="session-speakers">${s.speakers}</p>` : ''}${s.track ? `<span class="session-track" style="background:${getTrackColor(s.track)}">${s.track}</span>` : ''}${renderFeedbackLink(s, 'feedback-link', 'Give Feedback')}</div></article>`).join('')}</div></div>`;
         }
 
         function renderTimelineDay(dayLabel, sessions) {
@@ -817,7 +824,7 @@
                 const cards = roomSessions.map(s => {
                     const top = ((s.start.getHours() * 60 + s.start.getMinutes()) - startMin) * ppm;
                     const h = Math.max(48, s.durationMins * ppm);
-                    return `<article class="timeline-session" data-session-code="${s.id}" style="top:${top}px;height:${h}px;border-left-color:${getTrackColor(s.track)}"><div class="timeline-session-time">${formatClock(s.start)} • ${s.type || 'Session'}</div><div class="timeline-session-title">${s.title}</div>${s.speakers ? `<div class="timeline-session-speaker">${s.speakers}</div>` : ''}<a href="${getFeedbackUrl(s)}" target="_blank" rel="noopener" class="timeline-session-feedback"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Feedback</a></article>`;
+                    return `<article class="timeline-session" data-session-code="${s.id}" style="top:${top}px;height:${h}px;border-left-color:${getTrackColor(s.track)}"><div class="timeline-session-time">${formatClock(s.start)} • ${s.type || 'Session'}</div><div class="timeline-session-title">${s.title}</div>${s.speakers ? `<div class="timeline-session-speaker">${s.speakers}</div>` : ''}${renderFeedbackLink(s, 'timeline-session-feedback', 'Feedback')}</article>`;
                 }).join('');
                 return `<div class="timeline-room-col" style="height:${height}px">${lines}${cards}</div>`;
             }).join('');
@@ -876,7 +883,6 @@
             const end = formatClock(new Date(session.start.getTime() + session.durationMins * 60000));
             const trackColor = getTrackColor(session.track);
             const dayLabel = toDayLabel(session.dayKey);
-            const feedbackUrl = getFeedbackUrl(session);
             const description = (session.description || 'No description available.').split('\n').map(p => p.trim()).filter(Boolean).map(p => `<p>${p}</p>`).join('');
 
             const modal = document.createElement('div');
@@ -899,7 +905,7 @@
                         <div class="session-modal-description">${description}</div>
                     </div>
                     <div class="session-modal-footer">
-                        <a href="${feedbackUrl}" target="_blank" rel="noopener" class="session-modal-btn session-modal-btn-primary">Give Feedback</a>
+                        ${showFeedback ? `<a href="${getFeedbackUrl(session)}" target="_blank" rel="noopener" class="session-modal-btn session-modal-btn-primary">Give Feedback</a>` : ''}
                         <button class="session-modal-btn session-modal-btn-secondary" data-close-modal="1">Close</button>
                     </div>
                 </div>`;
@@ -957,6 +963,16 @@
         }
 
         async function bootstrap() {
+            try {
+                const configResponse = await fetch('config.json', { cache: 'no-store' });
+                if (configResponse.ok) {
+                    const eventConfig = await configResponse.json();
+                    showFeedback = Boolean(eventConfig.showFeedback);
+                }
+            } catch (err) {
+                showFeedback = false;
+            }
+
             let raw = [];
             try {
                 const response = await fetch('sessions.json');
