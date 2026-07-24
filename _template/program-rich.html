@@ -666,11 +666,11 @@
         }
 
         function toDayLabel(dayKey) {
-            return new Date(dayKey + 'T00:00:00').toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long' });
+            return new Date(dayKey + 'T00:00:00').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
         }
 
         function formatClock(date) {
-            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: timezone });
+            return date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false, timeZone: timezone });
         }
 
         function pluralize(count, singular, plural) {
@@ -681,7 +681,7 @@
             const container = document.getElementById('program-dates');
             container.innerHTML = days.map(dayKey => {
                 const d = new Date(dayKey + 'T00:00:00');
-                return `<div class="date-card"><div class="day-name">${d.toLocaleDateString([], { weekday: 'long' })}</div><div class="day-number">${d.getDate()}</div><div class="month">${d.toLocaleDateString([], { month: 'long', year: 'numeric' })}</div></div>`;
+                return `<div class="date-card"><div class="day-name">${d.toLocaleDateString('en-GB', { weekday: 'long' })}</div><div class="day-number">${d.getDate()}</div><div class="month">${d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}</div></div>`;
             }).join('');
         }
 
