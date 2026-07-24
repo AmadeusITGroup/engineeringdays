@@ -271,7 +271,7 @@ async function updateProgramLinks(event) {
     }
 
     try {
-        const programResponse = await fetch('program.html', { method: 'HEAD', cache: 'no-store' });
+        const programResponse = await fetch('program.html', { cache: 'no-store' });
         hasProgramPage = programResponse.ok;
     } catch (error) {
         hasProgramPage = false;
