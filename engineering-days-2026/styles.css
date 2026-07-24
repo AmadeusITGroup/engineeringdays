@@ -20,7 +20,7 @@
     --shadow: rgba(38, 0, 90, 0.1);
     
     /* Typography */
-    --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-main: 'Amadeus Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-mono: 'Monaco', 'Courier New', monospace;
     
     /* Spacing */

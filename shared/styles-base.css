@@ -3,6 +3,87 @@
    Common CSS variables, reset, and reusable components
    =================================== */
 
+/* Amadeus Neue - brand typeface (woff2, variable per weight/style) */
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-LightItalic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-RegularItalic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-MediumItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-BoldItalic.woff2') format('woff2');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Amadeus Neue';
+    src: url('fonts/AmadeusNeue-BlackItalic.woff2') format('woff2');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
 :root {
     /* Amadeus Brand Colors */
     --primary: #26005a;
@@ -21,7 +102,7 @@
     --shadow: rgba(38, 0, 90, 0.1);
 
     /* Typography */
-    --font-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-main: 'Amadeus Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-mono: 'Monaco', 'Courier New', monospace;
 
     /* Spacing */
