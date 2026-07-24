@@ -183,9 +183,9 @@ function getCfpHref(event) {
 }
 
 function showCfpLink(cfpHref) {
-    const nav = document.getElementById('program-nav-link');
-    const hero = document.getElementById('program-hero-cta');
-    const footer = document.getElementById('program-footer-link');
+    const nav = document.getElementById('cfp-nav-link');
+    const hero = document.getElementById('cfp-hero-cta');
+    const footer = document.getElementById('cfp-footer-link');
 
     if (nav) {
         nav.href = cfpHref;
@@ -205,9 +205,9 @@ function showCfpLink(cfpHref) {
 }
 
 function hideCfpLink() {
-    const nav = document.getElementById('program-nav-link');
-    const hero = document.getElementById('program-hero-cta');
-    const footer = document.getElementById('program-footer-link');
+    const nav = document.getElementById('cfp-nav-link');
+    const hero = document.getElementById('cfp-hero-cta');
+    const footer = document.getElementById('cfp-footer-link');
 
     if (nav) nav.style.display = 'none';
     if (hero) hero.style.display = 'none';
