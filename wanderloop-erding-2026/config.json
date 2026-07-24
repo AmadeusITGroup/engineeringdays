@@ -11,6 +11,7 @@
   "contact": "devrel@amadeus.com",
   "cfpUrl": "https://forms.cloud.microsoft/e/GnW7VfLnRv",
   "showCfp": true,
+  "useLiveProgramStats": false,
   "description": "Welcome to Amadeus Wanderloop @ Erding 2026, a conference organized by the Amadeus Developer Relations team.",
   "locations": [
     "Erding, DE"
@@ -58,7 +59,8 @@
       "description": "Transform how engineers & ops work. Leading teams through AI transformation, new engineering skillsets, AI-first engineering practices"
     }
   ],
-  "sessionTypes": [    {
+  "sessionTypes": [
+    {
       "name": "Talk",
       "duration": "35 min",
       "count": 1,

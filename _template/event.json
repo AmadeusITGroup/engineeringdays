@@ -11,6 +11,7 @@
     "contact": "devrel@amadeus.com",
     "cfpUrl": "mailto:devrel@amadeus.com?subject=Talk%20proposal",
     "showCfp": true,
+    "useLiveProgramStats": false,
     "description": "A longer description of the event for the about section.",
     "locations": [
         "Nice FR",

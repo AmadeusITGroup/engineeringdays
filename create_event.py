@@ -356,6 +356,7 @@ def generate_event_json(meta, args):
         },
         "organizer": args.organizer,
         "contact": args.contact,
+        "useLiveProgramStats": False,
         "description": args.description,
         "locations": list(meta["locations"]),
         "stats": stats,
@@ -719,8 +720,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         const response = await fetch('config.json', { cache: 'no-store' });
         const event = await response.json();
-        renderEvent(event);
         await updateProgramLinks(event);
+        renderEvent(event);
     } catch (err) {
         console.warn('Could not load config.json:', err);
     }
@@ -728,7 +729,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 function renderEvent(event) {
     applyMetadata(event);
-    renderStats(event.stats);
+    renderStats(event);
     renderSessionTypes(event.sessionTypes);
     renderTracks(event.tracks);
     renderAboutSection(event);
@@ -775,8 +776,10 @@ function applyMetadata(event) {
     }
 
     const dateEl = document.querySelector('.date-highlight');
-    if (dateEl && event.dates && event.dates.display) {
-        dateEl.textContent = event.dates.display;
+    const liveDates = window.liveProgramStats && window.liveProgramStats.dateRangeDisplay;
+    const displayDates = liveDates || (event.dates && event.dates.display);
+    if (dateEl && displayDates) {
+        dateEl.textContent = displayDates;
     }
 
     if (event.contact) {
@@ -807,13 +810,26 @@ function applyMetadata(event) {
     }
 }
 
-function renderStats(stats) {
+function renderStats(event) {
     const statsGrid = document.getElementById('stats-grid');
+    const stats = event.stats;
     if (!statsGrid || !Array.isArray(stats) || stats.length === 0) {
         return;
     }
 
-    statsGrid.innerHTML = stats.map(stat => `
+    const live = window.liveProgramStats;
+    const displayStats = stats.map(stat => {
+        const label = typeof stat.label === 'string' ? stat.label.toLowerCase() : '';
+        if (live && label === 'sessions') {
+            return { ...stat, number: String(live.sessionsCount) };
+        }
+        if (live && label === 'speakers') {
+            return { ...stat, number: String(live.speakersCount) };
+        }
+        return stat;
+    });
+
+    statsGrid.innerHTML = displayStats.map(stat => `
         <div class="stat-card">
             <div class="stat-icon">${stat.icon || ''}</div>
             <div class="stat-number">${stat.number || ''}</div>
@@ -873,21 +889,26 @@ function renderCodeSnippet(event) {
         return;
     }
 
-    const sessionCount = Array.isArray(event.sessionTypes)
-        ? event.sessionTypes.reduce((total, type) => total + (Number(type.count) || 0), 0)
-        : 0;
+    const live = window.liveProgramStats;
+
+    const sessionStat = Array.isArray(event.stats)
+        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'sessions')
+        : null;
+    const sessionsValue = live ? String(live.sessionsCount) : (sessionStat ? sessionStat.number : 'n/a');
 
     const speakerStat = Array.isArray(event.stats)
         ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'speakers')
         : null;
-    const speakersValue = speakerStat ? speakerStat.number : 'n/a';
+    const speakersValue = live ? String(live.speakersCount) : (speakerStat ? speakerStat.number : 'n/a');
 
     const attendeeStat = Array.isArray(event.stats)
         ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'attendees')
         : null;
     const attendeesValue = attendeeStat ? attendeeStat.number : 'n/a';
 
-    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\\n  <span class="code-property">dates</span>: <span class="code-string">"${(event.dates && event.dates.display) || ''}"</span>,\\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionCount || 'n/a'}</span>,\\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\\n  <span class="code-property">attendees</span>: <span class="code-number">${attendeesValue}</span>,\\n  <span class="code-property">status</span>: <span class="code-string">"configured"</span>\\n};`;
+    const datesValue = (live && live.dateRangeDisplay) || (event.dates && event.dates.display) || '';
+
+    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\\n  <span class="code-property">dates</span>: <span class="code-string">"${datesValue}"</span>,\\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionsValue}</span>,\\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\\n  <span class="code-property">attendees</span>: <span class="code-number">${attendeesValue}</span>,\\n  <span class="code-property">status</span>: <span class="code-string">"configured"</span>\\n};`;
 }
 
 function getCfpHref(eventName, contact) {
@@ -939,11 +960,12 @@ async function updateProgramLinks(event) {
 
     let hasSessions = false;
     let hasProgramPage = false;
+    let sessions = [];
 
     try {
         const sessionsResponse = await fetch('sessions.json', { cache: 'no-store' });
         if (sessionsResponse.ok) {
-            const sessions = await sessionsResponse.json();
+            sessions = await sessionsResponse.json();
             hasSessions = Array.isArray(sessions) && sessions.length > 0;
         }
     } catch (error) {
@@ -962,6 +984,68 @@ async function updateProgramLinks(event) {
     } else {
         switchToCfpMode(cfpHref);
     }
+
+    // Once the program is official, useLiveProgramStats switches sessions/speakers/dates
+    // from the static advertised numbers to values computed live from sessions.json.
+    window.liveProgramStats = (event.useLiveProgramStats && hasSessions)
+        ? computeLiveProgramStats(sessions)
+        : null;
+}
+
+function computeLiveProgramStats(sessions) {
+    const list = Array.isArray(sessions) ? sessions : [];
+    const sessionsCount = list.length;
+
+    const speakerSet = new Set();
+    list.forEach(session => {
+        const names = session['Speaker names'];
+        if (Array.isArray(names)) {
+            names.forEach(name => {
+                if (typeof name === 'string' && name.trim()) {
+                    speakerSet.add(name.trim());
+                }
+            });
+        }
+    });
+
+    const starts = [];
+    const ends = [];
+    list.forEach(session => {
+        const start = session.Start ? new Date(session.Start) : null;
+        const end = session.End ? new Date(session.End) : null;
+        if (start && !Number.isNaN(start.getTime())) {
+            starts.push(start);
+        }
+        if (end && !Number.isNaN(end.getTime())) {
+            ends.push(end);
+        }
+    });
+
+    let dateRangeDisplay = null;
+    if (starts.length && ends.length) {
+        const minStart = new Date(Math.min(...starts));
+        const maxEnd = new Date(Math.max(...ends));
+        dateRangeDisplay = formatLiveDateRange(minStart, maxEnd);
+    }
+
+    return {
+        sessionsCount,
+        speakersCount: speakerSet.size,
+        dateRangeDisplay
+    };
+}
+
+function formatLiveDateRange(start, end) {
+    const dayOpts = { day: 'numeric' };
+    const fullOpts = { day: 'numeric', month: 'long', year: 'numeric' };
+
+    if (start.toDateString() === end.toDateString()) {
+        return start.toLocaleDateString('en-GB', fullOpts);
+    }
+    if (start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth()) {
+        return `${start.toLocaleDateString('en-GB', dayOpts)}-${end.toLocaleDateString('en-GB', fullOpts)}`;
+    }
+    return `${start.toLocaleDateString('en-GB', fullOpts)} - ${end.toLocaleDateString('en-GB', fullOpts)}`;
 }
 """
 
