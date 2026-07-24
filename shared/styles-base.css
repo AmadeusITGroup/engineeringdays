@@ -465,6 +465,14 @@ body {
     opacity: 0.8;
 }
 
+.footer-wordmark {
+    display: block;
+    height: 36px;
+    width: auto;
+    margin: 0 auto var(--spacing-sm);
+    opacity: 1;
+}
+
 /* ===================================
    Responsive
    =================================== */
