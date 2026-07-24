@@ -63,20 +63,26 @@
   "sessionTypes": [
     {
       "name": "Talk",
-      "duration": "35 min",
+      "tag": "35 min",
       "count": 1,
-      "description": ""
+      "description": "Attend a tech talk related to one of our 3 tracks.<br/>We are open to a wide spectrum of topics, tech or adjacent to tech.<br/>Five additional minutes provided for questions."
     },
     {
       "name": "Breakout session",
-      "duration": "90 min",
+      "tag": "90 min",
       "count": 1,
-      "description": ""
+      "description": "Dive at the heart of an exciting topic.<br/>This format allows for a comprehensive presentation & casual exchanges, which can cover large topics, while allowing many concrete examples."
     },
     {
-      "name": "Cocktail & networking",
+      "name": "Closing cocktail",
       "count": 1,
-      "description": ""
+      "highlight": true,
+      "description": "The grand finale!<br/>Amadeus sponsors the venue and catering, while you bring the inspiring small-talk & the afterwork party vibes, to close the day on a high note."
+    },
+    {
+      "name": "Partner booth",
+      "tag": "Exclusive",
+      "description": "Advertise your community, passion or brand on a dedicated booth during lunch time."
     }
   ],
   "colors": {

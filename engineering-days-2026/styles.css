@@ -421,6 +421,92 @@ body {
     max-width: 500px;
     width: 100%;
     border: 1px solid var(--border-color);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+    position: relative;
+}
+
+.code-window.is-peeking-right {
+    transform: translateX(calc(100% - 56px));
+    box-shadow: 0 22px 50px rgba(38, 0, 90, 0.32);
+}
+
+.code-window.is-compiling {
+    box-shadow: 0 0 0 1px rgba(255, 88, 172, 0.6), 0 0 26px rgba(255, 88, 172, 0.45), 0 10px 40px var(--shadow);
+}
+
+.code-window.is-compiling::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 88, 172, 0.22) 0,
+        rgba(255, 88, 172, 0.22) 2px,
+        rgba(182, 80, 255, 0.05) 2px,
+        rgba(182, 80, 255, 0.05) 5px
+    );
+    mix-blend-mode: screen;
+    opacity: 0.75;
+    pointer-events: none;
+    animation: neonScanlines 0.9s linear infinite;
+}
+
+.compile-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 1.1rem;
+    background: rgba(11, 0, 28, 0.9);
+    color: #eecfff;
+    font-family: var(--font-mono);
+    z-index: 2;
+}
+
+.compile-title {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ff8bc7;
+    font-size: 0.74rem;
+}
+
+.compile-status {
+    font-size: 0.86rem;
+    color: #ffffff;
+}
+
+.compile-bar {
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    overflow: hidden;
+}
+
+.compile-bar span {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #ff58ac 0%, #b650ff 50%, #7f61ff 100%);
+    box-shadow: 0 0 14px rgba(255, 88, 172, 0.8);
+    transition: width 0.14s ease;
+}
+
+.compile-percent {
+    font-size: 0.75rem;
+    color: #ffd2ef;
+    text-align: right;
+}
+
+@keyframes neonScanlines {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(5px);
+    }
 }
 
 .window-controls {
@@ -439,6 +525,16 @@ body {
 
 .window-controls span:nth-child(2) {
     background: #ffbd2e;
+    cursor: pointer;
+}
+
+.window-controls span:nth-child(2):hover {
+    transform: scale(1.08);
+}
+
+.window-controls span:nth-child(2):focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.85);
+    outline-offset: 2px;
 }
 
 .window-controls span:nth-child(3) {
@@ -888,6 +984,10 @@ body {
     .hero-graphic {
         order: -1;
         margin-bottom: var(--spacing-md);
+    }
+
+    .code-window.is-peeking-right {
+        transform: translateX(calc(100% - 56px));
     }
     
     .track-card-special {

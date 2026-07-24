@@ -476,23 +476,11 @@ body {
    =================================== */
 
 .footer {
-    background: var(--dark-accent);
+    background: linear-gradient(135deg, #140015 0%, #1d0033 45%, #26005a 100%);
     color: #ffffff;
     padding: var(--spacing-lg) 0 var(--spacing-md);
     position: relative;
-}
-
-.footer::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('backgrounds/amadeus-waves-white.svg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.1;
-    pointer-events: none;
-    z-index: -1;
+    overflow: hidden;
 }
 
 .footer-content {
@@ -502,6 +490,8 @@ body {
     margin-bottom: var(--spacing-md);
     flex-wrap: wrap;
     gap: var(--spacing-md);
+    position: relative;
+    z-index: 1;
 }
 
 .footer-brand {
@@ -578,6 +568,8 @@ body {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     font-size: 0.875rem;
     opacity: 0.8;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-wordmark {

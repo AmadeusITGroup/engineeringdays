@@ -131,10 +131,10 @@ function renderSessionTypes(sessionTypes) {
     }
 
     sessionsGrid.innerHTML = sessionTypes.map(stype => `
-        <div class="session-card">
+        <div class="session-card${stype.highlight ? ' session-card-highlight' : ''}">
             <div class="session-header">
                 <h3>${stype.name || ''}</h3>
-                <span class="session-duration">${stype.duration || (stype.count ? `${stype.count} ${stype.count === 1 ? 'session' : 'sessions'}` : '')}</span>
+                <span class="session-duration">${stype.tag || stype.duration || (stype.count ? `${stype.count} ${stype.count === 1 ? 'session' : 'sessions'}` : '')}</span>
             </div>
             <p>${stype.description || ''}</p>
         </div>

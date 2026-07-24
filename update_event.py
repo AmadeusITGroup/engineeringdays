@@ -101,6 +101,19 @@ def main():
     # Generate updated config. If there are no sessions, keep existing config and switch links to CFP mode.
     if has_sessions:
         event_config = generate_event_json(meta, update_args)
+
+        # Preserve per-session-type highlight flags from existing config.
+        existing_types = {
+            st.get("name"): st
+            for st in existing_config.get("sessionTypes", [])
+            if isinstance(st, dict) and st.get("name")
+        }
+        for st in event_config.get("sessionTypes", []):
+            if not isinstance(st, dict):
+                continue
+            previous = existing_types.get(st.get("name"))
+            if isinstance(previous, dict) and "highlight" in previous:
+                st["highlight"] = previous["highlight"]
     else:
         event_config = dict(existing_config)
 

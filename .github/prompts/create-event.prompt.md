@@ -79,7 +79,7 @@ Editable fields in `<slug>/config.json`:
 - **`dates.display`** — Date string shown on the page
 - **`locations`** — Array of location strings (e.g., `["Nice FR", "London UK"]`)
 - **`tracks`** — Array of track objects with `icon`, `name`, `description`
-- **`sessionTypes`** — Array with `name`, `duration`, `description`
+- **`sessionTypes`** — Array with `name`, optional `tag`, optional `highlight`, `description`
 - **`stats`** — Array of stat cards with `icon`, `number`, `label`, `description`
 - **`contact`** — Contact email
 - **`colors`** — Brand color overrides (`primary`, `secondary`, `accent`)

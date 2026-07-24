@@ -42,7 +42,7 @@ The script will:
 5. Copy sessions into `sessions.json`
 6. Update the root `events.json` registry with session count
 
-User-edited fields are preserved: event name, tagline, description, colors, locations.
+User-edited fields are preserved: event name, tagline, description, colors, locations, `showFeedback`, and per-session-type `highlight` flags (matched by session type name).
 
 ## Step 3: Verify
 
@@ -89,7 +89,7 @@ If you generated the file via `build_sessions_json.py`, it already follows this 
 
 ## Important Notes
 
-- The script preserves any custom edits made to `config.json` fields (name, tagline, description, colors)
+- The script preserves custom edits made to `config.json` fields (name, tagline, description, colors, `showFeedback`, and matching `sessionTypes[].highlight` values)
 - `styles.css` is NOT overwritten — any custom CSS tweaks are preserved
 - If the event doesn't exist yet, use the **Create Event** prompt instead
 - After updating, you can still manually edit `config.json` to tweak track descriptions, icons, etc.

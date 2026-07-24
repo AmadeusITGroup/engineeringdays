@@ -29,8 +29,8 @@
         { "icon": "📊", "name": "AI & Data", "description": "machine learning, analytics" }
     ],
     "sessionTypes": [
-        { "name": "Talk", "duration": "25min", "description": "Short presentation to introduce a topic." },
-        { "name": "Workshop", "duration": "120min", "description": "Hands-on session with attendees." }
+        { "name": "Talk", "tag": "25min", "highlight": false, "description": "Short presentation to introduce a topic." },
+        { "name": "Workshop", "tag": "120min", "highlight": false, "description": "Hands-on session with attendees." }
     ],
     "colors": {
         "primary": "#26005a",

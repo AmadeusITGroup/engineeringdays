@@ -335,14 +335,14 @@ def generate_event_json(meta, args):
             meta["session_types"].items(), key=lambda x: -x[1]
         ):
             session_types.append(
-                {"name": stype_name, "count": count, "description": ""}
+                {"name": stype_name, "count": count, "highlight": False, "description": ""}
             )
     else:
         # CFP mode: provide example session types
         session_types = [
-            {"name": "Talk", "duration": "45 min", "description": "Standard presentation with Q&A"},
-            {"name": "Workshop", "duration": "90 min", "description": "Hands-on interactive session"},
-            {"name": "Lightning Talk", "duration": "10 min", "description": "Short focused presentation"},
+            {"name": "Talk", "tag": "45 min", "highlight": False, "description": "Standard presentation with Q&A"},
+            {"name": "Workshop", "tag": "90 min", "highlight": False, "description": "Hands-on interactive session"},
+            {"name": "Lightning Talk", "tag": "10 min", "highlight": False, "description": "Short focused presentation"},
         ]
 
     return {

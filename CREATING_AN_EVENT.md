@@ -85,6 +85,7 @@ Just tell Copilot in plain English. Here are some examples:
 | Different description | _"Change the about section to talk about sustainability and innovation"_ |
 | Change colors | _"Make the event colors blue and green instead of purple"_ |
 | Toggle feedback links | _"Set `showFeedback` to `true` in my event's `config.json`"_ |
+| Highlight one session type card | _"In `sessionTypes`, set `highlight: true` for Closing cocktail and use `tag: \"Exclusive\"`"_ |
 | Fix the date display | _"The date should say 15-16 June 2027"_ |
 | Move between sections | _"This event should be in the upcoming section, not past"_ |
 | Update sessions later | _"Update the sessions for hackathon-2027 with this new file"_ |

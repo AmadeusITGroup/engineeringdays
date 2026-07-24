@@ -66,7 +66,7 @@ Each event has a `config.json` file that controls what's displayed on the websit
 | `dates.display` | Date string shown on the page | `"29-30 April 2026"` |
 | `locations` | Array of hosting sites | `["Nice FR", "London UK"]` |
 | `tracks[]` | Track cards (icon, name, description) | `{"icon": "🤖", "name": "AI & Data", "description": "..."}` |
-| `sessionTypes[]` | Session type cards | `{"name": "Talk", "count": 42, "description": "..."}` |
+| `sessionTypes[]` | Session type cards (`name`, optional `tag`, optional `highlight`, `description`) | `{"name": "Closing cocktail", "tag": "Exclusive", "highlight": true, "description": "..."}` |
 | `stats[]` | Stat cards in the about section | `{"icon": "🎤", "number": "126+", "label": "Sessions"}` |
 | `organizer` | Team name in nav/footer | `"DevRel"` |
 | `contact` | Contact email for mailto links | `"devrel@amadeus.com"` |

@@ -109,4 +109,93 @@
         window.addEventListener('scroll', updateScrollCueVisibility, { passive: true });
         window.addEventListener('resize', updateScrollCueVisibility);
     }
+
+    // Easter egg: click yellow Mac control to slide the code window partly out on the right.
+    const codeWindow = document.querySelector('.code-window');
+    const yellowControl = document.querySelector('.window-controls span:nth-child(2)');
+    if (codeWindow && yellowControl) {
+        yellowControl.setAttribute('role', 'button');
+        yellowControl.setAttribute('tabindex', '0');
+        yellowControl.setAttribute('aria-label', 'Toggle code window peek mode');
+
+        const togglePeek = () => {
+            codeWindow.classList.toggle('is-peeking-right');
+        };
+
+        yellowControl.addEventListener('click', togglePeek);
+        yellowControl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                togglePeek();
+            }
+        });
+    }
+
+    if (codeWindow) {
+        const compileMessages = [
+            'Initializing conference chaos module...',
+            'Linting slide decks for missing semicolons...',
+            'Defragmenting timetable to avoid lunch-time keynotes...',
+            'Reprinting signage after "minor" branding tweak...',
+            'Verifying Wi-Fi can survive live demos...',
+            'Locking speaker lineup and hiding the edit button...'
+        ];
+
+        const runCompileEasterEgg = () => {
+            if (codeWindow.classList.contains('is-compiling')) return;
+
+            codeWindow.classList.add('is-compiling');
+
+            const overlay = document.createElement('div');
+            overlay.className = 'compile-overlay';
+            overlay.innerHTML = [
+                '<div class="compile-title">EVENT BUILD PIPELINE</div>',
+                '<div class="compile-status" aria-live="polite">Compiling talks...</div>',
+                '<div class="compile-bar"><span></span></div>',
+                '<div class="compile-percent">0%</div>'
+            ].join('');
+
+            codeWindow.appendChild(overlay);
+
+            const statusEl = overlay.querySelector('.compile-status');
+            const barEl = overlay.querySelector('.compile-bar span');
+            const percentEl = overlay.querySelector('.compile-percent');
+
+            const stageCount = compileMessages.length;
+            const stageDelayMs = 1200;
+            let stageIndex = 0;
+
+            if (statusEl) statusEl.textContent = compileMessages[stageIndex];
+            if (barEl) barEl.style.width = '0%';
+            if (percentEl) percentEl.textContent = '0%';
+
+            const advanceStage = () => {
+                stageIndex += 1;
+
+                if (stageIndex < stageCount) {
+                    const progress = Math.round((stageIndex / stageCount) * 100);
+                    if (statusEl) statusEl.textContent = compileMessages[stageIndex];
+                    if (barEl) barEl.style.width = `${progress}%`;
+                    if (percentEl) percentEl.textContent = `${progress}%`;
+
+                    window.setTimeout(advanceStage, stageDelayMs);
+                    return;
+                }
+
+                if (barEl) barEl.style.width = '100%';
+                if (percentEl) percentEl.textContent = '100%';
+
+                if (statusEl) statusEl.textContent = 'Build complete. Schedule shipped, sanity pending.';
+
+                window.setTimeout(() => {
+                    overlay.remove();
+                    codeWindow.classList.remove('is-compiling');
+                }, 5000);
+            };
+
+            window.setTimeout(advanceStage, stageDelayMs);
+        };
+
+        codeWindow.addEventListener('dblclick', runCompileEasterEgg);
+    }
 })();
