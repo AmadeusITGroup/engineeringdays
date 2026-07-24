@@ -452,11 +452,12 @@ def generate_index_html(event_config, has_sessions=True):
                 <div class="nav-byline">by {organizer}</div>
             </div>
             <div class="nav-links">
-                <a href="../index.html">All Events</a>
                 <a href="#about">About</a>
                 <a id="program-nav-link" href="{nav_program_href}">{nav_program_text}</a>
                 <a href="#tracks">Tracks</a>
                 <a id="nav-contact-link" href="mailto:{contact}">Contact</a>
+                <span class="nav-separator">|</span>
+                <a href="../index.html">All events</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                     <span class="icon-sun">☀️</span>
                     <span class="icon-moon">🌙</span>
