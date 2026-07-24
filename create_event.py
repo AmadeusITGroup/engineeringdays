@@ -574,9 +574,10 @@ def generate_index_html(event_config, has_sessions=True):
                     <p class="footer-tagline">An Amadeus event</p>
                 </div>
                 <div class="footer-links">
-                    <a href="../index.html">All Events</a>
                     <a id="program-footer-link" href="{footer_program_href}">{footer_program_text}</a>
                     <a id="footer-contact-link" href="mailto:{contact}">Contact</a>
+                    <span class="nav-separator">|</span>
+                    <a href="../index.html">All events</a>
                 </div>
             </div>
             <div class="footer-bottom">
