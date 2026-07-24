@@ -162,6 +162,10 @@ body {
     width: 100%;
 }
 
+.nav-links a.always-underline::after {
+    width: 100%;
+}
+
 .nav-links a.cfp-link {
     color: var(--accent);
     font-weight: 700;
@@ -169,6 +173,15 @@ body {
 
 .nav-links a.cfp-link::after {
     background: var(--accent);
+}
+
+.nav-links a.program-link {
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.nav-links a.program-link::after {
+    background: var(--secondary);
 }
 
 /* Theme Toggle */
@@ -343,6 +356,15 @@ body {
 
 .footer-links a.cfp-link:hover {
     color: var(--secondary);
+}
+
+.footer-links a.program-link {
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.footer-links a.program-link:hover {
+    color: var(--accent);
 }
 
 .footer-bottom {
