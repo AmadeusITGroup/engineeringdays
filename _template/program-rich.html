@@ -235,7 +235,7 @@
             transform: translateY(-4px);
             box-shadow: 0 10px 30px var(--shadow);
             border-color: var(--accent);
-            box-shadow: 0 0 0 1px rgba(255, 88, 172, 0.3), 0 0 8px rgba(255, 88, 172, 0.26), 0 0 16px rgba(255, 88, 172, 0.2), 0 10px 30px var(--shadow);
+            box-shadow: 0 0 0 1px rgba(255, 88, 172, 0.34), 0 0 14px rgba(255, 88, 172, 0.3), 0 0 30px rgba(255, 88, 172, 0.24), 0 0 48px rgba(255, 88, 172, 0.14), 0 10px 30px var(--shadow);
         }
         .session-track-bar { height: 4px; }
         .session-content { padding: var(--spacing-md); }
@@ -289,7 +289,7 @@
             display: grid;
             grid-template-columns: 70px repeat(var(--room-count), minmax(180px, 1fr));
             background: var(--card-bg);
-            border-bottom: 2px solid var(--secondary);
+            border-bottom: 2px solid #d93d86;
         }
         .timeline-head div {
             font-size: 0.75rem;
@@ -356,7 +356,7 @@
         .timeline-session:hover {
             z-index: 20;
             border-color: rgba(255, 88, 172, 0.65);
-            box-shadow: 0 0 0 1px rgba(255, 88, 172, 0.28), 0 0 8px rgba(255, 88, 172, 0.24), 0 0 14px rgba(255, 88, 172, 0.18);
+            box-shadow: 0 0 0 1px rgba(255, 88, 172, 0.32), 0 0 12px rgba(255, 88, 172, 0.26), 0 0 24px rgba(255, 88, 172, 0.22), 0 0 36px rgba(255, 88, 172, 0.12);
         }
         .timeline-session.can-expand:hover {
             height: max-content !important;
@@ -703,8 +703,70 @@
         let allSessions = [];
         let showFeedback = false;
 
+        const FLASHY_TRACK_PALETTE = ['#00b8ff', '#ff2fb2', '#a855f7', '#4f46e5', '#06b6d4', '#ec4899', '#7c3aed', '#2563eb'];
+        const trackColorCache = {};
+
+        function hexToRgb(hex) {
+            const clean = String(hex || '').replace('#', '').trim();
+            if (!/^[0-9a-fA-F]{6}$/.test(clean)) return null;
+            return {
+                r: parseInt(clean.slice(0, 2), 16),
+                g: parseInt(clean.slice(2, 4), 16),
+                b: parseInt(clean.slice(4, 6), 16)
+            };
+        }
+
+        function channelToLinear(channel) {
+            const s = channel / 255;
+            return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+        }
+
+        function contrastWithWhite(rgb) {
+            const luminance = (0.2126 * channelToLinear(rgb.r)) + (0.7152 * channelToLinear(rgb.g)) + (0.0722 * channelToLinear(rgb.b));
+            return 1.05 / (luminance + 0.05);
+        }
+
+        function darkenRgb(rgb, factor) {
+            return {
+                r: Math.max(0, Math.min(255, Math.round(rgb.r * factor))),
+                g: Math.max(0, Math.min(255, Math.round(rgb.g * factor))),
+                b: Math.max(0, Math.min(255, Math.round(rgb.b * factor)))
+            };
+        }
+
+        function rgbToHex(rgb) {
+            const toHex = (v) => v.toString(16).padStart(2, '0');
+            return `#${toHex(rgb.r)}${toHex(rgb.g)}${toHex(rgb.b)}`;
+        }
+
+        function ensureWhiteTextContrast(hex, minContrast = 4.5) {
+            const rgb = hexToRgb(hex);
+            if (!rgb) return '#ff2fb2';
+            let adjusted = rgb;
+            let attempts = 0;
+            while (contrastWithWhite(adjusted) < minContrast && attempts < 12) {
+                adjusted = darkenRgb(adjusted, 0.88);
+                attempts += 1;
+            }
+            return rgbToHex(adjusted);
+        }
+
+        function hashTrackName(name) {
+            let hash = 0;
+            for (let i = 0; i < name.length; i += 1) {
+                hash = ((hash << 5) - hash) + name.charCodeAt(i);
+                hash |= 0;
+            }
+            return Math.abs(hash);
+        }
+
         function getTrackColor(name) {
-            return TRACK_COLORS[name] || '#6b7280';
+            if (!name) return '#ff2fb2';
+            if (!trackColorCache[name]) {
+                const index = hashTrackName(name) % FLASHY_TRACK_PALETTE.length;
+                trackColorCache[name] = ensureWhiteTextContrast(FLASHY_TRACK_PALETTE[index]);
+            }
+            return trackColorCache[name];
         }
 
         function getTrack(session) {
@@ -830,10 +892,10 @@
             const safeRooms = rooms.length ? rooms : ['General'];
             const starts = sessions.map(s => s.start.getHours() * 60 + s.start.getMinutes());
             const ends = sessions.map(s => s.start.getHours() * 60 + s.start.getMinutes() + s.durationMins);
-            const startMin = Math.floor(Math.min(...starts) / 30) * 30;
-            const endMin = Math.ceil(Math.max(...ends) / 30) * 30;
+            const startMin = Math.min(...starts);
+            const endMin = Math.max(...ends);
             const ppm = 1.8;
-            const height = Math.max(360, (endMin - startMin) * ppm + 40);
+            const height = Math.max(120, (endMin - startMin) * ppm + 8);
 
             const slots = [];
             for (let minute = startMin; minute <= endMin; minute += 30) slots.push(minute);
@@ -850,7 +912,7 @@
                 const lines = slots.map(minute => `<div class="timeline-grid-line" style="top:${(minute - startMin) * ppm}px"></div>`).join('');
                 const cards = roomSessions.map(s => {
                     const top = ((s.start.getHours() * 60 + s.start.getMinutes()) - startMin) * ppm;
-                    const h = Math.max(48, s.durationMins * ppm);
+                    const h = s.durationMins * ppm;
                     return `<article class="timeline-session" data-session-code="${s.id}" style="top:${top}px;height:${h}px;border-left-color:${getTrackColor(s.track)}"><div class="timeline-session-time">${formatClock(s.start)} • ${s.type || 'Session'}</div><div class="timeline-session-title">${s.title}</div>${s.speakers ? `<div class="timeline-session-speaker">${s.speakers}</div>` : ''}${renderFeedbackLink(s, 'timeline-session-feedback', 'Feedback')}</article>`;
                 }).join('');
                 return `<div class="timeline-room-col" style="height:${height}px">${lines}${cards}</div>`;
