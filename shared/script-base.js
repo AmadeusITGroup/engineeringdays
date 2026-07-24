@@ -51,9 +51,11 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
+            const href = this.getAttribute('href');
+            const target = document.querySelector(href);
             if (target) {
-                const offsetTop = target.offsetTop - 80;
+                const scheduleAdjustment = href === '#schedule' ? -16 : 0;
+                const offsetTop = target.offsetTop - 80 + scheduleAdjustment;
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             }
         });
