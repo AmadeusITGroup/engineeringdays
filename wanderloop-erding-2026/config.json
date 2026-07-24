@@ -1,7 +1,7 @@
 {
   "eventName": "Wanderloop Erding 2026",
   "eventSlug": "wanderloop-erding-2026",
-  "tagline": "Compiled exploration, out-of-bounds curiosity",
+  "tagline": "Compiled exploration focusing on AIOps, platforming at scale & AI-first teams",
   "dates": {
     "start": "2026-11-10T09:00:00+01:00",
     "end": "2026-11-11T18:00:00+01:00",
@@ -67,7 +67,7 @@
       "description": ""
     },
     {
-      "name": "Unconference",
+      "name": "Breakout session",
       "duration": "90 min",
       "count": 1,
       "description": ""
