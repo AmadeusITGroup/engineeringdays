@@ -297,7 +297,8 @@
 .session-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -317,6 +318,7 @@
     font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
+    margin-top: 0.2rem;
 }
 
 /* Tracks Section */
