@@ -3,74 +3,71 @@
   "eventSlug": "wanderloop-erding-2026",
   "tagline": "Compiled exploration, out-of-bounds curiosity",
   "dates": {
-    "start": "2026-11-10T09:00:00+01:00",
-    "end": "2026-11-11T18:00:00+01:00",
-    "display": "10-11 November 2026"
+    "start": "2026-11-11T13:00:00+01:00",
+    "end": "2026-11-11T17:30:00+01:00",
+    "display": "11 November 2026"
   },
   "organizer": "Amadeus DevRel",
   "contact": "devrel@amadeus.com",
   "description": "Welcome to Amadeus Wanderloop @ Erding 2026, a conference organized by the Amadeus Developer Relations team.",
   "locations": [
-    "Erding DE"
+    "Erding, Germany"
   ],
   "stats": [
     {
       "icon": "🎙️",
-      "number": "30+",
+      "number": "14+",
       "label": "Sessions",
-      "description": "Tech talks, hands-on workshops & more"
+      "description": "Tech talks and hands-on workshops"
     },
     {
       "icon": "🗣️",
-      "number": "30+",
+      "number": "11",
       "label": "Speakers",
       "description": "Sharing their expertise"
     },
     {
-      "icon": "👥",
-      "number": "80+",
-      "label": "Attendees",
-      "description": "To connect with"
-    },
-    {
-      "icon": "🤝",
-      "number": "5",
-      "label": "Partners",
-      "description": "Participating, with booths & demos"
+      "icon": "🌐",
+      "number": "1",
+      "label": "Sites",
+      "description": "Hosting the event"
     }
   ],
   "tracks": [
     {
-      "icon": "🤖",
-      "name": "AIOps",
-      "description": "Transform how services are operated. No touch ops, autonomous platform agents, predictive observability, self-healing architectures, intelligent monitoring"
+      "icon": "📊",
+      "name": "AIOps, Operations",
+      "description": ""
     },
     {
-      "icon": "🛠️",
-      "name": "Platforming at scale",
-      "description": "Transform how systems are built to cope with an AI-assisted workload. Operational excellence, culture of stability, resilience & security, AI-DLC, fleet management, internal developer platforms & knowledge graphs"
-    },
-    {
-      "icon": "👩‍💻",
-      "name": "AI-first teams",
-      "description": "Transform how engineers & ops work. Leading teams through AI transformation, new engineering skillsets, AI-first engineering practices"
+      "icon": "👔",
+      "name": "Leadership, People",
+      "description": ""
     }
   ],
   "sessionTypes": [
     {
+      "name": "Networking booth",
+      "count": 5,
+      "description": ""
+    },
+    {
       "name": "Talk",
-      "duration": "35 min",
+      "count": 4,
+      "description": ""
+    },
+    {
+      "name": "Breakout session",
+      "count": 3,
+      "description": ""
+    },
+    {
+      "name": "Welcome",
       "count": 1,
       "description": ""
     },
     {
-      "name": "Unconference",
-      "duration": "90 min",
-      "count": 1,
-      "description": ""
-    },
-    {
-      "name": "Cocktail & networking",
+      "name": "Closing",
       "count": 1,
       "description": ""
     }

@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program | Wanderloop Erding 2026</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="stylesheet" href="../shared/styles-base.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .program-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-accent) 50%, var(--secondary) 100%);
+            padding: calc(80px + var(--spacing-xl)) var(--spacing-md) var(--spacing-xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .program-hero .container { position: relative; z-index: 1; }
+        .program-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: var(--spacing-sm);
+        }
+        .program-hero .subtitle {
+            font-size: 1.15rem;
+            color: var(--highlight-light);
+            margin-bottom: var(--spacing-md);
+        }
+        .program-dates {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            justify-content: center;
+        }
+        .date-card {
+            background: rgba(255, 255, 255, 0.14);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-lg);
+            min-width: 140px;
+            padding: 0.55rem 0.95rem;
+            text-align: center;
+        }
+        .date-card .day-name {
+            color: var(--highlight-light);
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .date-card .day-number {
+            color: #fff;
+            font-size: 2rem;
+            line-height: 1.1;
+            font-weight: 900;
+        }
+        .date-card .month {
+            color: #fff;
+            opacity: 0.92;
+            font-size: 0.85rem;
+        }
+        .filters-section {
+            background: var(--card-bg);
+            border-bottom: 2px solid var(--border-color);
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+            padding: var(--spacing-sm) 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .filters-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+        .filter-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .filter-select {
+            padding: 0.4rem 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.8rem;
+            min-width: 130px;
+        }
+        .filter-select:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(182, 80, 255, 0.2);
+        }
+        .view-toggle {
+            display: flex;
+            gap: 0.15rem;
+            background: var(--bg-light);
+            padding: 0.2rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+        }
+        [data-theme="dark"] .view-toggle { background: var(--dark-accent); }
+        .view-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.35rem 0.55rem;
+            border-radius: var(--radius-sm);
+        }
+        .view-btn.active {
+            background: var(--secondary);
+            color: white;
+        }
+        .track-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            justify-content: center;
+            margin-top: var(--spacing-xs);
+            padding-top: var(--spacing-xs);
+            border-top: 1px solid var(--border-color);
+        }
+        .track-pill {
+            padding: 0.25rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid transparent;
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            opacity: 0.55;
+        }
+        .track-pill.active {
+            opacity: 1;
+            color: white;
+        }
+        [data-theme="dark"] .track-pill { background: var(--dark-accent); }
+        .results-info {
+            text-align: center;
+            padding: var(--spacing-sm);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            background: var(--bg-light);
+        }
+        [data-theme="dark"] .results-info { background: var(--dark-accent); }
+        .results-count { font-weight: 700; color: var(--secondary); }
+        .clear-filters {
+            background: none;
+            border: none;
+            color: var(--accent);
+            text-decoration: underline;
+            cursor: pointer;
+            margin-left: 0.7rem;
+            font-weight: 600;
+        }
+        .program-schedule {
+            padding: var(--spacing-lg) 0 var(--spacing-xl);
+            min-height: 55vh;
+        }
+        .schedule-day { margin-bottom: var(--spacing-lg); }
+        .day-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0 var(--spacing-sm);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 3px solid var(--secondary);
+        }
+        .day-header h2 { margin: 0; color: var(--primary); font-size: 1.45rem; }
+        [data-theme="dark"] .day-header h2 { color: var(--secondary); }
+        .session-count {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            background: var(--bg-light);
+            border-radius: 999px;
+            padding: 0.2rem 0.6rem;
+            font-weight: 600;
+        }
+        .sessions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--spacing-md);
+        }
+        .session-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .session-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px var(--shadow);
+            border-color: var(--secondary);
+        }
+        .session-track-bar { height: 4px; }
+        .session-content { padding: var(--spacing-md); }
+        .session-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: var(--spacing-xs); }
+        .session-meta span {
+            font-size: 0.72rem;
+            border-radius: var(--radius-sm);
+            padding: 0.2rem 0.45rem;
+            font-weight: 600;
+        }
+        .session-time { background: var(--primary); color: white; font-family: var(--font-mono); }
+        .session-type, .session-room { background: var(--bg-light); color: var(--text-secondary); }
+        [data-theme="dark"] .session-type,
+        [data-theme="dark"] .session-room { background: var(--dark-accent); }
+        .session-title { margin: 0 0 0.35rem 0; font-size: 1rem; line-height: 1.35; }
+        .session-speakers { margin: 0; color: var(--accent); font-size: 0.85rem; font-weight: 500; }
+        .session-track {
+            display: inline-block;
+            margin-top: 0.45rem;
+            color: white;
+            font-size: 0.68rem;
+            border-radius: var(--radius-sm);
+            padding: 0.15rem 0.45rem;
+            font-weight: 600;
+        }
+        .feedback-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-top: 0.6rem;
+            color: var(--secondary);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .feedback-link:hover { color: var(--accent); }
+        .feedback-link svg {
+            width: 14px;
+            height: 14px;
+        }
+        .timeline-wrapper {
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--card-bg);
+        }
+        .timeline-scroll { overflow-x: auto; }
+        .timeline-inner { min-width: 760px; }
+        .timeline-head {
+            display: grid;
+            grid-template-columns: 70px repeat(var(--room-count), minmax(180px, 1fr));
+            background: var(--card-bg);
+            border-bottom: 2px solid var(--secondary);
+        }
+        .timeline-head div {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+            padding: 0.5rem 0.35rem;
+            border-right: 1px solid var(--border-color);
+        }
+        .timeline-head div:first-child {
+            background: var(--bg-light);
+            border-right: 2px solid var(--secondary);
+        }
+        .timeline-body {
+            display: grid;
+            grid-template-columns: 70px repeat(var(--room-count), minmax(180px, 1fr));
+            position: relative;
+            min-height: 420px;
+        }
+        .timeline-time-col {
+            position: relative;
+            background: var(--bg-light);
+            border-right: 2px solid var(--secondary);
+        }
+        .timeline-room-col {
+            position: relative;
+            border-right: 1px solid var(--border-color);
+        }
+        .timeline-grid-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-top: 1px dashed var(--border-color);
+        }
+        .timeline-time-label {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.68rem;
+            font-family: var(--font-mono);
+            color: var(--primary);
+            background: var(--bg-light);
+            padding: 0 0.25rem;
+        }
+        .timeline-session {
+            position: absolute;
+            left: 0.3rem;
+            right: 0.3rem;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--secondary);
+            background: var(--card-bg);
+            padding: 0.35rem 0.45rem;
+            overflow: hidden;
+        }
+        .timeline-session-time {
+            font-size: 0.68rem;
+            color: var(--secondary);
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+        }
+        .timeline-session-title { font-size: 0.78rem; font-weight: 700; line-height: 1.3; }
+        .timeline-session-speaker { font-size: 0.68rem; color: var(--text-secondary); margin-top: 0.12rem; }
+        .timeline-session-feedback {
+            margin-top: 0.25rem;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.2rem;
+        }
+        .timeline-session-feedback svg {
+            width: 12px;
+            height: 12px;
+        }
+        .session-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 1200;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s, visibility 0.2s;
+        }
+        .session-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .session-modal {
+            background: var(--card-bg);
+            border-radius: var(--radius-lg);
+            max-width: 720px;
+            width: 100%;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            transform: scale(0.96) translateY(16px);
+            transition: transform 0.2s;
+        }
+        .session-modal-overlay.active .session-modal {
+            transform: scale(1) translateY(0);
+        }
+        .session-modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        .session-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .session-modal-close:hover {
+            background: var(--secondary);
+            color: #fff;
+        }
+        .session-modal-track {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+        .session-modal-title {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.45rem;
+            line-height: 1.3;
+            padding-right: 2rem;
+        }
+        .session-modal-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+        }
+        .session-modal-body {
+            padding: 1.4rem;
+            overflow-y: auto;
+            flex: 1;
+        }
+        .session-modal-speakers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            margin-bottom: 1rem;
+        }
+        .session-modal-speaker {
+            padding: 0.45rem 0.8rem;
+            border-radius: var(--radius-md);
+            background: var(--bg-light);
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .session-modal-description {
+            color: var(--text-color);
+            line-height: 1.65;
+            font-size: 0.95rem;
+        }
+        .session-modal-footer {
+            padding: 1rem 1.4rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            align-items: center;
+        }
+        .session-modal-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.7rem 1.1rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.86rem;
+            border: none;
+            cursor: pointer;
+        }
+        .session-modal-btn-primary {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: #fff;
+        }
+        .session-modal-btn-secondary {
+            background: var(--bg-light);
+            color: var(--text-color);
+        }
+        [data-theme="dark"] .session-modal-close,
+        [data-theme="dark"] .session-modal-speaker,
+        [data-theme="dark"] .session-modal-btn-secondary {
+            background: var(--dark-accent);
+        }
+        .no-results {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--text-secondary);
+        }
+        .no-results h3 { margin-bottom: var(--spacing-sm); color: var(--text-color); }
+        @media (max-width: 900px) {
+            .filters-container { justify-content: flex-start; }
+            .sessions-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 700px) {
+            .date-card { flex: 1 1 45%; min-width: 120px; }
+            .filter-group { width: 100%; }
+            .filter-select { width: 100%; min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-brand">
+                <div class="nav-logo-line">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">Wanderloop Erding 2026</span>
+                    <span class="logo-bracket">/&gt;</span>
+                </div>
+                <div class="nav-byline">by Amadeus DevRel</div>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">All Events</a>
+                <a href="index.html">Home</a>
+                <a href="#schedule">Schedule</a>
+                <a href="mailto:devrel@amadeus.com">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="icon-sun">☀️</span>
+                    <span class="icon-moon">🌙</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="program-hero">
+        <div class="container">
+            <h1>Conference Program</h1>
+            <p class="subtitle">Wanderloop Erding 2026 — 11 November 2026</p>
+            <div class="program-dates" id="program-dates"></div>
+        </div>
+    </header>
+
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <label class="filter-label" for="day-filter">Day</label>
+                    <select id="day-filter" class="filter-select"><option value="">All Days</option></select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="track-filter">Track</label>
+                    <select id="track-filter" class="filter-select"><option value="">All Tracks</option></select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="type-filter">Type</label>
+                    <select id="type-filter" class="filter-select"><option value="">All Types</option></select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="room-filter">Room</label>
+                    <select id="room-filter" class="filter-select"><option value="">All Rooms</option></select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label" for="timezone-filter">Timezone</label>
+                    <select id="timezone-filter" class="filter-select"></select>
+                </div>
+                <div class="filter-group">
+                    <label class="filter-label">View</label>
+                    <div class="view-toggle">
+                        <button class="view-btn" data-view="grid">Grid</button>
+                        <button class="view-btn active" data-view="timeline">Timeline</button>
+                    </div>
+                </div>
+            </div>
+            <div class="track-filters" id="track-filters"></div>
+        </div>
+    </section>
+
+    <div class="results-info"><span id="results-text">Loading sessions...</span></div>
+
+    <section id="schedule" class="program-schedule">
+        <div class="container" id="schedule-container">
+            <div class="no-results"><h3>Loading program</h3><p>Fetching sessions data...</p></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-bracket">&lt;</span>
+                    <span class="logo-text">Wanderloop Erding 2026</span>
+                    <span class="logo-bracket">/&gt;</span>
+                    <p class="footer-tagline">An Amadeus Event</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">All Events</a>
+                    <a href="index.html">Home</a>
+                    <a href="mailto:devrel@amadeus.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Amadeus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../shared/script-base.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        const TRACK_COLORS = {"AIOps, Operations": "#2218a8", "Leadership, People": "#b650ff"};
+        const OPENFEEDBACK_BASE = "".trim();
+        const CONTACT_EMAIL = "devrel@amadeus.com";
+        const TIMEZONE_OPTIONS = [
+            ['Australia/Sydney', 'Sydney'],
+            ['Asia/Kolkata', 'Bengaluru'],
+            ['Europe/Paris', 'Paris'],
+            ['Europe/Berlin', 'Berlin'],
+            ['Europe/London', 'London'],
+            ['UTC', 'UTC'],
+            ['America/Chicago', 'Chicago']
+        ];
+
+        const activeFilters = { day: '', track: '', type: '', room: '' };
+        let currentView = 'timeline';
+        let timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+        let allSessions = [];
+
+        function getTrackColor(name) {
+            return TRACK_COLORS[name] || '#6b7280';
+        }
+
+        function getTrack(session) {
+            if (typeof session.Track === 'object' && session.Track) return session.Track.en || '';
+            return session.Track || '';
+        }
+
+        function getType(session) {
+            const value = session['Session type'];
+            if (typeof value === 'object' && value) return value.en || '';
+            return value || '';
+        }
+
+        function getRoom(session) {
+            if (typeof session.Room === 'object' && session.Room) return session.Room.en || '';
+            return session.Room || '';
+        }
+
+        function normalizeSession(session) {
+            const start = session.Start ? new Date(session.Start) : null;
+            const end = session.End ? new Date(session.End) : null;
+            if (!start || Number.isNaN(start.getTime())) return null;
+            const durationMins = end && !Number.isNaN(end.getTime()) ? Math.max(15, Math.round((end - start) / 60000)) : 45;
+            return {
+                id: session.ID || session.id || Math.random().toString(36).slice(2),
+                title: session['Proposal title'] || session.title || 'Untitled',
+                speakersList: (session['Speaker names'] || []).filter(Boolean),
+                speakers: (session['Speaker names'] || []).join(', '),
+                track: getTrack(session),
+                type: getType(session),
+                room: getRoom(session),
+                description: session.Description || session.description || '',
+                start,
+                durationMins,
+                dayKey: start.toISOString().slice(0, 10)
+            };
+        }
+
+        function getFeedbackUrl(session) {
+            if (OPENFEEDBACK_BASE) {
+                const base = OPENFEEDBACK_BASE.replace(/\/$/, '');
+                return `${base}/${session.dayKey}/${session.id}`;
+            }
+            return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Feedback for ${session.title}`)}`;
+        }
+
+        function toDayLabel(dayKey) {
+            return new Date(dayKey + 'T00:00:00').toLocaleDateString([], { weekday: 'long', day: 'numeric', month: 'long' });
+        }
+
+        function formatClock(date) {
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', timeZone: timezone });
+        }
+
+        function createDateCards(days) {
+            const container = document.getElementById('program-dates');
+            container.innerHTML = days.map(dayKey => {
+                const d = new Date(dayKey + 'T00:00:00');
+                return `<div class="date-card"><div class="day-name">${d.toLocaleDateString([], { weekday: 'long' })}</div><div class="day-number">${d.getDate()}</div><div class="month">${d.toLocaleDateString([], { month: 'long', year: 'numeric' })}</div></div>`;
+            }).join('');
+        }
+
+        function setSelectOptions(id, values) {
+            const select = document.getElementById(id);
+            const first = select.options[0].outerHTML;
+            select.innerHTML = first + values.map(v => `<option value="${v}">${v}</option>`).join('');
+        }
+
+        function setupTimezoneFilter() {
+            const select = document.getElementById('timezone-filter');
+            select.innerHTML = TIMEZONE_OPTIONS.map(([value, label]) => `<option value="${value}" ${value === timezone ? 'selected' : ''}>${label}</option>`).join('');
+            select.addEventListener('change', () => {
+                timezone = select.value;
+                renderSessions();
+            });
+        }
+
+        function getFilteredSessions() {
+            return allSessions
+                .filter(s => !activeFilters.day || s.dayKey === activeFilters.day)
+                .filter(s => !activeFilters.track || s.track === activeFilters.track)
+                .filter(s => !activeFilters.type || s.type === activeFilters.type)
+                .filter(s => !activeFilters.room || s.room === activeFilters.room)
+                .sort((a, b) => a.start - b.start);
+        }
+
+        function renderTrackPills(tracks) {
+            const el = document.getElementById('track-filters');
+            const allActive = activeFilters.track === '';
+            const allPill = `<button class="track-pill ${allActive ? 'active' : ''}" data-track="" style="${allActive ? 'background: var(--secondary); opacity: 1;' : ''}">All Tracks</button>`;
+            const pills = tracks.map(track => {
+                const active = activeFilters.track === track;
+                const color = getTrackColor(track);
+                return `<button class="track-pill ${active ? 'active' : ''}" data-track="${track}" style="${active ? `background: ${color}; opacity: 1;` : ''}">${track}</button>`;
+            }).join('');
+            el.innerHTML = allPill + pills;
+            el.querySelectorAll('.track-pill').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    activeFilters.track = btn.dataset.track || '';
+                    document.getElementById('track-filter').value = activeFilters.track;
+                    renderTrackPills(tracks);
+                    renderSessions();
+                });
+            });
+        }
+
+        function renderGridDay(dayLabel, sessions) {
+            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${sessions.length} sessions</span></div><div class="sessions-grid">${sessions.map(s => `<article class="session-card" data-session-code="${s.id}"><div class="session-track-bar" style="background: ${getTrackColor(s.track)}"></div><div class="session-content"><div class="session-meta"><span class="session-time">${formatClock(s.start)}</span>${s.type ? `<span class="session-type">${s.type}</span>` : ''}${s.room ? `<span class="session-room">${s.room}</span>` : ''}</div><h3 class="session-title">${s.title}</h3>${s.speakers ? `<p class="session-speakers">${s.speakers}</p>` : ''}${s.track ? `<span class="session-track" style="background:${getTrackColor(s.track)}">${s.track}</span>` : ''}<a href="${getFeedbackUrl(s)}" target="_blank" rel="noopener" class="feedback-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Give Feedback</a></div></article>`).join('')}</div></div>`;
+        }
+
+        function renderTimelineDay(dayLabel, sessions) {
+            const rooms = [...new Set(sessions.map(s => s.room).filter(Boolean))].sort();
+            const safeRooms = rooms.length ? rooms : ['General'];
+            const starts = sessions.map(s => s.start.getHours() * 60 + s.start.getMinutes());
+            const ends = sessions.map(s => s.start.getHours() * 60 + s.start.getMinutes() + s.durationMins);
+            const startMin = Math.floor(Math.min(...starts) / 30) * 30;
+            const endMin = Math.ceil(Math.max(...ends) / 30) * 30;
+            const ppm = 1.8;
+            const height = Math.max(360, (endMin - startMin) * ppm + 40);
+
+            const slots = [];
+            for (let minute = startMin; minute <= endMin; minute += 30) slots.push(minute);
+
+            const timeMarks = slots.map(minute => {
+                const top = (minute - startMin) * ppm;
+                const d = new Date(sessions[0].start);
+                d.setHours(Math.floor(minute / 60), minute % 60, 0, 0);
+                return `<div class="timeline-grid-line" style="top:${top}px"></div><div class="timeline-time-label" style="top:${Math.max(0, top - 8)}px">${formatClock(d)}</div>`;
+            }).join('');
+
+            const roomCols = safeRooms.map(room => {
+                const roomSessions = sessions.filter(s => (s.room || 'General') === room);
+                const lines = slots.map(minute => `<div class="timeline-grid-line" style="top:${(minute - startMin) * ppm}px"></div>`).join('');
+                const cards = roomSessions.map(s => {
+                    const top = ((s.start.getHours() * 60 + s.start.getMinutes()) - startMin) * ppm;
+                    const h = Math.max(48, s.durationMins * ppm);
+                    return `<article class="timeline-session" data-session-code="${s.id}" style="top:${top}px;height:${h}px;border-left-color:${getTrackColor(s.track)}"><div class="timeline-session-time">${formatClock(s.start)} • ${s.type || 'Session'}</div><div class="timeline-session-title">${s.title}</div>${s.speakers ? `<div class="timeline-session-speaker">${s.speakers}</div>` : ''}<a href="${getFeedbackUrl(s)}" target="_blank" rel="noopener" class="timeline-session-feedback"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Feedback</a></article>`;
+                }).join('');
+                return `<div class="timeline-room-col" style="height:${height}px">${lines}${cards}</div>`;
+            }).join('');
+
+            const roomHeaders = safeRooms.map(r => `<div>${r}</div>`).join('');
+            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${sessions.length} sessions across ${safeRooms.length} rooms</span></div><div class="timeline-wrapper"><div class="timeline-scroll"><div class="timeline-inner" style="--room-count:${safeRooms.length}"><div class="timeline-head"><div>Time</div>${roomHeaders}</div><div class="timeline-body"><div class="timeline-time-col" style="height:${height}px">${timeMarks}</div>${roomCols}</div></div></div></div></div>`;
+        }
+
+        function clearFilters() {
+            activeFilters.day = '';
+            activeFilters.track = '';
+            activeFilters.type = '';
+            activeFilters.room = '';
+            document.getElementById('day-filter').value = '';
+            document.getElementById('track-filter').value = '';
+            document.getElementById('type-filter').value = '';
+            document.getElementById('room-filter').value = '';
+            renderTrackPills([...new Set(allSessions.map(s => s.track).filter(Boolean))].sort());
+            renderSessions();
+        }
+
+        function renderSessions() {
+            const filtered = getFilteredSessions();
+            const container = document.getElementById('schedule-container');
+            const hasFilters = Object.values(activeFilters).some(Boolean);
+            document.getElementById('results-text').innerHTML = `Showing <span class="results-count">${filtered.length}</span> of ${allSessions.length} sessions` + (hasFilters ? '<button class="clear-filters" id="clear-filters">Clear filters</button>' : '');
+
+            if (!filtered.length) {
+                container.innerHTML = '<div class="no-results"><h3>No sessions found</h3><p>Try adjusting your filters.</p></div>';
+                const btn = document.getElementById('clear-filters');
+                if (btn) btn.addEventListener('click', clearFilters);
+                return;
+            }
+
+            const byDay = {};
+            filtered.forEach(s => {
+                if (!byDay[s.dayKey]) byDay[s.dayKey] = [];
+                byDay[s.dayKey].push(s);
+            });
+
+            let html = '';
+            Object.keys(byDay).sort().forEach(dayKey => {
+                const sessions = byDay[dayKey];
+                const label = toDayLabel(dayKey);
+                html += currentView === 'timeline' ? renderTimelineDay(label, sessions) : renderGridDay(label, sessions);
+            });
+            container.innerHTML = html;
+
+            const btn = document.getElementById('clear-filters');
+            if (btn) btn.addEventListener('click', clearFilters);
+            makeSessionsClickable();
+        }
+
+        function openSessionModal(session) {
+            const start = formatClock(session.start);
+            const end = formatClock(new Date(session.start.getTime() + session.durationMins * 60000));
+            const trackColor = getTrackColor(session.track);
+            const dayLabel = toDayLabel(session.dayKey);
+            const feedbackUrl = getFeedbackUrl(session);
+            const description = (session.description || 'No description available.').split('\n').map(p => p.trim()).filter(Boolean).map(p => `<p>${p}</p>`).join('');
+
+            const modal = document.createElement('div');
+            modal.className = 'session-modal-overlay';
+            modal.innerHTML = `
+                <div class="session-modal">
+                    <div class="session-modal-header">
+                        <button class="session-modal-close" data-close-modal="1">✕</button>
+                        ${session.track ? `<span class="session-modal-track" style="background:${trackColor}">${session.track}</span>` : ''}
+                        <h2 class="session-modal-title">${session.title}</h2>
+                        <div class="session-modal-meta">
+                            <span>${dayLabel}</span>
+                            <span>${start} → ${end} (${session.durationMins} min)</span>
+                            ${session.type ? `<span>${session.type}</span>` : ''}
+                            ${session.room ? `<span>📍 ${session.room}</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="session-modal-body">
+                        ${session.speakersList.length ? `<div class="session-modal-speakers">${session.speakersList.map(s => `<span class="session-modal-speaker">${s}</span>`).join('')}</div>` : ''}
+                        <div class="session-modal-description">${description}</div>
+                    </div>
+                    <div class="session-modal-footer">
+                        <a href="${feedbackUrl}" target="_blank" rel="noopener" class="session-modal-btn session-modal-btn-primary">Give Feedback</a>
+                        <button class="session-modal-btn session-modal-btn-secondary" data-close-modal="1">Close</button>
+                    </div>
+                </div>`;
+
+            document.body.appendChild(modal);
+            document.body.style.overflow = 'hidden';
+            requestAnimationFrame(() => modal.classList.add('active'));
+
+            const close = () => closeSessionModal(modal);
+            modal.addEventListener('click', e => { if (e.target === modal) close(); });
+            modal.querySelectorAll('[data-close-modal="1"]').forEach(el => el.addEventListener('click', close));
+            document.addEventListener('keydown', handleEscapeKey);
+        }
+
+        function handleEscapeKey(e) {
+            if (e.key === 'Escape') {
+                const modal = document.querySelector('.session-modal-overlay');
+                if (modal) closeSessionModal(modal);
+            }
+        }
+
+        function closeSessionModal(modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            document.removeEventListener('keydown', handleEscapeKey);
+            setTimeout(() => modal.remove(), 200);
+        }
+
+        function makeSessionsClickable() {
+            document.querySelectorAll('.session-card, .timeline-session').forEach(card => {
+                const id = card.dataset.sessionCode;
+                if (!id) return;
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', e => {
+                    if (e.target.closest('a')) return;
+                    const session = allSessions.find(s => String(s.id) === String(id));
+                    if (session) openSessionModal(session);
+                });
+            });
+        }
+
+        function wireFilters() {
+            document.getElementById('day-filter').addEventListener('change', e => { activeFilters.day = e.target.value; renderSessions(); });
+            document.getElementById('track-filter').addEventListener('change', e => { activeFilters.track = e.target.value; renderTrackPills([...new Set(allSessions.map(s => s.track).filter(Boolean))].sort()); renderSessions(); });
+            document.getElementById('type-filter').addEventListener('change', e => { activeFilters.type = e.target.value; renderSessions(); });
+            document.getElementById('room-filter').addEventListener('change', e => { activeFilters.room = e.target.value; renderSessions(); });
+            document.querySelectorAll('.view-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentView = btn.dataset.view;
+                    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderSessions();
+                });
+            });
+        }
+
+        async function bootstrap() {
+            let raw = [];
+            try {
+                const response = await fetch('sessions.json');
+                if (!response.ok) throw new Error('sessions.json missing');
+                raw = await response.json();
+            } catch (err) {
+                document.getElementById('schedule-container').innerHTML = '<div class="no-results"><h3>Program coming soon</h3><p>Sessions will be announced shortly.</p></div>';
+                document.getElementById('results-text').textContent = 'No sessions available yet';
+                return;
+            }
+
+            allSessions = raw.map(normalizeSession).filter(Boolean);
+            if (!allSessions.length) {
+                document.getElementById('schedule-container').innerHTML = '<div class="no-results"><h3>Program coming soon</h3><p>Sessions will be announced shortly.</p></div>';
+                document.getElementById('results-text').textContent = 'No sessions available yet';
+                return;
+            }
+
+            const days = [...new Set(allSessions.map(s => s.dayKey))].sort();
+            const tracks = [...new Set(allSessions.map(s => s.track).filter(Boolean))].sort();
+            const types = [...new Set(allSessions.map(s => s.type).filter(Boolean))].sort();
+            const rooms = [...new Set(allSessions.map(s => s.room).filter(Boolean))].sort();
+
+            createDateCards(days);
+            setSelectOptions('day-filter', days);
+            const daySelect = document.getElementById('day-filter');
+            [...daySelect.options].forEach(option => {
+                if (option.value) option.textContent = toDayLabel(option.value);
+            });
+            setSelectOptions('track-filter', tracks);
+            setSelectOptions('type-filter', types);
+            setSelectOptions('room-filter', rooms);
+            setupTimezoneFilter();
+            renderTrackPills(tracks);
+            wireFilters();
+            renderSessions();
+        }
+
+        setupTimezoneFilter();
+        document.addEventListener('DOMContentLoaded', bootstrap);
+    })();
+    </script>
+</body>
+</html>

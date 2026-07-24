@@ -56,7 +56,7 @@ function applyMetadata(event) {
 
         const footerTagline = document.querySelector('.footer-tagline');
         if (footerTagline) {
-            footerTagline.textContent = event.organizer ? `An event organized by ${event.organizer}` : 'An Amadeus event';
+            footerTagline.textContent = `A ${event.organizer || 'Amadeus'} Event`;
         }
     }
 
@@ -149,7 +149,7 @@ function renderAboutSection(event) {
 
     const locEl = document.getElementById('event-locations');
     if (locEl && Array.isArray(event.locations) && event.locations.length) {
-        locEl.innerHTML = `The event is hosted at ${event.locations.map(location => `<strong>${location}</strong>`).join(', ')}.`;
+        locEl.innerHTML = `Hosted at ${event.locations.map(location => `<strong>${location}</strong>`).join(', ')}.`;
     }
 }
 
@@ -159,17 +159,16 @@ function renderCodeSnippet(event) {
         return;
     }
 
-    const sessionsStat = Array.isArray(event.stats)
-        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'sessions')
-        : null;
-    const sessionCount = sessionsStat ? sessionsStat.number : 'n/a';
+    const sessionCount = Array.isArray(event.sessionTypes)
+        ? event.sessionTypes.reduce((total, type) => total + (Number(type.count) || 0), 0)
+        : 0;
 
     const speakerStat = Array.isArray(event.stats)
         ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'speakers')
         : null;
     const speakersValue = speakerStat ? speakerStat.number : 'n/a';
 
-    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\n  <span class="code-property">dates</span>: <span class="code-string">"${(event.dates && event.dates.display) || ''}"</span>,\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionCount || 'n/a'}</span>,\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\n  <span class="code-property">status</span>: <span class="code-string">"ready to rock"</span>\n};`;
+    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\n  <span class="code-property">dates</span>: <span class="code-string">"${(event.dates && event.dates.display) || ''}"</span>,\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionCount || 'n/a'}</span>,\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\n  <span class="code-property">status</span>: <span class="code-string">"configured"</span>\n};`;
 }
 
 function getCfpHref(eventName, contact) {
