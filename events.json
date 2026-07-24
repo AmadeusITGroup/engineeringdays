@@ -14,11 +14,11 @@
     "slug": "wanderloop-erding-2026",
     "name": "Wanderloop Erding 2026",
     "dates": {
-      "display": "11 November 2026",
-      "start": "2026-11-11",
+      "display": "10-11 November 2026",
+      "start": "2026-11-10",
       "end": "2026-11-11"
     },
-    "tagline": "Compiled exploration, out-of-bounds curiosity",
+    "tagline": "Two days of compiled exploration and networking focusing on AIOps, platforming at scale, and AI-first teams.",
     "sessions": 14,
     "sites": 1
   }

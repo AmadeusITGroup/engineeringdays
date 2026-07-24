@@ -52,7 +52,7 @@ python3 create_event.py \
 
 When no sessions JSON is provided:
 - No `program.html` is generated
-- The event page shows a "Submit a Talk (CFP)" button that opens a mailto: link
+- The event page shows a "Submit a talk (CFP)" button that opens a mailto: link
 - An empty `sessions.json` is created (ready to be populated later)
 
 The script will:

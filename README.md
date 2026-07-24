@@ -6,7 +6,7 @@ Multi-event website for Amadeus tech conferences and community events, hosted on
 
 <!-- EVENTS_LIST_START -->
 ## Upcoming Events
-- [Wanderloop Erding 2026](wanderloop-erding-2026/index.html) - 11 November 2026
+- [Wanderloop Erding 2026](wanderloop-erding-2026/index.html) - 10-11 November 2026
 
 ## Past Events
 - [Engineering Days 2026](engineering-days-2026/index.html) - 29-30 April 2026

@@ -423,11 +423,11 @@ def generate_index_html(event_config, has_sessions=True):
         footer_program_text = "Program"
     else:
         nav_program_href = cfp_mailto
-        nav_program_text = "Submit a Talk"
+        nav_program_text = "Submit a talk"
         hero_cta_href = cfp_mailto
-        hero_cta_text = 'Submit a Talk (CFP) <span class="arrow">→</span>'
+        hero_cta_text = 'Submit a talk (CFP) <span class="arrow">→</span>'
         footer_program_href = cfp_mailto
-        footer_program_text = "Submit a Talk"
+        footer_program_text = "Submit a talk"
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -835,15 +835,15 @@ function switchToCfpMode(cfpHref) {
 
     if (nav) {
         nav.href = cfpHref;
-        nav.textContent = 'Submit a Talk';
+        nav.textContent = 'Submit a talk';
     }
     if (hero) {
         hero.href = cfpHref;
-        hero.innerHTML = 'Submit a Talk (CFP) <span class="arrow">→</span>';
+        hero.innerHTML = 'Submit a talk (CFP) <span class="arrow">→</span>';
     }
     if (footer) {
         footer.href = cfpHref;
-        footer.textContent = 'Submit a Talk';
+        footer.textContent = 'Submit a talk';
     }
 }
 

@@ -37,7 +37,7 @@ python3 update_event.py <sessions.json> --slug "event-slug-year"
 The script will:
 1. Parse the sessions JSON for real tracks, types, speakers
 2. Update `config.json` (replaces CFP example data with real metadata)
-3. Regenerate `index.html` (removes "Submit a Talk (CFP)" links, adds "View Program")
+3. Regenerate `index.html` (removes "Submit a talk (CFP)" links, adds "View Program")
 4. Generate `program.html` with day/track/type/room filters
 5. Copy sessions into `sessions.json`
 6. Update the root `events.json` registry with session count
@@ -49,7 +49,7 @@ User-edited fields are preserved: event name, tagline, description, colors, loca
 After running the script:
 1. Start a local server: `python3 -m http.server 8000`
 2. Check the event page at http://localhost:8000/<slug>/index.html — confirm:
-   - No more "Submit a Talk (CFP)" button
+   - No more "Submit a talk (CFP)" button
    - "View Program" button is shown instead
    - Stats reflect real session/speaker counts
    - Tracks section shows actual tracks from the sessions
@@ -61,7 +61,7 @@ After running the script:
 
 | Before (CFP mode) | After (updated) |
 |---|---|
-| "Submit a Talk (CFP)" button | "View Program" button |
+| "Submit a talk (CFP)" button | "View Program" button |
 | Example placeholder tracks | Real tracks from sessions |
 | Example session types | Real types with counts |
 | 0+ sessions, 0 speakers | Actual numbers |

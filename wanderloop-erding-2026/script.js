@@ -168,33 +168,53 @@ function renderCodeSnippet(event) {
         : null;
     const speakersValue = speakerStat ? speakerStat.number : 'n/a';
 
-    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\n  <span class="code-property">dates</span>: <span class="code-string">"${(event.dates && event.dates.display) || ''}"</span>,\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionCount || 'n/a'}</span>,\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\n  <span class="code-property">status</span>: <span class="code-string">"configured"</span>\n};`;
+    const status = window.eventStatus || 'coming soon';
+    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\n  <span class="code-property">dates</span>: <span class="code-string">"${(event.dates && event.dates.display) || ''}"</span>,\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionCount || 'n/a'}</span>,\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\n  <span class="code-property">status</span>: <span class="code-string">"${status}"</span>\n};`;
 }
 
-function getCfpHref(eventName, contact) {
+function getCfpHref(event) {
+    if (event.cfpUrl) {
+        return event.cfpUrl;
+    }
+    // Fallback to mailto if cfpUrl not provided
+    const contact = event.contact || 'devrel@amadeus.com';
+    const eventName = event.eventName || 'Amadeus Event';
     return `mailto:${contact}?subject=${encodeURIComponent(`Talk proposal for ${eventName}`)}`;
 }
 
-function switchToCfpMode(cfpHref) {
+function showCfpLink(cfpHref) {
     const nav = document.getElementById('program-nav-link');
     const hero = document.getElementById('program-hero-cta');
     const footer = document.getElementById('program-footer-link');
 
     if (nav) {
         nav.href = cfpHref;
-        nav.textContent = 'Submit a Talk';
+        nav.textContent = 'Submit a talk';
+        nav.style.display = 'inline-block';
     }
     if (hero) {
         hero.href = cfpHref;
-        hero.innerHTML = 'Submit a Talk (CFP) <span class="arrow">→</span>';
+        hero.innerHTML = 'Submit a talk (CFP) <span class="arrow">→</span>';
+        hero.style.display = 'inline-block';
     }
     if (footer) {
         footer.href = cfpHref;
-        footer.textContent = 'Submit a Talk';
+        footer.textContent = 'Submit a talk';
+        footer.style.display = 'inline';
     }
 }
 
-function switchToProgramMode() {
+function hideCfpLink() {
+    const nav = document.getElementById('program-nav-link');
+    const hero = document.getElementById('program-hero-cta');
+    const footer = document.getElementById('program-footer-link');
+
+    if (nav) nav.style.display = 'none';
+    if (hero) hero.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+}
+
+function showProgramLink() {
     const nav = document.getElementById('program-nav-link');
     const hero = document.getElementById('program-hero-cta');
     const footer = document.getElementById('program-footer-link');
@@ -202,21 +222,40 @@ function switchToProgramMode() {
     if (nav) {
         nav.href = 'program.html';
         nav.textContent = 'Program';
+        nav.style.display = 'inline-block';
     }
     if (hero) {
         hero.href = 'program.html';
         hero.innerHTML = 'View Program <span class="arrow">→</span>';
+        hero.style.display = 'inline-block';
     }
     if (footer) {
         footer.href = 'program.html';
         footer.textContent = 'Program';
+        footer.style.display = 'inline';
     }
 }
 
+function hideProgramLink() {
+    const nav = document.getElementById('program-nav-link');
+    const hero = document.getElementById('program-hero-cta');
+    const footer = document.getElementById('program-footer-link');
+
+    if (nav) nav.style.display = 'none';
+    if (hero) hero.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+}
+
+function computeStatus(hasProgramPage, showCfp) {
+    if (hasProgramPage && !showCfp) return 'ready to rock';
+    if (hasProgramPage && showCfp) return 'ready & accepting';
+    if (!hasProgramPage && showCfp) return 'call for papers';
+    return 'coming soon';
+}
+
 async function updateProgramLinks(event) {
-    const eventName = event.eventName || 'Amadeus Event';
-    const contact = event.contact || 'devrel@amadeus.com';
-    const cfpHref = getCfpHref(eventName, contact);
+    const cfpHref = getCfpHref(event);
+    const showCfp = event.showCfp !== false; // defaults to true if not specified
 
     let hasSessions = false;
     let hasProgramPage = false;
@@ -238,9 +277,20 @@ async function updateProgramLinks(event) {
         hasProgramPage = false;
     }
 
+    // Handle program link
     if (hasSessions && hasProgramPage) {
-        switchToProgramMode();
+        showProgramLink();
     } else {
-        switchToCfpMode(cfpHref);
+        hideProgramLink();
     }
+
+    // Handle CFP link (independent)
+    if (showCfp) {
+        showCfpLink(cfpHref);
+    } else {
+        hideCfpLink();
+    }
+
+    // Update status in code snippet
+    window.eventStatus = computeStatus(hasProgramPage, showCfp);
 }
