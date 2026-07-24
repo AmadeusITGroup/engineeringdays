@@ -162,6 +162,15 @@ body {
     width: 100%;
 }
 
+.nav-links a.cfp-link {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.nav-links a.cfp-link::after {
+    background: var(--accent);
+}
+
 /* Theme Toggle */
 .theme-toggle {
     background: transparent;
@@ -236,6 +245,17 @@ body {
     background: var(--accent);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(182, 80, 255, 0.4);
+}
+
+.btn-cfp {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.btn-cfp:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 88, 172, 0.4);
 }
 
 .btn-secondary {
@@ -314,6 +334,15 @@ body {
 
 .footer-links a:hover {
     color: var(--accent);
+}
+
+.footer-links a.cfp-link {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.footer-links a.cfp-link:hover {
+    color: var(--secondary);
 }
 
 .footer-bottom {
