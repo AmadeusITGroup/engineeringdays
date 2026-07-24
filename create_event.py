@@ -506,6 +506,9 @@ def generate_index_html(event_config, has_sessions=True):
                 </div>
             </div>
         </div>
+        <a class="scroll-cue" href="#about" aria-label="Scroll down to event details">
+            <span aria-hidden="true">↓</span>
+        </a>
     </header>
 
     <!-- About Section -->
