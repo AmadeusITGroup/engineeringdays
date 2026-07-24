@@ -71,6 +71,9 @@ Each event has a `config.json` file that controls what's displayed on the websit
 | `organizer` | Team name in nav/footer | `"DevRel"` |
 | `contact` | Contact email for mailto links | `"devrel@amadeus.com"` |
 | `colors` | Brand color overrides | `{"primary": "#26005a", "secondary": "#b650ff", "accent": "#ff58ac"}` |
+| `showCfp` | Show/hide the "Submit a talk" CFP link | `true` |
+| `cfpUrl` | Where the CFP link/button points to | `"https://forms.cloud.microsoft/e/xxx"` |
+| `useLiveProgramStats` | Once `sessions.json` is populated, switch Sessions/Speakers counts and the displayed dates from the static advertised numbers to values computed live from the real program (Attendees/Partners/Sites always stay static) | `false` |
 
 > **Tip:** In CFP mode, tracks and session types are pre-filled with examples. Replace them with your real ones, or wait until you run `/update-event` with the sessions JSON.
 
@@ -109,6 +112,8 @@ Each event has a `config.json` file that controls what's displayed on the websit
 
 - **Zero build step** — pure HTML/CSS/JS, served as static files
 - **Dynamic programs** — `program.html` loads sessions from `sessions.json` at runtime with filters (day, track, type, room)
+- **Responsive program view** — Timeline view is the default on laptops/desktops; Grid view is the default on mobile/tablet, with the filter bar hiding on scroll down
+- **Live vs. static stats** — the `useLiveProgramStats` config toggle lets Sessions/Speakers/dates switch from static advertised numbers to values computed live from `sessions.json` once the program is official
 - **Self-contained events** — each event folder can be deleted cleanly without affecting others
 - **Automated generation** — `create_event.py` parses pretalx data and generates everything
 
