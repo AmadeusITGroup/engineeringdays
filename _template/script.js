@@ -194,7 +194,7 @@ function showCfpLink(cfpHref) {
     }
     if (hero) {
         hero.href = cfpHref;
-        hero.innerHTML = 'Submit a talk (CFP) <span class="arrow">→</span>';
+        hero.innerHTML = 'Submit a talk <span class="arrow">→</span>';
         hero.style.display = 'inline-block';
     }
     if (footer) {
@@ -226,7 +226,7 @@ function showProgramLink() {
     }
     if (hero) {
         hero.href = 'program.html';
-        hero.innerHTML = 'View Program <span class="arrow">→</span>';
+        hero.innerHTML = 'Program <span class="arrow">→</span>';
         hero.style.display = 'inline-block';
     }
     if (footer) {
