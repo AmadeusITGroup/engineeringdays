@@ -403,6 +403,20 @@ body {
     background: var(--dark-accent);
     color: #ffffff;
     padding: var(--spacing-lg) 0 var(--spacing-md);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('backgrounds/amadeus-waves-white.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
 }
 
 .footer-content {
