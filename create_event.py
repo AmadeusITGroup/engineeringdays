@@ -500,6 +500,7 @@ def generate_index_html(event_config, has_sessions=True):
   <span class="code-property">dates</span>: <span class="code-string">"{dates}"</span>,
   <span class="code-property">sessions</span>: <span class="code-number">{event_config['stats'][0]['number']}</span>,
   <span class="code-property">speakers</span>: <span class="code-number">{event_config['stats'][1]['number']}</span>,
+  <span class="code-property">attendees</span>: <span class="code-number">{event_config['stats'][2]['number']}</span>,
   <span class="code-property">status</span>: <span class="code-string">"work in progress"</span>
 }};</code></pre>
                     </div>
@@ -881,7 +882,12 @@ function renderCodeSnippet(event) {
         : null;
     const speakersValue = speakerStat ? speakerStat.number : 'n/a';
 
-    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\\n  <span class="code-property">dates</span>: <span class="code-string">"${(event.dates && event.dates.display) || ''}"</span>,\\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionCount || 'n/a'}</span>,\\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\\n  <span class="code-property">status</span>: <span class="code-string">"configured"</span>\\n};`;
+    const attendeeStat = Array.isArray(event.stats)
+        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'attendees')
+        : null;
+    const attendeesValue = attendeeStat ? attendeeStat.number : 'n/a';
+
+    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\\n  <span class="code-property">dates</span>: <span class="code-string">"${(event.dates && event.dates.display) || ''}"</span>,\\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionCount || 'n/a'}</span>,\\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\\n  <span class="code-property">attendees</span>: <span class="code-number">${attendeesValue}</span>,\\n  <span class="code-property">status</span>: <span class="code-string">"configured"</span>\\n};`;
 }
 
 function getCfpHref(eventName, contact) {
