@@ -12,8 +12,8 @@
     "Room": {
       "en": "Main room"
     },
-    "Start": "2026-11-11T13:00:00+01:00",
-    "End": "2026-11-11T13:30:00+01:00",
+    "Start": "2026-11-10T13:00:00+01:00",
+    "End": "2026-11-10T13:30:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -33,8 +33,8 @@
     "Room": {
       "en": "Main room"
     },
-    "Start": "2026-11-11T13:30:00+01:00",
-    "End": "2026-11-11T13:45:00+01:00",
+    "Start": "2026-11-10T13:30:00+01:00",
+    "End": "2026-11-10T13:45:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -54,8 +54,8 @@
     "Room": {
       "en": "Main room"
     },
-    "Start": "2026-11-11T13:45:00+01:00",
-    "End": "2026-11-11T14:30:00+01:00",
+    "Start": "2026-11-10T13:45:00+01:00",
+    "End": "2026-11-10T14:30:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -73,8 +73,8 @@
     "Room": {
       "en": "Main room"
     },
-    "Start": "2026-11-11T14:30:00+01:00",
-    "End": "2026-11-11T15:15:00+01:00",
+    "Start": "2026-11-10T14:30:00+01:00",
+    "End": "2026-11-10T15:15:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -94,8 +94,8 @@
     "Room": {
       "en": "Breakout room A"
     },
-    "Start": "2026-11-11T15:30:00+01:00",
-    "End": "2026-11-11T16:15:00+01:00",
+    "Start": "2026-11-10T15:30:00+01:00",
+    "End": "2026-11-10T16:15:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -116,8 +116,8 @@
     "Room": {
       "en": "Breakout room B"
     },
-    "Start": "2026-11-11T15:30:00+01:00",
-    "End": "2026-11-11T16:15:00+01:00",
+    "Start": "2026-11-10T15:30:00+01:00",
+    "End": "2026-11-10T16:15:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -137,8 +137,8 @@
     "Room": {
       "en": "Breakout room C"
     },
-    "Start": "2026-11-11T15:30:00+01:00",
-    "End": "2026-11-11T16:15:00+01:00",
+    "Start": "2026-11-10T15:30:00+01:00",
+    "End": "2026-11-10T16:15:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -156,8 +156,8 @@
     "Room": {
       "en": "Main room"
     },
-    "Start": "2026-11-11T16:30:00+01:00",
-    "End": "2026-11-11T17:15:00+01:00",
+    "Start": "2026-11-10T16:30:00+01:00",
+    "End": "2026-11-10T17:15:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -173,8 +173,8 @@
     "Room": {
       "en": "Main room"
     },
-    "Start": "2026-11-11T17:15:00+01:00",
-    "End": "2026-11-11T17:30:00+01:00",
+    "Start": "2026-11-10T17:15:00+01:00",
+    "End": "2026-11-10T17:30:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -192,8 +192,8 @@
       "PFS"
     ],
     "Room": null,
-    "Start": "2026-11-11T17:30:00+01:00",
-    "End": "2026-11-11T19:00:00+01:00",
+    "Start": "2026-11-10T17:30:00+01:00",
+    "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -212,8 +212,8 @@
       "Slobodan Stefanovic"
     ],
     "Room": null,
-    "Start": "2026-11-11T17:30:00+01:00",
-    "End": "2026-11-11T19:00:00+01:00",
+    "Start": "2026-11-10T17:30:00+01:00",
+    "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -231,8 +231,8 @@
       "Pierre-Luc Noel"
     ],
     "Room": null,
-    "Start": "2026-11-11T17:30:00+01:00",
-    "End": "2026-11-11T19:00:00+01:00",
+    "Start": "2026-11-10T17:30:00+01:00",
+    "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -251,8 +251,8 @@
       "Thomas Stoeckl"
     ],
     "Room": null,
-    "Start": "2026-11-11T17:30:00+01:00",
-    "End": "2026-11-11T19:00:00+01:00",
+    "Start": "2026-11-10T17:30:00+01:00",
+    "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
@@ -270,8 +270,8 @@
       "Xu He"
     ],
     "Room": null,
-    "Start": "2026-11-11T17:30:00+01:00",
-    "End": "2026-11-11T19:00:00+01:00",
+    "Start": "2026-11-10T17:30:00+01:00",
+    "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   }
 ]
