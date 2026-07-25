@@ -10,7 +10,7 @@
     "Description": "Coffee and refreshments served.",
     "Speaker names": [],
     "Room": {
-      "en": "Main room"
+      "en": "Auditorium"
     },
     "Start": "2026-11-10T13:00:00+01:00",
     "End": "2026-11-10T13:30:00+01:00",
@@ -31,7 +31,7 @@
       "Sven Fuhrmeister"
     ],
     "Room": {
-      "en": "Main room"
+      "en": "Auditorium"
     },
     "Start": "2026-11-10T13:30:00+01:00",
     "End": "2026-11-10T13:45:00+01:00",
@@ -52,7 +52,7 @@
       "Slobodan Stefanovic"
     ],
     "Room": {
-      "en": "Main room"
+      "en": "Auditorium"
     },
     "Start": "2026-11-10T13:45:00+01:00",
     "End": "2026-11-10T14:30:00+01:00",
@@ -71,7 +71,7 @@
     "Description": "Speaker: Mistral AI\r\n\r\nAn external perspective on AIOps from Mistral AI, exploring how large language models and AI capabilities can transform IT operations.",
     "Speaker names": [],
     "Room": {
-      "en": "Main room"
+      "en": "Auditorium"
     },
     "Start": "2026-11-10T14:30:00+01:00",
     "End": "2026-11-10T15:15:00+01:00",
@@ -154,7 +154,7 @@
     "Description": "External speaker session — to be announced.",
     "Speaker names": [],
     "Room": {
-      "en": "Main room"
+      "en": "Auditorium"
     },
     "Start": "2026-11-10T16:30:00+01:00",
     "End": "2026-11-10T17:15:00+01:00",
@@ -171,7 +171,7 @@
     "Description": "Closing remarks and wrap-up of the Wanderloop Erding 2026 AIOps event.",
     "Speaker names": [],
     "Room": {
-      "en": "Main room"
+      "en": "Auditorium"
     },
     "Start": "2026-11-10T17:15:00+01:00",
     "End": "2026-11-10T17:30:00+01:00",

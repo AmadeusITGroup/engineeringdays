@@ -216,6 +216,27 @@
             color: var(--text-primary);
             background: var(--dark-accent);
         }
+        .session-count.session-count-split {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: transparent;
+            padding: 0;
+        }
+        .session-count-chip {
+            display: inline-flex;
+            align-items: center;
+            background: var(--bg-light);
+            border-radius: 999px;
+            padding: 0.2rem 0.6rem;
+        }
+        .session-count-connector {
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+        [data-theme="dark"] .session-count-chip {
+            background: var(--dark-accent);
+        }
         .sessions-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -278,18 +299,75 @@
             height: 14px;
         }
         .timeline-wrapper {
+            position: relative;
             border: 2px solid var(--border-color);
             border-radius: var(--radius-lg);
             overflow: hidden;
             background: var(--card-bg);
         }
-        .timeline-scroll { overflow-x: auto; }
+        .timeline-scroll {
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        .timeline-scroll-cue {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 156px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            padding-top: calc(2.35rem + (100% - 2.35rem) * 0.15);
+            padding-right: 0.5rem;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--card-bg) 68%);
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+            z-index: 25;
+        }
+        .timeline-scroll-cue.is-hidden {
+            opacity: 0;
+        }
+        .timeline-scroll-cue-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.34rem 0.82rem;
+            border-radius: 999px;
+            border: 2px solid var(--secondary);
+            background: #26005a;
+            color: var(--secondary);
+            font-size: 0.98rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            line-height: 1;
+            white-space: nowrap;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            pointer-events: auto;
+            cursor: pointer;
+            transform: translateX(0);
+            transition: transform 0.24s ease;
+        }
+        .timeline-scroll-cue-arrow {
+            font-size: 1.08rem;
+            color: var(--secondary);
+            transform: translateY(-1px);
+            line-height: 1;
+        }
+        [data-theme="dark"] .timeline-scroll-cue {
+            background: linear-gradient(90deg, rgba(13, 13, 25, 0) 0%, var(--card-bg) 68%);
+        }
+        [data-theme="dark"] .timeline-scroll-cue-tag {
+            border-color: var(--secondary);
+            background: #1b003f;
+            color: var(--secondary);
+        }
         .timeline-inner { min-width: 760px; }
         .timeline-head {
             display: grid;
             grid-template-columns: 70px repeat(var(--room-count), minmax(180px, 1fr));
             background: var(--card-bg);
-            border-bottom: 2px solid #d93d86;
         }
         .timeline-head div {
             font-size: 0.75rem;
@@ -297,6 +375,20 @@
             text-align: center;
             padding: 0.5rem 0.35rem;
             border-right: 1px solid var(--border-color);
+        }
+        .timeline-room-chip {
+            display: inline-block;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 88, 172, 0.35);
+            background: color-mix(in srgb, var(--secondary) 14%, transparent);
+            color: var(--text-primary);
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+        [data-theme="dark"] .timeline-room-chip {
+            border-color: rgba(255, 88, 172, 0.55);
+            background: color-mix(in srgb, var(--secondary) 24%, transparent);
         }
         .timeline-head div:first-child {
             background: var(--bg-light);
@@ -980,8 +1072,76 @@
                 return `<div class="timeline-room-col" style="height:${height}px">${lines}${cards}</div>`;
             }).join('');
 
-            const roomHeaders = safeRooms.map(r => `<div>${r}</div>`).join('');
-            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${pluralize(sessions.length, 'session')} across ${pluralize(safeRooms.length, 'room')}</span></div><div class="timeline-wrapper"><div class="timeline-scroll"><div class="timeline-inner" style="--room-count:${safeRooms.length}"><div class="timeline-head"><div>Time</div>${roomHeaders}</div><div class="timeline-body"><div class="timeline-time-col" style="height:${height}px">${timeMarks}</div>${roomCols}</div></div></div></div></div>`;
+            const roomHeaders = safeRooms.map(r => `<div><span class="timeline-room-chip">${r}</span></div>`).join('');
+            const sessionsChip = pluralize(sessions.length, 'session').replace(' ', '&nbsp;');
+            const roomsChip = pluralize(safeRooms.length, 'room').replace(' ', '&nbsp;');
+            return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count session-count-split"><span class="session-count-chip">${sessionsChip}</span><span class="session-count-connector">across</span><span class="session-count-chip">${roomsChip}</span></span></div><div class="timeline-wrapper"><div class="timeline-scroll"><div class="timeline-inner" style="--room-count:${safeRooms.length}"><div class="timeline-head"><div></div>${roomHeaders}</div><div class="timeline-body"><div class="timeline-time-col" style="height:${height}px">${timeMarks}</div>${roomCols}</div></div></div><div class="timeline-scroll-cue"><span class="timeline-scroll-cue-tag"><span>scroll for more</span><span class="timeline-scroll-cue-arrow">→</span></span></div></div></div>`;
+        }
+
+        function runTimelineNudge(scroll, cueTag) {
+            if (!scroll || !cueTag) return;
+            const hasOverflow = (scroll.scrollWidth - scroll.clientWidth) > 2;
+            const atEnd = (scroll.scrollLeft + scroll.clientWidth) >= (scroll.scrollWidth - 2);
+            const nearStart = scroll.scrollLeft <= 2;
+            if (!hasOverflow || atEnd || !nearStart) return;
+
+            cueTag.style.transform = 'translateX(8px)';
+            setTimeout(() => {
+                if (!document.body.contains(cueTag)) return;
+                cueTag.style.transform = 'translateX(0)';
+            }, 260);
+        }
+
+        function ensureTimelineNudgeLoop(scroll, cueTag) {
+            if (!scroll || !cueTag || scroll.dataset.nudgeLoopBound === '1') return;
+
+            const run = () => {
+                if (!document.body.contains(scroll) || !document.body.contains(cueTag)) {
+                    if (scroll._nudgeIntervalId) {
+                        clearInterval(scroll._nudgeIntervalId);
+                        scroll._nudgeIntervalId = null;
+                    }
+                    return;
+                }
+                runTimelineNudge(scroll, cueTag);
+            };
+
+            setTimeout(run, 650);
+            scroll._nudgeIntervalId = setInterval(run, 10000);
+            scroll.dataset.nudgeLoopBound = '1';
+        }
+
+        function initTimelineScrollCues() {
+            document.querySelectorAll('.timeline-wrapper').forEach(wrapper => {
+                const scroll = wrapper.querySelector('.timeline-scroll');
+                const cue = wrapper.querySelector('.timeline-scroll-cue');
+                const cueTag = wrapper.querySelector('.timeline-scroll-cue-tag');
+                if (!scroll || !cue || !cueTag) return;
+
+                const updateCue = () => {
+                    const hasOverflow = (scroll.scrollWidth - scroll.clientWidth) > 2;
+                    const atEnd = (scroll.scrollLeft + scroll.clientWidth) >= (scroll.scrollWidth - 2);
+                    cue.classList.toggle('is-hidden', !hasOverflow || atEnd);
+                };
+
+                if (!scroll.dataset.cueBound) {
+                    scroll.addEventListener('scroll', updateCue, { passive: true });
+                    scroll.dataset.cueBound = '1';
+                }
+
+                if (!cueTag.dataset.scrollBound) {
+                    cueTag.addEventListener('click', () => {
+                        const firstRoomCol = wrapper.querySelector('.timeline-room-col');
+                        const roomStep = firstRoomCol ? Math.max(40, Math.round(firstRoomCol.getBoundingClientRect().width)) : Math.max(40, Math.round(scroll.clientWidth * 0.35));
+                        const targetLeft = Math.min(scroll.scrollWidth - scroll.clientWidth, scroll.scrollLeft + roomStep);
+                        scroll.scrollTo({ left: targetLeft, behavior: 'smooth' });
+                    });
+                    cueTag.dataset.scrollBound = '1';
+                }
+
+                requestAnimationFrame(updateCue);
+                ensureTimelineNudgeLoop(scroll, cueTag);
+            });
         }
 
         function clearFilters() {
@@ -1029,6 +1189,7 @@
             makeSessionsClickable();
             if (currentView === 'timeline') {
                 requestAnimationFrame(markExpandableTimelineSessions);
+                requestAnimationFrame(initTimelineScrollCues);
             }
         }
 
