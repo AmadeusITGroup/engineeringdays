@@ -747,7 +747,15 @@
     (function() {
         'use strict';
 
-        const TRACK_COLORS = {{TRACK_COLORS_JSON}};
+        const TRACK_COLORS = (() => {
+            const raw = `{{TRACK_COLORS_JSON}}`.trim();
+            if (!raw || raw.startsWith('{{')) return {};
+            try {
+                return JSON.parse(raw);
+            } catch (_) {
+                return {};
+            }
+        })();
         const OPENFEEDBACK_BASE = "{{OPENFEEDBACK_BASE}}".trim();
         const CONTACT_EMAIL = "{{CONTACT_EMAIL}}";
         const TIMEZONE_OPTIONS = [
@@ -768,7 +776,15 @@
         // Timezone(s) of the event's own site(s). A single-site event always
         // defaults to its own timezone; a multi-site event defaults to whichever
         // known timezone is closest to the visitor.
-        const SITE_TIMEZONES = {{SITE_TIMEZONES_JSON}};
+        const SITE_TIMEZONES = (() => {
+            const raw = `{{SITE_TIMEZONES_JSON}}`.trim();
+            if (!raw || raw.startsWith('{{')) return [];
+            try {
+                return JSON.parse(raw);
+            } catch (_) {
+                return [];
+            }
+        })();
 
         function getUtcOffsetMinutes(tz, date) {
             const part = new Intl.DateTimeFormat('en-US', { timeZone: tz, timeZoneName: 'shortOffset' })
