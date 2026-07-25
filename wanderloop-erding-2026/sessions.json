@@ -191,7 +191,9 @@
     "Speaker names": [
       "PFS"
     ],
-    "Room": null,
+    "Room": {
+      "en": "Booths area"
+    },
     "Start": "2026-11-10T17:30:00+01:00",
     "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
@@ -211,7 +213,9 @@
       "Anastasia Koufaki",
       "Slobodan Stefanovic"
     ],
-    "Room": null,
+    "Room": {
+      "en": "Booths area"
+    },
     "Start": "2026-11-10T17:30:00+01:00",
     "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
@@ -230,7 +234,9 @@
     "Speaker names": [
       "Pierre-Luc Noel"
     ],
-    "Room": null,
+    "Room": {
+      "en": "Booths area"
+    },
     "Start": "2026-11-10T17:30:00+01:00",
     "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
@@ -250,7 +256,9 @@
       "Carsten Schinzer",
       "Thomas Stoeckl"
     ],
-    "Room": null,
+    "Room": {
+      "en": "Booths area"
+    },
     "Start": "2026-11-10T17:30:00+01:00",
     "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
@@ -269,7 +277,9 @@
     "Speaker names": [
       "Xu He"
     ],
-    "Room": null,
+    "Room": {
+      "en": "Booths area"
+    },
     "Start": "2026-11-10T17:30:00+01:00",
     "End": "2026-11-10T19:00:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"

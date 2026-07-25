@@ -343,8 +343,9 @@
         }
         .timeline-session {
             position: absolute;
-            left: 0.3rem;
-            right: 0.3rem;
+            left: calc(0.3rem + (var(--lane-index, 0) * (100% - 0.6rem)) / var(--lane-count, 1));
+            width: calc((100% - 0.6rem) / var(--lane-count, 1));
+            right: auto;
             border-radius: var(--radius-md);
             border: 1px solid var(--border-color);
             border-left: 3px solid var(--secondary);
@@ -354,6 +355,8 @@
             z-index: 1;
         }
         .timeline-session:hover {
+            left: 0.3rem;
+            width: calc(100% - 0.6rem);
             z-index: 20;
             border-color: rgba(255, 88, 172, 0.65);
             box-shadow: 0 0 0 1px rgba(255, 88, 172, 0.32), 0 0 12px rgba(255, 88, 172, 0.26), 0 0 24px rgba(255, 88, 172, 0.22), 0 0 36px rgba(255, 88, 172, 0.12);
@@ -887,6 +890,63 @@
             return `<div class="schedule-day"><div class="day-header"><h2>${dayLabel}</h2><span class="session-count">${pluralize(sessions.length, 'session')}</span></div><div class="sessions-grid">${sessions.map(s => `<article class="session-card" data-session-code="${s.id}"><div class="session-track-bar" style="background: ${getTrackColor(s.track)}"></div><div class="session-content"><div class="session-meta"><span class="session-time">${formatClock(s.start)}</span>${s.type ? `<span class="session-type">${s.type}</span>` : ''}${s.room ? `<span class="session-room">${s.room}</span>` : ''}</div><h3 class="session-title">${s.title}</h3>${s.speakers ? `<p class="session-speakers">${s.speakers}</p>` : ''}${s.track ? `<span class="session-track" style="background:${getTrackColor(s.track)}">${s.track}</span>` : ''}${renderFeedbackLink(s, 'feedback-link', 'Give Feedback')}</div></article>`).join('')}</div></div>`;
         }
 
+        function computeOverlapLanes(roomSessions) {
+            const sorted = roomSessions
+                .map(s => ({
+                    session: s,
+                    start: (s.start.getHours() * 60) + s.start.getMinutes(),
+                    end: (s.start.getHours() * 60) + s.start.getMinutes() + s.durationMins
+                }))
+                .sort((a, b) => (a.start - b.start) || (a.end - b.end) || String(a.session.id).localeCompare(String(b.session.id)));
+
+            const layout = new Map();
+            let active = [];
+            let freeLanes = [];
+            let nextLane = 0;
+            let group = [];
+            let groupEnd = -Infinity;
+            let groupMaxLane = 0;
+
+            const flushGroup = () => {
+                if (!group.length) return;
+                const laneCount = groupMaxLane + 1;
+                group.forEach(entry => {
+                    layout.set(entry.session.id, { lane: entry.lane, laneCount });
+                });
+                group = [];
+            };
+
+            sorted.forEach(item => {
+                if (group.length && item.start >= groupEnd) {
+                    flushGroup();
+                    active = [];
+                    freeLanes = [];
+                    nextLane = 0;
+                    groupEnd = -Infinity;
+                    groupMaxLane = 0;
+                }
+
+                active = active.filter(a => {
+                    if (a.end <= item.start) {
+                        freeLanes.push(a.lane);
+                        return false;
+                    }
+                    return true;
+                });
+
+                freeLanes.sort((a, b) => a - b);
+                const lane = freeLanes.length ? freeLanes.shift() : nextLane++;
+                active.push({ lane, end: item.end });
+
+                group.push({ session: item.session, lane });
+                groupEnd = Math.max(groupEnd, item.end);
+                groupMaxLane = Math.max(groupMaxLane, lane);
+            });
+
+            flushGroup();
+            return layout;
+        }
+
         function renderTimelineDay(dayLabel, sessions) {
             const rooms = [...new Set(sessions.map(s => s.room).filter(Boolean))].sort();
             const safeRooms = rooms.length ? rooms : ['General'];
@@ -909,11 +969,13 @@
 
             const roomCols = safeRooms.map(room => {
                 const roomSessions = sessions.filter(s => (s.room || 'General') === room);
+                const lanes = computeOverlapLanes(roomSessions);
                 const lines = slots.map(minute => `<div class="timeline-grid-line" style="top:${(minute - startMin) * ppm}px"></div>`).join('');
                 const cards = roomSessions.map(s => {
                     const top = ((s.start.getHours() * 60 + s.start.getMinutes()) - startMin) * ppm;
                     const h = s.durationMins * ppm;
-                    return `<article class="timeline-session" data-session-code="${s.id}" style="top:${top}px;height:${h}px;border-left-color:${getTrackColor(s.track)}"><div class="timeline-session-time">${formatClock(s.start)} • ${s.type || 'Session'}</div><div class="timeline-session-title">${s.title}</div>${s.speakers ? `<div class="timeline-session-speaker">${s.speakers}</div>` : ''}${renderFeedbackLink(s, 'timeline-session-feedback', 'Feedback')}</article>`;
+                    const laneInfo = lanes.get(s.id) || { lane: 0, laneCount: 1 };
+                    return `<article class="timeline-session" data-session-code="${s.id}" data-lane-count="${laneInfo.laneCount}" style="top:${top}px;height:${h}px;--lane-index:${laneInfo.lane};--lane-count:${laneInfo.laneCount};border-left-color:${getTrackColor(s.track)}"><div class="timeline-session-time">${formatClock(s.start)} • ${s.type || 'Session'}</div><div class="timeline-session-title">${s.title}</div>${s.speakers ? `<div class="timeline-session-speaker">${s.speakers}</div>` : ''}${renderFeedbackLink(s, 'timeline-session-feedback', 'Feedback')}</article>`;
                 }).join('');
                 return `<div class="timeline-room-col" style="height:${height}px">${lines}${cards}</div>`;
             }).join('');
@@ -1029,6 +1091,8 @@
         function markExpandableTimelineSessions() {
             document.querySelectorAll('.timeline-session').forEach(card => {
                 card.classList.remove('can-expand');
+                const laneCount = Number(card.dataset.laneCount || '1');
+                if (laneCount > 1) return;
                 if (card.scrollHeight > card.clientHeight + 1) {
                     card.classList.add('can-expand');
                 }
