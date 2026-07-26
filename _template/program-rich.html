@@ -77,11 +77,24 @@
             background: var(--card-bg);
             border-bottom: 2px solid var(--border-color);
             position: sticky;
-            top: 60px;
+            top: calc(var(--filters-sticky-top, 60px) - 1px);
             z-index: 100;
             padding: var(--spacing-sm) 0;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             transition: opacity 0.2s ease;
+            overflow: hidden;
+            isolation: isolate;
+        }
+        .filters-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--card-bg);
+            z-index: 1;
+            pointer-events: none;
         }
         .filters-section.filters-not-sticky {
             position: static;
@@ -151,7 +164,7 @@
             gap: 0.35rem;
             justify-content: center;
             margin-top: var(--spacing-sm);
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: var(--spacing-xs);
             padding-top: var(--spacing-xs);
             border-top: none;
         }
@@ -1317,6 +1330,12 @@
             const filtersContainer = filtersSection ? filtersSection.querySelector('.filters-container') : null;
             if (!filtersSection || !filtersContainer) return;
 
+            const isDesktop = window.matchMedia('(min-width: 901px)').matches;
+            if (isDesktop) {
+                filtersSection.classList.remove('filters-not-sticky');
+                return;
+            }
+
             const visibleChildren = [...filtersContainer.children].filter(el => el.offsetParent !== null);
             if (visibleChildren.length < 2) {
                 filtersSection.classList.remove('filters-not-sticky');
@@ -1330,6 +1349,13 @@
             );
             const isWrapped = rowBottomBuckets.size > 1;
             filtersSection.classList.toggle('filters-not-sticky', isWrapped);
+        }
+
+        function updateFiltersStickyOffset() {
+            const navbar = document.querySelector('.navbar');
+            if (!navbar) return;
+            const topOffset = Math.ceil(navbar.getBoundingClientRect().height);
+            document.documentElement.style.setProperty('--filters-sticky-top', `${topOffset}px`);
         }
 
         async function bootstrap() {
@@ -1394,6 +1420,7 @@
                     ticking = true;
                     requestAnimationFrame(() => {
                         ticking = false;
+                        updateFiltersStickyOffset();
                         updateFiltersStickiness();
                     });
                 };
@@ -1408,6 +1435,7 @@
                 observer.observe(filtersContainer);
             }
 
+            updateFiltersStickyOffset();
             updateFiltersStickiness();
         }
 
