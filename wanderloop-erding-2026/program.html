@@ -81,12 +81,11 @@
             z-index: 100;
             padding: var(--spacing-sm) 0;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.25s ease;
+            transition: opacity 0.2s ease;
         }
-        @media (max-width: 900px) {
-            .filters-section.filters-hidden {
-                transform: translateY(-100%);
-            }
+        .filters-section.filters-not-sticky {
+            position: static;
+            top: auto;
         }
         .filters-container {
             display: flex;
@@ -122,12 +121,14 @@
             box-shadow: 0 0 0 3px rgba(182, 80, 255, 0.2);
         }
         .view-toggle {
-            display: flex;
+            display: inline-flex;
             gap: 0.15rem;
             background: var(--bg-light);
             padding: 0.2rem;
             border-radius: var(--radius-md);
             border: 1px solid var(--border-color);
+            width: fit-content;
+            max-width: 100%;
         }
         [data-theme="dark"] .view-toggle { background: var(--dark-accent); }
         .view-btn {
@@ -151,7 +152,7 @@
             justify-content: center;
             margin-top: var(--spacing-xs);
             padding-top: var(--spacing-xs);
-            border-top: 1px solid var(--border-color);
+            border-top: none;
         }
         .track-pill {
             padding: 0.25rem 0.5rem;
@@ -304,10 +305,13 @@
             border-radius: var(--radius-lg);
             overflow: hidden;
             background: var(--card-bg);
+            width: fit-content;
+            max-width: 100%;
         }
         .timeline-scroll {
             overflow-x: auto;
             overflow-y: hidden;
+            max-width: 100%;
         }
         .timeline-scroll-cue {
             position: absolute;
@@ -363,7 +367,10 @@
             background: #1b003f;
             color: var(--secondary);
         }
-        .timeline-inner { min-width: 760px; }
+        .timeline-inner {
+            min-width: 760px;
+            width: max-content;
+        }
         .timeline-head {
             display: grid;
             grid-template-columns: 70px repeat(var(--room-count), minmax(180px, 1fr));
@@ -691,7 +698,7 @@
                     <select id="track-filter" class="filter-select"><option value="">All Tracks</option></select>
                 </div>
                 <div class="filter-group">
-                    <label class="filter-label" for="type-filter">Type</label>
+                    <label class="filter-label" for="type-filter">Session Type</label>
                     <select id="type-filter" class="filter-select"><option value="">All Types</option></select>
                 </div>
                 <div class="filter-group">
@@ -699,7 +706,7 @@
                     <select id="room-filter" class="filter-select"><option value="">All Rooms</option></select>
                 </div>
                 <div class="filter-group">
-                    <label class="filter-label" for="timezone-filter">Timezone</label>
+                    <label class="filter-label" for="timezone-filter">Time Zone</label>
                     <select id="timezone-filter" class="filter-select"></select>
                 </div>
                 <div class="filter-group">
@@ -793,7 +800,7 @@
         }
 
         const activeFilters = { day: '', track: '', type: '', room: '' };
-        let currentView = window.matchMedia('(max-width: 900px)').matches ? 'grid' : 'timeline';
+        let currentView = window.matchMedia('(max-width: 700px) and (orientation: portrait)').matches ? 'grid' : 'timeline';
         document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.view === currentView));
         let timezone = pickDefaultTimezone();
         let allSessions = [];
@@ -1068,7 +1075,7 @@
                     const top = ((s.start.getHours() * 60 + s.start.getMinutes()) - startMin) * ppm;
                     const h = s.durationMins * ppm;
                     const laneInfo = lanes.get(s.id) || { lane: 0, laneCount: 1 };
-                    return `<article class="timeline-session" data-session-code="${s.id}" data-lane-count="${laneInfo.laneCount}" style="top:${top}px;height:${h}px;--lane-index:${laneInfo.lane};--lane-count:${laneInfo.laneCount};border-left-color:${getTrackColor(s.track)}"><div class="timeline-session-time">${formatClock(s.start)} • ${s.type || 'Session'}</div><div class="timeline-session-title">${s.title}</div>${s.speakers ? `<div class="timeline-session-speaker">${s.speakers}</div>` : ''}${renderFeedbackLink(s, 'timeline-session-feedback', 'Feedback')}</article>`;
+                    return `<article class="timeline-session" data-session-code="${s.id}" data-lane-count="${laneInfo.laneCount}" style="top:${top}px;height:${h}px;--lane-index:${laneInfo.lane};--lane-count:${laneInfo.laneCount};border-left-color:${getTrackColor(s.track)}"><div class="timeline-session-time">${formatClock(s.start)}&nbsp;&nbsp;•&nbsp;&nbsp;${s.type || 'Session'}</div><div class="timeline-session-title">${s.title}</div>${s.speakers ? `<div class="timeline-session-speaker">${s.speakers}</div>` : ''}${renderFeedbackLink(s, 'timeline-session-feedback', 'Feedback')}</article>`;
                 }).join('');
                 return `<div class="timeline-room-col" style="height:${height}px">${lines}${cards}</div>`;
             }).join('');
@@ -1289,6 +1296,26 @@
             });
         }
 
+        function updateFiltersStickiness() {
+            const filtersSection = document.querySelector('.filters-section');
+            const filtersContainer = filtersSection ? filtersSection.querySelector('.filters-container') : null;
+            if (!filtersSection || !filtersContainer) return;
+
+            const visibleChildren = [...filtersContainer.children].filter(el => el.offsetParent !== null);
+            if (visibleChildren.length < 2) {
+                filtersSection.classList.remove('filters-not-sticky');
+                return;
+            }
+
+            // Use aligned bottoms (not tops): the row is bottom-aligned, so tops differ even on one line.
+            const rowBucketSize = 8;
+            const rowBottomBuckets = new Set(
+                visibleChildren.map(el => Math.round((el.getBoundingClientRect().top + el.getBoundingClientRect().height) / rowBucketSize))
+            );
+            const isWrapped = rowBottomBuckets.size > 1;
+            filtersSection.classList.toggle('filters-not-sticky', isWrapped);
+        }
+
         async function bootstrap() {
             try {
                 const configResponse = await fetch('config.json', { cache: 'no-store' });
@@ -1336,27 +1363,36 @@
             renderTrackPills(tracks);
             wireFilters();
             renderSessions();
+            requestAnimationFrame(updateFiltersStickiness);
         }
 
         function initFiltersScrollHide() {
             const filtersSection = document.querySelector('.filters-section');
             if (!filtersSection) return;
-            const isCompactViewport = () => window.matchMedia('(max-width: 900px)').matches;
-            let lastScrollY = window.scrollY;
-            window.addEventListener('scroll', () => {
-                if (!isCompactViewport()) {
-                    filtersSection.classList.remove('filters-hidden');
-                    lastScrollY = window.scrollY;
-                    return;
-                }
-                const currentScrollY = window.scrollY;
-                if (currentScrollY > lastScrollY && currentScrollY > 120) {
-                    filtersSection.classList.add('filters-hidden');
-                } else {
-                    filtersSection.classList.remove('filters-hidden');
-                }
-                lastScrollY = currentScrollY;
-            }, { passive: true });
+            filtersSection.classList.remove('filters-hidden');
+
+            const onResize = (() => {
+                let ticking = false;
+                return () => {
+                    if (ticking) return;
+                    ticking = true;
+                    requestAnimationFrame(() => {
+                        ticking = false;
+                        updateFiltersStickiness();
+                    });
+                };
+            })();
+
+            window.addEventListener('resize', onResize, { passive: true });
+            window.addEventListener('orientationchange', onResize, { passive: true });
+
+            const filtersContainer = filtersSection.querySelector('.filters-container');
+            if (filtersContainer && 'ResizeObserver' in window) {
+                const observer = new ResizeObserver(onResize);
+                observer.observe(filtersContainer);
+            }
+
+            updateFiltersStickiness();
         }
 
         setupTimezoneFilter();
