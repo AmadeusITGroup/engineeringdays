@@ -112,6 +112,7 @@
             flex-direction: column;
             gap: 0.15rem;
         }
+        .filter-group.filter-group-hidden { display: none; }
         .filter-label {
             font-size: 0.65rem;
             text-transform: uppercase;
@@ -1330,24 +1331,38 @@
             const filtersContainer = filtersSection ? filtersSection.querySelector('.filters-container') : null;
             if (!filtersSection || !filtersContainer) return;
 
-            const isDesktop = window.matchMedia('(min-width: 901px)').matches;
-            if (isDesktop) {
+            const dayGroup = document.getElementById('day-filter')?.closest('.filter-group');
+            const trackGroup = document.getElementById('track-filter')?.closest('.filter-group');
+            const getIsWrapped = () => {
+                const visibleChildren = [...filtersContainer.children].filter(el => el.offsetParent !== null);
+                if (visibleChildren.length < 2) return false;
+
+                // Use aligned bottoms (not tops): the row is bottom-aligned, so tops differ even on one line.
+                const rowBucketSize = 8;
+                const rowBottomBuckets = new Set(
+                    visibleChildren.map(el => Math.round((el.getBoundingClientRect().top + el.getBoundingClientRect().height) / rowBucketSize))
+                );
+                return rowBottomBuckets.size > 1;
+            };
+
+            // Measure with Day/Track visible to avoid hide/show oscillation on responsive widths.
+            dayGroup?.classList.remove('filter-group-hidden');
+            trackGroup?.classList.remove('filter-group-hidden');
+            const isWrappedWithAllControls = getIsWrapped();
+
+            const isLargeDesktop = window.matchMedia('(min-width: 1200px)').matches;
+            const shouldHideDayTrack = !isLargeDesktop && isWrappedWithAllControls;
+            dayGroup?.classList.toggle('filter-group-hidden', shouldHideDayTrack);
+            trackGroup?.classList.toggle('filter-group-hidden', shouldHideDayTrack);
+
+            const isWrapped = getIsWrapped();
+
+            const isDesktopSticky = window.matchMedia('(min-width: 901px)').matches;
+            if (isDesktopSticky) {
                 filtersSection.classList.remove('filters-not-sticky');
                 return;
             }
 
-            const visibleChildren = [...filtersContainer.children].filter(el => el.offsetParent !== null);
-            if (visibleChildren.length < 2) {
-                filtersSection.classList.remove('filters-not-sticky');
-                return;
-            }
-
-            // Use aligned bottoms (not tops): the row is bottom-aligned, so tops differ even on one line.
-            const rowBucketSize = 8;
-            const rowBottomBuckets = new Set(
-                visibleChildren.map(el => Math.round((el.getBoundingClientRect().top + el.getBoundingClientRect().height) / rowBucketSize))
-            );
-            const isWrapped = rowBottomBuckets.size > 1;
             filtersSection.classList.toggle('filters-not-sticky', isWrapped);
         }
 
