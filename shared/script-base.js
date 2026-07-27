@@ -47,18 +47,32 @@
         });
     }
 
-    // Smooth Scroll with Offset for Fixed Nav
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const href = this.getAttribute('href');
+    // Global click handler for links (delegated)
+    document.addEventListener('click', (e) => {
+        const anchor = e.target.closest('a');
+        if (!anchor) return;
+
+        const href = anchor.getAttribute('href');
+        if (!href) return;
+
+        // 1. Handle Smooth Scroll for Internal Anchors
+        if (href.startsWith('#') && href.length > 1) {
             const target = document.querySelector(href);
             if (target) {
+                e.preventDefault();
                 const scheduleAdjustment = href === '#schedule' ? -16 : 0;
                 const offsetTop = target.offsetTop - 80 + scheduleAdjustment;
                 window.scrollTo({ top: offsetTop, behavior: 'smooth' });
             }
-        });
+        }
+
+        // 2. Handle External Links (Open in New Tab if not specified)
+        if (href.startsWith('http') && !href.includes(window.location.hostname)) {
+            if (!anchor.target) {
+                anchor.target = '_blank';
+                anchor.rel = 'noopener noreferrer';
+            }
+        }
     });
 
     // Scroll Animation for Elements

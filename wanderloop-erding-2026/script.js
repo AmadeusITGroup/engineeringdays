@@ -207,6 +207,18 @@ function getCfpHref(event) {
     return `mailto:${contact}?subject=${encodeURIComponent(`Talk proposal for ${eventName}`)}`;
 }
 
+function setLinkAttributes(el, href) {
+    if (!el) return;
+    el.href = href;
+    if (href.startsWith('http')) {
+        el.target = '_blank';
+        el.rel = 'noopener noreferrer';
+    } else {
+        el.target = '';
+        el.rel = '';
+    }
+}
+
 function showCfpLink(cfpHref) {
     const nav = document.getElementById('cfp-nav-link');
     const hero = document.getElementById('cfp-hero-cta');
@@ -214,22 +226,22 @@ function showCfpLink(cfpHref) {
     const footer = document.getElementById('cfp-footer-link');
 
     if (nav) {
-        nav.href = cfpHref;
+        setLinkAttributes(nav, cfpHref);
         nav.textContent = 'Submit a talk';
         nav.style.display = 'inline-block';
     }
     if (hero) {
-        hero.href = cfpHref;
+        setLinkAttributes(hero, cfpHref);
         hero.innerHTML = 'Submit a talk <span class="arrow">→</span>';
         hero.style.display = 'inline-block';
     }
     if (contact) {
-        contact.href = cfpHref;
+        setLinkAttributes(contact, cfpHref);
         contact.innerHTML = 'Submit a talk <span class="arrow">→</span>';
         contact.style.display = 'inline-block';
     }
     if (footer) {
-        footer.href = cfpHref;
+        setLinkAttributes(footer, cfpHref);
         footer.textContent = 'Submit a talk';
         footer.style.display = 'inline';
     }
@@ -254,22 +266,22 @@ function showProgramLink() {
     const footer = document.getElementById('program-footer-link');
 
     if (nav) {
-        nav.href = 'program.html';
+        setLinkAttributes(nav, 'program.html');
         nav.textContent = 'Program';
         nav.style.display = 'inline-block';
     }
     if (hero) {
-        hero.href = 'program.html';
+        setLinkAttributes(hero, 'program.html');
         hero.innerHTML = 'Program <span class="arrow">→</span>';
         hero.style.display = 'inline-block';
     }
     if (contact) {
-        contact.href = 'program.html';
+        setLinkAttributes(contact, 'program.html');
         contact.innerHTML = 'Program <span class="arrow">→</span>';
         contact.style.display = 'inline-block';
     }
     if (footer) {
-        footer.href = 'program.html';
+        setLinkAttributes(footer, 'program.html');
         footer.textContent = 'Program';
         footer.style.display = 'inline';
     }
