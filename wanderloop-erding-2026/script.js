@@ -210,6 +210,7 @@ function getCfpHref(event) {
 function showCfpLink(cfpHref) {
     const nav = document.getElementById('cfp-nav-link');
     const hero = document.getElementById('cfp-hero-cta');
+    const contact = document.getElementById('cfp-contact-cta');
     const footer = document.getElementById('cfp-footer-link');
 
     if (nav) {
@@ -222,6 +223,11 @@ function showCfpLink(cfpHref) {
         hero.innerHTML = 'Submit a talk <span class="arrow">→</span>';
         hero.style.display = 'inline-block';
     }
+    if (contact) {
+        contact.href = cfpHref;
+        contact.innerHTML = 'Submit a talk <span class="arrow">→</span>';
+        contact.style.display = 'inline-block';
+    }
     if (footer) {
         footer.href = cfpHref;
         footer.textContent = 'Submit a talk';
@@ -232,16 +238,19 @@ function showCfpLink(cfpHref) {
 function hideCfpLink() {
     const nav = document.getElementById('cfp-nav-link');
     const hero = document.getElementById('cfp-hero-cta');
+    const contact = document.getElementById('cfp-contact-cta');
     const footer = document.getElementById('cfp-footer-link');
 
     if (nav) nav.style.display = 'none';
     if (hero) hero.style.display = 'none';
+    if (contact) contact.style.display = 'none';
     if (footer) footer.style.display = 'none';
 }
 
 function showProgramLink() {
     const nav = document.getElementById('program-nav-link');
     const hero = document.getElementById('program-hero-cta');
+    const contact = document.getElementById('program-contact-cta');
     const footer = document.getElementById('program-footer-link');
 
     if (nav) {
@@ -254,6 +263,11 @@ function showProgramLink() {
         hero.innerHTML = 'Program <span class="arrow">→</span>';
         hero.style.display = 'inline-block';
     }
+    if (contact) {
+        contact.href = 'program.html';
+        contact.innerHTML = 'Program <span class="arrow">→</span>';
+        contact.style.display = 'inline-block';
+    }
     if (footer) {
         footer.href = 'program.html';
         footer.textContent = 'Program';
@@ -264,10 +278,12 @@ function showProgramLink() {
 function hideProgramLink() {
     const nav = document.getElementById('program-nav-link');
     const hero = document.getElementById('program-hero-cta');
+    const contact = document.getElementById('program-contact-cta');
     const footer = document.getElementById('program-footer-link');
 
     if (nav) nav.style.display = 'none';
     if (hero) hero.style.display = 'none';
+    if (contact) contact.style.display = 'none';
     if (footer) footer.style.display = 'none';
 }
 
