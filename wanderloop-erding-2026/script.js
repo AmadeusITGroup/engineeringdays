@@ -1,7 +1,101 @@
 // Event-specific JavaScript
 // Loads config.json and renders index.html from config-driven data.
 
+// ============================================================================
+// URL Parameter & Date Filter Utilities
+// ============================================================================
+
+function getDateParam() {
+    const params = new URLSearchParams(window.location.search);
+    const dateParam = params.get('date');
+    return normalizeDateParam(dateParam);
+}
+
+function normalizeDateParam(dateParam) {
+    if (!dateParam) {
+        return null;
+    }
+
+    const trimmed = dateParam.trim();
+    if (!trimmed) {
+        return null;
+    }
+
+    if (trimmed === '10Nov') {
+        return '2026-11-10';
+    }
+    if (trimmed === '11Nov') {
+        return '2026-11-11';
+    }
+
+    return trimmed;
+}
+
+function isValidEventDate(dateStr) {
+    if (!dateStr) return false;
+    // Check if it's 2026-11-10 or 2026-11-11
+    return dateStr === '2026-11-10' || dateStr === '2026-11-11';
+}
+
+function getCleanUrl(path, dateParam) {
+    const url = new URL(path, window.location.origin);
+    if (dateParam && isValidEventDate(dateParam)) {
+        url.searchParams.set('date', dateParam);
+    }
+    return url.toString();
+}
+
+function redirectToCleanUrl(path) {
+    const dateParam = getDateParam();
+    if (!dateParam || isValidEventDate(dateParam)) {
+        return; // URL is already clean
+    }
+    const cleanUrl = getCleanUrl(path, null);
+    window.history.replaceState(null, '', cleanUrl);
+}
+
+function filterSessionsByDate(sessions, dateStr) {
+    if (!dateStr || !isValidEventDate(dateStr)) {
+        return sessions; // No filter
+    }
+    return sessions.filter(session => {
+        if (session.Start) {
+            const sessionDate = session.Start.split('T')[0];
+            return sessionDate === dateStr;
+        }
+        return false;
+    });
+}
+
+function formatDateFilterDisplay(dateStr) {
+    if (!isValidEventDate(dateStr)) {
+        return null;
+    }
+
+    const parsedDate = new Date(`${dateStr}T00:00:00`);
+    if (Number.isNaN(parsedDate.getTime())) {
+        return null;
+    }
+
+    return parsedDate.toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+}
+
+// ============================================================================
+// Expose current date filter globally
+// ============================================================================
+window.currentDateFilter = getDateParam();
+
+// ============================================================================
+// Initialize & redirect if needed on page load
+// ============================================================================
+redirectToCleanUrl(window.location.pathname);
+
 document.addEventListener('DOMContentLoaded', async () => {
+    highlightActiveDateCard();
     try {
         const response = await fetch('config.json', { cache: 'no-store' });
         const event = await response.json();
@@ -12,6 +106,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+function highlightActiveDateCard() {
+    const dateFilter = window.currentDateFilter;
+    const nov10 = document.getElementById('toggle-nov10');
+    const nov11 = document.getElementById('toggle-nov11');
+
+    if (dateFilter === '2026-11-10') {
+        if (nov10) nov10.classList.add('date-card-active');
+    } else if (dateFilter === '2026-11-11') {
+        if (nov11) nov11.classList.add('date-card-active');
+    }
+}
+
 function renderEvent(event) {
     applyMetadata(event);
     renderStats(event);
@@ -19,6 +125,33 @@ function renderEvent(event) {
     renderTracks(event.tracks);
     renderAboutSection(event);
     renderCodeSnippet(event);
+}
+
+function escapeHtml(text) {
+    return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function formatBoldSegments(text) {
+    const escaped = escapeHtml(text || '');
+    // Only allow **...** to become <strong>...</strong>; everything else remains escaped text.
+    return escaped.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+
+function formatBoldSegmentsWithLineBreaks(text) {
+    const breakToken = '__WL_BR__';
+    const withBreakTokens = String(text || '').replace(/<br\s*\/?>/gi, breakToken);
+    const escaped = escapeHtml(withBreakTokens);
+
+    // Preserve legacy <br> from config and allow only **...** for rich emphasis.
+    return escaped
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .split(breakToken)
+        .join('<br/>');
 }
 
 function applyMetadata(event) {
@@ -48,10 +181,14 @@ function applyMetadata(event) {
         }
     }
 
-    if (event.tagline) {
+    const dateFilter = window.currentDateFilter;
+    const dateSpecificTagline = dateFilter ? event[`tagline-${dateFilter}`] : null;
+    const selectedTagline = dateSpecificTagline || event.tagline;
+
+    if (selectedTagline) {
         const heroSubtitle = document.querySelector('.hero-subtitle');
         if (heroSubtitle) {
-            heroSubtitle.textContent = event.tagline;
+            heroSubtitle.innerHTML = formatBoldSegments(selectedTagline);
         }
 
         const footerTagline = document.querySelector('.footer-tagline');
@@ -61,8 +198,9 @@ function applyMetadata(event) {
     }
 
     const dateEl = document.querySelector('.date-highlight');
+    const forcedDateDisplay = formatDateFilterDisplay(dateFilter);
     const liveDates = window.liveProgramStats && window.liveProgramStats.dateRangeDisplay;
-    const displayDates = liveDates || (event.dates && event.dates.display);
+    const displayDates = forcedDateDisplay || liveDates || (event.dates && event.dates.display);
     if (dateEl && displayDates) {
         dateEl.textContent = displayDates;
     }
@@ -147,11 +285,22 @@ function renderTracks(tracks) {
         return;
     }
 
-    tracksGrid.innerHTML = tracks.map(track => `
+    // Filter tracks by date if live stats are enabled
+    let filteredTracks = tracks;
+    if (window.liveProgramStats && window.liveProgramStats.list && Array.isArray(window.liveProgramStats.list)) {
+        const sessionsTrackSet = new Set(
+            window.liveProgramStats.list
+                .map(s => s.Track && s.Track.en)
+                .filter(Boolean)
+        );
+        filteredTracks = tracks.filter(track => sessionsTrackSet.has(track.name));
+    }
+
+    tracksGrid.innerHTML = filteredTracks.map(track => `
         <div class="track-card${track.highlight ? ' track-card-highlight' : ''}">
             <div class="track-icon">${track.icon || ''}</div>
             <h3>${track.name || ''}</h3>
-            <p>${track.description || ''}</p>
+            <p>${formatBoldSegmentsWithLineBreaks(track.description)}</p>
         </div>
     `).join('');
 }
@@ -260,28 +409,33 @@ function hideCfpLink() {
 }
 
 function showProgramLink() {
+    const dateFilter = window.currentDateFilter;
+    const programUrl = dateFilter && isValidEventDate(dateFilter) 
+        ? `program.html?date=${dateFilter}`
+        : 'program.html';
+    
     const nav = document.getElementById('program-nav-link');
     const hero = document.getElementById('program-hero-cta');
     const contact = document.getElementById('program-contact-cta');
     const footer = document.getElementById('program-footer-link');
 
     if (nav) {
-        setLinkAttributes(nav, 'program.html');
+        setLinkAttributes(nav, programUrl);
         nav.textContent = 'Program';
         nav.style.display = 'inline-block';
     }
     if (hero) {
-        setLinkAttributes(hero, 'program.html');
+        setLinkAttributes(hero, programUrl);
         hero.innerHTML = 'Program <span class="arrow">→</span>';
         hero.style.display = 'inline-block';
     }
     if (contact) {
-        setLinkAttributes(contact, 'program.html');
+        setLinkAttributes(contact, programUrl);
         contact.innerHTML = 'Program <span class="arrow">→</span>';
         contact.style.display = 'inline-block';
     }
     if (footer) {
-        setLinkAttributes(footer, 'program.html');
+        setLinkAttributes(footer, programUrl);
         footer.textContent = 'Program';
         footer.style.display = 'inline';
     }
@@ -309,6 +463,7 @@ function computeStatus(hasProgramPage, showCfp) {
 async function updateProgramLinks(event) {
     const cfpHref = getCfpHref(event);
     const showCfp = event.showCfp !== false; // defaults to true if not specified
+    const dateFilter = window.currentDateFilter;
 
     let hasSessions = false;
     let hasProgramPage = false;
@@ -338,8 +493,10 @@ async function updateProgramLinks(event) {
         hideProgramLink();
     }
 
-    // Handle CFP link (independent)
-    if (showCfp) {
+    // Handle CFP link: hide for Nov 10, conditional visibility for Nov 11 & full event
+    if (dateFilter === '2026-11-10') {
+        hideCfpLink();
+    } else if (showCfp) {
         showCfpLink(cfpHref);
     } else {
         hideCfpLink();
@@ -348,15 +505,21 @@ async function updateProgramLinks(event) {
     // Once the program is official, useLiveProgramStats switches sessions/speakers/dates
     // from the static advertised numbers to values computed live from sessions.json.
     window.liveProgramStats = (event.useLiveProgramStats && hasSessions)
-        ? computeLiveProgramStats(sessions)
+        ? computeLiveProgramStats(sessions, dateFilter)
         : null;
 
     // Update status in code snippet
     window.eventStatus = computeStatus(hasProgramPage, showCfp);
 }
 
-function computeLiveProgramStats(sessions) {
-    const list = Array.isArray(sessions) ? sessions : [];
+function computeLiveProgramStats(sessions, dateFilter) {
+    let list = Array.isArray(sessions) ? sessions : [];
+    
+    // Apply date filter if specified
+    if (dateFilter && isValidEventDate(dateFilter)) {
+        list = filterSessionsByDate(list, dateFilter);
+    }
+    
     const sessionsCount = list.length;
 
     const speakerSet = new Set();
@@ -394,7 +557,8 @@ function computeLiveProgramStats(sessions) {
     return {
         sessionsCount,
         speakersCount: speakerSet.size,
-        dateRangeDisplay
+        dateRangeDisplay,
+        list  // Include filtered list for track filtering
     };
 }
 

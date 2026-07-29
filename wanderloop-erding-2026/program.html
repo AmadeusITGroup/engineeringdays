@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program | Wanderloop Erding 2026</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
     <link rel="stylesheet" href="../shared/styles-base.css">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -42,36 +42,28 @@
             color: var(--highlight-light);
             margin-bottom: var(--spacing-md);
         }
-        .program-dates {
-            display: inline-flex;
-            flex-wrap: wrap;
-            gap: var(--spacing-sm);
+        .program-dates-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             justify-content: center;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
         }
-        .date-card {
-            background: rgba(255, 255, 255, 0.14);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: var(--radius-lg);
-            min-width: 140px;
-            padding: 0.55rem 0.95rem;
-            text-align: center;
-        }
-        .date-card .day-name {
+        .program-dates-label {
             color: var(--highlight-light);
-            font-size: 0.7rem;
-            letter-spacing: 0.06em;
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
-        .date-card .day-number {
-            color: #fff;
-            font-size: 2rem;
-            line-height: 1.1;
-            font-weight: 900;
-        }
-        .date-card .month {
-            color: #fff;
-            opacity: 0.92;
-            font-size: 0.85rem;
+        .program-dates {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+            justify-content: center;
         }
         .filters-section {
             background: var(--card-bg);
@@ -675,8 +667,9 @@
                 <div class="nav-byline">by Amadeus DevRel</div>
             </a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
+                <a id="program-home-nav" href="index.html">Home</a>
                 <a href="#schedule">Schedule</a>
+                <a id="program-cfp-nav-link" class="cfp-link always-underline" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Submit a talk</a>
                 <a href="mailto:devrel@amadeus.com">Contact</a>
                 <span class="nav-separator">|</span>
                 <a href="../index.html">All events</a>
@@ -696,8 +689,10 @@
     <header class="program-hero">
         <div class="container">
             <h1>Conference program</h1>
-            <p class="subtitle">Wanderloop Erding 2026 — 11 November 2026</p>
-            <div class="program-dates" id="program-dates"></div>
+            <p class="subtitle" id="program-subtitle">Wanderloop Erding 2026</p>
+            <div class="program-dates-wrapper">
+                <div class="program-dates" id="program-dates"></div>
+            </div>
         </div>
     </header>
 
@@ -752,7 +747,8 @@
                     <p class="footer-tagline">An Amadeus Event</p>
                 </div>
                 <div class="footer-links">
-                    <a href="index.html">Home</a>
+                    <a id="program-home-footer" href="index.html">Home</a>
+                    <a id="program-cfp-footer-link" class="cfp-link" href="#" target="_blank" rel="noopener noreferrer" style="display:none;">Submit a talk</a>
                     <a href="mailto:devrel@amadeus.com">Contact</a>
                     <span class="nav-separator">|</span>
                     <a href="../index.html">All events</a>
@@ -770,7 +766,7 @@
     (function() {
         'use strict';
 
-        const TRACK_COLORS = {"AIOps, Operations": "#2218a8", "Leadership, People": "#b650ff"};
+        const TRACK_COLORS = {"AIOps": "#2218a8", "Platforming at scale": "#e76000", "AI-first teams": "#b650ff"};
         const OPENFEEDBACK_BASE = "".trim();
         const CONTACT_EMAIL = "devrel@amadeus.com";
         const TIMEZONE_OPTIONS = [
@@ -812,6 +808,51 @@
             return candidates.reduce((closest, tz) =>
                 Math.abs(getUtcOffsetMinutes(tz, now) - visitorOffset) < Math.abs(getUtcOffsetMinutes(closest, now) - visitorOffset) ? tz : closest,
                 candidates[0]);
+        }
+
+        function updateProgramPageCfpLink(eventConfig) {
+            const dateFilter = window.currentDateFilter;
+            const showCfp = eventConfig.showCfp !== false;
+            const cfpHref = eventConfig.cfpUrl || '#';
+            
+            const navLink = document.getElementById('program-cfp-nav-link');
+            const footerLink = document.getElementById('program-cfp-footer-link');
+            
+            // Hide CFP link for Nov 10, show for Nov 11 and full event (if showCfp enabled)
+            if (dateFilter === '2026-11-10') {
+                // Hide on Nov 10
+                if (navLink) navLink.style.display = 'none';
+                if (footerLink) footerLink.style.display = 'none';
+            } else if (showCfp) {
+                // Show on Nov 11 and full event
+                if (navLink) {
+                    navLink.href = cfpHref;
+                    navLink.style.display = 'inline-block';
+                }
+                if (footerLink) {
+                    footerLink.href = cfpHref;
+                    footerLink.style.display = 'inline';
+                }
+            } else {
+                // Hide if showCfp is false
+                if (navLink) navLink.style.display = 'none';
+                if (footerLink) footerLink.style.display = 'none';
+            }
+        }
+
+        function updateHomeLinks() {
+            const dateFilter = window.currentDateFilter;
+            const homeNavLink = document.getElementById('program-home-nav');
+            const homeFooterLink = document.getElementById('program-home-footer');
+            
+            if (dateFilter && (dateFilter === '2026-11-10' || dateFilter === '2026-11-11')) {
+                const homeUrl = `index.html?date=${dateFilter}`;
+                if (homeNavLink) homeNavLink.href = homeUrl;
+                if (homeFooterLink) homeFooterLink.href = homeUrl;
+            } else {
+                if (homeNavLink) homeNavLink.href = 'index.html';
+                if (homeFooterLink) homeFooterLink.href = 'index.html';
+            }
         }
 
         const activeFilters = { day: '', track: '', type: '', room: '' };
@@ -949,11 +990,33 @@
             return `${count} ${count === 1 ? singular : (plural || singular + 's')}`;
         }
 
+        const DATE_CONTEXT = {
+            '2026-11-10': 'External audience',
+            '2026-11-11': 'AMADEUS & GUESTS'
+        };
+
+        const DATE_LABELS = {
+            '2026-11-10': '10 November 2026',
+            '2026-11-11': '11 November 2026'
+        };
+
+        function updateProgramSubtitle() {
+            const dateFilter = window.currentDateFilter;
+            const subtitleEl = document.getElementById('program-subtitle');
+            if (!subtitleEl) return;
+            const dateLabel = (dateFilter && DATE_LABELS[dateFilter]) || '10–11 November 2026';
+            subtitleEl.textContent = `Wanderloop Erding 2026 — ${dateLabel}`;
+        }
+
         function createDateCards(days) {
             const container = document.getElementById('program-dates');
+            const currentDate = window.currentDateFilter;
             container.innerHTML = days.map(dayKey => {
                 const d = new Date(dayKey + 'T00:00:00');
-                return `<div class="date-card"><div class="day-name">${d.toLocaleDateString('en-GB', { weekday: 'long' })}</div><div class="day-number">${d.getDate()}</div><div class="month">${d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}</div></div>`;
+                const isActive = currentDate === dayKey ? ' date-card-active' : '';
+                const context = DATE_CONTEXT[dayKey] || '';
+                const contextHtml = context ? `<div class="card-context">${context}</div>` : '';
+                return `<a href="program.html?date=${dayKey}" class="date-card${isActive}"><div class="day-name">${d.toLocaleDateString('en-GB', { weekday: 'long' })}</div><div class="day-number">${d.getDate()}</div><div class="month">${d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}</div>${contextHtml}</a>`;
             }).join('');
         }
 
@@ -1297,7 +1360,16 @@
         }
 
         function wireFilters() {
-            document.getElementById('day-filter').addEventListener('change', e => { activeFilters.day = e.target.value; renderSessions(); });
+            document.getElementById('day-filter').addEventListener('change', e => {
+                activeFilters.day = e.target.value;
+                const url = new URL(window.location.href);
+                if (activeFilters.day) {
+                    url.searchParams.set('date', activeFilters.day);
+                } else {
+                    url.searchParams.delete('date');
+                }
+                window.location.href = url.toString();
+            });
             document.getElementById('track-filter').addEventListener('change', e => { activeFilters.track = e.target.value; renderTrackPills([...new Set(allSessions.map(s => s.track).filter(Boolean))].sort()); renderSessions(); });
             document.getElementById('type-filter').addEventListener('change', e => { activeFilters.type = e.target.value; renderSessions(); });
             document.getElementById('room-filter').addEventListener('change', e => { activeFilters.room = e.target.value; renderSessions(); });
@@ -1364,6 +1436,8 @@
                 if (configResponse.ok) {
                     const eventConfig = await configResponse.json();
                     showFeedback = Boolean(eventConfig.showFeedback);
+                    updateProgramPageCfpLink(eventConfig);
+                    updateProgramSubtitle();
                 }
             } catch (err) {
                 showFeedback = false;
@@ -1398,6 +1472,13 @@
             [...daySelect.options].forEach(option => {
                 if (option.value) option.textContent = toDayLabel(option.value);
             });
+            
+            // Pre-select day based on URL date parameter
+            if (window.currentDateFilter && (window.currentDateFilter === '2026-11-10' || window.currentDateFilter === '2026-11-11')) {
+                daySelect.value = window.currentDateFilter;
+                activeFilters.day = window.currentDateFilter;
+            }
+            
             setSelectOptions('track-filter', tracks);
             setSelectOptions('type-filter', types);
             setSelectOptions('room-filter', rooms);
@@ -1440,6 +1521,7 @@
         }
 
         setupTimezoneFilter();
+        updateHomeLinks();
         initFiltersScrollHide();
         document.addEventListener('DOMContentLoaded', bootstrap);
     })();

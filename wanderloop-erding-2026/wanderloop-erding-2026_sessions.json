@@ -23,7 +23,7 @@
       "en": "Talk"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "A leadership perspective on shaping the future of operations at Amadeus, exploring the strategic vision for AI-driven operational excellence.",
@@ -44,7 +44,7 @@
       "en": "Talk"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "An in-depth look at Amadeus's journey toward No-Touch Operations — why AIOps is the right strategy now, and how we are building towards fully automated, self-healing operations.",
@@ -65,7 +65,7 @@
       "en": "Talk"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "Speaker: Mistral AI\r\n\r\nAn external perspective on AIOps from Mistral AI, exploring how large language models and AI capabilities can transform IT operations.",
@@ -84,7 +84,7 @@
       "en": "Breakout session"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "A focused breakout discussion on the AI-first journey in network automation and observability. Exploring how AI is transforming how we monitor, detect, and respond to network events.",
@@ -105,7 +105,7 @@
       "en": "Breakout session"
     },
     "Track": {
-      "en": "Leadership, People"
+      "en": "AI-first teams"
     },
     "Tags": null,
     "Description": "Explore how to unlock AI's potential through the right skills, roles, and responsibilities. This breakout session focuses on the organizational and human aspects of AI transformation — how teams must evolve to succeed in an AI-first operations world.",
@@ -127,7 +127,7 @@
       "en": "Breakout session"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "Explore the state-of-the-art AI Cost Management in an exploding, capacity-challenged AI Market. This session covers FinOps strategies, cost optimization patterns, and how to manage AI infrastructure spend at scale.",
@@ -148,7 +148,7 @@
       "en": "Talk"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "External speaker session — to be announced.",
@@ -184,7 +184,7 @@
       "en": "Networking booth"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "Interactive booth station showcasing AIOps applied to network automation. Explore real use cases, exchange with experts, and discover how AI is transforming network operations at Amadeus.",
@@ -205,7 +205,7 @@
       "en": "Networking booth"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "Practical use cases of AIOps for transforming operational processes, featuring the Cloud Platform Bot and Self-Healing capabilities. See how Amadeus is automating incident detection, root cause analysis, and remediation.",
@@ -227,7 +227,7 @@
       "en": "Networking booth"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "Live demonstration of AI-assisted incident management using VictorAI and Cordellia. See how these tools reduce mean time to resolution (MTTR) and automate incident triage, enrichment, and routing.",
@@ -248,7 +248,7 @@
       "en": "Networking booth"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "Explore how NowAssist from ServiceNow brings AI-assisted change management capabilities to Amadeus operations. Learn how AI helps assess change risk, suggest remediation steps, and accelerate change approval workflows.",
@@ -270,7 +270,7 @@
       "en": "Networking booth"
     },
     "Track": {
-      "en": "AIOps, Operations"
+      "en": "AIOps"
     },
     "Tags": null,
     "Description": "A dual exploration: how AI enhances FinOps practices (anomaly detection, cost forecasting, optimization recommendations) and how FinOps principles apply to managing AI infrastructure costs in a capacity-constrained market.",

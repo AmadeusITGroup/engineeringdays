@@ -1,7 +1,9 @@
 {
   "eventName": "Wanderloop Erding 2026",
   "eventSlug": "wanderloop-erding-2026",
-  "tagline": "Compiled exploration focusing on AIOps, platforming at scale & AI-first teams",
+  "tagline": "Compiled exploration & exchanges focusing on **AIOps**, **AI platforms at scale** & **AI-first teams**",
+  "tagline-2026-11-10": "Shape an AIOps future: share our vision of **No Touch operations**, gather insights & build an ecosystem with other **industry experts & leaders**",
+  "tagline-2026-11-11": "Re-engineer the way we work with AI: how **services are operated**, **platforms are built** and **engineers & ops collaborate** – on-site event where tech & non-tech audiences meet global experts & industry leaders",
   "dates": {
     "start": "2026-11-10T09:00:00+01:00",
     "end": "2026-11-11T18:00:00+01:00",
@@ -49,17 +51,17 @@
     {
       "icon": "🤖",
       "name": "AIOps",
-      "description": "Transform how services are operated.<br/><br/>No touch ops, autonomous platform agents, predictive observability, self-healing architectures, intelligent monitoring"
+      "description": "**How to operate services to cope with an increased number of changes.**<br/><br/>Low touch & no-touch ops, autonomous platform agents, predictive observability, self-healing architectures, intent-driven testing & validation"
     },
     {
       "icon": "🛠️",
-      "name": "Platforming at scale",
-      "description": "Transform how systems are built to cope with an AI-assisted workload.<br/><br/>Operational excellence, culture of stability, resilience & security, AI-DLC, fleet management, internal developer platforms & knowledge graphs"
+      "name": "AI platforms at scale",
+      "description": "**How do we build & manage systems for an AI workload.**<br/><br/>Operational excellence, culture of stability, resilience, security, AI cost management & ROI, AI-DLC, infrastructure management, internal developer platforms & knowledge graphs"
     },
     {
       "icon": "👩‍💻",
       "name": "AI-first teams",
-      "description": "Transform how engineers & ops work.<br/><br/>Leading teams through AI transformation, new engineering skillsets, AI-first engineering practices"
+      "description": "**How does AI affect our business and the way we work.**<br/><br/>Leading teams through AI transformation, skillsets evolution, AI-first engineering practices, intellectual property & value creation"
     }
   ],
   "sessionTypes": [

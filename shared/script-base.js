@@ -128,7 +128,31 @@
 
     // Easter egg: click yellow Mac control to slide the code window partly out on the right.
     const codeWindow = document.querySelector('.code-window');
+    const redControl = document.querySelector('.window-controls span:nth-child(1)');
     const yellowControl = document.querySelector('.window-controls span:nth-child(2)');
+
+    // Red button: clear the date filter and navigate to the base URL
+    if (redControl) {
+        redControl.style.cursor = 'pointer';
+        redControl.setAttribute('role', 'button');
+        redControl.setAttribute('tabindex', '0');
+        redControl.setAttribute('aria-label', 'Clear date filter');
+
+        const clearDateFilter = () => {
+            const url = new URL(window.location.href);
+            url.searchParams.delete('date');
+            window.location.href = url.toString();
+        };
+
+        redControl.addEventListener('click', clearDateFilter);
+        redControl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                clearDateFilter();
+            }
+        });
+    }
+
     if (codeWindow && yellowControl) {
         yellowControl.setAttribute('role', 'button');
         yellowControl.setAttribute('tabindex', '0');
@@ -215,3 +239,35 @@
         codeWindow.addEventListener('dblclick', runCompileEasterEgg);
     }
 })();
+
+// ============================================================================
+// Global URL Parameter & Date Filter Utilities (available to all pages)
+// ============================================================================
+
+function getDateParam() {
+    const params = new URLSearchParams(window.location.search);
+    const dateParam = params.get('date');
+    return dateParam ? dateParam.trim() : null;
+}
+
+function isValidEventDate(dateStr) {
+    if (!dateStr) return false;
+    // Check if it's 2026-11-10 or 2026-11-11
+    return dateStr === '2026-11-10' || dateStr === '2026-11-11';
+}
+
+function filterSessionsByDate(sessions, dateStr) {
+    if (!dateStr || !isValidEventDate(dateStr)) {
+        return sessions; // No filter
+    }
+    return sessions.filter(session => {
+        if (session.Start) {
+            const sessionDate = session.Start.split('T')[0];
+            return sessionDate === dateStr;
+        }
+        return false;
+    });
+}
+
+// Initialize global date filter from URL
+window.currentDateFilter = getDateParam();

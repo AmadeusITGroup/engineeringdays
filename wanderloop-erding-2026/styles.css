@@ -45,9 +45,10 @@
 .hero {
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: calc(80px + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0;
     position: relative;
     overflow: hidden;
 }
@@ -95,6 +96,107 @@
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-lg);
     align-items: center;
+    justify-items: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    flex: 1;
+    margin-top: 20px;
+}
+
+/* Event Date Selector */
+.event-date-selector {
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--dark-accent) 50%, var(--secondary) 100%);
+    padding: var(--spacing-lg) var(--spacing-md);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.selector-label {
+    display: block;
+    color: var(--highlight-light);
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.selector-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.date-card {
+    background: rgba(255, 255, 255, 0.14);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: var(--radius-lg);
+    min-width: 150px;
+    padding: 0.75rem 1.1rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.date-card:hover,
+.date-card.date-card-active {
+    background: rgba(255, 255, 255, 0.22);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.date-card.date-card-active {
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4), 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.date-card .day-name {
+    color: var(--highlight-light);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.date-card .day-number {
+    color: #fff;
+    font-size: 2rem;
+    line-height: 1.1;
+    font-weight: 900;
+}
+
+.date-card .month {
+    color: #fff;
+    opacity: 0.92;
+    font-size: 0.85rem;
+}
+
+.date-card .card-context {
+    color: var(--highlight-light);
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    font-weight: 400;
+    opacity: 0.75;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 0.35rem;
 }
 
 /* Prevent grid tracks from expanding due to overflowing content */
@@ -136,9 +238,18 @@
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--text-secondary);
+    color: color-mix(in srgb, var(--text-secondary) 82%, var(--text-color) 18%);
     margin-bottom: var(--spacing-lg);
-    opacity: 0.9;
+    opacity: 1;
+}
+
+[data-theme="dark"] .hero-subtitle {
+    color: color-mix(in srgb, var(--text-secondary) 88%, var(--primary) 12%);
+}
+
+.hero-subtitle strong {
+    color: var(--text-color);
+    font-weight: 700;
 }
 
 .cta-buttons {
@@ -263,6 +374,20 @@
     height: 12px;
     border-radius: 50%;
     background: #ff5f56;
+    transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.window-controls span:nth-child(1) {
+    cursor: pointer;
+}
+
+.window-controls span:nth-child(1):hover {
+    transform: scale(1.08);
+}
+
+.window-controls span:nth-child(1):focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.85);
+    outline-offset: 2px;
 }
 
 .window-controls span:nth-child(2) {
@@ -533,7 +658,21 @@
 
 [data-theme="dark"] .track-card h3 { color: var(--secondary); }
 
-.track-card p { font-size: 0.875rem; opacity: 0.8; }
+.track-card p {
+    font-size: 0.875rem;
+    color: color-mix(in srgb, var(--text-secondary) 80%, var(--text-color) 20%);
+    opacity: 1;
+}
+
+[data-theme="dark"] .track-card p {
+    color: color-mix(in srgb, var(--text-secondary) 90%, #ffffff 10%);
+}
+
+.track-card p strong {
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 1.1em;
+}
 
 /* Contact Section */
 .contact-section {
@@ -610,6 +749,8 @@
     .hero .container {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
+        padding: var(--spacing-xl) var(--spacing-md);
     }
 
     .hero-content { text-align: center; }
@@ -617,7 +758,14 @@
 
     .hero-graphic {
         order: -1;
-        margin-bottom: var(--spacing-md);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .code-window {
+        max-width: 100%;
     }
 
     .code-window.is-peeking-right {
@@ -635,6 +783,15 @@
 }
 
 @media (max-width: 480px) {
+    .hero-date {
+        margin-bottom: 2rem;
+    }
+
+    .hero-graphic {
+        margin-bottom: 2rem;
+        margin-top: 3rem;
+    }
+
     .cta-buttons {
         flex-direction: column;
         width: 100%;
@@ -656,6 +813,117 @@
 }
 
 /* ===================================
+   Responsive - Date Selector
+   =================================== */
+
+@media (max-width: 968px) {
+    .event-date-selector {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-md);
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .selector-label {
+        white-space: normal;
+    }
+
+    .selector-buttons {
+        gap: var(--spacing-md);
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .date-card {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .event-date-selector {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) var(--spacing-sm);
+    }
+
+    .selector-label {
+        font-size: 0.85rem;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    .selector-buttons {
+        gap: var(--spacing-sm);
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .date-card {
+        width: 100%;
+        min-width: auto;
+        padding: 0.6rem 0.9rem;
+    }
+
+    .date-card .day-number {
+        font-size: 1.75rem;
+    }
+
+    .date-card .month {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-date-selector {
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+        top: 70px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .selector-label {
+        font-size: 0.8rem;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    .selector-buttons {
+        gap: var(--spacing-sm);
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .date-card {
+        width: 100%;
+        min-width: auto;
+        padding: 0.5rem 0.8rem;
+    }
+
+    .date-card .day-name {
+        font-size: 0.65rem;
+    }
+
+    .date-card .day-number {
+        font-size: 1.5rem;
+    }
+
+    .date-card .month {
+        font-size: 0.75rem;
+    }
+
+    .date-card .card-context {
+        font-size: 0.7rem;
+    }
+}
+
+/* ===================================
    Animations
    =================================== */
 
@@ -666,4 +934,43 @@
 
 .stat-card, .session-card, .track-card {
     animation: fadeIn 0.6s ease forwards;
+}
+
+/* ===================================
+   Interactive Date Cards (program.html & index.html)
+   =================================== */
+
+.date-card {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.date-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 2px rgba(182, 80, 255, 0.4), 0 0 20px rgba(182, 80, 255, 0.35), 0 8px 24px rgba(182, 80, 255, 0.2);
+    border-color: var(--secondary);
+}
+
+.date-card-active {
+    border-color: var(--secondary) !important;
+    background: linear-gradient(135deg, rgba(182, 80, 255, 0.12) 0%, rgba(255, 88, 172, 0.08) 100%);
+    box-shadow: 0 0 0 2px rgba(182, 80, 255, 0.3), 0 0 16px rgba(182, 80, 255, 0.25);
+}
+
+@keyframes cardGlow {
+    0%, 100% {
+        box-shadow: 0 0 0 2px rgba(182, 80, 255, 0.3), 0 0 16px rgba(182, 80, 255, 0.25);
+    }
+    50% {
+        box-shadow: 0 0 0 2px rgba(182, 80, 255, 0.5), 0 0 24px rgba(182, 80, 255, 0.35);
+    }
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 2px rgba(182, 80, 255, 0.5), 0 0 24px rgba(182, 80, 255, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 0 3px rgba(182, 80, 255, 0.6), 0 0 32px rgba(182, 80, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
 }

@@ -20,9 +20,9 @@
             </div>
             <div class="nav-links">
                 <a href="#about">About</a>
+                <a href="#tracks">Tracks</a>
                 <a id="cfp-nav-link" class="cfp-link always-underline" href="#" style="display:none;">Submit a talk</a>
                 <a id="program-nav-link" class="program-link always-underline" href="program.html" style="display:none;">Program</a>
-                <a href="#tracks">Tracks</a>
                 <a id="nav-contact-link" href="mailto:devrel@amadeus.com">Contact</a>
                 <span class="nav-separator">|</span>
                 <a href="../index.html">All events</a>
@@ -41,6 +41,25 @@
 
     <!-- Hero Section -->
     <header class="hero">
+        <!-- Event Date Selector (Full Width) -->
+        <div class="event-date-selector">
+            <div class="selector-label">Choose your event:</div>
+            <div class="selector-buttons">
+                <a href="index.html?date=2026-11-10" id="toggle-nov10" class="date-card date-card-nov10">
+                    <div class="day-name">Tuesday</div>
+                    <div class="day-number">10</div>
+                    <div class="month">November 2026</div>
+                    <div class="card-context">External audience</div>
+                </a>
+                <a href="index.html?date=2026-11-11" id="toggle-nov11" class="date-card date-card-nov11">
+                    <div class="day-name">Wednesday</div>
+                    <div class="day-number">11</div>
+                    <div class="month">November 2026</div>
+                    <div class="card-context">AMADEUS & GUESTS</div>
+                </a>
+            </div>
+        </div>
+        
         <div class="container">
             <div class="hero-content">
                 <div class="glitch-wrapper">
@@ -130,12 +149,17 @@
             <div class="tracks-grid" id="tracks-grid">
                 <div class="track-card">
                     <div class="track-icon">📊</div>
-                    <h3>AIOps, Operations</h3>
+                    <h3>AIOps</h3>
                     <p></p>
                 </div>
                 <div class="track-card">
-                    <div class="track-icon">👔</div>
-                    <h3>Leadership, People</h3>
+                    <div class="track-icon">�️</div>
+                    <h3>Platforming at scale</h3>
+                    <p></p>
+                </div>
+                <div class="track-card">
+                    <div class="track-icon">🤖</div>
+                    <h3>AI-first teams</h3>
                     <p></p>
                 </div>
             </div>
@@ -227,5 +251,36 @@
 
     <script src="../shared/script-base.js"></script>
     <script src="script.js"></script>
-</body>
+    
+    <script>
+        // Index.html date selector initialization
+        function initDateSelector() {
+            const dateParam = window.currentDateFilter;
+            const toggleFull = document.getElementById('toggle-full-event');
+            const toggleNov10 = document.getElementById('toggle-nov10');
+            const toggleNov11 = document.getElementById('toggle-nov11');
+            
+            // Update selector button states based on current date filter
+            if (toggleFull) toggleFull.classList.remove('active');
+            if (toggleNov10) toggleNov10.classList.remove('active');
+            if (toggleNov11) toggleNov11.classList.remove('active');
+            
+            if (dateParam === '2026-11-10') {
+                if (toggleNov10) toggleNov10.classList.add('active');
+            } else if (dateParam === '2026-11-11') {
+                if (toggleNov11) toggleNov11.classList.add('active');
+            } else {
+                if (toggleFull) toggleFull.classList.add('active');
+            }
+        }
+        
+        // Run on DOMContentLoaded to ensure renderEvent has completed
+        document.addEventListener('DOMContentLoaded', initDateSelector);
+        // Also run immediately in case DOM is already ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initDateSelector);
+        } else {
+            initDateSelector();
+        }
+    </script></body>
 </html>
