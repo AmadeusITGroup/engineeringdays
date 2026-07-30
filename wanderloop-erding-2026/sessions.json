@@ -471,7 +471,7 @@
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
-    "ID": "WL109",
+    "ID": "WL109A",
     "Proposal title": "Breakout session",
     "Session type": {
       "en": "Breakout session"
@@ -492,7 +492,7 @@
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
-    "ID": "WL110",
+    "ID": "WL109B",
     "Proposal title": "Breakout session",
     "Session type": {
       "en": "Breakout session"
@@ -513,7 +513,7 @@
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
-    "ID": "WL111",
+    "ID": "WL109C",
     "Proposal title": "Breakout session",
     "Session type": {
       "en": "Breakout session"
@@ -535,13 +535,13 @@
   },
   {
     "ID": "WL112",
-    "Proposal title": "Afterwork cocktail",
+    "Proposal title": "Snacks & Beers",
     "Session type": {
-      "en": "Cocktail"
+      "en": "Closing cocktail"
     },
     "Track": null,
     "Tags": null,
-    "Description": "Join us for an afterwork cocktail session to network and discuss the day's insights & takeaways.",
+    "Description": "Join us for snacks & beers to network and discuss the day's insights & takeaways.",
     "Speaker names": [
       ""
     ],

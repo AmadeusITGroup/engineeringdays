@@ -153,10 +153,35 @@
         window.addEventListener('resize', updateScrollCueVisibility);
     }
 
-    // Easter egg: click yellow Mac control to slide the code window partly out on the right.
+    // Easter egg: yellow control can cancel the ongoing compile animation.
     const codeWindow = document.querySelector('.code-window');
     const redControl = document.querySelector('.window-controls span:nth-child(1)');
     const yellowControl = document.querySelector('.window-controls span:nth-child(2)');
+    let compileAdvanceTimerId = null;
+    let compileCleanupTimerId = null;
+
+    const clearCompileTimers = () => {
+        if (compileAdvanceTimerId !== null) {
+            window.clearTimeout(compileAdvanceTimerId);
+            compileAdvanceTimerId = null;
+        }
+
+        if (compileCleanupTimerId !== null) {
+            window.clearTimeout(compileCleanupTimerId);
+            compileCleanupTimerId = null;
+        }
+    };
+
+    const cancelCompileAction = () => {
+        if (!codeWindow) return;
+
+        clearCompileTimers();
+        const overlay = codeWindow.querySelector('.compile-overlay');
+        if (overlay) {
+            overlay.remove();
+        }
+        codeWindow.classList.remove('is-compiling');
+    };
 
     // Red button: clear the date filter and navigate to the base URL
     if (redControl) {
@@ -183,17 +208,13 @@
     if (codeWindow && yellowControl) {
         yellowControl.setAttribute('role', 'button');
         yellowControl.setAttribute('tabindex', '0');
-        yellowControl.setAttribute('aria-label', 'Toggle code window peek mode');
+        yellowControl.setAttribute('aria-label', 'Cancel code window action');
 
-        const togglePeek = () => {
-            codeWindow.classList.toggle('is-peeking-right');
-        };
-
-        yellowControl.addEventListener('click', togglePeek);
+        yellowControl.addEventListener('click', cancelCompileAction);
         yellowControl.addEventListener('keydown', (e) => {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
-                togglePeek();
+                cancelCompileAction();
             }
         });
     }
@@ -272,7 +293,7 @@
                     if (barEl) barEl.style.width = `${progress}%`;
                     if (percentEl) percentEl.textContent = `${progress}%`;
 
-                    window.setTimeout(advanceStage, stageDelayMs);
+                    compileAdvanceTimerId = window.setTimeout(advanceStage, stageDelayMs);
                     return;
                 }
 
@@ -281,13 +302,14 @@
 
                 if (statusEl) statusEl.textContent = 'Build complete. Schedule shipped, sanity pending.';
 
-                window.setTimeout(() => {
+                compileCleanupTimerId = window.setTimeout(() => {
                     overlay.remove();
                     codeWindow.classList.remove('is-compiling');
+                    clearCompileTimers();
                 }, 5000);
             };
 
-            window.setTimeout(advanceStage, stageDelayMs);
+            compileAdvanceTimerId = window.setTimeout(advanceStage, stageDelayMs);
         };
 
         codeWindow.addEventListener('dblclick', runCompileEasterEgg);
