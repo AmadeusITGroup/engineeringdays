@@ -324,7 +324,232 @@
       "en": "Auditorium"
     },
     "Start": "2026-11-11T09:15:00+01:00",
-    "End": "2026-11-11T09:30:00+01:00",
+    "End": "2026-11-11T09:40:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL102",
+    "Proposal title": "Tech talk",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Track": {
+      "en": "AI-first teams"
+    },
+    "Tags": null,
+    "Description": "To be announced.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Auditorium"
+    },
+    "Start": "2026-11-11T09:50:00+01:00",
+    "End": "2026-11-11T10:25:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL103",
+    "Proposal title": "Tech talk",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Track": {
+      "en": "AI platforms"
+    },
+    "Tags": null,
+    "Description": "To be announced.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Auditorium"
+    },
+    "Start": "2026-11-11T10:35:00+01:00",
+    "End": "2026-11-11T11:10:10+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL104",
+    "Proposal title": "Tech talk",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Track": {
+      "en": "AI platforms"
+    },
+    "Tags": null,
+    "Description": "To be announced.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Auditorium"
+    },
+    "Start": "2026-11-11T11:20:00+01:00",
+    "End": "2026-11-11T11:55:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL105",
+    "Proposal title": "Lunch",
+    "Session type": {
+      "en": "Lunch"
+    },
+    "Track": null,
+    "Tags": null,
+    "Description": "Lunch served in the Amadeus Erding restaurant.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Canteen"
+    },
+    "Start": "2026-11-11T12:00:00+01:00",
+    "End": "2026-11-11T13:30:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL106",
+    "Proposal title": "Tech talk",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Track": null,
+    "Tags": null,
+    "Description": "To be announced.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Auditorium"
+    },
+    "Start": "2026-11-11T13:30:00+01:00",
+    "End": "2026-11-11T14:05:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL107",
+    "Proposal title": "Tech talk",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Track": {
+      "en": "AIOps"
+    },
+    "Tags": null,
+    "Description": "To be announced.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Auditorium"
+    },
+    "Start": "2026-11-11T14:15:00+01:00",
+    "End": "2026-11-11T14:50:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL108",
+    "Proposal title": "Tech talk",
+    "Session type": {
+      "en": "Talk"
+    },
+    "Track": {
+      "en": "AI platforms"
+    },
+    "Tags": null,
+    "Description": "To be announced.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Auditorium"
+    },
+    "Start": "2026-11-11T15:00:00+01:00",
+    "End": "2026-11-11T15:35:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL109",
+    "Proposal title": "Breakout session",
+    "Session type": {
+      "en": "Breakout session"
+    },
+    "Track": {
+      "en": "AIOps"
+    },
+    "Tags": null,
+    "Description": "To be announced.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Breakout room A"
+    },
+    "Start": "2026-11-11T15:45:00+01:00",
+    "End": "2026-11-11T17:15:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL110",
+    "Proposal title": "Breakout session",
+    "Session type": {
+      "en": "Breakout session"
+    },
+    "Track": {
+      "en": "AI platforms"
+    },
+    "Tags": null,
+    "Description": "To be announced.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Breakout room B"
+    },
+    "Start": "2026-11-11T15:45:00+01:00",
+    "End": "2026-11-11T17:15:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL111",
+    "Proposal title": "Breakout session",
+    "Session type": {
+      "en": "Breakout session"
+    },
+    "Track": {
+      "en": "AI-first teams"
+    },
+    "Tags": null,
+    "Description": "To be announced.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Breakout room C"
+    },
+    "Start": "2026-11-11T15:45:00+01:00",
+    "End": "2026-11-11T17:15:00+01:00",
+    "From which Amadeus site do you plan to present?": "Erding, Germany"
+  },
+  {
+    "ID": "WL112",
+    "Proposal title": "Afterwork cocktail",
+    "Session type": {
+      "en": "Cocktail"
+    },
+    "Track": null,
+    "Tags": null,
+    "Description": "Join us for an afterwork cocktail session to network and discuss the day's insights & takeaways.",
+    "Speaker names": [
+      ""
+    ],
+    "Room": {
+      "en": "Canteen"
+    },
+    "Start": "2026-11-11T17:15:00+01:00",
+    "End": "2026-11-11T18:30:00+01:00",
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   }
 ]
