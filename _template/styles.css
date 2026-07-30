@@ -284,6 +284,16 @@
 
 .window-controls span:nth-child(3) {
     background: #27c93f;
+    cursor: pointer;
+}
+
+.window-controls span:nth-child(3):hover {
+    transform: scale(1.08);
+}
+
+.window-controls span:nth-child(3):focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.85);
+    outline-offset: 2px;
 }
 
 .code-content {

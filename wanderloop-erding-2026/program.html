@@ -766,7 +766,7 @@
     (function() {
         'use strict';
 
-        const TRACK_COLORS = {"AIOps": "#2218a8", "Platforming at scale": "#e76000", "AI-first teams": "#b650ff"};
+        const TRACK_COLORS = {"AIOps": "#CC06D7", "AI platforms": "#3A8BFF", "AI-first teams": "#FF58AC"};
         const OPENFEEDBACK_BASE = "".trim();
         const CONTACT_EMAIL = "devrel@amadeus.com";
         const TIMEZONE_OPTIONS = [
@@ -842,17 +842,25 @@
 
         function updateHomeLinks() {
             const dateFilter = window.currentDateFilter;
+            const params = new URLSearchParams(window.location.search);
+            const hasSimpleView = params.has('simpleView');
             const homeNavLink = document.getElementById('program-home-nav');
             const homeFooterLink = document.getElementById('program-home-footer');
             
+            let homeUrl = 'index.html';
+            
+            // Add date parameter if valid
             if (dateFilter && (dateFilter === '2026-11-10' || dateFilter === '2026-11-11')) {
-                const homeUrl = `index.html?date=${dateFilter}`;
-                if (homeNavLink) homeNavLink.href = homeUrl;
-                if (homeFooterLink) homeFooterLink.href = homeUrl;
-            } else {
-                if (homeNavLink) homeNavLink.href = 'index.html';
-                if (homeFooterLink) homeFooterLink.href = 'index.html';
+                homeUrl += `?date=${dateFilter}`;
             }
+            
+            // Add simpleView parameter if present
+            if (hasSimpleView) {
+                homeUrl += (homeUrl.includes('?') ? '&' : '?') + 'simpleView';
+            }
+            
+            if (homeNavLink) homeNavLink.href = homeUrl;
+            if (homeFooterLink) homeFooterLink.href = homeUrl;
         }
 
         const activeFilters = { day: '', track: '', type: '', room: '' };
@@ -862,7 +870,7 @@
         let allSessions = [];
         let showFeedback = false;
 
-        const FLASHY_TRACK_PALETTE = ['#00b8ff', '#ff2fb2', '#a855f7', '#4f46e5', '#06b6d4', '#ec4899', '#7c3aed', '#2563eb'];
+        const FLASHY_TRACK_PALETTE = ['#B650FF', '#3A8BFF', '#CC06D7', '#FF58AC'];
         const trackColorCache = {};
 
         function hexToRgb(hex) {

@@ -60,7 +60,7 @@
   },
   {
     "ID": "WL004",
-    "Proposal title": "AIOps (Mistral AI)",
+    "Proposal title": "AIOps, by Mistral AI",
     "Session type": {
       "en": "Talk"
     },
@@ -68,8 +68,10 @@
       "en": "AIOps"
     },
     "Tags": null,
-    "Description": "Speaker: Mistral AI\r\n\r\nAn external perspective on AIOps from Mistral AI, exploring how large language models and AI capabilities can transform IT operations.",
-    "Speaker names": [],
+    "Description": "An external perspective on AIOps from Mistral AI, exploring how large language models and AI capabilities can transform IT operations.",
+    "Speaker names": [
+      "Mistral AI – to be announced"
+    ],
     "Room": {
       "en": "Auditorium"
     },
@@ -79,17 +81,17 @@
   },
   {
     "ID": "WL005A",
-    "Proposal title": "AI First Journey – Network and Observability",
+    "Proposal title": "AI-first Journey – Network and observability",
     "Session type": {
       "en": "Breakout session"
     },
     "Track": {
-      "en": "AIOps"
+      "en": "AI platforms"
     },
     "Tags": null,
     "Description": "A focused breakout discussion on the AI-first journey in network automation and observability. Exploring how AI is transforming how we monitor, detect, and respond to network events.",
     "Speaker names": [
-      "PFS"
+      "Amadeus PFS – to be announced"
     ],
     "Room": {
       "en": "Breakout room A"
@@ -127,7 +129,7 @@
       "en": "Breakout session"
     },
     "Track": {
-      "en": "AIOps"
+      "en": "AI platforms"
     },
     "Tags": null,
     "Description": "Explore the state-of-the-art AI Cost Management in an exploding, capacity-challenged AI Market. This session covers FinOps strategies, cost optimization patterns, and how to manage AI infrastructure spend at scale.",
@@ -151,8 +153,10 @@
       "en": "AIOps"
     },
     "Tags": null,
-    "Description": "External speaker session — to be announced.",
-    "Speaker names": [],
+    "Description": "External speaker session – to be announced.",
+    "Speaker names": [
+      ""
+    ],
     "Room": {
       "en": "Auditorium"
     },
@@ -179,7 +183,7 @@
   },
   {
     "ID": "WL008A",
-    "Proposal title": "AI OPS at the Example of Network Automation",
+    "Proposal title": "AIOps and Network Automation",
     "Session type": {
       "en": "Networking booth"
     },
@@ -189,7 +193,7 @@
     "Tags": null,
     "Description": "Interactive booth station showcasing AIOps applied to network automation. Explore real use cases, exchange with experts, and discover how AI is transforming network operations at Amadeus.",
     "Speaker names": [
-      "PFS"
+      "Amadeus PFS – to be announced"
     ],
     "Room": {
       "en": "Booths area"
@@ -222,7 +226,7 @@
   },
   {
     "ID": "WL008C",
-    "Proposal title": "AI-Assisted Incident Management: VictorAI and Cordellia Demo",
+    "Proposal title": "AI-Assisted Incident Management: a demo",
     "Session type": {
       "en": "Networking booth"
     },
@@ -270,7 +274,7 @@
       "en": "Networking booth"
     },
     "Track": {
-      "en": "AIOps"
+      "en": "AI platforms"
     },
     "Tags": null,
     "Description": "A dual exploration: how AI enhances FinOps practices (anomaly detection, cost forecasting, optimization recommendations) and how FinOps principles apply to managing AI infrastructure costs in a capacity-constrained market.",
@@ -287,7 +291,7 @@
 
 
   {
-    "ID": "WL010",
+    "ID": "WL100",
     "Proposal title": "Welcome & Registration",
     "Session type": {
       "en": "Welcome"
@@ -304,7 +308,7 @@
     "From which Amadeus site do you plan to present?": "Erding, Germany"
   },
   {
-    "ID": "WL011",
+    "ID": "WL101",
     "Proposal title": "Opening Keynote",
     "Session type": {
       "en": "Welcome"

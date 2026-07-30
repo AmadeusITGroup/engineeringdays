@@ -105,16 +105,17 @@
 /* Event Date Selector */
 .event-date-selector {
     position: sticky;
-    top: 80px;
+    top: calc(var(--spacing-sm) * 2 + 1.5rem);
     z-index: 10;
     background: linear-gradient(135deg, var(--primary) 0%, var(--dark-accent) 50%, var(--secondary) 100%);
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-md) calc(var(--spacing-lg) - 20px);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-md);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin: 0;
 }
 
 .selector-label {
@@ -406,6 +407,16 @@
 
 .window-controls span:nth-child(3) {
     background: #27c93f;
+    cursor: pointer;
+}
+
+.window-controls span:nth-child(3):hover {
+    transform: scale(1.08);
+}
+
+.window-controls span:nth-child(3):focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.85);
+    outline-offset: 2px;
 }
 
 .code-content {
@@ -750,7 +761,8 @@
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
-        padding: var(--spacing-xl) var(--spacing-md);
+        padding: var(--spacing-lg) var(--spacing-md);
+        margin-top: 0;
     }
 
     .hero-content { text-align: center; }
@@ -821,24 +833,38 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: var(--spacing-md);
-        padding: var(--spacing-lg) var(--spacing-md);
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) var(--spacing-sm);
+        margin: 0;
+        top: calc(var(--spacing-sm) * 2 + 1.5rem);
     }
 
     .selector-label {
         white-space: normal;
+        font-size: 0.85rem;
+        text-align: center;
+        font-weight: 400;
     }
 
     .selector-buttons {
-        gap: var(--spacing-md);
-        flex-direction: row;
-        justify-content: center;
+        gap: var(--spacing-sm);
+        flex-direction: column;
+        width: fit-content;
+        align-items: stretch;
     }
 
     .date-card {
         width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
+        min-width: auto;
+        padding: 0.75rem 1.1rem;
+    }
+
+    .date-card .day-number {
+        font-size: 1.75rem;
+    }
+
+    .date-card .month {
+        font-size: 0.8rem;
     }
 }
 
@@ -849,6 +875,7 @@
         justify-content: center;
         gap: var(--spacing-sm);
         padding: var(--spacing-md) var(--spacing-sm);
+        top: calc(var(--spacing-sm) * 2 + 1.5rem);
     }
 
     .selector-label {
@@ -860,7 +887,8 @@
     .selector-buttons {
         gap: var(--spacing-sm);
         flex-direction: column;
-        width: 100%;
+        width: fit-content;
+        align-items: stretch;
     }
 
     .date-card {
@@ -882,7 +910,7 @@
     .event-date-selector {
         gap: var(--spacing-sm);
         padding: var(--spacing-md);
-        top: 70px;
+        top: calc(var(--spacing-sm) * 2 + 1.5rem);
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -896,8 +924,9 @@
 
     .selector-buttons {
         gap: var(--spacing-sm);
-        width: 100%;
+        width: fit-content;
         flex-direction: column;
+        align-items: stretch;
     }
 
     .date-card {

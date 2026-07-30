@@ -39,9 +39,17 @@ function isValidEventDate(dateStr) {
 
 function getCleanUrl(path, dateParam) {
     const url = new URL(path, window.location.origin);
+    const currentParams = new URLSearchParams(window.location.search);
+    
     if (dateParam && isValidEventDate(dateParam)) {
         url.searchParams.set('date', dateParam);
     }
+    
+    // Preserve simpleView parameter
+    if (currentParams.has('simpleView')) {
+        url.searchParams.set('simpleView', '');
+    }
+    
     return url.toString();
 }
 
@@ -52,6 +60,31 @@ function redirectToCleanUrl(path) {
     }
     const cleanUrl = getCleanUrl(path, null);
     window.history.replaceState(null, '', cleanUrl);
+}
+
+function updateHomeLinks() {
+    const params = new URLSearchParams(window.location.search);
+    const dateParam = params.get('date');
+    const hasSimpleView = params.has('simpleView');
+    
+    if (!dateParam && !hasSimpleView) {
+        return; // No parameters to preserve
+    }
+    
+    // Build the index.html URL with parameters
+    let indexUrl = 'index.html';
+    if (dateParam && isValidEventDate(dateParam)) {
+        indexUrl += `?date=${dateParam}`;
+    }
+    if (hasSimpleView) {
+        indexUrl += (indexUrl.includes('?') ? '&' : '?') + 'simpleView';
+    }
+    
+    // Update all Home links
+    const homeLinks = document.querySelectorAll('a[href="index.html"]');
+    homeLinks.forEach(link => {
+        link.href = indexUrl;
+    });
 }
 
 function filterSessionsByDate(sessions, dateStr) {
@@ -96,6 +129,7 @@ redirectToCleanUrl(window.location.pathname);
 
 document.addEventListener('DOMContentLoaded', async () => {
     highlightActiveDateCard();
+    updateHomeLinks();
     try {
         const response = await fetch('config.json', { cache: 'no-store' });
         const event = await response.json();
@@ -410,9 +444,18 @@ function hideCfpLink() {
 
 function showProgramLink() {
     const dateFilter = window.currentDateFilter;
-    const programUrl = dateFilter && isValidEventDate(dateFilter) 
-        ? `program.html?date=${dateFilter}`
-        : 'program.html';
+    const params = new URLSearchParams(window.location.search);
+    let programUrl = 'program.html';
+    
+    // Add date parameter if valid
+    if (dateFilter && isValidEventDate(dateFilter)) {
+        programUrl += `?date=${dateFilter}`;
+    }
+    
+    // Add simpleView parameter if present
+    if (params.has('simpleView')) {
+        programUrl += (programUrl.includes('?') ? '&' : '?') + 'simpleView';
+    }
     
     const nav = document.getElementById('program-nav-link');
     const hero = document.getElementById('program-hero-cta');

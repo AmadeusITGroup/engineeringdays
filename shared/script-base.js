@@ -73,6 +73,33 @@
                 anchor.rel = 'noopener noreferrer';
             }
         }
+
+        // 3. Preserve URL parameters on internal event navigation
+        const params = new URLSearchParams(window.location.search);
+        const hasSimpleView = params.has('simpleView');
+        const dateParam = params.get('date');
+        
+        if ((hasSimpleView || dateParam) && !href.startsWith('http') && !href.startsWith('#')) {
+            // Check if link is to index.html or program.html (not ../index.html which is all events)
+            if ((href === 'index.html' || href === 'program.html' || href.endsWith('/index.html') || href.endsWith('/program.html')) && !href.includes('../')) {
+                e.preventDefault();
+                const baseUrl = href.split('?')[0];
+                const newParams = new URLSearchParams();
+                
+                // Preserve simpleView
+                if (hasSimpleView) {
+                    newParams.set('simpleView', '');
+                }
+                
+                // Preserve date parameter
+                if (dateParam) {
+                    newParams.set('date', dateParam);
+                }
+                
+                const newHref = baseUrl + (newParams.toString() ? '?' + newParams.toString() : '');
+                window.location.href = newHref;
+            }
+        }
     });
 
     // Scroll Animation for Elements
@@ -167,6 +194,33 @@
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 togglePeek();
+            }
+        });
+    }
+
+    // Green button: toggle simpleView parameter
+    const greenControl = document.querySelector('.window-controls span:nth-child(3)');
+    if (greenControl) {
+        greenControl.style.cursor = 'pointer';
+        greenControl.setAttribute('role', 'button');
+        greenControl.setAttribute('tabindex', '0');
+        greenControl.setAttribute('aria-label', 'Toggle simple view');
+
+        const toggleSimpleView = () => {
+            const url = new URL(window.location.href);
+            if (url.searchParams.has('simpleView')) {
+                url.searchParams.delete('simpleView');
+            } else {
+                url.searchParams.set('simpleView', '');
+            }
+            window.location.href = url.toString();
+        };
+
+        greenControl.addEventListener('click', toggleSimpleView);
+        greenControl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleSimpleView();
             }
         });
     }
@@ -271,3 +325,71 @@ function filterSessionsByDate(sessions, dateStr) {
 
 // Initialize global date filter from URL
 window.currentDateFilter = getDateParam();
+
+// ============================================================================
+// simpleView Parameter Handler
+// ============================================================================
+
+function initSimpleViewParameter() {
+    const params = new URLSearchParams(window.location.search);
+    const simpleView = params.has('simpleView');
+    
+    if (simpleView) {
+        // Hide event date selector (in index.html)
+        const eventDateSelector = document.querySelector('.event-date-selector');
+        if (eventDateSelector) {
+            eventDateSelector.style.display = 'none';
+        }
+        
+        // Hide day filter and its label (in program.html)
+        const dayFilterLabel = document.querySelector('label[for="day-filter"]');
+        if (dayFilterLabel) {
+            dayFilterLabel.style.display = 'none';
+        }
+        
+        const dayFilter = document.getElementById('day-filter');
+        if (dayFilter) {
+            dayFilter.style.display = 'none';
+        }
+        
+        // Hide date cards used for day selection (in program.html hero)
+        const dateCards = document.querySelectorAll('.selector-buttons .date-card, .program-dates .date-card');
+        dateCards.forEach(card => {
+            card.style.display = 'none';
+        });
+        
+        // Use MutationObserver to hide dynamically created date cards
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes.length) {
+                    mutation.addedNodes.forEach((node) => {
+                        if (node.nodeType === 1) { // Element node
+                            // Check if this node or any of its descendants are date cards
+                            if (node.classList && node.classList.contains('date-card')) {
+                                node.style.display = 'none';
+                            }
+                            const newDateCards = node.querySelectorAll ? node.querySelectorAll('.date-card') : [];
+                            newDateCards.forEach(card => {
+                                card.style.display = 'none';
+                            });
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Observe the entire document for dynamically added date cards
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    }
+}
+
+// Run on DOMContentLoaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSimpleViewParameter);
+} else {
+    // If script loads after DOMContentLoaded, run immediately
+    initSimpleViewParameter();
+}
