@@ -843,7 +843,7 @@
         function updateHomeLinks() {
             const dateFilter = window.currentDateFilter;
             const params = new URLSearchParams(window.location.search);
-            const hasSimpleView = params.has('simpleView');
+            const hasSimpleView = [...params.keys()].some(k => k.toLowerCase() === 'simpleview');
             const homeNavLink = document.getElementById('program-home-nav');
             const homeFooterLink = document.getElementById('program-home-footer');
             
@@ -863,12 +863,19 @@
             if (homeFooterLink) homeFooterLink.href = homeUrl;
         }
 
+        function isSimpleViewEnabled() {
+            const params = new URLSearchParams(window.location.search);
+            return [...params.keys()].some(k => k.toLowerCase() === 'simpleview');
+        }
+
         const activeFilters = { day: '', track: '', type: '', room: '' };
+        const isSimpleView = isSimpleViewEnabled();
         let currentView = window.matchMedia('(max-width: 700px) and (orientation: portrait)').matches ? 'grid' : 'timeline';
         document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.view === currentView));
         let timezone = pickDefaultTimezone();
         let allSessions = [];
         let showFeedback = false;
+        let eventConfigCache = null;
 
         const FLASHY_TRACK_PALETTE = ['#B650FF', '#3A8BFF', '#CC06D7', '#FF58AC'];
         const trackColorCache = {};
@@ -930,8 +937,13 @@
         function getTrackColor(name) {
             if (!name) return '#ff2fb2';
             if (!trackColorCache[name]) {
-                const index = hashTrackName(name) % FLASHY_TRACK_PALETTE.length;
-                trackColorCache[name] = ensureWhiteTextContrast(FLASHY_TRACK_PALETTE[index]);
+                const explicitColor = TRACK_COLORS[name];
+                if (explicitColor) {
+                    trackColorCache[name] = explicitColor;
+                } else {
+                    const index = hashTrackName(name) % FLASHY_TRACK_PALETTE.length;
+                    trackColorCache[name] = FLASHY_TRACK_PALETTE[index];
+                }
             }
             return trackColorCache[name];
         }
@@ -1055,7 +1067,7 @@
         function renderTrackPills(tracks) {
             const el = document.getElementById('track-filters');
             const allActive = activeFilters.track === '';
-            const allPill = `<button class="track-pill ${allActive ? 'active' : ''}" data-track="" style="${allActive ? 'background: var(--secondary); opacity: 1;' : ''}">All Tracks</button>`;
+            const allPill = `<button class="track-pill ${allActive ? 'active' : ''}" data-track="" style="${allActive ? 'background: transparent; border-color: var(--secondary); color: var(--secondary); opacity: 1;' : ''}">All Tracks</button>`;
             const pills = tracks.map(track => {
                 const active = activeFilters.track === track;
                 const color = getTrackColor(track);
@@ -1239,14 +1251,33 @@
         }
 
         function clearFilters() {
-            activeFilters.day = '';
+            const simpleViewOn = isSimpleViewEnabled();
+            const daySelect = document.getElementById('day-filter');
+            if (!simpleViewOn) {
+                activeFilters.day = '';
+                if (daySelect) daySelect.value = '';
+            } else {
+                activeFilters.day = daySelect ? daySelect.value : activeFilters.day;
+            }
             activeFilters.track = '';
             activeFilters.type = '';
             activeFilters.room = '';
-            document.getElementById('day-filter').value = '';
             document.getElementById('track-filter').value = '';
             document.getElementById('type-filter').value = '';
             document.getElementById('room-filter').value = '';
+
+            if (!simpleViewOn) {
+                const url = new URL(window.location.href);
+                url.searchParams.delete('date');
+                window.history.replaceState({}, '', url.toString());
+                window.currentDateFilter = '';
+
+                updateProgramSubtitle();
+                updateHomeLinks();
+                if (eventConfigCache) updateProgramPageCfpLink(eventConfigCache);
+                createDateCards([...new Set(allSessions.map(s => s.dayKey))].sort());
+            }
+
             renderTrackPills([...new Set(allSessions.map(s => s.track).filter(Boolean))].sort());
             renderSessions();
         }
@@ -1255,7 +1286,10 @@
             const filtered = getFilteredSessions();
             const container = document.getElementById('schedule-container');
             const hasFilters = Object.values(activeFilters).some(Boolean);
-            document.getElementById('results-text').innerHTML = `Showing <span class="results-count">${filtered.length}</span> of ${pluralize(allSessions.length, 'session')}` + (hasFilters ? '<button class="clear-filters" id="clear-filters">Clear filters</button>' : '');
+            const dateScopedSessions = window.currentDateFilter
+                ? allSessions.filter(s => s.dayKey === window.currentDateFilter)
+                : allSessions;
+            document.getElementById('results-text').innerHTML = `Showing <span class="results-count">${filtered.length}</span> of ${pluralize(dateScopedSessions.length, 'session')}` + (hasFilters ? '<button class="clear-filters" id="clear-filters">Clear filters</button>' : '');
 
             if (!filtered.length) {
                 container.innerHTML = '<div class="no-results"><h3>No sessions found</h3><p>Try adjusting your filters.</p></div>';
@@ -1398,6 +1432,15 @@
 
             const dayGroup = document.getElementById('day-filter')?.closest('.filter-group');
             const trackGroup = document.getElementById('track-filter')?.closest('.filter-group');
+            const roomGroup = document.getElementById('room-filter')?.closest('.filter-group');
+            const timezoneGroup = document.getElementById('timezone-filter')?.closest('.filter-group');
+
+            if (isSimpleView) {
+                trackGroup?.classList.add('filter-group-hidden');
+                roomGroup?.classList.add('filter-group-hidden');
+                timezoneGroup?.classList.add('filter-group-hidden');
+            }
+
             const getIsWrapped = () => {
                 const visibleChildren = [...filtersContainer.children].filter(el => el.offsetParent !== null);
                 if (visibleChildren.length < 2) return false;
@@ -1412,13 +1455,17 @@
 
             // Measure with Day/Track visible to avoid hide/show oscillation on responsive widths.
             dayGroup?.classList.remove('filter-group-hidden');
-            trackGroup?.classList.remove('filter-group-hidden');
+            if (!isSimpleView) {
+                trackGroup?.classList.remove('filter-group-hidden');
+            }
             const isWrappedWithAllControls = getIsWrapped();
 
             const isLargeDesktop = window.matchMedia('(min-width: 1200px)').matches;
-            const shouldHideDayTrack = !isLargeDesktop && isWrappedWithAllControls;
+            const shouldHideDayTrack = !isSimpleView && !isLargeDesktop && isWrappedWithAllControls;
             dayGroup?.classList.toggle('filter-group-hidden', shouldHideDayTrack);
-            trackGroup?.classList.toggle('filter-group-hidden', shouldHideDayTrack);
+            if (!isSimpleView) {
+                trackGroup?.classList.toggle('filter-group-hidden', shouldHideDayTrack);
+            }
 
             const isWrapped = getIsWrapped();
 
@@ -1443,6 +1490,7 @@
                 const configResponse = await fetch('config.json', { cache: 'no-store' });
                 if (configResponse.ok) {
                     const eventConfig = await configResponse.json();
+                    eventConfigCache = eventConfig;
                     showFeedback = Boolean(eventConfig.showFeedback);
                     updateProgramPageCfpLink(eventConfig);
                     updateProgramSubtitle();
@@ -1501,6 +1549,12 @@
             const filtersSection = document.querySelector('.filters-section');
             if (!filtersSection) return;
             filtersSection.classList.remove('filters-hidden');
+
+            if (isSimpleView) {
+                document.getElementById('track-filter')?.closest('.filter-group')?.classList.add('filter-group-hidden');
+                document.getElementById('room-filter')?.closest('.filter-group')?.classList.add('filter-group-hidden');
+                document.getElementById('timezone-filter')?.closest('.filter-group')?.classList.add('filter-group-hidden');
+            }
 
             const onResize = (() => {
                 let ticking = false;
