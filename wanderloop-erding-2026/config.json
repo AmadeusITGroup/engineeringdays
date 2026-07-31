@@ -22,27 +22,27 @@
   "stats": [
     {
       "icon": "🎙️",
-      "number": "30+",
+      "number": "30",
       "label": "Sessions",
       "highlight": true,
       "description": "Tech talks, hands-on workshops & more"
     },
     {
       "icon": "🗣️",
-      "number": "30+",
+      "number": "30",
       "label": "Speakers",
       "description": "Sharing their expertise"
     },
     {
       "icon": "👥",
-      "number": "80+",
+      "number": "80",
       "label": "Attendees",
       "highlight": true,
       "description": "To connect with"
     },
     {
       "icon": "🤝",
-      "number": "5",
+      "number": "3",
       "label": "Partners",
       "description": "Participating, with booths & demos"
     }
@@ -67,13 +67,13 @@
   "sessionTypes": [
     {
       "name": "Talk",
-      "tag": "35 min",
+      "tag": "40 min",
       "count": 1,
       "description": "Attend a tech talk related to one of our 3 tracks.<br/>We are open to a wide spectrum of topics, tech or adjacent to tech.<br/>Five additional minutes provided for questions."
     },
     {
       "name": "Breakout session",
-      "tag": "90 min",
+      "tag": "45-90 min",
       "count": 1,
       "description": "Dive at the heart of an exciting topic.<br/>This format allows for a comprehensive presentation & casual exchanges, which can cover large topics, while allowing many concrete examples."
     },
