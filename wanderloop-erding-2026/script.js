@@ -410,22 +410,22 @@ function showCfpLink(cfpHref) {
 
     if (nav) {
         setLinkAttributes(nav, cfpHref);
-        nav.textContent = 'Submit a talk';
+        nav.textContent = 'Submit a talk/booth';
         nav.style.display = 'inline-block';
     }
     if (hero) {
         setLinkAttributes(hero, cfpHref);
-        hero.innerHTML = 'Submit a talk <span class="arrow">→</span>';
+        hero.innerHTML = 'Submit a talk/booth <span class="arrow">→</span>';
         hero.style.display = 'inline-block';
     }
     if (contact) {
         setLinkAttributes(contact, cfpHref);
-        contact.innerHTML = 'Submit a talk <span class="arrow">→</span>';
+        contact.innerHTML = 'Submit a talk/booth <span class="arrow">→</span>';
         contact.style.display = 'inline-block';
     }
     if (footer) {
         setLinkAttributes(footer, cfpHref);
-        footer.textContent = 'Submit a talk';
+        footer.textContent = 'Submit a talk/booth';
         footer.style.display = 'inline';
     }
 }
