@@ -7,7 +7,7 @@
 
 function getDateParam() {
     const params = new URLSearchParams(window.location.search);
-    const dateParam = params.get('date');
+    const dateParam = params.get('date') || params.get('data');
     return normalizeDateParam(dateParam);
 }
 
@@ -64,7 +64,7 @@ function redirectToCleanUrl(path) {
 
 function updateHomeLinks() {
     const params = new URLSearchParams(window.location.search);
-    const dateParam = params.get('date');
+    const dateParam = getDateParam();
     const hasSimpleView = params.has('simpleView');
     
     if (!dateParam && !hasSimpleView) {
@@ -390,6 +390,10 @@ function getCfpHref(event) {
     return `mailto:${contact}?subject=${encodeURIComponent(`Talk proposal for ${eventName}`)}`;
 }
 
+function getRegisterHref(event) {
+    return event.registerUrl || 'https://forms.cloud.microsoft/e/NANjt1AJwF';
+}
+
 function setLinkAttributes(el, href) {
     if (!el) return;
     el.href = href;
@@ -430,11 +434,47 @@ function showCfpLink(cfpHref) {
     }
 }
 
+function showRegisterLink(registerHref) {
+    const nav = document.getElementById('register-nav-link');
+    const hero = document.getElementById('register-hero-cta');
+    const contact = document.getElementById('register-contact-cta');
+    const footer = document.getElementById('register-footer-link');
+
+    if (nav) {
+        setLinkAttributes(nav, registerHref);
+        nav.style.display = 'inline-block';
+    }
+    if (hero) {
+        setLinkAttributes(hero, registerHref);
+        hero.style.display = 'inline-block';
+    }
+    if (contact) {
+        setLinkAttributes(contact, registerHref);
+        contact.style.display = 'inline-block';
+    }
+    if (footer) {
+        setLinkAttributes(footer, registerHref);
+        footer.style.display = 'inline';
+    }
+}
+
 function hideCfpLink() {
     const nav = document.getElementById('cfp-nav-link');
     const hero = document.getElementById('cfp-hero-cta');
     const contact = document.getElementById('cfp-contact-cta');
     const footer = document.getElementById('cfp-footer-link');
+
+    if (nav) nav.style.display = 'none';
+    if (hero) hero.style.display = 'none';
+    if (contact) contact.style.display = 'none';
+    if (footer) footer.style.display = 'none';
+}
+
+function hideRegisterLink() {
+    const nav = document.getElementById('register-nav-link');
+    const hero = document.getElementById('register-hero-cta');
+    const contact = document.getElementById('register-contact-cta');
+    const footer = document.getElementById('register-footer-link');
 
     if (nav) nav.style.display = 'none';
     if (hero) hero.style.display = 'none';
@@ -505,6 +545,7 @@ function computeStatus(hasProgramPage, showCfp) {
 
 async function updateProgramLinks(event) {
     const cfpHref = getCfpHref(event);
+    const registerHref = getRegisterHref(event);
     const showCfp = event.showCfp !== false; // defaults to true if not specified
     const dateFilter = window.currentDateFilter;
 
@@ -543,6 +584,12 @@ async function updateProgramLinks(event) {
         showCfpLink(cfpHref);
     } else {
         hideCfpLink();
+    }
+
+    if (dateFilter === '2026-11-10' && registerHref) {
+        showRegisterLink(registerHref);
+    } else {
+        hideRegisterLink();
     }
 
     // Once the program is official, useLiveProgramStats switches sessions/speakers/dates
