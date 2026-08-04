@@ -38,6 +38,69 @@
     }
 }
 
+.amadeus-logo-lockup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    margin: 0 0 var(--spacing-md);
+}
+
+.amadeus-logo {
+    height: clamp(28px, 4vw, 42px);
+    width: auto;
+}
+
+@media (min-width: 969px) {
+    .hero-content .amadeus-logo-lockup {
+        margin-top: -0.45rem;
+        margin-bottom: -0.55rem;
+    }
+
+    .hero-content .amadeus-logo {
+        transform: translateX(-10.667%);
+    }
+}
+
+@media (min-width: 1400px) {
+    .hero .container {
+        max-width: 1320px;
+        grid-template-columns: minmax(620px, 1.18fr) minmax(380px, 0.82fr);
+    }
+
+    .hero-title {
+        white-space: nowrap;
+        font-size: clamp(3rem, 3.05vw, 3.7rem);
+    }
+}
+
+@media (min-width: 969px) and (max-width: 1280px) {
+    .hero-content .amadeus-logo-lockup {
+        margin-top: -0.45rem;
+        margin-bottom: 0.35rem;
+    }
+}
+
+.amadeus-logo-dark {
+    display: none;
+}
+
+[data-theme="dark"] .amadeus-logo-light {
+    display: none;
+}
+
+[data-theme="dark"] .amadeus-logo-dark {
+    display: block;
+}
+
+.amadeus-logo-lockup.on-dark .amadeus-logo-light {
+    display: none;
+}
+
+.amadeus-logo-lockup.on-dark .amadeus-logo-dark {
+    display: block;
+}
+
 /* ===================================
    Hero Section
    =================================== */
@@ -216,6 +279,7 @@
 .hero-title {
     font-size: clamp(1.5rem, 3.5vw, 4rem);
     font-weight: 900;
+    line-height: 1.05;
     color: var(--primary);
     margin-bottom: var(--spacing-sm);
 }
@@ -722,6 +786,11 @@
     color: var(--highlight-light);
 }
 
+.program-hero .amadeus-logo-lockup {
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
 .program-schedule {
     padding: var(--spacing-xl) 0;
     background: var(--bg-color);
@@ -760,7 +829,7 @@
     .hero .container {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2rem;
+        gap: 1.5rem;
         padding: var(--spacing-lg) var(--spacing-md);
         margin-top: 0;
     }
@@ -768,10 +837,16 @@
     .hero-content { text-align: center; }
     .cta-buttons { justify-content: center; }
 
+    .amadeus-logo-lockup {
+        align-items: center;
+        margin-top: -0.45rem;
+        margin-bottom: 1.4rem;
+    }
+
     .hero-graphic {
         order: -1;
-        margin-top: 2rem;
-        margin-bottom: 2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
         width: 100%;
         max-width: 100%;
     }
@@ -789,7 +864,54 @@
     }
 }
 
+@media (min-width: 769px) and (max-width: 968px) {
+    .hero .container {
+        gap: 0.75rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero-graphic {
+        margin-top: 2rem;
+        margin-bottom: 0;
+    }
+
+    .amadeus-logo {
+        height: 42px;
+    }
+
+    .amadeus-logo-lockup {
+        margin-top: -0.3rem;
+        margin-bottom: 1.35rem;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 968px) {
+    .hero-content .amadeus-logo-lockup {
+        margin-top: -0.45rem !important;
+        margin-bottom: 0.55rem !important;
+    }
+}
+
 @media (max-width: 768px) {
+    .hero .container {
+        gap: 1.5rem;
+    }
+
+    .hero-graphic {
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .amadeus-logo-lockup {
+        margin-top: -0.45rem;
+        margin-bottom: 1.4rem;
+    }
+
+    .amadeus-logo {
+        height: 30px;
+    }
+
     .stats-grid { grid-template-columns: 1fr; }
     .sessions-grid, .tracks-grid { grid-template-columns: 1fr; }
 }
@@ -799,9 +921,13 @@
         margin-bottom: 2rem;
     }
 
+    .amadeus-logo {
+        height: 30px;
+    }
+
     .hero-graphic {
-        margin-bottom: 2rem;
-        margin-top: 3rem;
+        margin-bottom: 1rem;
+        margin-top: 2.5rem;
     }
 
     .cta-buttons {
