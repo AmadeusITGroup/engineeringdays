@@ -2,7 +2,7 @@
   "eventName": "Wanderloop Erding 2026",
   "eventSlug": "wanderloop-erding-2026",
   "tagline": "Compiled exploration & exchanges focusing on **AIOps**, **AI platforms at scale** & **AI-first teams**",
-  "tagline-2026-11-10": "Shape an AIOps future: share our vision of **No Touch operations**, gather insights & build an ecosystem with other **industry experts & leaders**",
+  "tagline-2026-11-10": "Shape an AIOps future: share our vision of **No Touch operations** with human oversight, gather insights & build an ecosystem with other **industry experts & leaders**",
   "tagline-2026-11-11": "Re-engineer the way we work with AI: how **services are operated**, **platforms are built** and **engineers & ops collaborate** – on-site event where tech & non-tech audiences meet global experts & industry leaders",
   "dates": {
     "start": "2026-11-10T09:00:00+01:00",
@@ -12,6 +12,7 @@
   "organizer": "Amadeus DevRel",
   "contact": "devrel@amadeus.com",
   "cfpUrl": "https://forms.cloud.microsoft/e/GnW7VfLnRv",
+  "registerUrl": "https://forms.cloud.microsoft/e/NANjt1AJwF",
   "showCfp": true,
   "showFeedback": false,
   "useLiveProgramStats": true,
