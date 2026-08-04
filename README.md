@@ -20,7 +20,7 @@ Multi-event website for Amadeus tech conferences and community events, hosted on
 |---------|-------------|
 | **`/create-event`** | Create a new event website (with or without sessions JSON) |
 | **`/update-event`** | Update an existing event with finalized program data (from pretalx JSON or manually entered talks) |
-| **`/remove-event`** | Remove an event (runs `remove_event.py` interactively) |
+| **`/remove-event`** | Remove an event (runs `scripts/events/remove_event.py` interactively) |
 
 Just open Copilot Chat and use the command or describe what you want.  
 Prompt files live in `.github/prompts/`.
@@ -31,20 +31,20 @@ Prompt files live in `.github/prompts/`.
 
 ```bash
 # Create a new event (with sessions)
-python3 create_event.py sessions.json --name "My Event 2027" --slug "my-event-2027"
+python3 scripts/events/create_event.py sessions.json --name "My Event 2027" --slug "my-event-2027"
 
 # Create a new event (CFP mode — no sessions yet)
-python3 create_event.py --name "My Event 2027" --slug "my-event-2027" --dates "15-16 June 2027" --locations "Nice FR, London UK"
+python3 scripts/events/create_event.py --name "My Event 2027" --slug "my-event-2027" --dates "15-16 June 2027" --locations "Nice FR, London UK"
 
 # Update an event with finalized program
-python3 update_event.py sessions.json --slug "my-event-2027"
+python3 scripts/events/update_event.py sessions.json --slug "my-event-2027"
 
 # If you don't have a pretalx JSON yet, build one manually first
-python3 build_sessions_json.py --out sessions-manual.json
-python3 update_event.py sessions-manual.json --slug "my-event-2027"
+python3 scripts/events/build_sessions_json.py --out sessions-manual.json
+python3 scripts/events/update_event.py sessions-manual.json --slug "my-event-2027"
 
 # Remove an event (interactive)
-python3 remove_event.py
+python3 scripts/events/remove_event.py
 ```
 
 See [CREATING_AN_EVENT.md](CREATING_AN_EVENT.md) for full details and options.
@@ -83,8 +83,17 @@ Each event has a `config.json` file that controls what's displayed on the websit
 ```
 /
 ├── index.html                          # Landing page (links to all events)
-├── create_event.py                     # 🚀 Create event (one command → full event)
-├── update_event.py                     # 🔄 Update event with finalized program
+├── events.json                         # Event registry (rendered by the landing page)
+├── scripts/                            # Automation & CI tooling
+│   ├── events/                         # Event lifecycle scripts
+│   │   ├── create_event.py             # 🚀 Create event (one command → full event)
+│   │   ├── update_event.py             # 🔄 Update event with finalized program
+│   │   ├── remove_event.py             # 🗑️  Remove an event (interactive)
+│   │   └── build_sessions_json.py      # ✍️  Build a sessions JSON by hand
+│   ├── ci/
+│   │   └── build.py                    # 🏗️  CI build: regenerate data + validate JSON
+│   └── dev/
+│       └── serve.py                    # 🌐 Serve the site locally for preview
 ├── shared/                             # Shared assets used by all events
 │   ├── styles-base.css                 # Common CSS (variables, nav, footer, buttons)
 │   └── script-base.js                  # Common JS (dark mode, mobile menu, scroll)
@@ -111,7 +120,7 @@ Each event has a `config.json` file that controls what's displayed on the websit
 
 ## How It Works
 
-- **Zero build step** — pure HTML/CSS/JS, served as static files
+- **No runtime build** — pages are pure HTML/CSS/JS, served as static files (a lightweight CI build only regenerates data and validates JSON before publishing)
 - **Dynamic programs** — `program.html` loads sessions from `sessions.json` at runtime with filters (day, track, type, room)
 - **Responsive program view** — Timeline view is the default on laptops/desktops; Grid view is the default on mobile/tablet, with the filter bar hiding on scroll down
 - **Live vs. static stats** — the `useLiveProgramStats` config toggle lets Sessions/Speakers/dates switch from static advertised numbers to values computed live from `sessions.json` once the program is official
@@ -121,14 +130,24 @@ Each event has a `config.json` file that controls what's displayed on the websit
 ## Development
 
 ```bash
-# Local preview
+# Local preview (serves the repo root and opens a browser)
+python3 scripts/dev/serve.py
+# Options: --port 9000, --host 0.0.0.0, --no-browser
+
+# Or use the plain stdlib server from the repo root
 python3 -m http.server 8000
-# Then open http://localhost:8000
 ```
+
+Then open http://localhost:8000/ (the pages must be served over HTTP — opening
+`index.html` via `file://` won't work because they fetch `config.json`/`sessions.json`).
 
 ## Deployment
 
 Pushing to `main` triggers automatic deployment via GitHub Actions → GitHub Pages.
+Before publishing, the workflow runs `scripts/ci/build.py`, which regenerates
+OpenFeedback data for any event that provides a generator and validates that
+every JSON file parses. A malformed JSON file fails the deploy instead of
+shipping a broken site.
 
 ## Brand
 
