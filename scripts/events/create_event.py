@@ -3,7 +3,7 @@
 Generate a complete event website from a pretalx sessions JSON export.
 
 Usage:
-    python create_event.py <sessions.json> --name "Event Name" --slug "event-slug-2026"
+    python scripts/events/create_event.py <sessions.json> --name "Event Name" --slug "event-slug-2026"
 
 The script will:
 1. Parse the sessions JSON to extract dates, tracks, session types, locations
@@ -21,6 +21,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+
+# This script lives in scripts/events/, so the repository root is two levels up.
+REPO_ROOT = Path(__file__).resolve().parents[2]
+TEMPLATE_DIR = REPO_ROOT / "_template"
 
 README_EVENTS_START = "<!-- EVENTS_LIST_START -->"
 README_EVENTS_END = "<!-- EVENTS_LIST_END -->"
@@ -386,7 +390,7 @@ def generate_index_html(event_config, has_sessions=True):
     locations = event_config.get("locations", [])
     primary_location = locations[0] if locations else "TBD"
 
-    template_path = Path(__file__).parent / "_template" / "index.html"
+    template_path = TEMPLATE_DIR / "index.html"
     template = template_path.read_text()
 
     replacements = {
@@ -476,7 +480,7 @@ def generate_program_html(event_config):
 
     site_timezones = guess_site_timezones(event_config.get("locations", []))
 
-    template_path = Path(__file__).parent / "_template" / "program-rich.html"
+    template_path = TEMPLATE_DIR / "program-rich.html"
     template = template_path.read_text()
 
     replacements = {
@@ -502,7 +506,7 @@ def generate_styles_css(event_config):
     accent = colors.get("accent", "#ff58ac")
 
     # Read from template
-    template_path = Path(__file__).parent / "_template" / "styles.css"
+    template_path = TEMPLATE_DIR / "styles.css"
     if template_path.exists():
         css = template_path.read_text()
         # Uncomment and set colors if different from default
@@ -524,7 +528,7 @@ def generate_styles_css(event_config):
 
 def generate_script_js():
     """Generate event script.js that hydrates page from config.json."""
-    template_path = Path(__file__).parent / "_template" / "script.js"
+    template_path = TEMPLATE_DIR / "script.js"
     return template_path.read_text()
 
 
@@ -639,7 +643,7 @@ def main():
     event_config = generate_event_json(meta, args)
 
     # Create event folder
-    repo_root = Path(__file__).parent
+    repo_root = REPO_ROOT
     event_dir = repo_root / args.slug
     event_dir.mkdir(exist_ok=True)
 

@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: "Remove an existing event from the hub"
 ---
 
@@ -10,7 +10,7 @@ You are helping remove an event from the Amadeus Events hub.
 ## Step 1: Run the removal script
 
 ```bash
-python3 remove_event.py
+python3 scripts/events/remove_event.py
 ```
 
 The script will:

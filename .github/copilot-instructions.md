@@ -7,7 +7,8 @@ Deployed at: `https://amadeusitgroup.github.io/events/`
 - `index.html` — Landing page linking to all events (upcoming + past sections)
 - `shared/` — Shared CSS (`styles-base.css`) and JS (`script-base.js`) used by all events
 - `_template/` — Reference template for event structure
-- `create_event.py` — **Automation script** to generate a new event from a pretalx JSON export
+- `scripts/events/` — **Automation scripts** for the event lifecycle (`create_event.py`, `update_event.py`, `remove_event.py`, `build_sessions_json.py`)
+- `scripts/ci/build.py` — CI build: regenerates OpenFeedback data and validates all JSON before publishing
 - Each event lives in its own subfolder (e.g., `engineering-days-2026/`)
 - `.github/prompts/create-event.prompt.md` — Reusable Copilot skill for event creation
 
@@ -16,7 +17,7 @@ Deployed at: `https://amadeusitgroup.github.io/events/`
 **Use the automation script.** When asked to create a new event:
 
 ```bash
-python3 create_event.py <sessions.json> --name "Event Name" --slug "event-slug-year"
+python3 scripts/events/create_event.py <sessions.json> --name "Event Name" --slug "event-slug-year"
 ```
 
 This single command:
@@ -31,7 +32,7 @@ Optional flags: `--tagline`, `--description`, `--organizer`, `--contact`
 When the Call for Papers is done and you have the finalized pretalx JSON:
 
 ```bash
-python3 update_event.py <sessions.json> --slug "event-slug-year"
+python3 scripts/events/update_event.py <sessions.json> --slug "event-slug-year"
 ```
 
 This command:
@@ -68,11 +69,11 @@ All events use a pretalx JSON export as source of truth. Required fields per ses
 - OpenFeedback: `openfeedback.json` + `generate_openfeedback.py` (if applicable)
 
 ## GitHub Actions
-- `deploy.yml` — Auto-deploys to GitHub Pages on push to `main`
+- `deploy.yml` — Auto-deploys to GitHub Pages on push to `main`; runs `scripts/ci/build.py` (regenerate data + validate JSON) before publishing
 - `update-openfeedback.yml` — Regenerates openfeedback.json when sessions change
 
 ## Key Principles
-- Zero build step — pure HTML/CSS/JS, served as static files
+- No runtime build — pages are pure HTML/CSS/JS, served as static files (CI only regenerates data and validates JSON before publishing)
 - Program pages load sessions dynamically from `sessions.json` at runtime
 - Each event is self-contained in its folder (can be deleted cleanly)
 - Non-technical users should be able to create events via AI + the script

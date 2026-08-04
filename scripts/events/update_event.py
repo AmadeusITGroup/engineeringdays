@@ -3,7 +3,7 @@
 Update an existing event with a finalized program from a pretalx sessions JSON export.
 
 Usage:
-    python update_event.py <sessions.json> --slug "event-slug-2026"
+    python scripts/events/update_event.py <sessions.json> --slug "event-slug-2026"
 
 This replaces CFP placeholder content with real session data:
 1. Parses the pretalx sessions JSON to extract tracks, types, speakers, etc.
@@ -21,6 +21,7 @@ import sys
 from pathlib import Path
 
 from create_event import (
+    REPO_ROOT,
     parse_sessions,
     generate_event_json,
     generate_index_html,
@@ -38,7 +39,7 @@ def main():
     parser.add_argument("--slug", required=True, help="Event folder name (e.g., 'engineering-days-2026')")
     args = parser.parse_args()
 
-    repo_root = Path(__file__).parent
+    repo_root = REPO_ROOT
     event_dir = repo_root / args.slug
 
     # Validate inputs

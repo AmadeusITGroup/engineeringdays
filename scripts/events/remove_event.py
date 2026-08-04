@@ -12,7 +12,8 @@ from pathlib import Path
 
 
 def main():
-    repo_root = Path(__file__).parent
+    # This script lives in scripts/events/, so the repository root is two levels up.
+    repo_root = Path(__file__).resolve().parents[2]
     events_path = repo_root / "events.json"
 
     if not events_path.exists():

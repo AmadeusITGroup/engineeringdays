@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: "Update an existing event with the finalized program from a pretalx sessions JSON (after CFP closes)"
 ---
 
@@ -15,12 +15,12 @@ Ask the user for:
 
 If no sessions JSON is available yet, collect talks manually and generate one:
 ```bash
-python3 build_sessions_json.py --out sessions-manual.json
+python3 scripts/events/build_sessions_json.py --out sessions-manual.json
 ```
 
 Then continue with:
 ```bash
-python3 update_event.py sessions-manual.json --slug "event-slug-year"
+python3 scripts/events/update_event.py sessions-manual.json --slug "event-slug-year"
 ```
 
 If the user doesn't know the slug, list available events:
@@ -31,7 +31,7 @@ ls -d */config.json | sed 's|/config.json||'
 ## Step 2: Run the Script
 
 ```bash
-python3 update_event.py <sessions.json> --slug "event-slug-year"
+python3 scripts/events/update_event.py <sessions.json> --slug "event-slug-year"
 ```
 
 The script will:
@@ -47,7 +47,7 @@ User-edited fields are preserved: event name, tagline, description, colors, loca
 ## Step 3: Verify
 
 After running the script:
-1. Start a local server: `python3 -m http.server 8000`
+1. Start a local server: `python3 scripts/dev/serve.py`
 2. Check the event page at http://localhost:8000/<slug>/index.html — confirm:
    - No more "Submit a talk (CFP)" button
    - "View Program" button is shown instead
@@ -85,7 +85,7 @@ The sessions JSON must be an array of objects with these fields:
 }
 ```
 
-If you generated the file via `build_sessions_json.py`, it already follows this format.
+If you generated the file via `scripts/events/build_sessions_json.py`, it already follows this format.
 
 ## Important Notes
 

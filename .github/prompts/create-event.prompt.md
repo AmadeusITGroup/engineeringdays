@@ -1,5 +1,5 @@
 ---
-mode: agent
+agent: agent
 description: "Create a new event website from a pretalx sessions JSON export (or without one)"
 ---
 
@@ -27,7 +27,7 @@ Optional (script will use sensible defaults if not provided):
 
 ### With sessions JSON:
 ```bash
-python3 create_event.py <sessions.json> \
+python3 scripts/events/create_event.py <sessions.json> \
   --name "Event Name" \
   --slug "event-slug-year" \
   --dates "15-16 June 2027" \
@@ -40,7 +40,7 @@ python3 create_event.py <sessions.json> \
 
 ### Without sessions JSON (CFP mode):
 ```bash
-python3 create_event.py \
+python3 scripts/events/create_event.py \
   --name "Event Name" \
   --slug "event-slug-year" \
   --dates "15-16 June 2027" \
@@ -63,7 +63,7 @@ The script will:
 ## Step 3: Verify
 
 After running the script:
-1. Start a local server: `python3 -m http.server 8000`
+1. Start a local server: `python3 scripts/dev/serve.py`
 2. Check the landing page at http://localhost:8000/ — confirm the new event card appears
 3. Check the event page at http://localhost:8000/<slug>/index.html
 4. If sessions were provided, check http://localhost:8000/<slug>/program.html

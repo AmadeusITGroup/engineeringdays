@@ -112,7 +112,7 @@ def main():
 
     print(f"\nDone. Wrote {len(sessions)} talks to {out_path}")
     print("You can now run:")
-    print(f"  python3 update_event.py {out_path} --slug <event-slug>")
+    print(f"  python3 scripts/events/update_event.py {out_path} --slug <event-slug>")
 
 
 if __name__ == "__main__":
