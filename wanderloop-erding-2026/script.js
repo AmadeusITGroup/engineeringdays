@@ -274,10 +274,26 @@ function renderStats(event) {
         return;
     }
 
-    const live = window.liveProgramStats;
-    const dateFilter = window.currentDateFilter;
-    const displayStats = stats.map(stat => {
+    const displayStats = resolveDisplayStats(stats, window.liveProgramStats, window.currentDateFilter);
+
+    statsGrid.innerHTML = displayStats.map(stat => `
+        <div class="stat-card${stat.highlight ? ' stat-card-highlight' : ''}">
+            <div class="stat-icon">${stat.icon || ''}</div>
+            <div class="stat-number">${stat.number || ''}</div>
+            <div class="stat-label">${stat.label || ''}</div>
+            <p class="stat-description">${stat.description || ''}</p>
+        </div>
+    `).join('');
+}
+
+function resolveDisplayStats(stats, live, dateFilter) {
+    if (!Array.isArray(stats)) {
+        return [];
+    }
+
+    return stats.map(stat => {
         const label = typeof stat.label === 'string' ? stat.label.toLowerCase() : '';
+
         if (live && label === 'sessions') {
             return { ...stat, number: String(live.sessionsCount) };
         }
@@ -290,17 +306,18 @@ function renderStats(event) {
         if (dateFilter && stat[`number-${dateFilter}`] !== undefined) {
             return { ...stat, number: stat[`number-${dateFilter}`] };
         }
+
         return stat;
     });
+}
 
-    statsGrid.innerHTML = displayStats.map(stat => `
-        <div class="stat-card${stat.highlight ? ' stat-card-highlight' : ''}">
-            <div class="stat-icon">${stat.icon || ''}</div>
-            <div class="stat-number">${stat.number || ''}</div>
-            <div class="stat-label">${stat.label || ''}</div>
-            <p class="stat-description">${stat.description || ''}</p>
-        </div>
-    `).join('');
+function getStatNumberByLabel(stats, label) {
+    if (!Array.isArray(stats) || !label) {
+        return 'n/a';
+    }
+
+    const stat = stats.find(item => typeof item.label === 'string' && item.label.toLowerCase() === label);
+    return stat ? stat.number : 'n/a';
 }
 
 function renderSessionTypes(sessionTypes) {
@@ -364,31 +381,13 @@ function renderCodeSnippet(event) {
         return;
     }
 
-    const live = window.liveProgramStats;
+    const displayStats = resolveDisplayStats(event.stats, window.liveProgramStats, window.currentDateFilter);
+    const sessionsValue = getStatNumberByLabel(displayStats, 'sessions');
+    const speakersValue = getStatNumberByLabel(displayStats, 'speakers');
+    const attendeesValue = getStatNumberByLabel(displayStats, 'attendees');
+    const expertsPartnersValue = getStatNumberByLabel(displayStats, 'experts & partners');
 
-    const sessionStat = Array.isArray(event.stats)
-        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'sessions')
-        : null;
-    const sessionsValue = live ? String(live.sessionsCount) : (sessionStat ? sessionStat.number : 'n/a');
-
-    const speakerStat = Array.isArray(event.stats)
-        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'speakers')
-        : null;
-    const speakersValue = live ? String(live.speakersCount) : (speakerStat ? speakerStat.number : 'n/a');
-
-    const attendeeStat = Array.isArray(event.stats)
-        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'attendees')
-        : null;
-    const attendeesValue = attendeeStat ? attendeeStat.number : 'n/a';
-
-    const expertsPartnersStat = Array.isArray(event.stats)
-        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'experts & partners')
-        : null;
-    const expertsPartnersValue = live
-        ? String(live.expertsPartnersCount)
-        : (expertsPartnersStat ? expertsPartnersStat.number : 'n/a');
-
-    const datesValue = (live && live.dateRangeDisplay) || (event.dates && event.dates.display) || '';
+    const datesValue = (window.liveProgramStats && window.liveProgramStats.dateRangeDisplay) || (event.dates && event.dates.display) || '';
 
     const status = window.eventStatus || 'coming soon';
     codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\n  <span class="code-property">date</span>: <span class="code-string">"${datesValue}"</span>,\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionsValue}</span>,\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\n  <span class="code-property">attendees</span>: <span class="code-number">${attendeesValue}</span>,\n  <span class="code-property">experts & partners</span>: <span class="code-number">${expertsPartnersValue}</span>,\n  <span class="code-property">status</span>: <span class="code-string">"${status}"</span>\n};`;
