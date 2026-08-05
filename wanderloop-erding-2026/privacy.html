@@ -13,27 +13,152 @@
         }
 
         .privacy-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
+            background: linear-gradient(160deg, #131521 0%, #17192a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.09);
             border-radius: var(--radius-lg);
-            box-shadow: 0 10px 30px var(--shadow);
+            box-shadow: 0 12px 34px rgba(0, 0, 0, 0.32);
             padding: var(--spacing-lg);
         }
 
         .privacy-card h1 {
             margin-bottom: var(--spacing-sm);
+            color: #f5f7fb;
+        }
+
+        .privacy-sections {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .privacy-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .privacy-group-quick {
+            --group-title-color: #e69dff;
+            --group-heading-color: #d894ff;
+            --group-strong-color: #ffd8ff;
+        }
+
+        .privacy-group-quick .privacy-group-title {
+            background: linear-gradient(90deg, #f4bcff 0%, #da83ff 45%, #b650ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 14px rgba(182, 80, 255, 0.45);
+        }
+
+        .privacy-group-quick .privacy-section {
+            position: relative;
+            overflow: hidden;
+            border-left: 0;
+            border-color: rgba(204, 138, 255, 0.3);
+            box-shadow: inset 0 0 0 1px rgba(194, 120, 255, 0.12), 0 8px 20px rgba(80, 20, 120, 0.28);
+        }
+
+        .privacy-group-quick .privacy-section::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 7px;
+            background: #d95dff;
+            box-shadow: 0 0 16px rgba(217, 93, 255, 0.75);
+        }
+
+        .privacy-group-quick .privacy-section:nth-of-type(odd) {
+            background: linear-gradient(140deg, #2a2140 0%, #211933 100%);
+        }
+
+        .privacy-group-quick .privacy-section:nth-of-type(even) {
+            background: linear-gradient(140deg, #241c39 0%, #1d162f 100%);
+        }
+
+        .privacy-group-quick h2 {
+            text-shadow: 0 0 14px rgba(182, 80, 255, 0.4);
+        }
+
+        .privacy-group-quick strong {
+            color: #ffe6ff;
+            text-shadow: 0 0 12px rgba(224, 145, 255, 0.35);
+        }
+
+        .privacy-group-full {
+            --group-title-color: #aab0bf;
+            --group-heading-color: #b6bccb;
+            --group-text-color: #9ea5b7;
+            --group-strong-color: #cfd5e2;
+            margin-top: 1rem;
+        }
+
+        .privacy-group-title {
+            margin: 0.2rem 0 0.15rem;
+            color: var(--group-title-color, #d08cff);
+            font-size: 0.92rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .privacy-section {
+            border-radius: 14px;
+            padding: 1rem 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-left: 4px solid rgba(183, 188, 200, 0.65);
+        }
+
+        .privacy-section:nth-of-type(odd) {
+            background: linear-gradient(140deg, #23262d 0%, #1f2229 100%);
+        }
+
+        .privacy-section:nth-of-type(even) {
+            background: linear-gradient(140deg, #1e2128 0%, #1a1d23 100%);
         }
 
         .privacy-card h2 {
-            margin-top: var(--spacing-md);
+            margin-top: 0;
             margin-bottom: 0.35rem;
-            color: var(--secondary);
+            color: var(--group-heading-color, #cf86ff);
+            font-size: 1.05rem;
+            text-shadow: 0 0 10px rgba(182, 80, 255, 0.18);
         }
 
         .privacy-card p,
         .privacy-card li {
-            color: var(--text-secondary);
+            color: var(--group-text-color, #b8c0d3);
             line-height: 1.7;
+        }
+
+        .privacy-card strong {
+            color: var(--group-strong-color, #f0d7ff);
+            font-weight: 700;
+        }
+
+        .privacy-group-full h2 {
+            font-size: 0.86rem;
+            text-shadow: none;
+        }
+
+        .privacy-group-full p,
+        .privacy-group-full li {
+            font-size: 0.84rem;
+            line-height: 1.55;
+        }
+
+        .full-notice-card h3 {
+            margin: 0.8rem 0 0.35rem;
+            color: #c0c5d3;
+            font-size: 0.78rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .full-notice-card h3:first-of-type {
+            margin-top: 0.35rem;
         }
 
         .privacy-card p {
@@ -42,6 +167,11 @@
 
         .privacy-card ul {
             margin: 0 0 var(--spacing-sm) 1.25rem;
+        }
+
+        .privacy-section p:last-child,
+        .privacy-section ul:last-child {
+            margin-bottom: 0;
         }
 
         .privacy-meta {
@@ -94,80 +224,92 @@
             <article class="privacy-card">
                 <h1>Privacy Notice</h1>
 
-                <h2>Data Controller</h2>
-                <p>Amadeus GmbH</p>
+                <div class="privacy-sections">
+                    <div class="privacy-group privacy-group-quick">
+                        <h2 class="privacy-group-title">In a nutshell</h2>
 
-                <h2>Purpose Of The Personal Information Processed</h2>
-                <p>Processing your personal data for the purposes of registering for the event and managing registrations.</p>
+                        <section class="privacy-section">
+                            <h2>Purpose of the personal information processed</h2>
+                            <p>Processing your personal data for the purposes of <strong>registering for the event</strong>, <strong>managing registrations</strong>, and <strong>advertising further events</strong>.</p>
+                        </section>
 
-                <h2>Legal Grounds For Processing</h2>
-                <p>The legal basis by which we will process your personal data is based on:</p>
-                <ul>
-                    <li>Performance of contract (administer your registration request)</li>
-                    <li>Legitimate interest of Amadeus in administering event registrations for organizational purposes</li>
-                </ul>
+                        <section class="privacy-section">
+                            <h2>Information Amadeus collects from you</h2>
+                            <ul>
+                                <li><strong>First name, last name</strong></li>
+                                <li><strong>Email address</strong></li>
+                                <li><strong>Represented company or project</strong></li>
+                            </ul>
+                        </section>
 
-                <h2>Information Amadeus Collects From You</h2>
-                <ul>
-                    <li>First name, last name</li>
-                    <li>Email address</li>
-                    <li>Represented company or project</li>
-                </ul>
+                        <section class="privacy-section">
+                            <h2>Recipients of the personal information</h2>
+                            <p>Your personal data is collected through <strong>Microsoft Form</strong> and hosted on <strong>Microsoft systems on behalf of Amadeus</strong>.</p>
+                        </section>
 
-                <h2>Recipients Of The Personal Information</h2>
-                <p>Your personal data is collected through Microsoft Form and hosted on Microsoft systems on behalf of Amadeus.</p>
+                        <section class="privacy-section">
+                            <h2>International transfers of data</h2>
+                            <p>Amadeus may share your personal data with its <strong>affiliates</strong>, this may involve transferring personal data outside the European Economic Area.</p>
+                        </section>
 
-                <h2>International Transfers Of Data</h2>
-                <p>Amadeus may share your personal data with its affiliates, this may involve transferring personal data outside the European Economic Area.</p>
+                        <section class="privacy-section">
+                            <h2>Retention period</h2>
+                            <p>Amadeus retains your personal data for a period of <strong>1 year</strong>, beginning <strong>August 5, 2026</strong>, unless a longer retention period is required or permitted by any applicable legal or regulatory obligations.</p>
+                        </section>
 
-                <h2>Retention Period</h2>
-                <p>Amadeus retains your personal data for a period of 1 year, beginning August 5, 2026, unless a longer retention period is required or permitted by any applicable legal or regulatory obligations.</p>
+                        <section class="privacy-section">
+                            <h2>Data subject rights</h2>
+                            <p>You may exercise your data protection rights (access, rectification, erasure, restriction of processing, objection and data portability) by writing to <strong>dataprotection@amadeus.com</strong> or by sending your request to our registered office at <strong>Calle Salvador de Madariaga, 1, 28027 Madrid (Spain)</strong>.</p>
+                        </section>
 
-                <h2>Data Subject Rights</h2>
-                <p>You may exercise your data protection rights (access, rectification, erasure, restriction of processing, objection and data portability) by writing to dataprotection@amadeus.com or by sending your request to our registered office at Calle Salvador de Madariaga, 1, 28027 Madrid (Spain).</p>
+                    </div>
 
-                <h2>Additional Information</h2>
-                <p>More information about privacy and data protection is available below.</p>
+                    <div class="privacy-group privacy-group-full">
+                        <h2 class="privacy-group-title">Full notice</h2>
 
-                <h2>Amadeus Internal Technologies Privacy Notice</h2>
-                <p>This Amadeus Wanderloop @Erding Privacy Notice ("Privacy Notice") describes how Amadeus GmbH processes your personal data when registering to the event.</p>
+                        <section class="privacy-section full-notice-card">
+                            <h2>Amadeus internal technologies privacy notice</h2>
+                            <p>This Amadeus Wanderloop @Erding Privacy Notice ("Privacy Notice") describes how Amadeus GmbH processes your personal data when registering to the event.</p>
 
-                <h2>Data Controller</h2>
-                <p>Amadeus GmbH ("Amadeus") as the organizer of the Wanderloop Erding 2026 event is the data controller with respect to your personal data.</p>
+                            <h3>Data controller</h3>
+                            <p><strong>Amadeus GmbH ("Amadeus")</strong> as the organizer of the Wanderloop Erding 2026 event is the data controller with respect to your personal data.</p>
 
-                <h2>Purpose Of The Personal Information Processed</h2>
-                <p>Amadeus will process the personal data you provide through this registration form (including your name, email address, and company/project affiliation) solely for the purpose of registering your participation in the Wanderloop @ Erding event on 10 November 2026. The information collected will be used only to manage registrations to this event.</p>
+                            <h3>Purpose of the personal information processed</h3>
+                            <p>Amadeus will process the personal data you provide through this registration form (including your <strong>name, email address, and company/project affiliation</strong>) for the purpose of registering your participation in the Wanderloop @ Erding event on 10-11 November 2026, managing registrations for this event, and advertising further events.</p>
 
-                <h2>Legal Grounds For Processing</h2>
-                <p>The processing of your personal data is necessary to register your participation in the event and to administer your registration request (performance of a contract / taking steps at your request prior to participation in the event). In addition, Amadeus has a legitimate interest in administering event registrations for organizational purposes.</p>
+                            <h3>Legal grounds for processing</h3>
+                            <p>The processing of your personal data is necessary to register your participation in the event and to administer your registration request (performance of a contract / taking steps at your request prior to participation in the event). In addition, Amadeus has a legitimate interest in administering event registrations for organizational purposes.</p>
 
-                <h2>Information Amadeus Processes About You</h2>
-                <p>Amadeus process personal data within the registration process. The personal data processed may include:</p>
-                <ul>
-                    <li>First name, last name</li>
-                    <li>Email address</li>
-                    <li>Represented company or project</li>
-                </ul>
+                            <h3>Information Amadeus processes about you</h3>
+                            <p>Amadeus process personal data within the registration process. The personal data processed may include:</p>
+                            <ul>
+                                <li><strong>First name, last name</strong></li>
+                                <li><strong>Email address</strong></li>
+                                <li><strong>Represented company or project</strong></li>
+                            </ul>
 
-                <h2>Recipients Of The Personal Information</h2>
-                <p>Your personal data is collected through Microsoft Form and hosted on Microsoft systems on behalf of Amadeus. Amadeus requires the appropriate technical and organizational security measures to be in place to protect personal data, and for personal data to be processed lawfully.</p>
-                <p>Amadeus may also disclose personal data when requested by government or law enforcement authorities or as otherwise required or permitted by law, subpoena, or regulation.</p>
+                            <h3>Recipients of the personal information</h3>
+                            <p>Your personal data is collected through <strong>Microsoft Form</strong> and hosted on <strong>Microsoft systems on behalf of Amadeus</strong>. Amadeus requires the appropriate technical and organizational security measures to be in place to protect personal data, and for personal data to be processed lawfully.</p>
+                            <p>Amadeus may also disclose personal data when requested by government or law enforcement authorities or as otherwise required or permitted by law, subpoena, or regulation.</p>
 
-                <h2>International Transfers Of Data</h2>
-                <p>When Amadeus shares your personal data with third-party service providers that process personal data on behalf of Amadeus this may involve transferring personal data outside the European Economic Area ("EEA"). When personal data is transferred to another country it will continue to receive adequate protection through contractual or other arrangements put in place with Amadeus affiliates and third-party service providers. For these transfers at least one of the following appropriate safeguards will be implemented:</p>
-                <ul>
-                    <li>Personal data will be transferred to countries that have been deemed to provide an adequate level of protection for personal data by the European Commission</li>
-                    <li>Standard contractual clauses as approved by the European Commission which, together with supplementary measures, will ensure personal data transferred will retain the same protection it has in EEA</li>
-                    <li>Any other lawful transfer mechanism as foreseen in applicable laws and/or as approved by the European Commission or relevant Data Protection Authority</li>
-                </ul>
-                <p>Further information on the appropriate safeguards used when transferring personal data outside the EEA can be requested through the contact details set out below in the section legal rights. When requesting this information please make a reference to the transfer of personal data outside the EEA.</p>
+                            <h3>International transfers of data</h3>
+                            <p>When Amadeus shares your personal data with third-party service providers that process personal data on behalf of Amadeus this may involve transferring personal data outside the European Economic Area ("EEA"). When personal data is transferred to another country it will continue to receive adequate protection through contractual or other arrangements put in place with <strong>Amadeus affiliates</strong> and third-party service providers. For these transfers at least one of the following appropriate safeguards will be implemented:</p>
+                            <ul>
+                                <li>Personal data will be transferred to countries that have been deemed to provide an adequate level of protection for personal data by the European Commission</li>
+                                <li>Standard contractual clauses as approved by the European Commission which, together with supplementary measures, will ensure personal data transferred will retain the same protection it has in EEA</li>
+                                <li>Any other lawful transfer mechanism as foreseen in applicable laws and/or as approved by the European Commission or relevant Data Protection Authority</li>
+                            </ul>
+                            <p>Further information on the appropriate safeguards used when transferring personal data outside the EEA can be requested through the contact details set out below in the section legal rights. When requesting this information please make a reference to the transfer of personal data outside the EEA.</p>
 
-                <h2>Retention Period</h2>
-                <p>Amadeus retains your personal data for a period of 1 year, beginning August 5, 2026, unless a longer retention period is required or permitted by any applicable legal or regulatory obligations.</p>
+                            <h3>Retention period</h3>
+                            <p>Amadeus retains your personal data for a period of <strong>1 year</strong>, beginning <strong>August 5, 2026</strong>, unless a longer retention period is required or permitted by any applicable legal or regulatory obligations.</p>
 
-                <h2>Your Rights</h2>
-                <p>You may exercise your rights of access, rectification, erasure, objection, portability and/or restriction of processing in relation to your personal data by sending an email to dataprotection@amadeus.com or by sending your request to our registered office at Calle Salvador de Madariaga, 1, 28027 Madrid (Spain). You may also use those details in case you have doubts around how we process your personal data.</p>
-                <p>You may also lodge a complaint before competent data protection authorities.</p>
+                            <h3>Your rights</h3>
+                            <p>You may exercise your rights of access, rectification, erasure, objection, portability and/or restriction of processing in relation to your personal data by sending an email to <strong>dataprotection@amadeus.com</strong> or by sending your request to our registered office at <strong>Calle Salvador de Madariaga, 1, 28027 Madrid (Spain)</strong>. You may also use those details in case you have doubts around how we process your personal data.</p>
+                            <p>You may also lodge a complaint before competent data protection authorities.</p>
+                        </section>
+                    </div>
+                </div>
             </article>
         </div>
     </main>
