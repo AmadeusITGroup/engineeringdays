@@ -111,6 +111,9 @@ function renderStats(event) {
         if (live && label === 'speakers') {
             return { ...stat, number: String(live.speakersCount) };
         }
+        if (live && label === 'experts & partners') {
+            return { ...stat, number: String(live.expertsPartnersCount) };
+        }
         return stat;
     });
 
@@ -191,10 +194,17 @@ function renderCodeSnippet(event) {
         : null;
     const attendeesValue = attendeeStat ? attendeeStat.number : 'n/a';
 
+    const expertsPartnersStat = Array.isArray(event.stats)
+        ? event.stats.find(stat => typeof stat.label === 'string' && stat.label.toLowerCase() === 'experts & partners')
+        : null;
+    const expertsPartnersValue = live
+        ? String(live.expertsPartnersCount)
+        : (expertsPartnersStat ? expertsPartnersStat.number : 'n/a');
+
     const datesValue = (live && live.dateRangeDisplay) || (event.dates && event.dates.display) || '';
 
     const status = window.eventStatus || 'coming soon';
-    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\n  <span class="code-property">dates</span>: <span class="code-string">"${datesValue}"</span>,\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionsValue}</span>,\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\n  <span class="code-property">attendees</span>: <span class="code-number">${attendeesValue}</span>,\n  <span class="code-property">status</span>: <span class="code-string">"${status}"</span>\n};`;
+    codeBlock.innerHTML = `<span class="code-keyword">const</span> <span class="code-variable">event</span> = {\n  <span class="code-property">name</span>: <span class="code-string">"${event.eventName || ''}"</span>,\n  <span class="code-property">date</span>: <span class="code-string">"${datesValue}"</span>,\n  <span class="code-property">sessions</span>: <span class="code-number">${sessionsValue}</span>,\n  <span class="code-property">speakers</span>: <span class="code-number">${speakersValue}</span>,\n  <span class="code-property">attendees</span>: <span class="code-number">${attendeesValue}</span>,\n  <span class="code-property">experts & partners</span>: <span class="code-number">${expertsPartnersValue}</span>,\n  <span class="code-property">status</span>: <span class="code-string">"${status}"</span>\n};`;
 }
 
 function getCfpHref(event) {
@@ -357,10 +367,20 @@ async function updateProgramLinks(event) {
 
 function computeLiveProgramStats(sessions) {
     const list = Array.isArray(sessions) ? sessions : [];
-    const sessionsCount = list.length;
+    const countableSessionTypes = new Set(['Talk', 'Breakout session']);
+    const expertsPartnersSessionType = 'Networking booth';
+    const countableSessions = list.filter(session => {
+        const sessionType = session && session['Session type'] && session['Session type'].en;
+        return typeof sessionType === 'string' && countableSessionTypes.has(sessionType.trim());
+    });
+    const expertsPartnersCount = list.filter(session => {
+        const sessionType = session && session['Session type'] && session['Session type'].en;
+        return typeof sessionType === 'string' && sessionType.trim() === expertsPartnersSessionType;
+    }).length;
+    const sessionsCount = countableSessions.length;
 
     const speakerSet = new Set();
-    list.forEach(session => {
+    countableSessions.forEach(session => {
         const names = session['Speaker names'];
         if (Array.isArray(names)) {
             names.forEach(name => {
@@ -394,6 +414,7 @@ function computeLiveProgramStats(sessions) {
     return {
         sessionsCount,
         speakersCount: speakerSet.size,
+        expertsPartnersCount,
         dateRangeDisplay
     };
 }
