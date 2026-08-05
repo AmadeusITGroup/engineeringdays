@@ -46,7 +46,7 @@
     {
       "icon": "🤝",
       "number": "3",
-      "label": "Partners",
+      "label": "Experts & Partners",
       "description": "Participating, with booths & demos"
     }
   ],
@@ -81,13 +81,13 @@
       "description": "Dive at the heart of an exciting topic.<br/>This format allows for a comprehensive presentation & casual exchanges, which can cover large topics, while allowing many concrete examples."
     },
     {
-      "name": "Snacks & Beers",
+      "name": "Snacks & beers",
       "count": 2,
       "highlight": true,
       "description": "The grand finale!<br/>Amadeus offers the snacks & beers, while you bring the inspiring small-talk & the afterwork party vibes, to close the day on a high note."
     },
     {
-      "name": "Partner booth",
+      "name": "Experts & partners booth",
       "tag": "Exclusive",
       "description": "Advertise your community, passion or brand on a dedicated booth during lunch time."
     }
