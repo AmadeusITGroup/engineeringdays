@@ -275,6 +275,7 @@ function renderStats(event) {
     }
 
     const live = window.liveProgramStats;
+    const dateFilter = window.currentDateFilter;
     const displayStats = stats.map(stat => {
         const label = typeof stat.label === 'string' ? stat.label.toLowerCase() : '';
         if (live && label === 'sessions') {
@@ -282,6 +283,9 @@ function renderStats(event) {
         }
         if (live && label === 'speakers') {
             return { ...stat, number: String(live.speakersCount) };
+        }
+        if (dateFilter && stat[`number-${dateFilter}`] !== undefined) {
+            return { ...stat, number: stat[`number-${dateFilter}`] };
         }
         return stat;
     });

@@ -37,6 +37,8 @@
     {
       "icon": "👥",
       "number": "80",
+      "number-2026-11-10": "40",
+      "number-2026-11-11": "50",
       "label": "Attendees",
       "highlight": true,
       "description": "To connect with"
