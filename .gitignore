@@ -11,3 +11,7 @@ Thumbs.db
 .kiro/
 .vscode/
 .idea/
+
+# Generated at deploy time by scripts/ci/build.py (consumed by openfeedback.io
+# from the GitHub Pages URL, so it does not need to be committed)
+openfeedback.json

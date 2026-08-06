@@ -104,16 +104,14 @@ Each event has a `config.json` file that controls what's displayed on the websit
 │   ├── script.js                       # Event-specific JS
 │   ├── sessions.json                   # Session data (loaded at runtime)
 │   ├── config.json                     # Event configuration/metadata
-│   ├── generate_openfeedback.py        # OpenFeedback integration
-│   └── openfeedback.json               # Generated feedback data
+│   └── generate_openfeedback.py        # OpenFeedback integration (openfeedback.json is generated at deploy, not committed)
 ├── _template/                          # Reference template (used by script)
 ├── .github/
 │   ├── copilot-instructions.md         # AI instructions for this repo
 │   ├── prompts/
 │   │   └── create-event.prompt.md      # Reusable Copilot skill for event creation
 │   └── workflows/
-│       ├── deploy.yml                  # GitHub Pages auto-deployment
-│       └── update-openfeedback.yml     # Auto-regenerate OpenFeedback data
+│       └── deploy.yml                  # GitHub Pages auto-deployment (runs the CI build)
 ├── CREATING_AN_EVENT.md                # Detailed event creation guide
 └── README.md                           # This file
 ```
